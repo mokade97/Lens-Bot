@@ -17,10 +17,10 @@
    "confidence": 82,
    "openedAt": "2026-11-17T18:01:51.273Z",
    "barTime": "2026-11-17T17:00:00.000Z",
-   "lastBarT": 1794938400000,
-   "bars": 1,
+   "lastBarT": 1794945600000,
+   "bars": 3,
    "t1hit": false,
-   "mtm": -0.07,
+   "mtm": -0.39,
    "status": "OPEN",
    "reasons": [
     "همسویی کامل ساختار 1 ساعته و تایم بالا (4H) در جهت نزول",
@@ -44,10 +44,10 @@
    "confidence": 72,
    "openedAt": "2026-11-17T18:02:47.779Z",
    "barTime": "2026-11-17T17:00:00.000Z",
-   "lastBarT": 1794938400000,
-   "bars": 1,
+   "lastBarT": 1794945600000,
+   "bars": 3,
    "t1hit": false,
-   "mtm": 0.21,
+   "mtm": -0.28,
    "status": "OPEN",
    "reasons": [
     "همراستایی کامل با روند نزولی ساختار و تایم بالا (HTF Down)",
@@ -71,7 +71,57 @@
    "confidence": null,
    "openedAt": "2026-11-17T19:18:08.612Z",
    "barTime": "2026-11-17T18:00:00.000Z",
-   "lastBarT": 1794938400000,
+   "lastBarT": 1794945600000,
+   "bars": 2,
+   "t1hit": false,
+   "mtm": -0.53,
+   "status": "OPEN",
+   "reasons": [
+    "قاضی AI در دسترس نبود (rate limit 429/503) — تصمیم موتور قطعی"
+   ]
+  },
+  {
+   "id": "BTCUSDT|4H|SHORT|2026-11-17T16:00:00.000Z",
+   "sym": "BTCUSDT",
+   "tf": "4H",
+   "side": "SHORT",
+   "entry": 63721.5,
+   "stop": 65605.61452913,
+   "t1": 60895.3282063,
+   "t2": 58069.1564126,
+   "size": 0.0026538,
+   "riskUSD": 5,
+   "quad": "Q2",
+   "score": 78,
+   "confidence": null,
+   "openedAt": "2026-11-17T21:08:21.269Z",
+   "barTime": "2026-11-17T16:00:00.000Z",
+   "lastBarT": 1794931200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "status": "OPEN",
+   "reasons": [
+    "قاضی AI در دسترس نبود (rate limit 429/503) — تصمیم موتور قطعی"
+   ]
+  },
+  {
+   "id": "ETHUSDT|4H|SHORT|2026-11-17T16:00:00.000Z",
+   "sym": "ETHUSDT",
+   "tf": "4H",
+   "side": "SHORT",
+   "entry": 1790.2,
+   "stop": 1859.89016533,
+   "t1": 1685.664752,
+   "t2": 1581.129504,
+   "size": 0.071746,
+   "riskUSD": 5,
+   "quad": "Q2",
+   "score": 78,
+   "confidence": null,
+   "openedAt": "2026-11-17T21:08:53.814Z",
+   "barTime": "2026-11-17T16:00:00.000Z",
+   "lastBarT": 1794931200000,
    "bars": 0,
    "t1hit": false,
    "mtm": 0,
@@ -83,6 +133,92 @@
  ],
  "closed": [],
  "alerts": [
+  {
+   "ts": "2026-11-17T21:08:53.814Z",
+   "barTime": "2026-11-17T16:00:00.000Z",
+   "sym": "ETHUSDT",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 78,
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 1790.2,
+   "stop": 1859.89016533,
+   "t1": 1685.664752,
+   "t2": 1581.129504,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-3.1×ATR)",
+    "واگرایی منظم خلاف جهت (RSI)"
+   ],
+   "tm": {
+    "n": 3,
+    "win": 100,
+    "avg": 1.8,
+    "pf": null
+   },
+   "src": "okx",
+   "judge": "rules(fallback)",
+   "confidence": null,
+   "reasons": [
+    "قاضی AI در دسترس نبود (rate limit 429/503) — تصمیم موتور قطعی"
+   ],
+   "concerns": [
+    "نسبتاً کش‌شده (-3.1×ATR)",
+    "واگرایی منظم خلاف جهت (RSI)"
+   ],
+   "invalidation": "",
+   "size": 0.071746,
+   "riskUSD": 5,
+   "sizeMult": 0.5,
+   "status": "OPENED_PAPER"
+  },
+  {
+   "ts": "2026-11-17T21:08:21.269Z",
+   "barTime": "2026-11-17T16:00:00.000Z",
+   "sym": "BTCUSDT",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 78,
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 63721.5,
+   "stop": 65605.61452913,
+   "t1": 60895.3282063,
+   "t2": 58069.1564126,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-3.7×ATR)"
+   ],
+   "tm": {
+    "n": 3,
+    "win": 100,
+    "avg": 1.64,
+    "pf": null
+   },
+   "src": "okx",
+   "judge": "rules(fallback)",
+   "confidence": null,
+   "reasons": [
+    "قاضی AI در دسترس نبود (rate limit 429/503) — تصمیم موتور قطعی"
+   ],
+   "concerns": [
+    "نسبتاً کش‌شده (-3.7×ATR)"
+   ],
+   "invalidation": "",
+   "size": 0.0026538,
+   "riskUSD": 5,
+   "sizeMult": 0.5,
+   "status": "OPENED_PAPER"
+  },
   {
    "ts": "2026-11-17T19:18:33.746Z",
    "barTime": "2026-11-17T18:00:00.000Z",
@@ -384,12 +520,14 @@
   "AVAXUSDT|1H|SHORT|2026-11-17T17:00:00.000Z": 1794938567778,
   "BNBUSDT|1H|SHORT|2026-11-17T18:00:00.000Z": 1794943062359,
   "LINKUSDT|1H|SHORT|2026-11-17T18:00:00.000Z": 1794943088611,
-  "AVAXUSDT|1H|SHORT|2026-11-17T18:00:00.000Z": 1794943113745
+  "AVAXUSDT|1H|SHORT|2026-11-17T18:00:00.000Z": 1794943113745,
+  "BTCUSDT|4H|SHORT|2026-11-17T16:00:00.000Z": 1794949701265,
+  "ETHUSDT|4H|SHORT|2026-11-17T16:00:00.000Z": 1794949733813
  },
- "lastRun": "2026-11-17T19:18:58.670Z",
- "runs": 2,
+ "lastRun": "2026-11-17T21:09:24.811Z",
+ "runs": 3,
  "errors": [],
- "durationSec": 79,
+ "durationSec": 64,
  "dataSrc": "okx",
  "stats": {
   "all": null,
