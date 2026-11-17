@@ -1,1 +1,30 @@
-
+name: Lens Bot (paper trading + alerts)
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # every 15 minutes (GitHub may delay a few minutes)
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lens-bot
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Run bot
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node bot.js
+      - name: Commit state
+        run: |
+          git config user.name "lens-bot"
+          git config user.email "lens-bot@users.noreply.github.com"
+          git add state.json public/bot.json
+          git diff --cached --quiet || git commit -m "bot: $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git pull --rebase || true
+          git push
