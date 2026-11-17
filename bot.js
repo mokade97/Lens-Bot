@@ -69,8 +69,10 @@ PACKET: ${JSON.stringify(p)}`;
       const j = await r.json(); if (!r.ok) { if (r.status === 429 || r.status === 503) { await new Promise(s => setTimeout(s, 4000 * (attempt + 1))); continue; } throw new Error(j.error && j.error.message || ('HTTP ' + r.status)); }
       const txt = (j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts || []).map(x => x.text || '').join('');
       const m = txt.match(/\{[\s\S]*\}/); const d = JSON.parse(m ? m[0] : txt); d.judge = CFG.geminiModel; return d;
-    } catch (e) { if (attempt === 2) return { decision: side, confidence: null, reasons: ['قاضی AI در دسترس نبود (' + (e.message || e) + ') — تصمیم موتور قطعی'], concerns: rc.warns, judge: 'rules(fallback)' }; }
+    } catch (e) { if (attempt === 2) return fallback(e.message || e); }
   }
+  return fallback('rate limit 429/503');
+  function fallback(why) { return { decision: side, confidence: null, reasons: ['قاضی AI در دسترس نبود (' + why + ') — تصمیم موتور قطعی'], concerns: rc.warns, judge: 'rules(fallback)' }; }
 }
 
 /* ---------------- paper position management ---------------- */
