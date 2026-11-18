@@ -51,7 +51,7 @@ const compactCandles = k => k ? k.slice(-60).map(x => [new Date(x.t).toISOString
 /* ---------------- Gemini with budget ---------------- */
 function geminiKeys() { const ks = []; if (process.env.GEMINI_API_KEYS) process.env.GEMINI_API_KEYS.split(/[,\s]+/).forEach(k => k && ks.push(k)); ['GEMINI_API_KEY', 'GEMINI_API_KEY_2', 'GEMINI_API_KEY_3', 'GEMINI_API_KEY_4', 'GEMINI_API_KEY_5'].forEach(n => { if (process.env[n] && !ks.includes(process.env[n])) ks.push(process.env[n]); }); return ks; }
 let lastCallAt = 0;
-function classify429(m) { const out = { kind: 'unknown', retry: null, quota: null }; const r = m.match(/retry in ([\d.]+)s/i) || m.match(/"retryDelay"\s*:\s*"([\d.]+)s"/); if (r) out.retry = +r[1];
+function classify429(m) { const out = { kind: 'unknown', retry: null, quota: null, limit: null, msg: (m.match(/"message"\s*:\s*"([^"]{0,160})/) || [])[1] || null }; const lim = m.match(/limit:\s*(\d+)/i); if (lim) { out.limit = +lim[1]; if (out.limit === 0) { out.kind = 'daily'; out.zero = true; } } const r = m.match(/retry in ([\d.]+)s/i) || m.match(/"retryDelay"\s*:\s*"([\d.]+)s"/); if (r) out.retry = +r[1];
   const qid = m.match(/"quotaId"\s*:\s*"([^"]+)"/) || m.match(/(Generate\w*Per\w+)/); if (qid) out.quota = qid[1];
   if (/PerDay|per day|daily/i.test(m)) out.kind = 'daily'; else if (/PerMinute|per minute|RPM|TPM|InputTokens/i.test(m)) out.kind = 'minute'; else if (/exceeded your current quota|billing/i.test(m) && !out.retry) out.kind = 'daily'; return out; }
 function makeLLM(CFG, S) {
@@ -73,8 +73,8 @@ function makeLLM(CFG, S) {
       x.calls++; S.llm.calls++; runCalls++; S.llm.active = sl.id; lastCallAt = Date.now();
       try { const j = await J(`https://generativelanguage.googleapis.com/v1beta/models/${sl.model}:generateContent?key=${sl.key}`, 90000, { method: 'POST', body: JSON.stringify(body) }); const txt = (j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts || []).map(t => t.text || '').join(''); const out = json ? parseJ(txt) : txt; if (out && typeof out === 'object') out._model = sl.model; return out; }
       catch (e) { last = e; const m = String(e.message || e); x.errors++;
-        if (/HTTP 429/.test(m)) { x.r429 = (x.r429 || 0) + 1; const q = classify429(m); x.lastErr = q.kind + (q.quota ? ' ' + q.quota : ''); x.lastErrAt = Date.now();
-          if (q.kind === 'daily') { x.exhausted = true; x.reason = 'daily quota'; S.llm.switched = (S.llm.switched || 0) + 1; continue; }            // per-day quota → slot dead until tomorrow
+        if (/HTTP 429/.test(m)) { x.r429 = (x.r429 || 0) + 1; const q = classify429(m); x.lastErr = (q.zero ? 'FREE TIER LIMIT 0 — ' : '') + q.kind + (q.quota ? ' ' + q.quota : '') + (q.limit != null ? ' limit:' + q.limit : '') + (q.msg ? ' — ' + q.msg : ''); x.lastErrAt = Date.now();
+          if (q.kind === 'daily') { x.exhausted = true; x.reason = q.zero ? 'limit 0 (no free tier?)' : 'daily quota'; S.llm.switched = (S.llm.switched || 0) + 1; continue; }            // per-day quota → slot dead until tomorrow
           const wait = Math.min(90000, Math.max(8000, (q.retry || 20) * 1000)); x.cooldownUntil = Date.now() + wait; x.cool = (x.cool || 0) + 1;      // per-minute / unknown → short cool-down, keep slot
           if (x.cool >= 4) { x.exhausted = true; x.reason = '429 repeated'; }
           if (us.length === 1) await sleep(wait); continue; }
