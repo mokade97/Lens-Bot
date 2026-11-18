@@ -1,0 +1,3 @@
+name: Key check
+"on": {workflow_dispatch: {}}
+jobs: {check: {runs-on: ubuntu-latest, timeout-minutes: 5, steps: [{uses: actions/checkout@v4}, {uses: actions/setup-node@v4, with: {node-version: "22"}}, {name: Check Gemini keys, env: {GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}", GEMINI_API_KEY_2: "${{ secrets.GEMINI_API_KEY_2 }}", GEMINI_API_KEY_3: "${{ secrets.GEMINI_API_KEY_3 }}"}, run: node keycheck.js}]}}
