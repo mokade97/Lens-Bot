@@ -286,7 +286,7 @@
  ],
  "alerts": [
   {
-   "ts": "2026-11-18T21:45:42.308Z",
+   "ts": "2026-11-18T21:53:24.314Z",
    "barTime": "2026-11-18T16:00:00.000Z",
    "sym": "NEARUSDT",
    "cls": "crypto",
@@ -340,10 +340,10 @@
    "invalidation": "",
    "status": "DEFERRED_AI",
    "aiDecision": "DEFER",
-   "deferCount": 2
+   "deferCount": 3
   },
   {
-   "ts": "2026-11-18T21:45:41.508Z",
+   "ts": "2026-11-18T21:53:23.369Z",
    "barTime": "2026-11-18T20:00:00.000Z",
    "sym": "OPUSDT",
    "cls": "crypto",
@@ -395,12 +395,12 @@
    ],
    "concerns": [],
    "invalidation": "",
-   "status": "DEFERRED_AI",
+   "status": "REJECTED_AI",
    "aiDecision": "DEFER",
-   "deferCount": 3
+   "deferCount": 4
   },
   {
-   "ts": "2026-11-18T21:45:40.863Z",
+   "ts": "2026-11-18T21:53:22.586Z",
    "barTime": "2026-11-18T16:00:00.000Z",
    "sym": "XLMUSDT",
    "cls": "crypto",
@@ -452,9 +452,9 @@
    ],
    "concerns": [],
    "invalidation": "",
-   "status": "DEFERRED_AI",
+   "status": "REJECTED_AI",
    "aiDecision": "DEFER",
-   "deferCount": 3
+   "deferCount": 4
   },
   {
    "ts": "2026-11-18T21:38:11.477Z",
@@ -3730,12 +3730,19 @@
   "LINKUSDT|4H|LONG|2026-11-18T16:00:00.000Z": 1795038342942,
   "STRKUSDT|4H|LONG|2026-11-18T16:00:00.000Z": 1795038343581,
   "NIGHTUSDT|1H|SHORT|2026-11-18T20:00:00.000Z": 1795038344221,
-  "WLDUSDT|4H|LONG|2026-11-18T16:00:00.000Z": 1795038344956
+  "WLDUSDT|4H|LONG|2026-11-18T16:00:00.000Z": 1795038344956,
+  "XLMUSDT|4H|SHORT|2026-11-18T16:00:00.000Z": 1795038801797,
+  "OPUSDT|1H|SHORT|2026-11-18T20:00:00.000Z": 1795038802587,
+  "IRYSUSDT|4H|SHORT|2026-11-18T16:00:00.000Z": 1795038804314,
+  "HUMAUSDT|1H|SHORT|2026-11-18T20:00:00.000Z": 1795038805116,
+  "ZECUSDT|1H|LONG|2026-11-18T20:00:00.000Z": 1795038805893,
+  "PUMPUSDT|1H|LONG|2026-11-18T20:00:00.000Z": 1795038806668,
+  "SOPHUSDT|1H|SHORT|2026-11-18T20:00:00.000Z": 1795038807485
  },
- "lastRun": "2026-11-18T21:45:45.668Z",
- "runs": 73,
+ "lastRun": "2026-11-18T21:53:28.261Z",
+ "runs": 74,
  "errors": [],
- "durationSec": 17,
+ "durationSec": 19,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -3870,17 +3877,17 @@
    "ZROUSDT",
    "UPUSDT",
    "ARBUSDT",
+   "PROSUSDT",
    "PENGUUSDT",
    "VVVUSDT",
    "ZILUSDT",
-   "PROSUSDT",
    "BTWUSDT",
    "OKBUSDT",
    "TRXUSDT",
    "NESUSDT",
    "ONDOUSDT",
-   "SOPHUSDT",
    "XPLUSDT",
+   "SOPHUSDT",
    "DGAIUSDT",
    "NIGHTUSDT",
    "XLMUSDT",
@@ -3889,11 +3896,11 @@
    "DOTUSDT",
    "JUPUSDT",
    "OPUSDT",
-   "PONSUSDT",
    "APTUSDT",
+   "PONSUSDT",
    "QNTUSDT",
-   "AXISUSDT",
    "SOONUSDT",
+   "AXISUSDT",
    "SHIBUSDT",
    "XAUUSDT",
    "XAGUSDT",
@@ -3916,7 +3923,7 @@
    "cryptoListed": 273,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6393717,
+   "minVolUSD": 6367474,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -3926,10 +3933,10 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 12,
+   "candidates": 8,
    "deep": 8,
    "byClass": {
-    "crypto": 12,
+    "crypto": 8,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -3951,8 +3958,8 @@
    "gemini-3.1-flash-lite",
    "gemini-3.6-flash"
   ],
-  "slots": 12,
-  "slotsExhausted": 12,
+  "slots": 9,
+  "slotsExhausted": 9,
   "active": "k3:gemini-3.1-flash-lite",
   "slotTable": [
    {
@@ -3979,33 +3986,6 @@
     "errors": 1,
     "exhausted": true,
     "reason": "429",
-    "lastErr": null,
-    "cooling": false
-   },
-   {
-    "id": "k1:gemini-3.6-flash-lite",
-    "calls": 1,
-    "errors": 1,
-    "exhausted": true,
-    "reason": "HTTP 404",
-    "lastErr": null,
-    "cooling": false
-   },
-   {
-    "id": "k2:gemini-3.6-flash-lite",
-    "calls": 1,
-    "errors": 1,
-    "exhausted": true,
-    "reason": "HTTP 404",
-    "lastErr": null,
-    "cooling": false
-   },
-   {
-    "id": "k3:gemini-3.6-flash-lite",
-    "calls": 1,
-    "errors": 1,
-    "exhausted": true,
-    "reason": "HTTP 404",
     "lastErr": null,
     "cooling": false
    },
@@ -4065,21 +4045,21 @@
    }
   ],
   "requireAI": true,
-  "deferred": 10
+  "deferred": 8
  },
  "universeInfo": {
   "cryptoListed": 273,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6393717
+  "minVolUSD": 6367474
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 12,
+  "candidates": 8,
   "deep": 8,
   "byClass": {
-   "crypto": 12,
+   "crypto": 8,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -4109,24 +4089,6 @@
     "errors": 1,
     "r429": 1,
     "reason": "429"
-   },
-   "k1:gemini-3.6-flash-lite": {
-    "calls": 1,
-    "exhausted": true,
-    "errors": 1,
-    "reason": "HTTP 404"
-   },
-   "k2:gemini-3.6-flash-lite": {
-    "calls": 1,
-    "exhausted": true,
-    "errors": 1,
-    "reason": "HTTP 404"
-   },
-   "k3:gemini-3.6-flash-lite": {
-    "calls": 1,
-    "exhausted": true,
-    "errors": 1,
-    "reason": "HTTP 404"
    },
    "k1:gemini-3.5-flash-lite": {
     "calls": 1,
@@ -4214,8 +4176,8 @@
   "ICPUSDT|1H|SHORT|2026-11-18T20:00:00.000Z": 4,
   "LITUSDT|4H|SHORT|2026-11-18T16:00:00.000Z": 1,
   "GRAMUSDT|1H|SHORT|2026-11-18T20:00:00.000Z": 4,
-  "XLMUSDT|4H|SHORT|2026-11-18T16:00:00.000Z": 3,
-  "OPUSDT|1H|SHORT|2026-11-18T20:00:00.000Z": 3,
-  "NEARUSDT|4H|SHORT|2026-11-18T16:00:00.000Z": 2
+  "XLMUSDT|4H|SHORT|2026-11-18T16:00:00.000Z": 4,
+  "OPUSDT|1H|SHORT|2026-11-18T20:00:00.000Z": 4,
+  "NEARUSDT|4H|SHORT|2026-11-18T16:00:00.000Z": 3
  }
 }
