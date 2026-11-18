@@ -57,7 +57,7 @@ function classify429(m) { const out = { kind: 'unknown', retry: null, quota: nul
   if (/PerDay|per day|daily/i.test(m)) out.kind = 'daily'; else if (/PerMinute|per minute|RPM|TPM|InputTokens/i.test(m)) out.kind = 'minute'; else if (/exceeded your current quota|billing/i.test(m) && !out.retry) out.kind = 'daily'; return out; }
 function makeLLM(CFG, S) {
   const keys = geminiKeys(); const models = Array.isArray(CFG.geminiModels) && CFG.geminiModels.length ? CFG.geminiModels : [CFG.geminiModel]; const today = new Date().toISOString().slice(0, 10);
-  S.llm = S.llm && S.llm.day === today ? S.llm : { day: today, calls: 0, slots: {} }; S.llm.slots = S.llm.slots || {}; let runCalls = 0;
+  const LLM_V = 3; S.llm = S.llm && S.llm.day === today && S.llm.v === LLM_V ? S.llm : { day: today, v: LLM_V, calls: 0, slots: {} }; S.llm.slots = S.llm.slots || {};   let runCalls = 0;   // v bump = forget stale exhausted flags written by older code
   // a "slot" = key × model; Google quotas are per project AND per model, so every slot has its own daily budget
   const slots = []; models.forEach((m, mi) => keys.forEach((k, ki) => slots.push({ id: `k${ki + 1}:${m}`, key: k, model: m, ki, mi })));
   Object.keys(S.llm.slots).forEach(id => { if (!slots.some(sl => sl.id === id)) delete S.llm.slots[id]; });   // drop slots of removed keys/models
