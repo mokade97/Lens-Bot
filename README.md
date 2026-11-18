@@ -37,6 +37,14 @@
 Secretهای `GEMINI_API_KEY`, `GEMINI_API_KEY_2`, `GEMINI_API_KEY_3` (هر کدام که داری). ربات با کلید اول کار می‌کند و به‌محض **429 (سهمیه تمام)** یا رسیدن به `dailyLLMBudget` همان روز، به کلید بعدی می‌رود؛ فردا همه ریست می‌شوند. وضعیت در bot.json: `keys`, `activeKey`, `keysExhausted`.
 ⚠️ سهمیه‌ی رایگان گوگل **به ازای هر پروژه‌ی Google Cloud** است، نه هر کلید — دو کلید از یک پروژه سهمیه را دو برابر نمی‌کند. در AI Studio هنگام ساخت کلید دوم، **Create project** جدید بزن (یا از یک اکانت گوگل دیگر).
 
+## مدل‌ها و سهمیه‌ی رایگان (نوامبر ۲۰۲۶)
+| مدل | RPM | **درخواست در روز (هر پروژه)** |
+|---|---|---|
+| gemini-3.5-flash-lite / gemini-3.1-flash-lite | 15 | **500** |
+| gemini-3.6-flash / 3.8-flash | 5 | **20** |
+
+یک میزگرد ≈ ۶ فراخوانی؛ پس flash فقط ۳ میزگرد در روز می‌دهد. پیش‌فرض v84: اول **flash-lite** (۵۰۰/روز × هر کلید)، بعد 3.1-flash-lite، آخر 3.6-flash. `gemini-3.6-flash-lite` وجود ندارد (404).
+
 ## بررسی کلیدها (`Key check`)
 Actions → **Key check** → Run workflow: هر کلید×مدل یک درخواست کوچک می‌زند و جدول وضعیت چاپ می‌کند (OK / 429 DAILY QUOTA / 429 per-minute / HTTP 400). محلی: `GEMINI_API_KEY=... GEMINI_API_KEY_2=... node keycheck.js`. باقی‌مانده‌ی سهمیه را API نمی‌دهد؛ در AI Studio → Usage/Rate limits هر پروژه ببین.
 ربات ۴۲۹ را تفکیک می‌کند: **PerDay** → اسلات تا فردا کنار می‌رود؛ **PerMinute** → فقط خنک‌شدن کوتاه (retryDelay گوگل) و اسلات می‌ماند.

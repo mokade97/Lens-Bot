@@ -1,6 +1,6 @@
 // Key / quota check: node keycheck.js  — pings every key × model with a tiny request and prints what Google answers.
 const desk = require('./desk.js'); let CFG = {}; try { CFG = JSON.parse(require('fs').readFileSync(__dirname + '/config.json', 'utf8')); } catch (e) { }
-const models = CFG.geminiModels || [CFG.geminiModel || 'gemini-3.6-flash']; const keys = desk.geminiKeys();
+const models = CFG.geminiModels || [CFG.geminiModel || 'gemini-3.5-flash-lite']; const keys = desk.geminiKeys();
 (async () => {
   if (!keys.length) { console.log('NO KEYS: set GEMINI_API_KEY (and _2/_3)'); process.exit(1); }
   console.log(`keys: ${keys.length} · models: ${models.join(', ')}`); const rows = [];

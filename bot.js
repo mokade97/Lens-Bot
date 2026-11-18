@@ -22,7 +22,7 @@ const CFG = Object.assign({
   forexCosts: { feePct: 0, slipPct: 0.02, fundPer8h: 0 },
   minScore: 70, account: 1000, riskPct: 1, minRR: 2, noCounterHtf: true, maxOpen: 6, maxBars: 40,
   feePct: 0.1, slipPct: 0.03, fundPer8h: 0.01,
-  useGemini: true, geminiModel: 'gemini-3.6-flash', geminiModels: ['gemini-3.6-flash', 'gemini-3.6-flash-lite'], minConfidence: 60, roundtable: true, requireAI: true, maxDeferRuns: 4, llmMinGapMs: 6500, dailyLLMBudget: 220, maxLLMPerRun: 24, macroCacheHours: 4,
+  useGemini: true, geminiModel: 'gemini-3.5-flash-lite', geminiModels: ['gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.6-flash'], minConfidence: 60, roundtable: true, requireAI: true, maxDeferRuns: 4, llmMinGapMs: 6500, dailyLLMBudget: 220, maxLLMPerRun: 24, macroCacheHours: 4,
   exchanges: ['okx', 'bitget', 'gate'], keepAlerts: 60, keepClosed: 400
 }, readJSON(path.join(ROOT, 'config.json'), {}));
 const STATE_FILE = path.join(ROOT, 'state.json');

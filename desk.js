@@ -60,8 +60,9 @@ function makeLLM(CFG, S) {
   // a "slot" = key × model; Google quotas are per project AND per model, so every slot has its own daily budget
   const slots = []; models.forEach((m, mi) => keys.forEach((k, ki) => slots.push({ id: `k${ki + 1}:${m}`, key: k, model: m, ki, mi })));
   const st = sl => S.llm.slots[sl.id] = S.llm.slots[sl.id] || { calls: 0, exhausted: false, errors: 0 };
-  const perSlotBudget = CFG.dailyLLMBudget || 200;
-  const usable = () => slots.filter(sl => { const x = st(sl); return !x.exhausted && x.calls < perSlotBudget && !(x.cooldownUntil && x.cooldownUntil > Date.now()); });
+  const MODEL_RPD = { 'gemini-3.6-flash': 20, 'gemini-3.8-flash': 20, 'gemini-3.7-flash': 20, 'gemini-3-flash-preview': 20, 'gemini-2.5-flash': 20, 'gemini-3.5-flash-lite': 500, 'gemini-3.1-flash-lite': 500 };
+  const budgetOf = sl => { const mb = CFG.modelBudget && CFG.modelBudget[sl.model]; if (mb) return mb; const rpd = MODEL_RPD[sl.model]; return rpd ? Math.max(1, rpd - 2) : (CFG.dailyLLMBudget || 200); };
+  const usable = () => slots.filter(sl => { const x = st(sl); return !x.exhausted && x.calls < budgetOf(sl) && !(x.cooldownUntil && x.cooldownUntil > Date.now()); });
   const can = () => slots.length > 0 && usable().length > 0 && runCalls < (CFG.maxLLMPerRun || 24) * Math.max(1, slots.length);
   async function call(prompt, { json = true, web = false, temp = 0.3 } = {}) {
     if (!can()) throw Object.assign(new Error('LLM budget exhausted (all keys/models)'), { budget: true });
