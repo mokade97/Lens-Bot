@@ -67,10 +67,10 @@
    "confidence": null,
    "openedAt": "2026-11-18T01:47:52.344Z",
    "barTime": "2026-11-18T00:00:00.000Z",
-   "lastBarT": 1794985200000,
-   "bars": 7,
+   "lastBarT": 1794988800000,
+   "bars": 8,
    "t1hit": true,
-   "mtm": 1.77,
+   "mtm": 1.97,
    "status": "OPEN",
    "reasons": [
     "قاضی AI در دسترس نبود (rate limit 429/503) — تصمیم موتور قطعی"
@@ -174,6 +174,49 @@
   }
  ],
  "alerts": [
+  {
+   "ts": "2026-11-18T09:00:50.900Z",
+   "barTime": "2026-11-18T08:00:00.000Z",
+   "sym": "AVAXUSDT",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 70,
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 7.14,
+   "stop": 7.26659391,
+   "t1": 6.95010913,
+   "t2": 6.76021826,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "ناحیه‌ی BREAKER فقط 0.45×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 2,
+    "win": 50,
+    "avg": -0.53,
+    "pf": 0.02
+   },
+   "src": "okx",
+   "judge": "gemini-3.6-flash",
+   "confidence": 85,
+   "reasons": [
+    "عملکرد بسیار ضعیف تایم ماشین (Profit Factor 0.02)",
+    "حضور در رژیم Quiet Range با نوسان بسیار پایین",
+    "ورود شورت بلافاصله بالای سطح حمایت Breaker"
+   ],
+   "concerns": [
+    "نرخ رسیدن به تارگت 1 و 2 در تست تاریخی صفر درصد است",
+    "رژیم بازار معامله بر اساس شکست را منع کرده است"
+   ],
+   "invalidation": "بستن کندل ساعتی بالای سطح 7.22 (ناحیه VAH)",
+   "status": "REJECTED_AI",
+   "aiDecision": "SKIP"
+  },
   {
    "ts": "2026-11-18T08:03:04.028Z",
    "barTime": "2026-11-18T07:00:00.000Z",
@@ -1032,12 +1075,14 @@
   "ETHUSDT|4H|SHORT|2026-11-18T04:00:00.000Z": 1794988845710,
   "AVAXUSDT|4H|SHORT|2026-11-18T04:00:00.000Z": 1794988866415,
   "XAUUSDT|4H|SHORT|2026-11-18T04:00:00.000Z": 1794988921268,
-  "XAUUSDT|1H|SHORT|2026-11-18T07:00:00.000Z": 1794988984028
+  "XAUUSDT|1H|SHORT|2026-11-18T07:00:00.000Z": 1794988984028,
+  "BTCUSDT|1H|LONG|2026-11-18T08:00:00.000Z": 1794992445414,
+  "AVAXUSDT|1H|SHORT|2026-11-18T08:00:00.000Z": 1794992450897
  },
- "lastRun": "2026-11-18T08:45:33.980Z",
- "runs": 16,
+ "lastRun": "2026-11-18T09:01:28.424Z",
+ "runs": 17,
  "errors": [],
- "durationSec": 7,
+ "durationSec": 44,
  "dataSrc": "okx",
  "stats": {
   "all": {
