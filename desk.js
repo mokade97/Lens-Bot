@@ -54,10 +54,10 @@ let lastCallAt = 0, chain = Promise.resolve();
 const serial = fn => { const p = chain.then(fn, fn); chain = p.catch(() => { }); return p; };
 function classify429(m) { const out = { kind: 'unknown', retry: null, quota: null, limit: null, msg: (m.match(/"message"\s*:\s*"([^"]{0,160})/) || [])[1] || null }; const lim = m.match(/limit:\s*(\d+)/i); if (lim) { out.limit = +lim[1]; if (out.limit === 0) { out.kind = 'daily'; out.zero = true; } } const r = m.match(/retry in ([\d.]+)s/i) || m.match(/"retryDelay"\s*:\s*"([\d.]+)s"/); if (r) out.retry = +r[1];
   const qid = m.match(/"quotaId"\s*:\s*"([^"]+)"/) || m.match(/(Generate\w*Per\w+)/); if (qid) out.quota = qid[1];
-  if (/PerDay|per day|daily/i.test(m)) out.kind = 'daily'; else if (/PerMinute|per minute|RPM|TPM|InputTokens/i.test(m)) out.kind = 'minute'; else if (/exceeded your current quota|billing/i.test(m) && !out.retry) out.kind = 'daily'; return out; }
+  if (/PerDay|per day|daily/i.test(m)) out.kind = 'daily'; else if (/PerMinute|per minute|RPM|TPM|InputTokens/i.test(m)) out.kind = 'minute'; else out.kind = 'unknown'; return out; }
 function makeLLM(CFG, S) {
   const keys = geminiKeys(); const models = Array.isArray(CFG.geminiModels) && CFG.geminiModels.length ? CFG.geminiModels : [CFG.geminiModel]; const today = new Date().toISOString().slice(0, 10);
-  const LLM_V = 3; S.llm = S.llm && S.llm.day === today && S.llm.v === LLM_V ? S.llm : { day: today, v: LLM_V, calls: 0, slots: {} }; S.llm.slots = S.llm.slots || {};   let runCalls = 0;   // v bump = forget stale exhausted flags written by older code
+  const LLM_V = 4; S.llm = S.llm && S.llm.day === today && S.llm.v === LLM_V ? S.llm : { day: today, v: LLM_V, calls: 0, slots: {} }; S.llm.slots = S.llm.slots || {};   let runCalls = 0;   // v bump = forget stale exhausted flags written by older code
   // a "slot" = key × model; Google quotas are per project AND per model, so every slot has its own daily budget
   const slots = []; models.forEach((m, mi) => keys.forEach((k, ki) => slots.push({ id: `k${ki + 1}:${m}`, key: k, model: m, ki, mi })));
   Object.keys(S.llm.slots).forEach(id => { if (!slots.some(sl => sl.id === id)) delete S.llm.slots[id]; });   // drop slots of removed keys/models
@@ -70,15 +70,15 @@ function makeLLM(CFG, S) {
     if (!can()) throw Object.assign(new Error('LLM budget exhausted (all keys/models)'), { budget: true });
     let last; for (let i = 0; i < 6; i++) {
       const us = usable(); if (!us.length) throw Object.assign(new Error('LLM budget exhausted (all keys/models)'), { budget: true });
-      const sl = us[0]; const x = st(sl); const body = { contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { temperature: temp, ...(json && !web ? { responseMimeType: 'application/json' } : {}) }, ...(web ? { tools: [{ google_search: {} }] } : {}) };
+      us.sort((p, q) => p.mi - q.mi || st(p).calls - st(q).calls || p.ki - q.ki); const sl = us[0]; const x = st(sl); const body = { contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { temperature: temp, ...(json && !web ? { responseMimeType: 'application/json' } : {}) }, ...(web ? { tools: [{ google_search: {} }] } : {}) };
       x.calls++; S.llm.calls++; runCalls++; S.llm.active = sl.id;
       try { const j = await serial(async () => { const gap = (CFG.llmMinGapMs != null ? CFG.llmMinGapMs : 4500) - (Date.now() - lastCallAt); if (gap > 0) await sleep(gap); lastCallAt = Date.now();   // one request at a time, spaced → never bursts above free-tier RPM
           return J(`https://generativelanguage.googleapis.com/v1beta/models/${sl.model}:generateContent?key=${sl.key}`, 90000, { method: 'POST', body: JSON.stringify(body) }); }); const txt = (j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts || []).map(t => t.text || '').join(''); const out = json ? parseJ(txt) : txt; if (out && typeof out === 'object') out._model = sl.model; return out; }
       catch (e) { last = e; const m = String(e.message || e); x.errors++;
-        if (/HTTP 429/.test(m)) { x.r429 = (x.r429 || 0) + 1; const q = classify429(m); x.lastErr = (q.zero ? 'FREE TIER LIMIT 0 — ' : '') + q.kind + (q.quota ? ' ' + q.quota : '') + (q.limit != null ? ' limit:' + q.limit : '') + (q.msg ? ' — ' + q.msg : ''); x.lastErrAt = Date.now();
+        if (/HTTP 429/.test(m)) { x.r429 = (x.r429 || 0) + 1; const q = classify429(m); S.llm.raw = [(sl.id + ' ' + m.replace(/\s+/g, ' ')).slice(0, 900)].concat(S.llm.raw || []).slice(0, 4); x.lastErr = (q.zero ? 'FREE TIER LIMIT 0 — ' : '') + q.kind + (q.quota ? ' ' + q.quota : '') + (q.limit != null ? ' limit:' + q.limit : '') + (q.msg ? ' — ' + q.msg : ''); x.lastErrAt = Date.now();
           if (q.kind === 'daily') { x.d429 = (x.d429 || 0) + 1; if (q.zero || x.d429 >= 2 || x.calls >= budgetOf(sl) * 0.8) { x.exhausted = true; x.reason = q.zero ? 'limit 0 (no free tier?)' : 'daily quota'; S.llm.switched = (S.llm.switched || 0) + 1; } else { x.cooldownUntil = Date.now() + 90000; } continue; }   // per-day quota: confirm twice before giving the slot up for the day
-          const wait = Math.min(90000, Math.max(8000, (q.retry || 20) * 1000)); x.cooldownUntil = Date.now() + wait; x.cool = (x.cool || 0) + 1;      // per-minute / unknown → short cool-down, keep slot
-          if (x.cool >= 4) { x.exhausted = true; x.reason = '429 repeated'; }
+          const wait = Math.min(120000, Math.max(30000, (q.retry || 45) * 1000)); x.cooldownUntil = Date.now() + wait; x.cool = (x.cool || 0) + 1; x.coolAt = x.coolAt || Date.now();   // per-minute / unknown → cool-down ≥30 s, keep slot
+          if (x.cool >= 8 && Date.now() - x.coolAt > 10 * 60000) { x.exhausted = true; x.reason = '429 repeated 10min'; }
           if (us.length === 1) await sleep(wait); continue; }
         if (/HTTP (400|403|404)/.test(m)) { x.exhausted = true; x.reason = m.slice(0, 80); continue; }                                            // bad key / unknown model → next slot
         if (/HTTP (503|500)|abort/i.test(m)) { x.cooldownUntil = Date.now() + 60000; if (us.length === 1) await sleep(8000 * (i + 1)); continue; }   // overloaded → cool this slot, try another
