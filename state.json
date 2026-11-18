@@ -346,7 +346,391 @@
  ],
  "alerts": [
   {
-   "ts": "2026-11-18T23:19:12.227Z",
+   "ts": "2026-11-18T23:33:22.077Z",
+   "barTime": "2026-11-18T22:00:00.000Z",
+   "sym": "XPLUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 64,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": 1.16,
+     "n": 8,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 28,
+     "avg_r": 0.17,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.04538,
+   "stop": 0.04639827,
+   "t1": 0.04385259,
+   "t2": 0.04232518,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "الگوی ASCENDING CHANNEL خلاف جهت"
+   ],
+   "tm": {
+    "n": 28,
+    "win": 46,
+    "avg": 0.17,
+    "pf": 1.29
+   },
+   "src": "okx",
+   "desk": {
+    "mode": "deferred: budget",
+    "llmToday": 110
+   },
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 1
+  },
+  {
+   "ts": "2026-11-18T23:33:21.114Z",
+   "barTime": "2026-11-18T22:00:00.000Z",
+   "sym": "QNTUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 72,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "MACD_EMA",
+     "name": "MACD cross + EMA200 filter",
+     "avg_r": 0.78,
+     "n": 10,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 28,
+     "avg_r": -0.02,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 32.07,
+   "stop": 32.97396573,
+   "t1": 30.71405141,
+   "t2": 29.35810282,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.02R)"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 28,
+    "win": 39,
+    "avg": -0.02,
+    "pf": 0.96
+   },
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.02R)"
+   ]
+  },
+  {
+   "ts": "2026-11-18T23:33:19.947Z",
+   "barTime": "2026-11-18T22:00:00.000Z",
+   "sym": "OPUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 82,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "LENS",
+     "name": "Lens setup",
+     "avg_r": 0.48,
+     "n": 22,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 22,
+     "avg_r": 0.48,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.07488,
+   "stop": 0.07648618,
+   "t1": 0.07247074,
+   "t2": 0.07006147,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-2.6×ATR)"
+   ],
+   "tm": {
+    "n": 22,
+    "win": 64,
+    "avg": 0.48,
+    "pf": 2.24
+   },
+   "src": "okx",
+   "desk": {
+    "mode": "deferred: budget",
+    "llmToday": 110
+   },
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 1
+  },
+  {
+   "ts": "2026-11-18T23:33:19.013Z",
+   "barTime": "2026-11-18T22:00:00.000Z",
+   "sym": "AVAXUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 82,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": 0.31,
+     "n": 20,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 30,
+     "avg_r": -0.23,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 6.905,
+   "stop": 7.03591396,
+   "t1": 6.70862907,
+   "t2": 6.51225813,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.23R)"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 30,
+    "win": 37,
+    "avg": -0.23,
+    "pf": 0.66
+   },
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.23R)"
+   ]
+  },
+  {
+   "ts": "2026-11-18T23:33:18.000Z",
+   "barTime": "2026-11-18T22:00:00.000Z",
+   "sym": "ADAUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 82,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.66,
+     "n": 22,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 29,
+     "avg_r": -0.02,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.1492,
+   "stop": 0.15179538,
+   "t1": 0.14530693,
+   "t2": 0.14141386,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.02R)"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 29,
+    "win": 45,
+    "avg": -0.02,
+    "pf": 0.96
+   },
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.02R)"
+   ]
+  },
+  {
+   "ts": "2026-11-18T23:33:16.850Z",
+   "barTime": "2026-11-18T22:00:00.000Z",
+   "sym": "ONDOUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 90,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.33,
+     "n": 20,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 25,
+     "avg_r": 0.23,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.2939,
+   "stop": 0.29947705,
+   "t1": 0.28553443,
+   "t2": 0.27716886,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-2.8×ATR)"
+   ],
+   "tm": {
+    "n": 25,
+    "win": 48,
+    "avg": 0.23,
+    "pf": 1.41
+   },
+   "src": "okx",
+   "desk": {
+    "mode": "deferred: budget",
+    "llmToday": 110
+   },
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 1
+  },
+  {
+   "ts": "2026-11-18T23:33:15.629Z",
+   "barTime": "2026-11-18T22:00:00.000Z",
+   "sym": "LINKUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 90,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": 0.19,
+     "n": 21,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 26,
+     "avg_r": 0.13,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ARMED_WAIT_FVG_RETEST",
+   "entry": 8.96,
+   "stop": 9.10675466,
+   "t1": 8.73986802,
+   "t2": 8.51973603,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "الگوی DOUBLE BOTTOM خلاف جهت",
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (26× · 0.13R)"
+   ],
+   "tm": {
+    "n": 26,
+    "win": 50,
+    "avg": 0.13,
+    "pf": 1.24
+   },
+   "src": "okx",
+   "desk": {
+    "mode": "deferred: budget",
+    "llmToday": 110
+   },
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 1
+  },
+  {
+   "ts": "2026-11-18T23:30:52.506Z",
    "barTime": "2026-11-18T22:00:00.000Z",
    "sym": "TRUMPUSDT",
    "cls": "crypto",
@@ -389,7 +773,7 @@
    "src": "okx",
    "desk": {
     "mode": "deferred: agents failed",
-    "llmToday": 101
+    "llmToday": 110
    },
    "judge": "deferred",
    "confidence": null,
@@ -400,7 +784,7 @@
    "invalidation": "",
    "status": "DEFERRED_AI",
    "aiDecision": "DEFER",
-   "deferCount": 1
+   "deferCount": 2
   },
   {
    "ts": "2026-11-18T23:15:43.459Z",
@@ -3742,367 +4126,6 @@
    "reasons": [
     "کش‌شده از EMA50 (4.5×ATR)"
    ]
-  },
-  {
-   "ts": "2026-11-18T20:15:47.389Z",
-   "barTime": "2026-11-18T16:00:00.000Z",
-   "sym": "USDCAD",
-   "cls": "forex",
-   "tf": "4H",
-   "side": "LONG",
-   "score": 78,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": null,
-    "mine": {
-     "n": 2,
-     "avg_r": 0.43,
-     "verdict": "INSUFFICIENT"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_UP",
-   "htf": "UP",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 1.43316996,
-   "stop": 1.42944569,
-   "t1": 1.43875637,
-   "t2": 1.44434278,
-   "rr": 3,
-   "fails": [
-    "کش‌شده از EMA50 (4.1×ATR)"
-   ],
-   "warns": [
-    "واگرایی منظم خلاف جهت (RSI/MACD)"
-   ],
-   "tm": {
-    "n": 2,
-    "win": 50,
-    "avg": -0.43,
-    "pf": 0.56
-   },
-   "src": "yahoo",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "کش‌شده از EMA50 (4.1×ATR)"
-   ]
-  },
-  {
-   "ts": "2026-11-18T20:15:46.142Z",
-   "barTime": "2026-11-18T16:00:00.000Z",
-   "sym": "ONDOUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 84,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "BB_MR",
-     "name": "Bollinger mean-reversion",
-     "avg_r": -0.06,
-     "n": 28,
-     "verdict": "NEGATIVE"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": -0.27,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.2973,
-   "stop": 0.31036216,
-   "t1": 0.27770676,
-   "t2": 0.25811351,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.27R)"
-   ],
-   "warns": [
-    "نسبتاً کش‌شده (-3.2×ATR)"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 33,
-    "avg": -0.27,
-    "pf": 0.6
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.27R)"
-   ]
-  },
-  {
-   "ts": "2026-11-18T20:15:45.204Z",
-   "barTime": "2026-11-18T16:00:00.000Z",
-   "sym": "AVAXUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 84,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "BB_MR",
-     "name": "Bollinger mean-reversion",
-     "avg_r": 0.44,
-     "n": 22,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 29,
-     "avg_r": -0.21,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "SWEPT_WAIT_CHOCH",
-   "entry": 6.945,
-   "stop": 7.24736456,
-   "t1": 6.49145317,
-   "t2": 6.03790633,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.21R)"
-   ],
-   "warns": [
-    "نسبتاً کش‌شده (-3.2×ATR)"
-   ],
-   "tm": {
-    "n": 29,
-    "win": 34,
-    "avg": -0.21,
-    "pf": 0.69
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.21R)"
-   ]
-  },
-  {
-   "ts": "2026-11-18T20:15:44.270Z",
-   "barTime": "2026-11-18T16:00:00.000Z",
-   "sym": "ZECUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 84,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": -0.02,
-     "n": 30,
-     "verdict": "NEGATIVE"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": -0.02,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 911.14,
-   "stop": 966.32543858,
-   "t1": 828.36184212,
-   "t2": 745.58368425,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.02R)"
-   ],
-   "warns": [
-    "واگرایی منظم خلاف جهت (RSI)"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 40,
-    "avg": -0.02,
-    "pf": 0.97
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.02R)"
-   ]
-  },
-  {
-   "ts": "2026-11-18T20:15:43.351Z",
-   "barTime": "2026-11-18T16:00:00.000Z",
-   "sym": "XAUUSDT",
-   "cls": "metal",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 86,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "MACD_EMA",
-     "name": "MACD cross + EMA200 filter",
-     "avg_r": 0.32,
-     "n": 15,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 31,
-     "avg_r": 0.01,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 3729.9,
-   "stop": 3779.96515507,
-   "t1": 3654.8022674,
-   "t2": 3579.70453479,
-   "rr": 3,
-   "fails": [
-    "کش‌شده از EMA50 (-4.8×ATR)"
-   ],
-   "warns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (31× · 0.01R)"
-   ],
-   "tm": {
-    "n": 31,
-    "win": 45,
-    "avg": 0.01,
-    "pf": 1.02
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "کش‌شده از EMA50 (-4.8×ATR)"
-   ]
-  },
-  {
-   "ts": "2026-11-18T20:01:05.503Z",
-   "barTime": "2026-11-18T19:00:00.000Z",
-   "sym": "XAUUSDT",
-   "cls": "metal",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 86,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "DONCHIAN20",
-     "name": "Donchian 20 breakout (Turtle)",
-     "avg_r": 0.07,
-     "n": 21,
-     "verdict": "WEAK"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": 0.05,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 3729.9,
-   "stop": 3757.91368436,
-   "t1": 3687.87947346,
-   "t2": 3645.85894691,
-   "rr": 3,
-   "fails": [
-    "کش‌شده از EMA50 (-4.6×ATR)"
-   ],
-   "warns": [
-    "واگرایی منظم خلاف جهت (RSI/MACD)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (30× · 0.05R)"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 40,
-    "avg": 0.05,
-    "pf": 1.08
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "کش‌شده از EMA50 (-4.6×ATR)"
-   ]
-  },
-  {
-   "ts": "2026-11-18T20:01:04.358Z",
-   "barTime": "2026-11-18T19:00:00.000Z",
-   "sym": "AUDUSD",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 86,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.5,
-     "n": 16,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 16,
-     "avg_r": 0.5,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.67132121,
-   "stop": 0.67259268,
-   "t1": 0.66941401,
-   "t2": 0.66750682,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-2.9×ATR)",
-    "واگرایی منظم خلاف جهت (MACD)"
-   ],
-   "tm": {
-    "n": 16,
-    "win": 44,
-    "avg": -0.25,
-    "pf": 0.71
-   },
-   "src": "yahoo",
-   "desk": {
-    "mode": "deferred: budget",
-    "llmToday": 6
-   },
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "REJECTED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 4
   }
  ],
  "seen": {
@@ -4290,12 +4313,15 @@
   "FILUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1795042856939,
   "APTUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1795042946843,
   "DOTUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1795043741771,
-  "ICPUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1795043742623
+  "ICPUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1795043742623,
+  "ADAUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1795044797043,
+  "AVAXUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1795044798000,
+  "QNTUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1795044800145
  },
- "lastRun": "2026-11-18T23:24:37.791Z",
- "runs": 80,
+ "lastRun": "2026-11-18T23:33:22.265Z",
+ "runs": 81,
  "errors": [],
- "durationSec": 550,
+ "durationSec": 166,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -4425,8 +4451,8 @@
    "INJUSDT",
    "BCHUSDT",
    "STRKUSDT",
-   "TAOUSDT",
    "ZROUSDT",
+   "TAOUSDT",
    "ASTERUSDT",
    "UPUSDT",
    "PROSUSDT",
@@ -4435,20 +4461,20 @@
    "VVVUSDT",
    "PENGUUSDT",
    "BTWUSDT",
-   "OKBUSDT",
    "NESUSDT",
+   "OKBUSDT",
    "ONDOUSDT",
    "TRXUSDT",
    "XPLUSDT",
    "SOPHUSDT",
    "DGAIUSDT",
-   "NIGHTUSDT",
    "XLMUSDT",
+   "NIGHTUSDT",
    "ICPUSDT",
-   "DOTUSDT",
    "JUPUSDT",
-   "GRAMUSDT",
+   "DOTUSDT",
    "APTUSDT",
+   "GRAMUSDT",
    "SOONUSDT",
    "QNTUSDT",
    "OPUSDT",
@@ -4476,7 +4502,7 @@
    "cryptoListed": 273,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6333254,
+   "minVolUSD": 6321247,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4486,10 +4512,10 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 21,
+   "candidates": 19,
    "deep": 8,
    "byClass": {
-    "crypto": 21,
+    "crypto": 19,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -4504,7 +4530,7 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 101,
+  "llmToday": 110,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -4512,7 +4538,7 @@
    "gemini-3.6-flash"
   ],
   "slots": 9,
-  "slotsExhausted": 6,
+  "slotsExhausted": 7,
   "active": "k3:gemini-3.6-flash",
   "slotTable": [
    {
@@ -4571,8 +4597,8 @@
    },
    {
     "id": "k1:gemini-3.6-flash",
-    "calls": 13,
-    "errors": 11,
+    "calls": 16,
+    "errors": 14,
     "exhausted": false,
     "reason": null,
     "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
@@ -4580,17 +4606,17 @@
    },
    {
     "id": "k2:gemini-3.6-flash",
-    "calls": 13,
-    "errors": 8,
-    "exhausted": false,
-    "reason": null,
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": true
+    "calls": 16,
+    "errors": 11,
+    "exhausted": true,
+    "reason": "daily quota",
+    "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "cooling": false
    },
    {
     "id": "k3:gemini-3.6-flash",
-    "calls": 13,
-    "errors": 9,
+    "calls": 16,
+    "errors": 12,
     "exhausted": false,
     "reason": null,
     "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
@@ -4598,27 +4624,27 @@
    }
   ],
   "llmRaw": [
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 8h27m13.963439528s.\", \"status\": ",
    "k3:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
+   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "requireAI": true,
-  "deferred": 9
+  "deferred": 13
  },
  "universeInfo": {
   "cryptoListed": 273,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6333254
+  "minVolUSD": 6321247
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 21,
+  "candidates": 19,
   "deep": 8,
   "byClass": {
-   "crypto": 21,
+   "crypto": 19,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -4627,7 +4653,7 @@
  "llm": {
   "day": "2026-11-18",
   "v": 4,
-  "calls": 101,
+  "calls": 110,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 13,
@@ -4702,48 +4728,50 @@
     "reason": "429 repeated 10min"
    },
    "k1:gemini-3.6-flash": {
-    "calls": 13,
+    "calls": 16,
     "exhausted": false,
-    "errors": 11,
-    "cooldownUntil": 1795044300982,
-    "r429": 5,
+    "errors": 14,
+    "cooldownUntil": 1795044821769,
+    "r429": 7,
     "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795044011447,
+    "lastErrAt": 1795044707436,
     "d429": 1,
-    "cool": 4,
+    "cool": 6,
     "coolAt": 1795043744060
    },
    "k2:gemini-3.6-flash": {
-    "calls": 13,
-    "exhausted": false,
-    "errors": 8,
-    "cooldownUntil": 1795044301264,
-    "r429": 5,
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795044015939,
-    "d429": 1,
-    "cool": 4,
-    "coolAt": 1795043753039
+    "calls": 16,
+    "exhausted": true,
+    "errors": 11,
+    "cooldownUntil": 1795044756900,
+    "r429": 8,
+    "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "lastErrAt": 1795044766080,
+    "d429": 2,
+    "cool": 6,
+    "coolAt": 1795043753039,
+    "reason": "daily quota"
    },
    "k3:gemini-3.6-flash": {
-    "calls": 13,
+    "calls": 16,
     "exhausted": false,
-    "errors": 9,
-    "cooldownUntil": 1795044305765,
-    "r429": 4,
+    "errors": 12,
+    "cooldownUntil": 1795044830681,
+    "r429": 6,
     "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795044006927,
-    "cool": 4,
+    "lastErrAt": 1795044716371,
+    "cool": 6,
     "coolAt": 1795043748519
    }
   },
   "active": "k3:gemini-3.6-flash",
   "raw": [
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 8h27m13.963439528s.\", \"status\": ",
    "k3:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
-  ]
+   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
+  ],
+  "switched": 1
  },
  "macroCache": {},
  "pending": {
@@ -4782,6 +4810,10 @@
   "FILUSDT|1H|SHORT|2026-11-18T21:00:00.000Z": 3,
   "NESUSDT|1H|LONG|2026-11-18T21:00:00.000Z": 2,
   "AUDUSD|1H|SHORT|2026-11-18T22:00:00.000Z": 1,
-  "TRUMPUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1
+  "TRUMPUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 2,
+  "LINKUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1,
+  "ONDOUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1,
+  "OPUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1,
+  "XPLUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1
  }
 }
