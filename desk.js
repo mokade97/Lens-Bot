@@ -116,7 +116,10 @@ async function decide({ lens, CFG, S, sym, tf, side, packet, bt, rc, klines, kli
   else await run('macro', async () => { const d = await llm.call(macroPrompt(ctx), { web: true, json: true }); if (!d.error && !d.raw) S.macroCache[ck] = { ts: new Date().toISOString(), data: d }; return d; });
   if (agents.macro && agents.macro.symbol_notes) agents.macro.note_for_symbol = agents.macro.symbol_notes[sym] || null;
   // 3) technical + sentiment in parallel
-  await Promise.all([run('tech', () => llm.call(techPrompt(ctx))), run('sent', () => llm.call(sentPrompt(ctx)))]);
+  if (CFG.roundtableLite !== false) {   // one call for both analysts (fewer requests → fits free-tier RPM/RPD)
+    await run('analysts', async () => { const d = await llm.call(SKILL + `\n\nYou are TWO analysts answering in ONE JSON object.\n\n(1) ${techPrompt(ctx).slice(SKILL.length)}\n\n(2) ${sentPrompt(ctx).slice(SKILL.length)}\n\nReturn exactly: {"tech": <JSON of analyst 1>, "sent": <JSON of analyst 2>}`); agents.tech = d && d.tech || { error: 'missing tech' }; agents.sent = d && d.sent || { error: 'missing sent' }; return d; });
+    delete agents.analysts;
+  } else await Promise.all([run('tech', () => llm.call(techPrompt(ctx))), run('sent', () => llm.call(sentPrompt(ctx)))]);
   const okCount = ['tech', 'macro', 'sent'].filter(k => agents[k] && !agents[k].error).length;
   if (okCount === 0) return soft('agents failed', { agents });
   const reps = { tech: agents.tech, macro: agents.macro, sent: agents.sent };

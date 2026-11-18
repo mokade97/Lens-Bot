@@ -18,7 +18,7 @@ const CFG = Object.assign({
   // universe: crypto = top-N OKX USDT perps by 24h volume (auto, refreshed every run) + always-include list; metals = OKX XAU/XAG perps; forex = Yahoo Finance majors/crosses
   universe: { cryptoTop: 60, cryptoAlways: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT'], cryptoExclude: [], metals: ['XAUUSDT', 'XAGUSDT'], forex: ['EURUSD', 'GBPUSD', 'USDJPY', 'USDCHF', 'AUDUSD', 'USDCAD', 'NZDUSD', 'EURGBP', 'EURJPY', 'GBPJPY', 'AUDJPY', 'EURAUD', 'EURCHF', 'GBPCHF'], classes: ['crypto', 'metal', 'forex'] },
   symbols: null, // legacy fixed list; if set, replaces the auto universe
-  timeframes: ['4H', '1H'], maxCandidatesPerRun: 12, scanConcurrency: 4,
+  timeframes: ['4H', '1H'], maxCandidatesPerRun: 12, scanConcurrency: 4, runBudgetSec: 540, roundtableLite: true,
   forexCosts: { feePct: 0, slipPct: 0.02, fundPer8h: 0 },
   minScore: 70, account: 1000, riskPct: 1, minRR: 2, noCounterHtf: true, maxOpen: 6, maxBars: 40,
   feePct: 0.1, slipPct: 0.03, fundPer8h: 0.01,
@@ -159,7 +159,9 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
   for (const x of cands) { if (picked.length >= CFG.maxCandidatesPerRun) break; if (!used.has(x)) { picked.push(x); used.add(x); } }
   picked.sort((a, b) => prio(b) - prio(a)); S.scan = { symbols: U.length, pairs: jobs.length, candidates: cands.length, deep: Math.min(cands.length, CFG.maxCandidatesPerRun), byClass: ['crypto', 'metal', 'forex', 'stock'].reduce((o, c) => (o[c] = cands.filter(x => x.cls === c).length, o), {}) };
   log(`scan: ${jobs.length} pairs → ${cands.length} candidates (deep-analysing top ${S.scan.deep})`);
+  const budgetMs = (CFG.runBudgetSec || 540) * 1000; let skippedForTime = 0;
   for (const cnd of picked) {
+    if (Date.now() - started > budgetMs) { skippedForTime++; continue; }   // leave time to save/commit state; untouched candidates are retried next run
     const { sym, cls, tf } = cnd; let { side, strategy } = cnd;
     try {
       S.seen[cnd.barKey] = Date.now();
@@ -206,6 +208,7 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
   fs.writeFileSync(STATE_FILE, JSON.stringify(S, null, 1));
   const pub = { v: 1, lastRun: S.lastRun, durationSec: S.durationSec, dataSrc, config: S.config, equityR: S.equityR, equityUSD: S.equityUSD, stats: S.stats, positions: S.positions, alerts: S.alerts.slice(0, 40), closed: S.closed.slice(0, 60), errors: S.errors.slice(0, 10) };
   fs.mkdirSync(path.join(ROOT, 'public'), { recursive: true }); fs.writeFileSync(path.join(ROOT, 'public', 'bot.json'), JSON.stringify(pub));
+  if (skippedForTime) log('time budget reached — deferred', skippedForTime, 'candidates to next run'); S.scan && (S.scan.timeSkipped = skippedForTime);
   log(`done in ${S.durationSec}s · open ${S.positions.length} · closed ${S.closed.length} · new alerts ${newAlerts.length} · equity ${S.equityR}R · src ${dataSrc} · errors ${S.errors.length}`);
   if (S.errors.length) console.log(S.errors.join('\n'));
 })();

@@ -49,6 +49,9 @@ Secretهای `GEMINI_API_KEY`, `GEMINI_API_KEY_2`, `GEMINI_API_KEY_3` (هر کد
 Actions → **Key check** → Run workflow: هر کلید×مدل یک درخواست کوچک می‌زند و جدول وضعیت چاپ می‌کند (OK / 429 DAILY QUOTA / 429 per-minute / HTTP 400). محلی: `GEMINI_API_KEY=... GEMINI_API_KEY_2=... node keycheck.js`. باقی‌مانده‌ی سهمیه را API نمی‌دهد؛ در AI Studio → Usage/Rate limits هر پروژه ببین.
 ربات ۴۲۹ را تفکیک می‌کند: **PerDay** → اسلات تا فردا کنار می‌رود؛ **PerMinute** → فقط خنک‌شدن کوتاه (retryDelay گوگل) و اسلات می‌ماند.
 
+## زمان اجرا و میزگرد سبک
+`runBudgetSec` (۵۴۰): اگر تحلیل عمیق به این زمان برسد، کاندیدهای باقی‌مانده به اجرای بعدی موکول می‌شوند تا state همیشه ذخیره/commit شود (ورک‌فلو ۲۰ دقیقه timeout دارد). `roundtableLite` (true): تحلیل‌گر تکنیکال و سنتیمنت در **یک** فراخوانی → هر ستاپ ۳ فراخوانی (+۱ ماکرو هر ۴ ساعت) به‌جای ۵.
+
 ## AI اجباری
 `requireAI: true` (پیش‌فرض): بدون پاسخ AI هیچ معامله‌ای باز نمی‌شود. اگر همه‌ی اسلات‌ها (کلید×مدل) تمام/۴۲۹ باشند، ستاپ با وضعیت `DEFERRED_AI` ثبت و تا `maxDeferRuns` (۴) اجرای بعدی دوباره تلاش می‌شود. `geminiModels` چند مدل با سهمیه‌ی جدا (مثلاً flash و flash-lite)؛ `llmMinGapMs` فاصله‌ی بین فراخوانی‌ها برای ماندن زیر RPM رایگان. `requireAI:false` رفتار قدیمی (قاضی ساده → قوانین).
 
