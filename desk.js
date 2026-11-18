@@ -13,7 +13,7 @@ const SKILL = (() => { try { return fs.readFileSync(path.join(__dirname, 'skill.
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const LANG = 'Persian (Farsi)';
 
-async function J(u, ms = 9000, opt = {}) { const c = new AbortController(); const t = setTimeout(() => c.abort(), ms); try { const r = await fetch(u, Object.assign({ signal: c.signal, headers: { 'User-Agent': 'lens-bot/1.0', 'Content-Type': 'application/json' } }, opt)); if (!r.ok) throw new Error('HTTP ' + r.status); return await r.json(); } finally { clearTimeout(t); } }
+async function J(u, ms = 9000, opt = {}) { const c = new AbortController(); const t = setTimeout(() => c.abort(), ms); try { const r = await fetch(u, Object.assign({ signal: c.signal, headers: { 'User-Agent': 'lens-bot/1.0', 'Content-Type': 'application/json' } }, opt)); if (!r.ok) { let body = ''; try { body = (await r.text()).slice(0, 600); } catch (e) { } const e = new Error('HTTP ' + r.status + (body ? ' ' + body : '')); e.status = r.status; e.body = body; throw e; } return await r.json(); } finally { clearTimeout(t); } }
 const safe = (p, d = null) => p.then(x => x).catch(() => d);
 
 /* ---------------- context collectors (no keys) ---------------- */
@@ -51,6 +51,9 @@ const compactCandles = k => k ? k.slice(-60).map(x => [new Date(x.t).toISOString
 /* ---------------- Gemini with budget ---------------- */
 function geminiKeys() { const ks = []; if (process.env.GEMINI_API_KEYS) process.env.GEMINI_API_KEYS.split(/[,\s]+/).forEach(k => k && ks.push(k)); ['GEMINI_API_KEY', 'GEMINI_API_KEY_2', 'GEMINI_API_KEY_3', 'GEMINI_API_KEY_4', 'GEMINI_API_KEY_5'].forEach(n => { if (process.env[n] && !ks.includes(process.env[n])) ks.push(process.env[n]); }); return ks; }
 let lastCallAt = 0;
+function classify429(m) { const out = { kind: 'unknown', retry: null, quota: null }; const r = m.match(/retry in ([\d.]+)s/i) || m.match(/"retryDelay"\s*:\s*"([\d.]+)s"/); if (r) out.retry = +r[1];
+  const qid = m.match(/"quotaId"\s*:\s*"([^"]+)"/) || m.match(/(Generate\w*Per\w+)/); if (qid) out.quota = qid[1];
+  if (/PerDay|per day|daily/i.test(m)) out.kind = 'daily'; else if (/PerMinute|per minute|RPM|TPM|InputTokens/i.test(m)) out.kind = 'minute'; else if (/exceeded your current quota|billing/i.test(m) && !out.retry) out.kind = 'daily'; return out; }
 function makeLLM(CFG, S) {
   const keys = geminiKeys(); const models = Array.isArray(CFG.geminiModels) && CFG.geminiModels.length ? CFG.geminiModels : [CFG.geminiModel]; const today = new Date().toISOString().slice(0, 10);
   S.llm = S.llm && S.llm.day === today ? S.llm : { day: today, calls: 0, slots: {} }; S.llm.slots = S.llm.slots || {}; let runCalls = 0;
@@ -65,11 +68,15 @@ function makeLLM(CFG, S) {
     let last; for (let i = 0; i < 6; i++) {
       const us = usable(); if (!us.length) throw Object.assign(new Error('LLM budget exhausted (all keys/models)'), { budget: true });
       const sl = us[0]; const x = st(sl); const body = { contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { temperature: temp, ...(json && !web ? { responseMimeType: 'application/json' } : {}) }, ...(web ? { tools: [{ google_search: {} }] } : {}) };
-      const gap = (CFG.llmMinGapMs || 6500) - (Date.now() - lastCallAt); if (gap > 0) await sleep(gap);   // stay under the free-tier RPM
+      const gap = (CFG.llmMinGapMs != null ? CFG.llmMinGapMs : 6500) - (Date.now() - lastCallAt); if (gap > 0) await sleep(gap);   // stay under the free-tier RPM
       x.calls++; S.llm.calls++; runCalls++; S.llm.active = sl.id; lastCallAt = Date.now();
       try { const j = await J(`https://generativelanguage.googleapis.com/v1beta/models/${sl.model}:generateContent?key=${sl.key}`, 90000, { method: 'POST', body: JSON.stringify(body) }); const txt = (j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts || []).map(t => t.text || '').join(''); const out = json ? parseJ(txt) : txt; if (out && typeof out === 'object') out._model = sl.model; return out; }
       catch (e) { last = e; const m = String(e.message || e); x.errors++;
-        if (/HTTP 429/.test(m)) { x.r429 = (x.r429 || 0) + 1; if (x.r429 === 1 && us.length === 1) { await sleep(25000); continue; } x.exhausted = true; x.reason = '429'; S.llm.switched = (S.llm.switched || 0) + 1; continue; }  // quota → next slot
+        if (/HTTP 429/.test(m)) { x.r429 = (x.r429 || 0) + 1; const q = classify429(m); x.lastErr = q.kind + (q.quota ? ' ' + q.quota : ''); x.lastErrAt = Date.now();
+          if (q.kind === 'daily') { x.exhausted = true; x.reason = 'daily quota'; S.llm.switched = (S.llm.switched || 0) + 1; continue; }            // per-day quota → slot dead until tomorrow
+          const wait = Math.min(90000, Math.max(8000, (q.retry || 20) * 1000)); x.cooldownUntil = Date.now() + wait; x.cool = (x.cool || 0) + 1;      // per-minute / unknown → short cool-down, keep slot
+          if (x.cool >= 4) { x.exhausted = true; x.reason = '429 repeated'; }
+          if (us.length === 1) await sleep(wait); continue; }
         if (/HTTP (400|403|404)/.test(m)) { x.exhausted = true; x.reason = m.slice(0, 80); continue; }                                            // bad key / unknown model → next slot
         if (/HTTP (503|500)|abort/i.test(m)) { x.cooldownUntil = Date.now() + 60000; if (us.length === 1) await sleep(8000 * (i + 1)); continue; }   // overloaded → cool this slot, try another
         if (web && i === 0) { web = false; continue; } throw e; }
@@ -121,4 +128,4 @@ function summarize(a) {
   const pick = (o, keys) => o ? (o.error ? { error: o.error } : Object.fromEntries(keys.filter(k => o[k] != null).map(k => [k, o[k]]))) : null;
   return { tech: pick(a.tech, ['bias', 'confidence', 'key_points', 'what_changes_my_mind']), macro: pick(a.macro, ['bias', 'confidence', 'key_points', 'events_next_7d', 'note_for_symbol', 'cached']), sent: pick(a.sent, ['bias', 'confidence', 'key_points']), bull: a.debate && a.debate.bull ? pick(a.debate.bull, ['confidence', 'case']) : null, bear: a.debate && a.debate.bear ? pick(a.debate.bear, ['confidence', 'case']) : null };
 }
-module.exports = { decide, liveMarket, derivatives, mtfFromEngine, geminiKeys, makeLLM };
+module.exports = { decide, liveMarket, derivatives, mtfFromEngine, geminiKeys, makeLLM, classify429, J };

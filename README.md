@@ -37,6 +37,10 @@
 Secretهای `GEMINI_API_KEY`, `GEMINI_API_KEY_2`, `GEMINI_API_KEY_3` (هر کدام که داری). ربات با کلید اول کار می‌کند و به‌محض **429 (سهمیه تمام)** یا رسیدن به `dailyLLMBudget` همان روز، به کلید بعدی می‌رود؛ فردا همه ریست می‌شوند. وضعیت در bot.json: `keys`, `activeKey`, `keysExhausted`.
 ⚠️ سهمیه‌ی رایگان گوگل **به ازای هر پروژه‌ی Google Cloud** است، نه هر کلید — دو کلید از یک پروژه سهمیه را دو برابر نمی‌کند. در AI Studio هنگام ساخت کلید دوم، **Create project** جدید بزن (یا از یک اکانت گوگل دیگر).
 
+## بررسی کلیدها (`Key check`)
+Actions → **Key check** → Run workflow: هر کلید×مدل یک درخواست کوچک می‌زند و جدول وضعیت چاپ می‌کند (OK / 429 DAILY QUOTA / 429 per-minute / HTTP 400). محلی: `GEMINI_API_KEY=... GEMINI_API_KEY_2=... node keycheck.js`. باقی‌مانده‌ی سهمیه را API نمی‌دهد؛ در AI Studio → Usage/Rate limits هر پروژه ببین.
+ربات ۴۲۹ را تفکیک می‌کند: **PerDay** → اسلات تا فردا کنار می‌رود؛ **PerMinute** → فقط خنک‌شدن کوتاه (retryDelay گوگل) و اسلات می‌ماند.
+
 ## AI اجباری
 `requireAI: true` (پیش‌فرض): بدون پاسخ AI هیچ معامله‌ای باز نمی‌شود. اگر همه‌ی اسلات‌ها (کلید×مدل) تمام/۴۲۹ باشند، ستاپ با وضعیت `DEFERRED_AI` ثبت و تا `maxDeferRuns` (۴) اجرای بعدی دوباره تلاش می‌شود. `geminiModels` چند مدل با سهمیه‌ی جدا (مثلاً flash و flash-lite)؛ `llmMinGapMs` فاصله‌ی بین فراخوانی‌ها برای ماندن زیر RPM رایگان. `requireAI:false` رفتار قدیمی (قاضی ساده → قوانین).
 
