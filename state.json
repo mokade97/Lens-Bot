@@ -356,6 +356,60 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-19T11:45:49.808Z",
+   "barTime": "2026-11-19T11:00:00.000Z",
+   "sym": "EURJPY",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 14,
+   "strategy": "BB_MR",
+   "lab": {
+    "best": {
+     "id": "BB_MR",
+     "name": "Bollinger mean-reversion",
+     "avg_r": 0.31,
+     "n": 24,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 24,
+     "avg_r": 0.31,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "NEUTRAL",
+   "event": "CANDLE",
+   "sweep": "ARMED_WAIT_FVG_RETEST",
+   "entry": 175.80900574,
+   "stop": 175.48598454,
+   "t1": 176.29353754,
+   "t2": 176.77806934,
+   "rr": 3,
+   "fails": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "CHOCH BULLISH خلاف جهت"
+   ],
+   "warns": [
+    "واگرایی منظم خلاف جهت (RSI)",
+    "ناحیه‌ی FVG فقط 0.31×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 14,
+    "win": 14,
+    "avg": -1.37,
+    "pf": 0.09
+   },
+   "src": "yahoo",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "CHOCH BULLISH خلاف جهت"
+   ]
+  },
+  {
    "ts": "2026-11-19T11:30:55.010Z",
    "barTime": "2026-11-19T10:00:00.000Z",
    "sym": "OPUSDT",
@@ -3619,55 +3673,6 @@
     "خلاف سوگیری تایم‌فریم بالاتر",
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.41R)"
    ]
-  },
-  {
-   "ts": "2026-11-19T07:51:44.427Z",
-   "barTime": "2026-11-19T06:00:00.000Z",
-   "sym": "ADAUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 20,
-   "strategy": "RSI2",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.74,
-     "n": 21,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 21,
-     "avg_r": 0.74,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.1537,
-   "stop": 0.15118658,
-   "t1": 0.15747013,
-   "t2": 0.16124026,
-   "rr": 3,
-   "fails": [
-    "CHOCH BULLISH خلاف جهت"
-   ],
-   "warns": [],
-   "tm": {
-    "n": 30,
-    "win": 43,
-    "avg": -0.15,
-    "pf": 0.74
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "CHOCH BULLISH خلاف جهت"
-   ]
   }
  ],
  "seen": {
@@ -4115,12 +4120,13 @@
   "BCHUSDT|1H|SHORT|2026-11-19T10:00:00.000Z": 1795086939516,
   "PENGUUSDT|1H|SHORT|2026-11-19T10:00:00.000Z": 1795086940115,
   "OPUSDT|1H|SHORT|2026-11-19T10:00:00.000Z": 1795087854435,
-  "EURCHF|1H|SHORT|2026-11-19T11:00:00.000Z": 1795087909678
+  "EURCHF|1H|SHORT|2026-11-19T11:00:00.000Z": 1795087909678,
+  "EURJPY|1H|SHORT|2026-11-19T11:00:00.000Z": 1795088749798
  },
- "lastRun": "2026-11-19T11:31:49.689Z",
- "runs": 132,
+ "lastRun": "2026-11-19T11:45:49.809Z",
+ "runs": 133,
  "errors": [],
- "durationSec": 65,
+ "durationSec": 14,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -4268,8 +4274,8 @@
    "ZECUSDT",
    "MMTUSDT",
    "HYPEUSDT",
-   "DOGEUSDT",
    "PEPEUSDT",
+   "DOGEUSDT",
    "NEARUSDT",
    "PUMPUSDT",
    "IRYSUSDT",
@@ -4285,17 +4291,17 @@
    "BREVUSDT",
    "SENTUSDT",
    "AAVEUSDT",
-   "ADAUSDT",
    "BTWUSDT",
+   "ADAUSDT",
    "LINKUSDT",
    "INJUSDT",
    "BCHUSDT",
    "AVAXUSDT",
-   "VVVUSDT",
    "LTCUSDT",
+   "VVVUSDT",
    "PROSUSDT",
-   "ZROUSDT",
    "TAOUSDT",
+   "ZROUSDT",
    "XPLUSDT",
    "INITUSDT",
    "ARBUSDT",
@@ -4309,12 +4315,12 @@
    "PENGUUSDT",
    "XLMUSDT",
    "TRXUSDT",
-   "ETHFIUSDT",
    "JUPUSDT",
+   "ETHFIUSDT",
    "NIGHTUSDT",
-   "SOPHUSDT",
-   "SOONUSDT",
    "DOTUSDT",
+   "SOONUSDT",
+   "SOPHUSDT",
    "QNTUSDT",
    "ICPUSDT",
    "APTUSDT",
@@ -4341,7 +4347,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6211273,
+   "minVolUSD": 6225290,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4351,10 +4357,10 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 2,
-   "deep": 2,
+   "candidates": 1,
+   "deep": 1,
    "byClass": {
-    "crypto": 1,
+    "crypto": 0,
     "metal": 0,
     "forex": 1,
     "stock": 0
@@ -4522,15 +4528,15 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6211273
+  "minVolUSD": 6225290
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 2,
-  "deep": 2,
+  "candidates": 1,
+  "deep": 1,
   "byClass": {
-   "crypto": 1,
+   "crypto": 0,
    "metal": 0,
    "forex": 1,
    "stock": 0
