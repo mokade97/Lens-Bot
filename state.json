@@ -356,6 +356,189 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-19T14:57:43.623Z",
+   "barTime": "2026-11-19T08:00:00.000Z",
+   "sym": "XRPUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 20,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.17,
+     "n": 16,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 16,
+     "avg_r": 0.17,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.9887,
+   "stop": 0.95552775,
+   "t1": 1.03845838,
+   "t2": 1.08821676,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "ناحیه‌ی FVG فقط 0.42×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 31,
+    "win": 45,
+    "avg": -0.06,
+    "pf": 0.9
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "judge:nvidia/nemotron-3-ultra-550b-a55b:free",
+   "confidence": 85,
+   "reasons": [
+    "امتیاز ۲۰ کمتر از آستانه ۷۰",
+    "رژیم QUIET_RANGE از FVG جلوگیری می‌کند",
+    "تناقض جهت معامله با سطوح پیشنهادی"
+   ],
+   "concerns": [
+    "فقط ۱۳ نمونه با HTF مثبت",
+    "حجم پایین ۰.۶۴×میانگین",
+    "CHoCH هنوز تایید نشده"
+   ],
+   "invalidation": "اگر CHoCH تایید شود و امتیاز به ۷۰ برسد، بازبینی شود",
+   "status": "REJECTED_AI",
+   "aiDecision": "SKIP"
+  },
+  {
+   "ts": "2026-11-19T14:56:19.736Z",
+   "barTime": "2026-11-19T13:00:00.000Z",
+   "sym": "FILUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 26,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.44,
+     "n": 15,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 15,
+     "avg_r": 0.44,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.5844,
+   "stop": 0.57199905,
+   "t1": 0.60300143,
+   "t2": 0.62160286,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "ناحیه‌ی BREAKER فقط 0.52×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 25,
+    "win": 56,
+    "avg": 0.37,
+    "pf": 1.79
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "judge:nvidia/nemotron-3-ultra-550b-a55b:free",
+   "confidence": 90,
+   "reasons": [
+    "پارامترهای استاپ و تارگت با جهت SHORT هم‌سو نیستند",
+    "امتیاز سیگنال ۲۶ بسیار زیر آستانه ۷۰",
+    "تایید CHoCH انجام نشده (SWEPT_WAIT_CHOCH)"
+   ],
+   "concerns": [
+    "ناحیه بریکر حمایت فقط ۰.۵۲ ATR فاصله دارد",
+    "رتریسمن فیب ۴۹٪ نزدیک سطح مقاومت ۰.۵",
+    "حجم معاملات ۱۶٪ پایین‌تر از میانگین"
+   ],
+   "invalidation": "استاپ‌لاس و تارگت‌ها جهت معامله را تأیید نمی‌کنند",
+   "status": "REJECTED_AI",
+   "aiDecision": "SKIP"
+  },
+  {
+   "ts": "2026-11-19T14:55:14.289Z",
+   "barTime": "2026-11-19T13:00:00.000Z",
+   "sym": "ONDOUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 32,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.3,
+     "n": 21,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 21,
+     "avg_r": 0.3,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.3061,
+   "stop": 0.300884,
+   "t1": 0.313924,
+   "t2": 0.321748,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "ناحیه‌ی BREAKER فقط 0.86×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 24,
+    "win": 50,
+    "avg": 0.23,
+    "pf": 1.43
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "judge:nvidia/nemotron-3-ultra-550b-a55b:free",
+   "confidence": 90,
+   "reasons": [
+    "پیشنهاد جهت SHORT اما سطوح ورود/حد ضرر/هدف‌ها برای LONG تنظیم شده",
+    "امتیاز SHORT فقط ۳۲، کمتر از آستانه ۷۰",
+    "رژیم QUIET_RANGE با پرهیز از شکست و FVG"
+   ],
+   "concerns": [
+    "عدم تطابق جهت معامله با سطوح پیشنهادی",
+    "ناحیه BREAKER تنها ۰.۸۶×ATR فاصله دارد",
+    "تاریخچه محدود (۱۰ نمونه با HTF) و نرخ برد ۵۰٪"
+   ],
+   "invalidation": "اگر قیمت بالای ۰.۳۰۷۷ (FVG بالا) تثبیت شود، بایاس DOWN در HTF تضعیف می‌شود",
+   "status": "REJECTED_AI",
+   "aiDecision": "SKIP"
+  },
+  {
    "ts": "2026-11-19T14:45:52.343Z",
    "barTime": "2026-11-19T08:00:00.000Z",
    "sym": "XPLUSDT",
@@ -3450,181 +3633,83 @@
    "invalidation": "بسته شدن کندل چهارساعته زیر سطح ۱۵۹.۴۴۳۵",
    "status": "REJECTED_AI",
    "aiDecision": "SKIP"
-  },
-  {
-   "ts": "2026-11-19T12:17:32.059Z",
-   "barTime": "2026-11-19T11:00:00.000Z",
-   "sym": "INITUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 70,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.41,
-     "n": 19,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 21,
-     "avg_r": -0.06,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "NEUTRAL",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.10099,
-   "stop": 0.09562632,
-   "t1": 0.10903552,
-   "t2": 0.11708103,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (21× · -0.06R)"
-   ],
-   "warns": [
-    "ناحیه‌ی BREAKER فقط 0.32×ATR جلوتر"
-   ],
-   "tm": {
-    "n": 21,
-    "win": 43,
-    "avg": -0.06,
-    "pf": 0.9
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (21× · -0.06R)"
-   ]
-  },
-  {
-   "ts": "2026-11-19T12:16:21.379Z",
-   "barTime": "2026-11-19T08:00:00.000Z",
-   "sym": "ENAUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 72,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "DONCHIAN20",
-     "name": "Donchian 20 breakout (Turtle)",
-     "avg_r": 0.24,
-     "n": 27,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": 0.04,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.11138,
-   "stop": 0.11746546,
-   "t1": 0.10225181,
-   "t2": 0.09312363,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3.5×ATR)",
-    "واگرایی منظم خلاف جهت (RSI/MACD)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (30× · 0.04R)"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 43,
-    "avg": 0.04,
-    "pf": 1.07
-   },
-   "src": "okx",
-   "judge": "judge:gemini-3.6-flash",
-   "confidence": 85,
-   "reasons": [
-    "روند کلان و تایم‌فریم روزانه همچنان نزولی است",
-    "قدرت روند در ADX بالاست (۴۷.۷)"
-   ],
-   "concerns": [
-    "وجود واگرایی صعودی هم‌زمان RSI و MACD",
-    "کشیدگی قیمت و فاصله زیاد از EMA50 (-3.5 ATR)",
-    "بازدهی بسیار ضعیف این استراتژی در تاریخچه نماد (0.04R)"
-   ],
-   "invalidation": "تثبیت قیمت بالای 0.11307 یا تثبیت بالای EMA20",
-   "status": "REJECTED_AI",
-   "aiDecision": "SKIP"
-  },
-  {
-   "ts": "2026-11-19T12:15:44.145Z",
-   "barTime": "2026-11-19T08:00:00.000Z",
-   "sym": "FILUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 72,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "EMA_X",
-     "name": "EMA 20/50 crossover + HTF",
-     "avg_r": 0.31,
-     "n": 9,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 35,
-     "avg_r": 0.02,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.5808,
-   "stop": 0.60845581,
-   "t1": 0.53931628,
-   "t2": 0.49783256,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3.6×ATR)",
-    "واگرایی منظم خلاف جهت (RSI/MACD)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (35× · 0.02R)"
-   ],
-   "tm": {
-    "n": 35,
-    "win": 40,
-    "avg": 0.02,
-    "pf": 1.04
-   },
-   "src": "okx",
-   "judge": "judge:gemini-3.6-flash",
-   "confidence": 85,
-   "reasons": [
-    "واگرایی مثبت صعودی در RSI و MACD بر خلاف پوزیشن short",
-    "شکل‌گیری الگوی کندلی پوشای صعودی (Bullish Engulfing)",
-    "امید ریاضی بسیار ضعیف استراتژی Lens در این نماد (0.02R)"
-   ],
-   "concerns": [
-    "احتمال شروع بازگشت قیمتی به دلیل کشیدگی و واگرایی",
-    "ریسک بالای ورود به شورت بلافاصله بعد از کندل صعودی قوی"
-   ],
-   "invalidation": "بسته شدن کندل بالای سطح استاپ 0.6085 سناریوی فروش را ابطال می‌کند.",
-   "status": "REJECTED_AI",
-   "aiDecision": "SKIP"
   }
  ],
+ "shadow": [
+  {
+   "id": "ONDOUSDT|1H|SHORT|2026-11-19T13:00:00.000Z",
+   "sym": "ONDOUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "RSI2",
+   "quad": "Q3",
+   "score": 32,
+   "chase": 0,
+   "entry": 0.3061,
+   "stop": 0.300884,
+   "t1": 0.313924,
+   "t2": 0.321748,
+   "verdict": "AI_REJECTED",
+   "aiDecision": "SKIP",
+   "confidence": 90,
+   "openedAt": "2026-11-19T14:55:14.289Z",
+   "barTime": "2026-11-19T13:00:00.000Z",
+   "lastBarT": 1795093200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0
+  },
+  {
+   "id": "FILUSDT|1H|SHORT|2026-11-19T13:00:00.000Z",
+   "sym": "FILUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "RSI2",
+   "quad": "Q3",
+   "score": 26,
+   "chase": 0,
+   "entry": 0.5844,
+   "stop": 0.57199905,
+   "t1": 0.60300143,
+   "t2": 0.62160286,
+   "verdict": "AI_REJECTED",
+   "aiDecision": "SKIP",
+   "confidence": 90,
+   "openedAt": "2026-11-19T14:56:19.736Z",
+   "barTime": "2026-11-19T13:00:00.000Z",
+   "lastBarT": 1795093200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0
+  },
+  {
+   "id": "XRPUSDT|4H|SHORT|2026-11-19T08:00:00.000Z",
+   "sym": "XRPUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "strategy": "RSI2",
+   "quad": "Q3",
+   "score": 20,
+   "chase": 0,
+   "entry": 0.9887,
+   "stop": 0.95552775,
+   "t1": 1.03845838,
+   "t2": 1.08821676,
+   "verdict": "AI_REJECTED",
+   "aiDecision": "SKIP",
+   "confidence": 85,
+   "openedAt": "2026-11-19T14:57:43.623Z",
+   "barTime": "2026-11-19T08:00:00.000Z",
+   "lastBarT": 1795075200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0
+  }
+ ],
+ "shadowClosed": [],
  "seen": {
   "BTCUSDT|1H|SHORT|2026-11-17T16:00:00.000Z": 1794938306202,
   "ETHUSDT|4H|SHORT|2026-11-17T12:00:00.000Z": 1794938427502,
@@ -4167,12 +4252,16 @@
   "OKBUSDT|1H|SHORT|2026-11-19T13:00:00.000Z": 1795099551179,
   "XPLUSDT|4H|SHORT|2026-11-19T08:00:00.000Z": 1795099551758,
   "XRPUSDT|1H|SHORT|2026-11-19T13:00:00.000Z": 1795099577439,
-  "PUMPUSDT|1H|SHORT|2026-11-19T13:00:00.000Z": 1795099578048
+  "PUMPUSDT|1H|SHORT|2026-11-19T13:00:00.000Z": 1795099578048,
+  "ONDOUSDT|1H|SHORT|2026-11-19T13:00:00.000Z": 1795100113290,
+  "FILUSDT|1H|SHORT|2026-11-19T13:00:00.000Z": 1795100178757,
+  "XRPUSDT|4H|SHORT|2026-11-19T08:00:00.000Z": 1795100262663,
+  "ZECUSDT|4H|SHORT|2026-11-19T08:00:00.000Z": 1795100310458
  },
- "lastRun": "2026-11-19T14:46:18.720Z",
- "runs": 145,
+ "lastRun": "2026-11-19T14:58:31.428Z",
+ "runs": 146,
  "errors": [],
- "durationSec": 40,
+ "durationSec": 213,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -4327,8 +4416,8 @@
    "PUMPUSDT",
    "UNIUSDT",
    "LITUSDT",
-   "SUIUSDT",
    "HUMAUSDT",
+   "SUIUSDT",
    "WLDUSDT",
    "FILUSDT",
    "TRUMPUSDT",
@@ -4357,20 +4446,20 @@
    "XPLUSDT",
    "OKBUSDT",
    "DGAIUSDT",
-   "ZILUSDT",
    "PENGUUSDT",
    "ETHFIUSDT",
+   "ZILUSDT",
    "XLMUSDT",
    "JUPUSDT",
-   "TRXUSDT",
    "CRVUSDT",
    "DOTUSDT",
+   "TRXUSDT",
    "RAVEUSDT",
-   "SOPHUSDT",
    "CHIPUSDT",
-   "NIGHTUSDT",
+   "SOPHUSDT",
    "GRASSUSDT",
    "NESUSDT",
+   "NIGHTUSDT",
    "MEGAUSDT",
    "XAUUSDT",
    "XAGUSDT",
@@ -4393,7 +4482,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6766778,
+   "minVolUSD": 6737052,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4403,12 +4492,13 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 13,
-   "deep": 8,
+   "candidates": 4,
+   "deep": 4,
+   "extended": 6,
    "byClass": {
-    "crypto": 12,
+    "crypto": 4,
     "metal": 0,
-    "forex": 1,
+    "forex": 0,
     "stock": 0
    }
   },
@@ -4421,7 +4511,7 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 95,
+  "llmToday": 98,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -4521,7 +4611,7 @@
    },
    {
     "id": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
-    "calls": 26,
+    "calls": 29,
     "errors": 0,
     "exhausted": false,
     "reason": null,
@@ -4563,35 +4653,38 @@
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 19,
+   "left": 16,
    "tot": 207,
-   "frac": 0.09178743961352658
+   "frac": 0.07729468599033816
   },
   "requireAI": true,
+  "paperTrade": true,
+  "maxExtAtr": 2,
   "deferred": 0
  },
  "universeInfo": {
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6766778
+  "minVolUSD": 6737052
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 13,
-  "deep": 8,
+  "candidates": 4,
+  "deep": 4,
+  "extended": 6,
   "byClass": {
-   "crypto": 12,
+   "crypto": 4,
    "metal": 0,
-   "forex": 1,
+   "forex": 0,
    "stock": 0
   }
  },
  "llm": {
   "day": "2026-11-19",
   "v": 6,
-  "calls": 95,
+  "calls": 98,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 2,
@@ -4690,7 +4783,7 @@
     "d429": 1
    },
    "or:nvidia/nemotron-3-ultra-550b-a55b:free": {
-    "calls": 26,
+    "calls": 29,
     "exhausted": false,
     "errors": 0
    },
@@ -4857,5 +4950,15 @@
    "baidu/ernie-5.5-flash-preview:free"
   ],
   "freeTotal": 14
+ },
+ "shadowStats": {
+  "all": null,
+  "byVerdict": {},
+  "byConf": {},
+  "byAiDecision": {},
+  "byChase": {},
+  "byStrategy": {},
+  "byQuad": {},
+  "open": 3
  }
 }
