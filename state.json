@@ -351,6 +351,63 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-19T09:23:15.844Z",
+   "barTime": "2026-11-19T04:00:00.000Z",
+   "sym": "DOGEUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 52,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.25,
+     "n": 19,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 19,
+     "avg_r": 0.25,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.05954,
+   "stop": 0.0615521,
+   "t1": 0.05652185,
+   "t2": 0.05350369,
+   "rr": 3,
+   "fails": [],
+   "warns": [],
+   "tm": {
+    "n": 29,
+    "win": 41,
+    "avg": -0.06,
+    "pf": 0.9
+   },
+   "src": "okx",
+   "desk": {
+    "mode": "deferred: agents failed",
+    "llmToday": 12
+   },
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (agents failed) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 1
+  },
+  {
    "ts": "2026-11-19T09:15:38.570Z",
    "barTime": "2026-11-19T09:00:00.000Z",
    "sym": "EURAUD",
@@ -3475,59 +3532,6 @@
    "reasons": [
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (27× · -0.23R)"
    ]
-  },
-  {
-   "ts": "2026-11-19T06:00:58.385Z",
-   "barTime": "2026-11-19T05:00:00.000Z",
-   "sym": "TRXUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 78,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "EMA_X",
-     "name": "EMA 20/50 crossover + HTF",
-     "avg_r": -0.06,
-     "n": 16,
-     "verdict": "NEGATIVE"
-    },
-    "mine": {
-     "n": 26,
-     "avg_r": -0.41,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "NEUTRAL",
-   "event": "LONG_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.31246,
-   "stop": 0.31090475,
-   "t1": 0.31479287,
-   "t2": 0.31712575,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (26× · -0.41R)"
-   ],
-   "warns": [
-    "نسبتاً کش‌شده (3.7×ATR)",
-    "واگرایی منظم خلاف جهت (MACD)",
-    "ناحیه‌ی OB فقط 0.64×ATR جلوتر"
-   ],
-   "tm": {
-    "n": 26,
-    "win": 31,
-    "avg": -0.41,
-    "pf": 0.54
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (26× · -0.41R)"
-   ]
   }
  ],
  "seen": {
@@ -3918,12 +3922,19 @@
   "AUDJPY|1H|LONG|2026-11-19T09:00:00.000Z": 1795079738553,
   "EURAUD|1H|LONG|2026-11-19T09:00:00.000Z": 1795079738561,
   "USDJPY|1H|LONG|2026-11-19T09:00:00.000Z": 1795079738570,
-  "XLMUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795079738577
+  "XLMUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795079738577,
+  "GBPCHF|1H|SHORT|2026-11-19T09:00:00.000Z": 1795080194058,
+  "STRKUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795080194066,
+  "EURJPY|4H|SHORT|2026-11-19T04:00:00.000Z": 1795080194640,
+  "TRUMPUSDT|1H|LONG|2026-11-19T08:00:00.000Z": 1795080194689,
+  "PONSUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795080245651,
+  "EURGBP|4H|SHORT|2026-11-19T04:00:00.000Z": 1795080246270,
+  "GBPUSD|4H|LONG|2026-11-19T04:00:00.000Z": 1795080246339
  },
- "lastRun": "2026-11-19T09:15:39.155Z",
- "runs": 122,
+ "lastRun": "2026-11-19T09:24:06.385Z",
+ "runs": 123,
  "errors": [],
- "durationSec": 11,
+ "durationSec": 63,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -4073,17 +4084,17 @@
    "WLDUSDT",
    "FILUSDT",
    "LITUSDT",
-   "ENAUSDT",
    "TRUMPUSDT",
+   "ENAUSDT",
    "HUMAUSDT",
    "BREVUSDT",
    "STRKUSDT",
    "AAVEUSDT",
    "ADAUSDT",
-   "SENTUSDT",
    "LINKUSDT",
-   "BTWUSDT",
+   "SENTUSDT",
    "INJUSDT",
+   "BTWUSDT",
    "BCHUSDT",
    "LTCUSDT",
    "AVAXUSDT",
@@ -4107,11 +4118,11 @@
    "SOPHUSDT",
    "JUPUSDT",
    "NIGHTUSDT",
-   "SOONUSDT",
    "DOTUSDT",
    "ETHFIUSDT",
-   "ICPUSDT",
+   "SOONUSDT",
    "QNTUSDT",
+   "ICPUSDT",
    "APTUSDT",
    "GRAMUSDT",
    "OPUSDT",
@@ -4136,7 +4147,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6612602,
+   "minVolUSD": 6623876,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4146,12 +4157,12 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 33,
+   "candidates": 25,
    "deep": 8,
    "byClass": {
-    "crypto": 18,
+    "crypto": 16,
     "metal": 0,
-    "forex": 15,
+    "forex": 9,
     "stock": 0
    }
   },
@@ -4164,249 +4175,267 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 92,
+  "llmToday": 12,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
    "gemini-3.1-flash-lite",
    "gemini-3.6-flash"
   ],
-  "slots": 9,
-  "slotsExhausted": 9,
-  "active": "k2:gemini-3.6-flash",
+  "slots": 12,
+  "slotsExhausted": 3,
+  "active": "or:deepseek/deepseek-chat-v3-0324:free",
   "slotTable": [
    {
     "id": "k1:gemini-3.5-flash-lite",
-    "calls": 14,
-    "errors": 8,
-    "exhausted": true,
-    "reason": "429 repeated 10min",
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "calls": 1,
+    "errors": 1,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "cooling": true
    },
    {
     "id": "k2:gemini-3.5-flash-lite",
-    "calls": 13,
-    "errors": 8,
-    "exhausted": true,
-    "reason": "429 repeated 10min",
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "calls": 1,
+    "errors": 1,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "cooling": true
    },
    {
     "id": "k3:gemini-3.5-flash-lite",
-    "calls": 13,
-    "errors": 8,
-    "exhausted": true,
-    "reason": "429 repeated 10min",
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "calls": 1,
+    "errors": 1,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "cooling": true
    },
    {
     "id": "k1:gemini-3.1-flash-lite",
-    "calls": 8,
-    "errors": 8,
-    "exhausted": true,
-    "reason": "429 repeated 10min",
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "calls": 1,
+    "errors": 1,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "cooling": true
    },
    {
     "id": "k2:gemini-3.1-flash-lite",
-    "calls": 8,
-    "errors": 8,
-    "exhausted": true,
-    "reason": "429 repeated 10min",
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "calls": 1,
+    "errors": 1,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "cooling": true
    },
    {
     "id": "k3:gemini-3.1-flash-lite",
-    "calls": 8,
-    "errors": 8,
-    "exhausted": true,
-    "reason": "429 repeated 10min",
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "calls": 1,
+    "errors": 1,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "cooling": true
    },
    {
     "id": "k1:gemini-3.6-flash",
-    "calls": 9,
-    "errors": 7,
-    "exhausted": true,
-    "reason": "daily quota",
-    "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "calls": 1,
+    "errors": 1,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": true
    },
    {
     "id": "k2:gemini-3.6-flash",
-    "calls": 17,
-    "errors": 10,
-    "exhausted": true,
-    "reason": "429 repeated 10min",
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "calls": 1,
+    "errors": 1,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": true
    },
    {
     "id": "k3:gemini-3.6-flash",
-    "calls": 2,
-    "errors": 2,
+    "calls": 1,
+    "errors": 1,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": true
+   },
+   {
+    "id": "or:meta-llama/llama-3.3-70b-instruct:free",
+    "calls": 1,
+    "errors": 1,
     "exhausted": true,
-    "reason": "daily quota",
-    "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "reason": "HTTP 404 {\"error\":{\"message\":\"This model is unavailable for free. The paid versi",
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "or:qwen/qwen3-235b-a22b:free",
+    "calls": 1,
+    "errors": 1,
+    "exhausted": true,
+    "reason": "HTTP 404 {\"error\":{\"message\":\"Qwen3 235B A22B was deprecated on Oct 9, 2026. We ",
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "or:deepseek/deepseek-chat-v3-0324:free",
+    "calls": 1,
+    "errors": 1,
+    "exhausted": true,
+    "reason": "HTTP 404 {\"error\":{\"message\":\"This model is unavailable for free. The paid versi",
+    "lastErr": null,
     "cooling": false
    }
   ],
   "llmRaw": [
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
+   "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k2:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k1:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k3:gemini-3.5-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
+  "llmBudget": {
+   "left": 153,
+   "tot": 207,
+   "frac": 0.7391304347826086
+  },
   "requireAI": true,
-  "deferred": 8
+  "deferred": 9
  },
  "universeInfo": {
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6612602
+  "minVolUSD": 6623876
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 33,
+  "candidates": 25,
   "deep": 8,
   "byClass": {
-   "crypto": 18,
+   "crypto": 16,
    "metal": 0,
-   "forex": 15,
+   "forex": 9,
    "stock": 0
   }
  },
  "llm": {
   "day": "2026-11-19",
-  "v": 4,
-  "calls": 92,
+  "v": 6,
+  "calls": 12,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
-    "calls": 14,
-    "exhausted": true,
-    "errors": 8,
-    "r429": 8,
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795048606005,
-    "cooldownUntil": 1795048651005,
-    "cool": 8,
-    "coolAt": 1795046463286,
-    "reason": "429 repeated 10min"
+    "calls": 1,
+    "exhausted": false,
+    "errors": 1,
+    "r429": 1,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "lastErrAt": 1795080196226,
+    "d429": 1,
+    "cooldownUntil": 1795080286226
    },
    "k2:gemini-3.5-flash-lite": {
-    "calls": 13,
-    "exhausted": true,
-    "errors": 8,
-    "r429": 8,
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795048597006,
-    "cooldownUntil": 1795048642006,
-    "cool": 8,
-    "coolAt": 1795046467765,
-    "reason": "429 repeated 10min"
+    "calls": 1,
+    "exhausted": false,
+    "errors": 1,
+    "r429": 1,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "lastErrAt": 1795080200744,
+    "d429": 1,
+    "cooldownUntil": 1795080290744
    },
    "k3:gemini-3.5-flash-lite": {
-    "calls": 13,
-    "exhausted": true,
-    "errors": 8,
-    "r429": 8,
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795048601543,
-    "cooldownUntil": 1795048646543,
-    "cool": 8,
-    "coolAt": 1795046472268,
-    "reason": "429 repeated 10min"
+    "calls": 1,
+    "exhausted": false,
+    "errors": 1,
+    "r429": 1,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "lastErrAt": 1795080205227,
+    "d429": 1,
+    "cooldownUntil": 1795080295227
    },
    "k1:gemini-3.1-flash-lite": {
-    "calls": 8,
-    "exhausted": true,
-    "errors": 8,
-    "r429": 8,
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795048610522,
-    "cooldownUntil": 1795048655522,
-    "cool": 8,
-    "coolAt": 1795046476770,
-    "reason": "429 repeated 10min"
+    "calls": 1,
+    "exhausted": false,
+    "errors": 1,
+    "r429": 1,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "lastErrAt": 1795080209732,
+    "d429": 1,
+    "cooldownUntil": 1795080299732
    },
    "k2:gemini-3.1-flash-lite": {
-    "calls": 8,
-    "exhausted": true,
-    "errors": 8,
-    "r429": 8,
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795048615033,
-    "cooldownUntil": 1795048660033,
-    "cool": 8,
-    "coolAt": 1795046481270,
-    "reason": "429 repeated 10min"
+    "calls": 1,
+    "exhausted": false,
+    "errors": 1,
+    "r429": 1,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "lastErrAt": 1795080214267,
+    "d429": 1,
+    "cooldownUntil": 1795080304267
    },
    "k3:gemini-3.1-flash-lite": {
-    "calls": 8,
-    "exhausted": true,
-    "errors": 8,
-    "r429": 8,
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795048619534,
-    "cooldownUntil": 1795048664534,
-    "cool": 8,
-    "coolAt": 1795046485773,
-    "reason": "429 repeated 10min"
+    "calls": 1,
+    "exhausted": false,
+    "errors": 1,
+    "r429": 1,
+    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "lastErrAt": 1795080218740,
+    "d429": 1,
+    "cooldownUntil": 1795080308740
    },
    "k1:gemini-3.6-flash": {
-    "calls": 9,
-    "exhausted": true,
-    "errors": 7,
-    "cooldownUntil": 1795049285293,
-    "r429": 5,
-    "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795049290066,
-    "d429": 2,
-    "cool": 3,
-    "coolAt": 1795049140774,
-    "reason": "daily quota"
+    "calls": 1,
+    "exhausted": false,
+    "errors": 1,
+    "cooldownUntil": 1795080283496
    },
    "k2:gemini-3.6-flash": {
-    "calls": 17,
-    "exhausted": true,
-    "errors": 10,
-    "cooldownUntil": 1795050285003,
-    "r429": 9,
-    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795050240003,
-    "d429": 1,
-    "cool": 8,
-    "coolAt": 1795049145253,
-    "reason": "429 repeated 10min"
+    "calls": 1,
+    "exhausted": false,
+    "errors": 1,
+    "cooldownUntil": 1795080288002
    },
    "k3:gemini-3.6-flash": {
-    "calls": 2,
+    "calls": 1,
+    "exhausted": false,
+    "errors": 1,
+    "cooldownUntil": 1795080292408
+   },
+   "or:meta-llama/llama-3.3-70b-instruct:free": {
+    "calls": 1,
     "exhausted": true,
-    "errors": 2,
-    "r429": 2,
-    "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795047562339,
-    "d429": 2,
-    "cooldownUntil": 1795047473990,
-    "reason": "daily quota"
+    "errors": 1,
+    "reason": "HTTP 404 {\"error\":{\"message\":\"This model is unavailable for free. The paid versi"
+   },
+   "or:qwen/qwen3-235b-a22b:free": {
+    "calls": 1,
+    "exhausted": true,
+    "errors": 1,
+    "reason": "HTTP 404 {\"error\":{\"message\":\"Qwen3 235B A22B was deprecated on Oct 9, 2026. We "
+   },
+   "or:deepseek/deepseek-chat-v3-0324:free": {
+    "calls": 1,
+    "exhausted": true,
+    "errors": 1,
+    "reason": "HTTP 404 {\"error\":{\"message\":\"This model is unavailable for free. The paid versi"
    }
   },
-  "active": "k2:gemini-3.6-flash",
+  "active": "or:deepseek/deepseek-chat-v3-0324:free",
   "raw": [
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
-  ],
-  "switched": 2
+   "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k2:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k1:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k3:gemini-3.5-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
+  ]
  },
  "macroCache": {},
  "pending": {
@@ -4491,6 +4520,7 @@
   "USDCAD|4H|LONG|2026-11-19T04:00:00.000Z": 4,
   "ENAUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 4,
   "FILUSDT|1H|SHORT|2026-11-19T07:00:00.000Z": 3,
-  "USDJPY|4H|LONG|2026-11-19T04:00:00.000Z": 4
+  "USDJPY|4H|LONG|2026-11-19T04:00:00.000Z": 4,
+  "DOGEUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1
  }
 }
