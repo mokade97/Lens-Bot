@@ -55,6 +55,18 @@ const serial = fn => { const p = chain.then(fn, fn); chain = p.catch(() => { });
 function classify429(m) { const out = { kind: 'unknown', retry: null, quota: null, limit: null, msg: (m.match(/"message"\s*:\s*"([^"]{0,160})/) || [])[1] || null }; const lim = m.match(/limit:\s*(\d+)/i); if (lim) { out.limit = +lim[1]; if (out.limit === 0) { out.kind = 'daily'; out.zero = true; } } const r = m.match(/retry in ([\d.]+)s/i) || m.match(/"retryDelay"\s*:\s*"([\d.]+)s"/); if (r) out.retry = +r[1];
   const qid = m.match(/"quotaId"\s*:\s*"([^"]+)"/) || m.match(/(Generate\w*Per\w+)/); if (qid) out.quota = qid[1];
   if (/PerDay|per day|daily/i.test(m)) out.kind = 'daily'; else if (/PerMinute|per minute|RPM|TPM|InputTokens/i.test(m)) out.kind = 'minute'; else if (/exceeded your current quota/i.test(m) && !out.retry) out.kind = 'daily'; else out.kind = 'unknown'; return out; }   // Google's generic 'exceeded your current quota' without details = project daily cap on new free-tier accounts
+const OR_PREFER = ['nvidia/nemotron-3-ultra-550b-a55b:free', 'google/gemma-4-31b-it:free', 'nvidia/nemotron-3.5-super-vl:free', 'baidu/ernie-5.5-flash-preview:free', 'google/gemma-4-26b-a4b-it:free', 'inclusionai/ling-3.2-flash:free', 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free', 'deepseek/deepseek-r1:free', 'meta-llama/llama-3.3-70b-instruct:free'];
+// Resolve the OpenRouter model list once a day from /api/v1/models: configured models that still exist, then preferred ones, then any other :free model. Result cached in S.orModels.
+async function resolveOpenRouter(CFG, S) {
+  if (!process.env.OPENROUTER_API_KEY) return [];
+  const want = Math.max(1, CFG.openrouterCount || 4); const cfgList = Array.isArray(CFG.openrouterModels) ? CFG.openrouterModels : []; const day = new Date().toISOString().slice(0, 10);
+  if (S.orModels && S.orModels.day === day && S.orModels.list && S.orModels.list.length) { CFG.openrouterModels = S.orModels.list; return S.orModels.list; }
+  try { const j = await J('https://openrouter.ai/api/v1/models', 20000); const all = (j.data || []).map(m => m.id); const free = all.filter(id => /:free$/.test(id)); const has = id => all.includes(id);
+    const bad = /small|mini|nano-\d|1\.7b|lightning|note|code/i; const out = [];
+    cfgList.filter(has).forEach(id => out.push(id)); OR_PREFER.filter(id => has(id) && !out.includes(id)).forEach(id => out.push(id)); free.filter(id => !out.includes(id) && !bad.test(id)).forEach(id => out.push(id));
+    const list = out.slice(0, want); if (list.length) { S.orModels = { day, list, freeTotal: free.length }; CFG.openrouterModels = list; } return list; }
+  catch (e) { const list = cfgList.length ? cfgList : OR_PREFER.slice(0, want); CFG.openrouterModels = list; return list; }
+}
 function makeLLM(CFG, S) {
   const keys = geminiKeys(); const models = Array.isArray(CFG.geminiModels) && CFG.geminiModels.length ? CFG.geminiModels : [CFG.geminiModel]; const today = new Date().toISOString().slice(0, 10);
   const LLM_V = 6; S.llm = S.llm && S.llm.day === today && S.llm.v === LLM_V ? S.llm : { day: today, v: LLM_V, calls: 0, slots: {} }; S.llm.slots = S.llm.slots || {};   let runCalls = 0;   // v bump = forget stale exhausted flags written by older code
@@ -88,7 +100,7 @@ function makeLLM(CFG, S) {
           const wait = Math.min(120000, Math.max(30000, (q.retry || 45) * 1000)); x.cooldownUntil = Date.now() + wait; x.cool = (x.cool || 0) + 1; x.coolAt = x.coolAt || Date.now();   // per-minute / unknown → cool-down ≥30 s, keep slot
           if (x.cool >= 8 && Date.now() - x.coolAt > 10 * 60000) { x.exhausted = true; x.reason = '429 repeated 10min'; }
           if (us.length === 1) await sleep(wait); continue; }
-        if (/HTTP (400|403|404)/.test(m)) { x.exhausted = true; x.reason = m.slice(0, 80); continue; }                                            // bad key / unknown model → next slot
+        if (/HTTP (400|403|404)/.test(m)) { x.exhausted = true; x.reason = sl.prov === 'or' && /404/.test(m) ? 'model gone/not free — auto list refreshes tomorrow' : m.slice(0, 80); continue; }                                            // bad key / unknown model → next slot
         if (/HTTP (503|500)|abort/i.test(m)) { x.cooldownUntil = Date.now() + 60000; if (us.length === 1) await sleep(8000 * (i + 1)); continue; }   // overloaded → cool this slot, try another
         if (web && i === 0) { web = false; continue; } throw e; }
     } throw last;
@@ -143,4 +155,4 @@ function summarize(a) {
   const pick = (o, keys) => o ? (o.error ? { error: o.error } : Object.fromEntries(keys.filter(k => o[k] != null).map(k => [k, o[k]]))) : null;
   return { tech: pick(a.tech, ['bias', 'confidence', 'key_points', 'what_changes_my_mind']), macro: pick(a.macro, ['bias', 'confidence', 'key_points', 'events_next_7d', 'note_for_symbol', 'cached']), sent: pick(a.sent, ['bias', 'confidence', 'key_points']), bull: a.debate && a.debate.bull ? pick(a.debate.bull, ['confidence', 'case']) : null, bear: a.debate && a.debate.bear ? pick(a.debate.bear, ['confidence', 'case']) : null };
 }
-module.exports = { decide, liveMarket, derivatives, mtfFromEngine, geminiKeys, makeLLM, classify429, J };
+module.exports = { resolveOpenRouter, OR_PREFER, decide, liveMarket, derivatives, mtfFromEngine, geminiKeys, makeLLM, classify429, J };
