@@ -40,7 +40,7 @@ Secretهای `GEMINI_API_KEY`, `GEMINI_API_KEY_2`, `GEMINI_API_KEY_3` (هر کد
 ## مدل‌ها و سهمیه‌ی رایگان (نوامبر ۲۰۲۶)
 | مدل | RPM | **درخواست در روز (هر پروژه)** |
 |---|---|---|
-| gemini-3.5-flash-lite / gemini-3.1-flash-lite | 15 | **500** |
+| gemini-3.5-flash-lite / gemini-3.1-flash-lite | 15 | رسمی ۵۰۰ — **روی پروژه‌های تازه عملاً ≈۲۰** (پیام عمومی «exceeded your current quota») |
 | gemini-3.6-flash / 3.8-flash | 5 | **20** |
 
 یک میزگرد ≈ ۶ فراخوانی؛ پس flash فقط ۳ میزگرد در روز می‌دهد. پیش‌فرض v84: اول **flash-lite** (۵۰۰/روز × هر کلید)، بعد 3.1-flash-lite، آخر 3.6-flash. `gemini-3.6-flash-lite` وجود ندارد (404).
@@ -48,6 +48,12 @@ Secretهای `GEMINI_API_KEY`, `GEMINI_API_KEY_2`, `GEMINI_API_KEY_3` (هر کد
 ## بررسی کلیدها (`Key check`)
 Actions → **Key check** → Run workflow: هر کلید×مدل یک درخواست کوچک می‌زند و جدول وضعیت چاپ می‌کند (OK / 429 DAILY QUOTA / 429 per-minute / HTTP 400). محلی: `GEMINI_API_KEY=... GEMINI_API_KEY_2=... node keycheck.js`. باقی‌مانده‌ی سهمیه را API نمی‌دهد؛ در AI Studio → Usage/Rate limits هر پروژه ببین.
 ربات ۴۲۹ را تفکیک می‌کند: **PerDay** → اسلات تا فردا کنار می‌رود؛ **PerMinute** → فقط خنک‌شدن کوتاه (retryDelay گوگل) و اسلات می‌ماند.
+
+## OpenRouter (ارائه‌دهنده‌ی دوم)
+Secret `OPENROUTER_API_KEY` (openrouter.ai → Keys). پیش‌فرض بعد از Gemini استفاده می‌شود (`providerOrder`). مدل‌ها در `openrouterModels` (پیش‌فرض سه مدل `:free`؛ هر مدل دلخواه OpenRouter مثل `anthropic/claude-sonnet-4.5` هم می‌شود — پولی). سهمیه‌ی رایگان OpenRouter: **۵۰ درخواست/روز** (۱۰۰۰/روز پس از خرید یک‌باره‌ی ۱۰ دلار اعتبار)، ۲۰/دقیقه؛ `openrouterDaily` را مطابق آن بگذار (۴۵ یا ۹۵۰). با مدل‌های پولی `openrouterDaily` را بزرگ کن و `providerOrder: ["openrouter","gemini"]` بگذار تا اول آن استفاده شود. Key check وضعیت کلید و مدل‌های OpenRouter را هم نشان می‌دهد.
+
+## جیره‌بندی AI
+بودجه‌ی روزانه‌ی هر اسلات ≈ ۱۸. تا وقتی ≥۴۰٪ بودجه‌ی کل روز مانده، میزگرد کامل (۳ فراخوانی)؛ بعد از آن قاضی تک‌فراخوانی؛ وقتی همه تمام شد → DEFER (AI اجباری). `roundtableMinBudgetFrac` قابل تنظیم. bot.json: `llmBudget {left,tot}`.
 
 ## زمان اجرا و میزگرد سبک
 `runBudgetSec` (۵۴۰): اگر تحلیل عمیق به این زمان برسد، کاندیدهای باقی‌مانده به اجرای بعدی موکول می‌شوند تا state همیشه ذخیره/commit شود (ورک‌فلو ۲۰ دقیقه timeout دارد). `roundtableLite` (true): تحلیل‌گر تکنیکال و سنتیمنت در **یک** فراخوانی → هر ستاپ ۳ فراخوانی (+۱ ماکرو هر ۴ ساعت) به‌جای ۵.

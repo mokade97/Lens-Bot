@@ -54,16 +54,20 @@ let lastCallAt = 0, chain = Promise.resolve();
 const serial = fn => { const p = chain.then(fn, fn); chain = p.catch(() => { }); return p; };
 function classify429(m) { const out = { kind: 'unknown', retry: null, quota: null, limit: null, msg: (m.match(/"message"\s*:\s*"([^"]{0,160})/) || [])[1] || null }; const lim = m.match(/limit:\s*(\d+)/i); if (lim) { out.limit = +lim[1]; if (out.limit === 0) { out.kind = 'daily'; out.zero = true; } } const r = m.match(/retry in ([\d.]+)s/i) || m.match(/"retryDelay"\s*:\s*"([\d.]+)s"/); if (r) out.retry = +r[1];
   const qid = m.match(/"quotaId"\s*:\s*"([^"]+)"/) || m.match(/(Generate\w*Per\w+)/); if (qid) out.quota = qid[1];
-  if (/PerDay|per day|daily/i.test(m)) out.kind = 'daily'; else if (/PerMinute|per minute|RPM|TPM|InputTokens/i.test(m)) out.kind = 'minute'; else out.kind = 'unknown'; return out; }
+  if (/PerDay|per day|daily/i.test(m)) out.kind = 'daily'; else if (/PerMinute|per minute|RPM|TPM|InputTokens/i.test(m)) out.kind = 'minute'; else if (/exceeded your current quota/i.test(m) && !out.retry) out.kind = 'daily'; else out.kind = 'unknown'; return out; }   // Google's generic 'exceeded your current quota' without details = project daily cap on new free-tier accounts
 function makeLLM(CFG, S) {
   const keys = geminiKeys(); const models = Array.isArray(CFG.geminiModels) && CFG.geminiModels.length ? CFG.geminiModels : [CFG.geminiModel]; const today = new Date().toISOString().slice(0, 10);
-  const LLM_V = 4; S.llm = S.llm && S.llm.day === today && S.llm.v === LLM_V ? S.llm : { day: today, v: LLM_V, calls: 0, slots: {} }; S.llm.slots = S.llm.slots || {};   let runCalls = 0;   // v bump = forget stale exhausted flags written by older code
+  const LLM_V = 6; S.llm = S.llm && S.llm.day === today && S.llm.v === LLM_V ? S.llm : { day: today, v: LLM_V, calls: 0, slots: {} }; S.llm.slots = S.llm.slots || {};   let runCalls = 0;   // v bump = forget stale exhausted flags written by older code
   // a "slot" = key × model; Google quotas are per project AND per model, so every slot has its own daily budget
-  const slots = []; models.forEach((m, mi) => keys.forEach((k, ki) => slots.push({ id: `k${ki + 1}:${m}`, key: k, model: m, ki, mi })));
+  const slots = []; const orKey = process.env.OPENROUTER_API_KEY || ''; const orModels = Array.isArray(CFG.openrouterModels) ? CFG.openrouterModels : [];
+  const order = Array.isArray(CFG.providerOrder) && CFG.providerOrder.length ? CFG.providerOrder : ['gemini', 'openrouter'];
+  order.forEach((prov, pi) => { if (prov === 'gemini') models.forEach((m, mi) => keys.forEach((k, ki) => slots.push({ prov: 'gemini', id: `k${ki + 1}:${m}`, key: k, model: m, ki, mi: pi * 100 + mi })));
+    if (prov === 'openrouter' && orKey) orModels.forEach((m, mi) => slots.push({ prov: 'or', id: `or:${m}`, key: orKey, model: m, ki: 0, mi: pi * 100 + mi })); });
   Object.keys(S.llm.slots).forEach(id => { if (!slots.some(sl => sl.id === id)) delete S.llm.slots[id]; });   // drop slots of removed keys/models
   const st = sl => S.llm.slots[sl.id] = S.llm.slots[sl.id] || { calls: 0, exhausted: false, errors: 0 };
-  const MODEL_RPD = { 'gemini-3.6-flash': 20, 'gemini-3.8-flash': 20, 'gemini-3.7-flash': 20, 'gemini-3-flash-preview': 20, 'gemini-2.5-flash': 20, 'gemini-3.5-flash-lite': 500, 'gemini-3.1-flash-lite': 500 };
-  const budgetOf = sl => { const mb = CFG.modelBudget && CFG.modelBudget[sl.model]; if (mb) return mb; const rpd = MODEL_RPD[sl.model]; return rpd ? Math.max(1, rpd - 2) : (CFG.dailyLLMBudget || 200); };
+  const MODEL_RPD = { 'gemini-3.6-flash': 20, 'gemini-3.8-flash': 20, 'gemini-3.7-flash': 20, 'gemini-3-flash-preview': 20, 'gemini-2.5-flash': 20, 'gemini-3.5-flash-lite': 20, 'gemini-3.1-flash-lite': 20 };   // observed on new free-tier projects (Nov 2026): ~20/day per project per model, even for lite
+  const orUsed = () => slots.filter(x => x.prov === 'or').reduce((n, x) => n + (S.llm.slots[x.id] ? S.llm.slots[x.id].calls : 0), 0);
+  const budgetOf = sl => { if (sl.prov === 'or') return Math.max(0, (CFG.openrouterDaily || 45) - orUsed() + (S.llm.slots[sl.id] ? S.llm.slots[sl.id].calls : 0)); const mb = CFG.modelBudget && CFG.modelBudget[sl.model]; if (mb) return mb; const rpd = MODEL_RPD[sl.model]; return rpd ? Math.max(1, rpd - 2) : (CFG.dailyLLMBudget || 200); };
   const usable = () => slots.filter(sl => { const x = st(sl); return !x.exhausted && x.calls < budgetOf(sl) && !(x.cooldownUntil && x.cooldownUntil > Date.now()); });
   const can = () => slots.length > 0 && usable().length > 0 && runCalls < (CFG.maxLLMPerRun || 24) * Math.max(1, slots.length);
   async function call(prompt, { json = true, web = false, temp = 0.3 } = {}) {
@@ -73,8 +77,12 @@ function makeLLM(CFG, S) {
       us.sort((p, q) => p.mi - q.mi || st(p).calls - st(q).calls || p.ki - q.ki); const sl = us[0]; const x = st(sl); const body = { contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { temperature: temp, ...(json && !web ? { responseMimeType: 'application/json' } : {}) }, ...(web ? { tools: [{ google_search: {} }] } : {}) };
       x.calls++; S.llm.calls++; runCalls++; S.llm.active = sl.id;
       try { const j = await serial(async () => { const gap = (CFG.llmMinGapMs != null ? CFG.llmMinGapMs : 4500) - (Date.now() - lastCallAt); if (gap > 0) await sleep(gap); lastCallAt = Date.now();   // one request at a time, spaced → never bursts above free-tier RPM
-          return J(`https://generativelanguage.googleapis.com/v1beta/models/${sl.model}:generateContent?key=${sl.key}`, 90000, { method: 'POST', body: JSON.stringify(body) }); }); const txt = (j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts || []).map(t => t.text || '').join(''); const out = json ? parseJ(txt) : txt; if (out && typeof out === 'object') out._model = sl.model; return out; }
+          if (sl.prov === 'or') return J('https://openrouter.ai/api/v1/chat/completions', 120000, { method: 'POST', headers: { 'Authorization': 'Bearer ' + sl.key, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://github.com/lens-bot', 'X-Title': 'Lens Bot' }, body: JSON.stringify({ model: sl.model, temperature: temp, messages: [{ role: 'user', content: prompt + (json ? '\n\nRespond with a single JSON object only, no markdown.' : '') }], ...(json ? { response_format: { type: 'json_object' } } : {}) }) });
+          return J(`https://generativelanguage.googleapis.com/v1beta/models/${sl.model}:generateContent?key=${sl.key}`, 90000, { method: 'POST', body: JSON.stringify(body) }); });
+        if (j && j.error && sl.prov === 'or') throw Object.assign(new Error('HTTP ' + (j.error.code || 500) + ' ' + JSON.stringify(j.error).slice(0, 300)), { status: j.error.code });
+        const txt = sl.prov === 'or' ? (j.choices && j.choices[0] && j.choices[0].message && (j.choices[0].message.content || '') || '') : (j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts || []).map(t => t.text || '').join(''); const out = json ? parseJ(txt) : txt; if (out && typeof out === 'object') out._model = sl.model; return out; }
       catch (e) { last = e; const m = String(e.message || e); x.errors++;
+        if (/HTTP 429/.test(m) && sl.prov === 'or') { x.r429 = (x.r429 || 0) + 1; x.lastErr = m.slice(9, 200); if (/per-day|daily|free-models/i.test(m) || x.r429 >= 3) { slots.filter(z => z.prov === 'or').forEach(z => { const y = st(z); y.exhausted = true; y.reason = 'OpenRouter daily cap'; }); } else { x.cooldownUntil = Date.now() + 30000; } continue; }
         if (/HTTP 429/.test(m)) { x.r429 = (x.r429 || 0) + 1; const q = classify429(m); S.llm.raw = [(sl.id + ' ' + m.replace(/\s+/g, ' ')).slice(0, 900)].concat(S.llm.raw || []).slice(0, 4); x.lastErr = (q.zero ? 'FREE TIER LIMIT 0 — ' : '') + q.kind + (q.quota ? ' ' + q.quota : '') + (q.limit != null ? ' limit:' + q.limit : '') + (q.msg ? ' — ' + q.msg : ''); x.lastErrAt = Date.now();
           if (q.kind === 'daily') { x.d429 = (x.d429 || 0) + 1; if (q.zero || x.d429 >= 2 || x.calls >= budgetOf(sl) * 0.8) { x.exhausted = true; x.reason = q.zero ? 'limit 0 (no free tier?)' : 'daily quota'; S.llm.switched = (S.llm.switched || 0) + 1; } else { x.cooldownUntil = Date.now() + 90000; } continue; }   // per-day quota: confirm twice before giving the slot up for the day
           const wait = Math.min(120000, Math.max(30000, (q.retry || 45) * 1000)); x.cooldownUntil = Date.now() + wait; x.cool = (x.cool || 0) + 1; x.coolAt = x.coolAt || Date.now();   // per-minute / unknown → cool-down ≥30 s, keep slot
@@ -85,8 +93,9 @@ function makeLLM(CFG, S) {
         if (web && i === 0) { web = false; continue; } throw e; }
     } throw last;
   }
-  function parseJ(s) { try { return JSON.parse(s); } catch (e) { const m = String(s).match(/\{[\s\S]*\}/); if (m) { try { return JSON.parse(m[0]); } catch (_) { } } return { raw: String(s).slice(0, 800) }; } }
-  return { call, can, used: () => runCalls, model: models[0], keys: keys.length, slots: slots.length, usable: () => usable().length };
+  function parseJ(s) { s = String(s).replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, ''); try { return JSON.parse(s); } catch (e) { const m = String(s).match(/\{[\s\S]*\}/); if (m) { try { return JSON.parse(m[0]); } catch (_) { } } return { raw: String(s).slice(0, 800) }; } }
+  const remaining = () => { let left = 0, tot = 0; slots.filter(sl => sl.prov !== 'or').forEach(sl => { const x = st(sl); const b = budgetOf(sl); tot += b; if (!x.exhausted) left += Math.max(0, b - x.calls); }); const ors = slots.filter(sl => sl.prov === 'or'); if (ors.length) { const pool = CFG.openrouterDaily || 45; tot += pool; if (!ors.every(sl => st(sl).exhausted)) left += Math.max(0, pool - orUsed()); } return { left, tot, frac: tot ? left / tot : 0 }; };
+  return { call, can, used: () => runCalls, model: models[0], keys: keys.length, slots: slots.length, usable: () => usable().length, remaining };
 }
 /* ---------------- prompts (same roles as the app's roundtable) ---------------- */
 const ANALYST_OUT = `Return ONLY JSON: {"bias":"bullish|bearish|neutral","confidence":0-100,"horizon":"next 1-3 candles / 1-7 days","key_points":["max 4, each with a number"],"levels":{"support":[],"resistance":[]},"risks":["max 2"],"what_changes_my_mind":"one concrete condition"}`;
@@ -102,7 +111,7 @@ async function decide({ lens, CFG, S, sym, tf, side, packet, bt, rc, klines, kli
   const trace = { mode: 'roundtable', model: llm.model };
   const defer = why => ({ decision: 'DEFER', confidence: null, reasons: ['AI در دسترس نبود (' + why + ') — تا اجرای بعدی به تعویق افتاد'], judge: 'deferred', trace: { mode: 'deferred: ' + why, llmToday: S.llm.calls } });
   const soft = async (why, extra) => { if (CFG.requireAI !== false) return defer(why); const d = await fallbackJudge(); d.trace = Object.assign({ mode: 'single-judge (' + why + ')' }, extra || {}); return d; };
-  if (!llm.keys || !CFG.useGemini) return CFG.requireAI !== false && CFG.useGemini ? defer('no key') : fallbackJudge();
+  if (!llm.slots || !CFG.useGemini) return CFG.requireAI !== false && CFG.useGemini ? defer('no key') : fallbackJudge();
   if (!llm.can()) return soft('budget');
   // 1) context
   const [live, deriv] = await Promise.all([safe(liveMarket(), {}), metal ? Promise.resolve({ note: 'no perp derivatives feed for metals' }) : safe(derivatives(sym), {})]);
