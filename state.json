@@ -346,6 +346,218 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-19T00:49:13.005Z",
+   "barTime": "2026-11-18T20:00:00.000Z",
+   "sym": "AVAXUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "score": 6,
+   "strategy": "BB_MR",
+   "lab": {
+    "best": {
+     "id": "BB_MR",
+     "name": "Bollinger mean-reversion",
+     "avg_r": 0.45,
+     "n": 22,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 22,
+     "avg_r": 0.45,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 7.026,
+   "stop": 7.32808852,
+   "t1": 6.57286723,
+   "t2": 6.11973445,
+   "rr": 3,
+   "fails": [
+    "خلاف سوگیری تایم‌فریم بالاتر"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 29,
+    "win": 34,
+    "avg": -0.22,
+    "pf": 0.68
+   },
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "خلاف سوگیری تایم‌فریم بالاتر"
+   ]
+  },
+  {
+   "ts": "2026-11-19T00:45:40.301Z",
+   "barTime": "2026-11-18T20:00:00.000Z",
+   "sym": "GRAMUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 70,
+   "strategy": "MACD_EMA",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.41,
+     "n": 20,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 17,
+     "avg_r": 0.36,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 1.019,
+   "stop": 1.06613377,
+   "t1": 0.94829934,
+   "t2": 0.87759868,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "واگرایی منظم خلاف جهت (RSI)"
+   ],
+   "tm": {
+    "n": 30,
+    "win": 43,
+    "avg": 0,
+    "pf": 1
+   },
+   "src": "okx",
+   "desk": {
+    "mode": "roundtable",
+    "model": "gemini-3.5-flash-lite",
+    "llmCalls": 10,
+    "llmToday": 87,
+    "agents": {
+     "tech": {
+      "bias": "bearish",
+      "confidence": 65,
+      "key_points": [
+       "ساختار HTF (1D) و 4H با ترتیب نزولی EMA20 (1.0466)، EMA50 (1.0725) و EMA200 (1.1768) کاملاً خرس است.",
+       "سویپ نقدینگی کف 1.004 تا 1.003 همراه با واگرایی مثبت RSI (مقدار 40.2) و الگوی Bullish Engulfing در کندل اخیر.",
+       "مقاومت اصلی FVG 4H پرنشده در محدوده 1.036 تا 1.064 قرار دارد (فاصله 0.54 ATR).",
+       "سیگنال MACD_EMA نزولی فعال است اما عدم ثبت CHoCH صعودی ورود خرید را تایید نمی‌کند."
+      ],
+      "what_changes_my_mind": "بسته شدن کندل 4H بالای سطح مقاومت 1.064 (FVG 4H)"
+     },
+     "macro": {
+      "error": "HTTP 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://aistudio.google.com/docs/rate-limits\"\n          }\n        ]\n      }\n    ]"
+     },
+     "sent": {
+      "bias": "bearish",
+      "confidence": 70,
+      "key_points": [
+       "شاخص ترس و طمع کل بازار در سطح 10 (Extreme Fear) و USDT.D روی 8.02% نشان‌دهنده ریسک‌گریزی شدید است.",
+       "نسبت حساب‌های Long/Short برابر 1.83 نشان‌دهنده شلوغی پوزیشن‌های خرید خرد و ریسک بالای Long Squeeze است.",
+       "کاهش 2.27%- سود باز (OI) و دسکاونت پرمیوم (0.1953%-) نشان‌دهنده لیکوئید شدن و خروج اهرم است.",
+       "نسبت Taker Buy/Sell روی 1.024 نشان از خریدهای جزئی در کف دارد ولی برای تغییر روند کافی نیست."
+      ]
+     },
+     "bull": {
+      "confidence": 40,
+      "case": [
+       "سویپ نقدینگی کف 1.004/1.003 همراه با الگوی Bullish Engulfing و بسته شدن کندل 4H روی قیمت 1.019.",
+       "ثبت واگرایی مثبت RSI در 4H (مقدار 40.2) که تخلیه فشار فروش در کف range را تایید می‌کند.",
+       "پتانسیل رالی اصلاحی به سمت FVG پرنشده 1.036 تا 1.064 و سطح VWAP در 1.0414 (فاصله 0.54 ATR).",
+       "سیگنال بازگشتی Contrarian ناشی از اشباع ترس کل بازار (ترس و طمع = 10) و جذب پسیو با Taker Buy/Sell برابر 1.024."
+      ]
+     },
+     "bear": {
+      "confidence": 65,
+      "case": [
+       "ساختار نزولی مطلق در HTF و 4H با ترتیب EMA20 (1.0466) < EMA50 (1.0725) < EMA200 (1.1768) و معامله قیمت 1.019 زیر VWAP کلیدی 1.0414.",
+       "انباشت سنگین 64.6% پوزیشن Long خرد (نسبت Long/Short برابر 1.83) که خطر شستشوی آبشاری قیمت تا 0.989 را ایجاد کرده است.",
+       "حجم نسبی ضعیف (0.51) و عدم تایید CHoCH صعودی، نشان‌دهنده ضعیف بودن رالی و احتمال بالای شکست کاذب در صعودهاست.",
+       "مقاومت سنگین POC و FVG در 1.036 تا 1.064 که بهترین نقطه ورود برای فروشندگان در جهت روند اصلی است."
+      ]
+     }
+    }
+   },
+   "agreement": "تحلیل‌گران فنی و سنتیمنت بر وجود ریسک رالی اصلاحی تا 1.036 به دلیل واگرایی صعودی RSI توافق دارند",
+   "overruled": "رد پیشنهاد SHORT موتور خودکار در 1.019 به دلیل خطر رالی اصلاحی ناشی از سویپ 1.003 و واگرایی مثبت RSI",
+   "failWhy": "شکست مستقیم و پرقدرت حمایت 1.003 بدون ثبت رالی اصلاحی به سمت مقاومت 1.036",
+   "nextCheck": "تست مقاومت FVG در 1.036 برای بررسی ورود SHORT یا بسته شدن کندل 4H زیر 1.003",
+   "judge": "roundtable:gemini-3.6-flash",
+   "confidence": 75,
+   "reasons": [
+    "رژیم بازار Q3 (QUIET_RANGE) بوده و استفاده از استراتژی MACD_EMA در لیست پرهیز (avoid) قرار دارد.",
+    "سویپ نقدینگی کف در 1.003 همراه با واگرایی مثبت RSI 4H (40.2) و الگوی Engulfing، پتانسیل رشد تا 1.036 را دارد.",
+    "فروش در 1.019 بلافاصله پس از سویپ کف range، نسبت R:R نامناسبی ایجاد کرده و ریسک بازگشت قیمت دارد.",
+    "پوزیشن LONG به دلیل مغایرت با روند اصلی نزولی HTF طبق قوانین مدیریت ریسک اکیداً ممنوع است."
+   ],
+   "concerns": [
+    "بالا بودن نسبت Long/Short خرد (1.83) که احتمال ریزش آبشاری ناگهانی (Long Squeeze) را حفظ می‌کند.",
+    "حجم پایین معاملات (0.51) که ریسک نوسانات کاذب در محدوده range را بالا می‌برد."
+   ],
+   "invalidation": "بسته شدن کندل 4H بالای سطح 1.064",
+   "status": "REJECTED_AI",
+   "aiDecision": "WAIT"
+  },
+  {
+   "ts": "2026-11-19T00:45:39.623Z",
+   "barTime": "2026-11-19T00:00:00.000Z",
+   "sym": "AUDUSD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 86,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "LENS",
+     "name": "Lens setup",
+     "avg_r": 0.44,
+     "n": 17,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 17,
+     "avg_r": 0.44,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.6695233,
+   "stop": 0.67101528,
+   "t1": 0.66728533,
+   "t2": 0.66504735,
+   "rr": 3,
+   "fails": [
+    "کش‌شده از EMA50 (-4×ATR)"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 17,
+    "win": 41,
+    "avg": -0.31,
+    "pf": 0.66
+   },
+   "src": "yahoo",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "کش‌شده از EMA50 (-4×ATR)"
+   ]
+  },
+  {
    "ts": "2026-11-19T00:36:34.694Z",
    "barTime": "2026-11-18T20:00:00.000Z",
    "sym": "GRAMUSDT",
@@ -4290,155 +4502,6 @@
    "status": "DEFERRED_AI",
    "aiDecision": "DEFER",
    "deferCount": 3
-  },
-  {
-   "ts": "2026-11-18T22:06:11.943Z",
-   "barTime": "2026-11-18T22:00:00.000Z",
-   "sym": "EURGBP",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 56,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.18,
-     "n": 20,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 15,
-     "avg_r": -0.15,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "NEUTRAL",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.83420002,
-   "stop": 0.83329543,
-   "t1": 0.83555692,
-   "t2": 0.83691382,
-   "rr": 3,
-   "fails": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (15× · -0.15R)"
-   ],
-   "warns": [],
-   "tm": {
-    "n": 15,
-    "win": 27,
-    "avg": -1.49,
-    "pf": 0.08
-   },
-   "src": "yahoo",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (15× · -0.15R)"
-   ]
-  },
-  {
-   "ts": "2026-11-18T22:06:11.187Z",
-   "barTime": "2026-11-18T21:00:00.000Z",
-   "sym": "QNTUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 72,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "MACD_EMA",
-     "name": "MACD cross + EMA200 filter",
-     "avg_r": 0.78,
-     "n": 10,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 28,
-     "avg_r": -0.02,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 31.96,
-   "stop": 32.90350155,
-   "t1": 30.54474767,
-   "t2": 29.12949534,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.02R)"
-   ],
-   "warns": [],
-   "tm": {
-    "n": 28,
-    "win": 43,
-    "avg": -0.02,
-    "pf": 0.97
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.02R)"
-   ]
-  },
-  {
-   "ts": "2026-11-18T22:05:37.493Z",
-   "barTime": "2026-11-18T21:00:00.000Z",
-   "sym": "XLMUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 76,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.36,
-     "n": 24,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 29,
-     "avg_r": -0.33,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.13695,
-   "stop": 0.1391852,
-   "t1": 0.1335972,
-   "t2": 0.13024439,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.33R)"
-   ],
-   "warns": [],
-   "tm": {
-    "n": 29,
-    "win": 31,
-    "avg": -0.33,
-    "pf": 0.53
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.33R)"
-   ]
   }
  ],
  "seen": {
@@ -4661,12 +4724,20 @@
   "EURAUD|1H|LONG|2026-11-19T00:00:00.000Z": 1795048594068,
   "EURCHF|4H|LONG|2026-11-18T20:00:00.000Z": 1795048672493,
   "BNBUSDT|4H|LONG|2026-11-18T20:00:00.000Z": 1795048672652,
-  "ONDOUSDT|4H|LONG|2026-11-18T20:00:00.000Z": 1795048673328
+  "ONDOUSDT|4H|LONG|2026-11-18T20:00:00.000Z": 1795048673328,
+  "AUDUSD|1H|SHORT|2026-11-19T00:00:00.000Z": 1795049139610,
+  "GRAMUSDT|4H|SHORT|2026-11-18T20:00:00.000Z": 1795049139623,
+  "LTCUSDT|4H|LONG|2026-11-18T20:00:00.000Z": 1795049350970,
+  "ETHUSDT|4H|LONG|2026-11-18T20:00:00.000Z": 1795049351658,
+  "AVAXUSDT|4H|LONG|2026-11-18T20:00:00.000Z": 1795049352346,
+  "DOTUSDT|4H|LONG|2026-11-18T20:00:00.000Z": 1795049353005,
+  "APTUSDT|4H|LONG|2026-11-18T20:00:00.000Z": 1795049353666,
+  "SHIBUSDT|4H|LONG|2026-11-18T20:00:00.000Z": 1795049354345
  },
- "lastRun": "2026-11-19T00:37:53.915Z",
- "runs": 86,
+ "lastRun": "2026-11-19T00:49:15.147Z",
+ "runs": 87,
  "errors": [],
- "durationSec": 330,
+ "durationSec": 227,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -4799,8 +4870,8 @@
    "ZROUSDT",
    "ASTERUSDT",
    "TAOUSDT",
-   "PROSUSDT",
    "UPUSDT",
+   "PROSUSDT",
    "VVVUSDT",
    "ARBUSDT",
    "ZILUSDT",
@@ -4808,9 +4879,9 @@
    "OKBUSDT",
    "BTWUSDT",
    "ONDOUSDT",
-   "NESUSDT",
    "XPLUSDT",
    "TRXUSDT",
+   "NESUSDT",
    "SOPHUSDT",
    "DGAIUSDT",
    "XLMUSDT",
@@ -4847,7 +4918,7 @@
    "cryptoListed": 273,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 5795561,
+   "minVolUSD": 5859597,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4857,12 +4928,12 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 16,
+   "candidates": 11,
    "deep": 8,
    "byClass": {
-    "crypto": 13,
+    "crypto": 10,
     "metal": 0,
-    "forex": 3,
+    "forex": 1,
     "stock": 0
    }
   },
@@ -4875,7 +4946,7 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 77,
+  "llmToday": 87,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -4883,7 +4954,7 @@
    "gemini-3.6-flash"
   ],
   "slots": 9,
-  "slotsExhausted": 7,
+  "slotsExhausted": 8,
   "active": "k2:gemini-3.6-flash",
   "slotTable": [
    {
@@ -4942,21 +5013,21 @@
    },
    {
     "id": "k1:gemini-3.6-flash",
-    "calls": 5,
-    "errors": 3,
-    "exhausted": false,
-    "reason": null,
+    "calls": 9,
+    "errors": 7,
+    "exhausted": true,
+    "reason": "daily quota",
     "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": true
+    "cooling": false
    },
    {
     "id": "k2:gemini-3.6-flash",
-    "calls": 6,
-    "errors": 2,
+    "calls": 12,
+    "errors": 5,
     "exhausted": false,
     "reason": null,
-    "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": true
+    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "cooling": false
    },
    {
     "id": "k3:gemini-3.6-flash",
@@ -4969,10 +5040,10 @@
    }
   ],
   "llmRaw": [
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 7h22m7.580151495s.\", \"status\": \"",
-   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 7h22m55.991303918s.\", \"status\": ",
-   "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
+   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 7h11m50.00139959s.\", \"status\": \"",
+   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "requireAI": true,
   "deferred": 14
@@ -4981,24 +5052,24 @@
   "cryptoListed": 273,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 5795561
+  "minVolUSD": 5859597
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 16,
+  "candidates": 11,
   "deep": 8,
   "byClass": {
-   "crypto": 13,
+   "crypto": 10,
    "metal": 0,
-   "forex": 3,
+   "forex": 1,
    "stock": 0
   }
  },
  "llm": {
   "day": "2026-11-19",
   "v": 4,
-  "calls": 77,
+  "calls": 87,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 14,
@@ -5073,24 +5144,29 @@
     "reason": "429 repeated 10min"
    },
    "k1:gemini-3.6-flash": {
-    "calls": 5,
-    "exhausted": false,
-    "errors": 3,
-    "cooldownUntil": 1795048714070,
-    "r429": 1,
+    "calls": 9,
+    "exhausted": true,
+    "errors": 7,
+    "cooldownUntil": 1795049285293,
+    "r429": 5,
     "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795048624070,
-    "d429": 1
+    "lastErrAt": 1795049290066,
+    "d429": 2,
+    "cool": 3,
+    "coolAt": 1795049140774,
+    "reason": "daily quota"
    },
    "k2:gemini-3.6-flash": {
-    "calls": 6,
+    "calls": 12,
     "exhausted": false,
-    "errors": 2,
-    "cooldownUntil": 1795048762493,
-    "r429": 1,
-    "lastErr": "daily limit:20 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795048672493,
-    "d429": 1
+    "errors": 5,
+    "cooldownUntil": 1795049289751,
+    "r429": 4,
+    "lastErr": "unknown — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
+    "lastErrAt": 1795049244751,
+    "d429": 1,
+    "cool": 3,
+    "coolAt": 1795049145253
    },
    "k3:gemini-3.6-flash": {
     "calls": 2,
@@ -5106,12 +5182,12 @@
   },
   "active": "k2:gemini-3.6-flash",
   "raw": [
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 7h22m7.580151495s.\", \"status\": \"",
-   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 7h22m55.991303918s.\", \"status\": ",
-   "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
+   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 7h11m50.00139959s.\", \"status\": \"",
+   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
-  "switched": 1
+  "switched": 2
  },
  "macroCache": {},
  "pending": {
