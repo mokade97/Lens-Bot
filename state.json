@@ -414,7 +414,7 @@
  ],
  "alerts": [
   {
-   "ts": "2026-11-19T19:30:55.657Z",
+   "ts": "2026-11-19T19:45:41.392Z",
    "barTime": "2026-11-19T18:00:00.000Z",
    "sym": "CRVUSDT",
    "cls": "crypto",
@@ -463,9 +463,65 @@
    ],
    "concerns": [],
    "invalidation": "",
-   "status": "DEFERRED_AI",
+   "status": "REJECTED_AI",
    "aiDecision": "DEFER",
-   "deferCount": 3
+   "deferCount": 4
+  },
+  {
+   "ts": "2026-11-19T19:45:40.699Z",
+   "barTime": "2026-11-19T18:00:00.000Z",
+   "sym": "YBUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 72,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": 0.68,
+     "n": 21,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 28,
+     "avg_r": 0.31,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_UP",
+   "htf": "NEUTRAL",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.05628,
+   "stop": 0.05220659,
+   "t1": 0.06239011,
+   "t2": 0.06850023,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (3×ATR)"
+   ],
+   "tm": {
+    "n": 28,
+    "win": 54,
+    "avg": 0.31,
+    "pf": 1.66
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "REJECTED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 4
   },
   {
    "ts": "2026-11-19T19:30:54.681Z",
@@ -509,62 +565,6 @@
     "win": 58,
     "avg": 0.31,
     "pf": 1.7
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "DEFERRED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 3
-  },
-  {
-   "ts": "2026-11-19T19:30:53.633Z",
-   "barTime": "2026-11-19T18:00:00.000Z",
-   "sym": "YBUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 72,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "DONCHIAN20",
-     "name": "Donchian 20 breakout (Turtle)",
-     "avg_r": 0.68,
-     "n": 21,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 28,
-     "avg_r": 0.31,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_UP",
-   "htf": "NEUTRAL",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.05628,
-   "stop": 0.05220659,
-   "t1": 0.06239011,
-   "t2": 0.06850023,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (3×ATR)"
-   ],
-   "tm": {
-    "n": 28,
-    "win": 54,
-    "avg": 0.31,
-    "pf": 1.66
    },
    "src": "okx",
    "chase": 0,
@@ -5290,7 +5290,7 @@
    "stop": 0.05220659,
    "t1": 0.06239011,
    "t2": 0.06850023,
-   "verdict": "DEFERRED",
+   "verdict": "AI_UNAVAILABLE",
    "aiDecision": "DEFER",
    "confidence": null,
    "openedAt": "2026-11-19T19:00:58.536Z",
@@ -5410,7 +5410,7 @@
    "stop": 0.1986582,
    "t1": 0.1865127,
    "t2": 0.17922539,
-   "verdict": "DEFERRED",
+   "verdict": "AI_UNAVAILABLE",
    "aiDecision": "DEFER",
    "confidence": null,
    "openedAt": "2026-11-19T19:01:01.752Z",
@@ -6461,12 +6461,15 @@
   "USDCHF|1H|LONG|2026-11-19T19:00:00.000Z": 1795115758555,
   "GRASSUSDT|1H|LONG|2026-11-19T18:00:00.000Z": 1795115758559,
   "UNIUSDT|1H|LONG|2026-11-19T18:00:00.000Z": 1795115759448,
-  "BREVUSDT|1H|LONG|2026-11-19T18:00:00.000Z": 1795115760338
+  "BREVUSDT|1H|LONG|2026-11-19T18:00:00.000Z": 1795115760338,
+  "YBUSDT|1H|LONG|2026-11-19T18:00:00.000Z": 1795117540101,
+  "CRVUSDT|1H|SHORT|2026-11-19T18:00:00.000Z": 1795117540813,
+  "APTUSDT|1H|LONG|2026-11-19T18:00:00.000Z": 1795117541508
  },
- "lastRun": "2026-11-19T19:30:55.819Z",
- "runs": 166,
+ "lastRun": "2026-11-19T19:45:42.097Z",
+ "runs": 167,
  "errors": [],
- "durationSec": 19,
+ "durationSec": 15,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -6640,16 +6643,16 @@
    "LTCUSDT",
    "VVVUSDT",
    "TAOUSDT",
-   "INITUSDT",
    "ARBUSDT",
-   "RAVEUSDT",
+   "INITUSDT",
    "YBUSDT",
-   "ONDOUSDT",
+   "RAVEUSDT",
+   "SKYUSDT",
    "ASTERUSDT",
+   "ONDOUSDT",
    "PONSUSDT",
    "UPUSDT",
    "OKBUSDT",
-   "SKYUSDT",
    "XPLUSDT",
    "DGAIUSDT",
    "PROSUSDT",
@@ -6660,12 +6663,12 @@
    "ZROUSDT",
    "PENGUUSDT",
    "GRASSUSDT",
-   "JUPUSDT",
    "DOTUSDT",
+   "JUPUSDT",
    "SOPHUSDT",
    "OPUSDT",
-   "TRXUSDT",
    "APTUSDT",
+   "TRXUSDT",
    "XAUUSDT",
    "XAGUSDT",
    "EURUSD",
@@ -6687,7 +6690,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 7376688,
+   "minVolUSD": 7387217,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -6865,13 +6868,13 @@
   "requireAI": true,
   "paperTrade": true,
   "maxExtAtr": 2,
-  "deferred": 9
+  "deferred": 7
  },
  "universeInfo": {
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 7376688
+  "minVolUSD": 7387217
  },
  "scan": {
   "symbols": 76,
@@ -7159,9 +7162,9 @@
   "OPUSDT|1H|SHORT|2026-11-19T17:00:00.000Z": 4,
   "XPLUSDT|1H|SHORT|2026-11-19T17:00:00.000Z": 3,
   "NEARUSDT|4H|SHORT|2026-11-19T12:00:00.000Z": 4,
-  "YBUSDT|1H|LONG|2026-11-19T18:00:00.000Z": 3,
+  "YBUSDT|1H|LONG|2026-11-19T18:00:00.000Z": 4,
   "OPUSDT|1H|SHORT|2026-11-19T18:00:00.000Z": 3,
-  "CRVUSDT|1H|SHORT|2026-11-19T18:00:00.000Z": 3
+  "CRVUSDT|1H|SHORT|2026-11-19T18:00:00.000Z": 4
  },
  "orModels": {
   "day": "2026-11-19",
