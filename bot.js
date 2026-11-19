@@ -14,7 +14,7 @@ const fs = require('fs'); const path = require('path');
 const lens = require('./engine.js');
 const desk = require('./desk.js');
 const ROOT = __dirname;
-const CFG = Object.assign({
+const PRIO = {}; const CFG = Object.assign({
   // universe: crypto = top-N OKX USDT perps by 24h volume (auto, refreshed every run) + always-include list; metals = OKX XAU/XAG perps; forex = Yahoo Finance majors/crosses
   universe: { cryptoTop: 60, cryptoAlways: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT'], cryptoExclude: [], metals: ['XAUUSDT', 'XAGUSDT'], forex: ['EURUSD', 'GBPUSD', 'USDJPY', 'USDCHF', 'AUDUSD', 'USDCAD', 'NZDUSD', 'EURGBP', 'EURJPY', 'GBPJPY', 'AUDJPY', 'EURAUD', 'EURCHF', 'GBPCHF'], classes: ['crypto', 'metal', 'forex'] },
   symbols: null, // legacy fixed list; if set, replaces the auto universe
@@ -146,6 +146,7 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
   await pool(S.shadow.slice(), CFG.scanConcurrency, async sh => { const k = await klinesAny(sh.sym, sh.tf, 120); if (!k) return; const res = manage(sh, k); if (res) { Object.assign(sh, res, { closedAt: new Date().toISOString() }); S.shadowClosed.unshift(sh); S.shadow = S.shadow.filter(x => x !== sh); } });
   await pool(S.positions.slice(), CFG.scanConcurrency, async pos => { const k = await klinesAny(pos.sym, pos.tf, 120); if (!k) return; const res = manage(pos, k); if (res) { Object.assign(pos, res, { status: 'CLOSED', closedAt: new Date().toISOString() }); S.closed.unshift(pos); S.positions = S.positions.filter(x => x !== pos); log('CLOSE', pos.sym, pos.tf, pos.side, res.out, res.rr + 'R'); } });
   // ---- phase B: quick scan of the whole universe on the trading timeframes (320 bars, engine packet only)
+  Object.assign(PRIO, { ICHI: 3, LENS: 2, SWEEP: 1 }, CFG.strategyPriority || {});
   const cands = []; const jobs = []; let extendedN = 0; U.forEach(u => tfs.forEach(tf => jobs.push({ sym: u.sym, cls: u.cls, tf })));
   await pool(jobs, CFG.scanConcurrency, async ({ sym, cls, tf }) => {
     const k = await klinesAny(sym, tf, 320); if (!k) return;
@@ -154,7 +155,7 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
     let side = p.event === 'LONG_SETUP' ? 'LONG' : p.event === 'SHORT_SETUP' ? 'SHORT' : (sweep && sweep.status === 'ENTRY_TRIGGERED' ? sweep.side : null);
     let strategy = side ? (p.event === 'CANDLE' ? 'SWEEP' : 'LENS') : null;
     // cheap strategy-lab live signals on 320 bars (only to nominate; the real lab runs on 1000 bars in phase C)
-    if (!side && CFG.useStrategyLab !== false) { try { const S0 = lens.series(k, null); const L = k.length - 2; const X = lens.labSeries(k, S0); for (const [id, st] of Object.entries(lens.STRATS)) { if (id === 'LENS') continue; const sg = st.sig(k, S0, X, L); if (sg) { side = typeof sg === 'string' ? sg : sg.side; strategy = id; break; } } } catch (e) { } }
+    if (!side && CFG.useStrategyLab !== false) { try { const S0 = lens.series(k, null); const L = k.length - 2; const X = lens.labSeries(k, S0); const order = Object.keys(lens.STRATS).sort((a, b) => (PRIO[b] || 0) - (PRIO[a] || 0)); for (const id of order) { if (id === 'LENS') continue; const st = lens.STRATS[id]; const sg = st.sig(k, S0, X, L); if (sg) { const sd = typeof sg === 'string' ? sg : sg.side; const allow = CFG.strategySides && CFG.strategySides[id]; if (allow && allow !== 'BOTH' && allow !== sd) continue; side = sd; strategy = id; break; } } } catch (e) { } }
     if (!side) return;
     // extended-move filter: entering at the close of a candle that is already >N×ATR away from EMA20 is chasing (live ledger: 5% win) → skip
     if (CFG.maxExtAtr) { try { const S0 = lens.series(k, null); const L = k.length - 2; const A = S0.atr[L], e20 = S0.e20[L]; if (A && e20) { const ext = (side === 'LONG' ? k[L].c - e20 : e20 - k[L].c) / A; if (ext > CFG.maxExtAtr) { extendedN++; return; } } } catch (e) { } }
@@ -163,7 +164,7 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
     cands.push({ sym, cls, tf, side, strategy, score, barKey, quad: p.regime_quadrant && p.regime_quadrant.quadrant, pre: p });
   });
   // ---- phase C: deep analysis of the best candidates (1000 bars + HTF + strategy lab + rules + roundtable)
-  const prio = c => (c.strategy === 'LENS' ? 2 : c.strategy === 'SWEEP' ? 1 : 0) * 100 + c.score + (c.quad === 'Q1' || c.quad === 'Q2' ? 15 : 0) + (c.tf === '4H' ? 5 : 0);
+  const prio = c => (PRIO[c.strategy] || 0) * 100 + c.score + (c.quad === 'Q1' || c.quad === 'Q2' ? 15 : 0) + (c.tf === '4H' ? 5 : 0);
   cands.sort((a, b) => prio(b) - prio(a));
   // class-fair pick: reserve a few deep slots per asset class so 60 cryptos never crowd out forex/metals, then fill by priority
   const perClass = CFG.minDeepPerClass || 2; const picked = []; const used = new Set();
@@ -184,7 +185,7 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
       p.sweep_choch_fvg_live = sweep; p.asset_class = cls;
       const cc = costsOf(sym); let lab = null; try { lab = lens.strategyLab(k, hk, { tf, costPct: cc.feePct + cc.slipPct, fundPerBar: (TFMS[tf] / 36e5) / 8 * cc.fundPer8h }); } catch (e) { } p.strategy_lab = lab;
       // re-validate the nomination on full data (HTF now known); lab-nominated strategies must have a proven edge here
-      if (strategy !== 'LENS' && strategy !== 'SWEEP') { const v = lab && lab.strategies[strategy]; const lv = lab && (lab.live_signals || []).find(x => x.id === strategy); if (!v || v.verdict !== 'EDGE' || !lv) { log('skip', sym, tf, strategy, 'no edge on full data'); continue; } side = lv.side; }
+      if (strategy !== 'LENS' && strategy !== 'SWEEP') { const v = lab && lab.strategies[strategy]; const lv = lab && (lab.live_signals || []).find(x => x.id === strategy); const okV = v && (v.verdict === 'EDGE' || (strategy === 'ICHI' && v.verdict !== 'NEGATIVE')); if (!okV || !lv) { log('skip', sym, tf, strategy, 'no edge on full data'); continue; } side = lv.side; }
       const score = side === 'LONG' ? p.scores.long : p.scores.short;
       p._strategy = strategy; const rc = ruleCheck(p, side); let bt = null; try { bt = lens.backtest(k, hk, { tf }); } catch (e) { }
       const mine = lab && lab.strategies[strategy === 'SWEEP' ? 'LENS' : strategy];
