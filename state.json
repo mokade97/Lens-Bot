@@ -356,6 +356,58 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-19T15:45:45.060Z",
+   "barTime": "2026-11-19T14:00:00.000Z",
+   "sym": "TRXUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 44,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": -0.15,
+     "n": 15,
+     "verdict": "NEGATIVE"
+    },
+    "mine": {
+     "n": 26,
+     "avg_r": -0.41,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.31082,
+   "stop": 0.31229727,
+   "t1": 0.30860409,
+   "t2": 0.30638818,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (26× · -0.41R)"
+   ],
+   "warns": [
+    "ناحیه‌ی BREAKER فقط 0.71×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 26,
+    "win": 31,
+    "avg": -0.41,
+    "pf": 0.54
+   },
+   "src": "okx",
+   "chase": 0,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (26× · -0.41R)"
+   ]
+  },
+  {
    "ts": "2026-11-19T15:30:57.435Z",
    "barTime": "2026-11-19T15:00:00.000Z",
    "sym": "EURAUD",
@@ -3570,67 +3622,6 @@
     "الگوی FALLING WEDGE خلاف جهت",
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.1R)"
    ]
-  },
-  {
-   "ts": "2026-11-19T13:01:00.752Z",
-   "barTime": "2026-11-19T12:00:00.000Z",
-   "sym": "UPUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 90,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "DONCHIAN20",
-     "name": "Donchian 20 breakout (Turtle)",
-     "avg_r": 0.24,
-     "n": 27,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": 0.02,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "UP",
-   "event": "LONG_SETUP",
-   "sweep": null,
-   "entry": 0.2292,
-   "stop": 0.21511992,
-   "t1": 0.25032012,
-   "t2": 0.27144025,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (2.8×ATR)",
-    "واگرایی منظم خلاف جهت (RSI/MACD)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (30× · 0.02R)"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 50,
-    "avg": 0.02,
-    "pf": 1.04
-   },
-   "src": "okx",
-   "judge": "judge:gemini-3.6-flash",
-   "confidence": 85,
-   "reasons": [
-    "عملکرد تاریخی بسیار ضعیف (وین‌ریت ۲۲٪ با HTF)",
-    "واگرایی منظم نزولی در RSI و MACD",
-    "سایه بالایی بلند کندل (۵۱.۵٪) و فشار عرضه"
-   ],
-   "concerns": [
-    "امید ریاضی منفی در ماشین زمان (avg_r -0.65)",
-    "کشیدگی قیمت نسبت به EMA50 به میزان 2.8xATR"
-   ],
-   "invalidation": "شکست و تثبیت بالای سقف اخیر 0.2376 و رفع واگرایی نزولی",
-   "status": "REJECTED_AI",
-   "aiDecision": "SKIP"
   }
  ],
  "shadow": [
@@ -4014,6 +4005,30 @@
    "openedAt": "2026-11-19T15:30:57.435Z",
    "barTime": "2026-11-19T15:00:00.000Z",
    "lastBarT": 1795100400000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0
+  },
+  {
+   "id": "TRXUSDT|1H|SHORT|2026-11-19T14:00:00.000Z",
+   "sym": "TRXUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "SWEEP",
+   "quad": "Q3",
+   "score": 44,
+   "chase": 0,
+   "entry": 0.31082,
+   "stop": 0.31229727,
+   "t1": 0.30860409,
+   "t2": 0.30638818,
+   "verdict": "RULES_REJECTED",
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-19T15:45:45.060Z",
+   "barTime": "2026-11-19T14:00:00.000Z",
+   "lastBarT": 1795096800000,
    "bars": 0,
    "t1hit": false,
    "mtm": 0
@@ -4643,12 +4658,13 @@
   "NEARUSDT|1H|LONG|2026-11-19T14:00:00.000Z": 1795101391738,
   "EURCHF|1H|SHORT|2026-11-19T15:00:00.000Z": 1795101392728,
   "YBUSDT|4H|LONG|2026-11-19T08:00:00.000Z": 1795102256511,
-  "EURAUD|1H|LONG|2026-11-19T15:00:00.000Z": 1795102257424
+  "EURAUD|1H|LONG|2026-11-19T15:00:00.000Z": 1795102257424,
+  "TRXUSDT|1H|SHORT|2026-11-19T14:00:00.000Z": 1795103144169
  },
- "lastRun": "2026-11-19T15:30:57.436Z",
- "runs": 149,
+ "lastRun": "2026-11-19T15:45:45.060Z",
+ "runs": 150,
  "errors": [],
- "durationSec": 16,
+ "durationSec": 17,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -4806,48 +4822,48 @@
    "LITUSDT",
    "WLDUSDT",
    "HUMAUSDT",
-   "FILUSDT",
    "TRUMPUSDT",
-   "ENAUSDT",
+   "FILUSDT",
    "STRKUSDT",
+   "ENAUSDT",
    "SENTUSDT",
    "BTWUSDT",
    "AAVEUSDT",
    "LINKUSDT",
    "ADAUSDT",
    "BREVUSDT",
-   "INJUSDT",
    "BCHUSDT",
+   "INJUSDT",
    "AVAXUSDT",
    "VVVUSDT",
    "LTCUSDT",
    "TAOUSDT",
-   "PROSUSDT",
    "INITUSDT",
-   "ASTERUSDT",
-   "ZROUSDT",
    "ARBUSDT",
+   "ASTERUSDT",
+   "PROSUSDT",
    "UPUSDT",
-   "ONDOUSDT",
    "PONSUSDT",
-   "XPLUSDT",
+   "ONDOUSDT",
    "OKBUSDT",
+   "ZROUSDT",
+   "XPLUSDT",
    "DGAIUSDT",
-   "ETHFIUSDT",
    "XLMUSDT",
+   "ETHFIUSDT",
    "PENGUUSDT",
    "JUPUSDT",
-   "DOTUSDT",
    "CRVUSDT",
+   "DOTUSDT",
+   "YBUSDT",
    "RAVEUSDT",
    "NESUSDT",
    "GRASSUSDT",
    "TRXUSDT",
-   "CHIPUSDT",
    "SOPHUSDT",
-   "YBUSDT",
-   "NIGHTUSDT",
+   "CHIPUSDT",
    "MEGAUSDT",
+   "NIGHTUSDT",
    "XAUUSDT",
    "XAGUSDT",
    "EURUSD",
@@ -4869,7 +4885,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6734575,
+   "minVolUSD": 6673201,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4879,13 +4895,13 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 2,
-   "deep": 2,
-   "extended": 7,
+   "candidates": 1,
+   "deep": 1,
+   "extended": 6,
    "byClass": {
     "crypto": 1,
     "metal": 0,
-    "forex": 1,
+    "forex": 0,
     "stock": 0
    }
   },
@@ -5053,18 +5069,18 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6734575
+  "minVolUSD": 6673201
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 2,
-  "deep": 2,
-  "extended": 7,
+  "candidates": 1,
+  "deep": 1,
+  "extended": 6,
   "byClass": {
    "crypto": 1,
    "metal": 0,
-   "forex": 1,
+   "forex": 0,
    "stock": 0
   }
  },
@@ -5407,6 +5423,6 @@
     "maxDD": 2.14
    }
   },
-  "open": 16
+  "open": 17
  }
 }
