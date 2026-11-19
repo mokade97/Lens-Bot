@@ -148,15 +148,17 @@
    "confidence": null,
    "openedAt": "2026-11-18T15:06:13.386Z",
    "barTime": "2026-11-18T14:00:00.000Z",
-   "lastBarT": 1795075200000,
-   "bars": 18,
+   "lastBarT": 1795078800000,
+   "bars": 19,
    "t1hit": true,
-   "mtm": -0.27,
+   "mtm": -0.3,
    "status": "OPEN",
    "reasons": [
     "قاضی AI در دسترس نبود (rate limit 429/503) — تصمیم موتور قطعی"
    ]
-  },
+  }
+ ],
+ "closed": [
   {
    "id": "FILUSDT|1H|SHORT|2026-11-18T21:00:00.000Z",
    "sym": "FILUSDT",
@@ -175,20 +177,23 @@
    "confidence": 80,
    "openedAt": "2026-11-18T22:53:59.755Z",
    "barTime": "2026-11-18T21:00:00.000Z",
-   "lastBarT": 1795075200000,
-   "bars": 11,
+   "lastBarT": 1795078800000,
+   "bars": 12,
    "t1hit": false,
    "mtm": -0.81,
-   "status": "OPEN",
+   "status": "CLOSED",
    "reasons": [
     "شکست ساختار نزولی (BOS) در سطح 0.5746 با تثبیت قیمت 1.8 درصد پایین‌تر از آن.",
     "رشد 7.5 درصدی Open Interest همراه با افت قیمت، ورود پول جدید برای شورت را تایید می‌کند.",
     "نسبت لانگ به شورت خرد در سطح بالای 2.95 که پتانسیل ادامه ریزش تا استخر نقدینگی را فراهم می‌کند.",
     "هم‌جهتی کامل با روند تایم‌فریم بالاتر (HTF Bias: DOWN) و تست موفق استراتژی لنز."
-   ]
-  }
- ],
- "closed": [
+   ],
+   "out": "SL",
+   "rr": -1.07,
+   "gross": -1,
+   "costR": 0.065,
+   "closedAt": "2026-11-19T10:00:46.862Z"
+  },
   {
    "id": "NESUSDT|1H|LONG|2026-11-18T21:00:00.000Z",
    "sym": "NESUSDT",
@@ -350,6 +355,225 @@
   }
  ],
  "alerts": [
+  {
+   "ts": "2026-11-19T10:01:15.911Z",
+   "barTime": "2026-11-19T04:00:00.000Z",
+   "sym": "XPLUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 20,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.18,
+     "n": 19,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 19,
+     "avg_r": 0.18,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.04756,
+   "stop": 0.04540788,
+   "t1": 0.05078819,
+   "t2": 0.05401637,
+   "rr": 3,
+   "fails": [],
+   "warns": [],
+   "tm": {
+    "n": 27,
+    "win": 37,
+    "avg": -0.31,
+    "pf": 0.52
+   },
+   "src": "okx",
+   "judge": "judge:gemini-3.6-flash",
+   "confidence": 95,
+   "reasons": [
+    "امتیاز سیگنال پایین‌تر از حد آستانه است",
+    "تناقض در جهت معامله و سطوح قیمتی",
+    "عدم تایید شکست ساختار (CHOCH)"
+   ],
+   "concerns": [
+    "روند تایم‌فریم بالا نزولی است",
+    "بازار در رژیم نوسانی کم‌حجم قرار دارد"
+   ],
+   "invalidation": "تثبیت قیمت زیر سطح ۰.۰۴۵۴۰",
+   "status": "REJECTED_AI",
+   "aiDecision": "SKIP"
+  },
+  {
+   "ts": "2026-11-19T10:01:06.023Z",
+   "barTime": "2026-11-19T09:00:00.000Z",
+   "sym": "PENGUUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 26,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.26,
+     "n": 18,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 18,
+     "avg_r": 0.26,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.004787,
+   "stop": 0.0046842,
+   "t1": 0.00494121,
+   "t2": 0.00509541,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "الگوی DOUBLE BOTTOM خلاف جهت",
+    "ناحیه‌ی FVG فقط 0.16×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 31,
+    "win": 48,
+    "avg": 0.04,
+    "pf": 1.07
+   },
+   "src": "okx",
+   "judge": "judge:gemini-3.6-flash",
+   "confidence": 92,
+   "reasons": [
+    "امتیاز سیگنال (26) بسیار پایین‌تر از آستانه مجاز (70) است",
+    "تناقض شدید در ساختار پیشنهاد شورت با حد ضرر زیر نقطه ورود",
+    "بازار در رنج آرام بدون روند مشخص و ADX ضعیف 12.6 است"
+   ],
+   "concerns": [
+    "الگوی دوقلوی کف صعودی در حال تشکیل است",
+    "حضور FVG حمایتی در فاصله نزدیک 0.16 ATR"
+   ],
+   "invalidation": "بسته شدن کندل ساعتی بالای سطح 0.004837",
+   "status": "REJECTED_AI",
+   "aiDecision": "SKIP"
+  },
+  {
+   "ts": "2026-11-19T10:01:02.207Z",
+   "barTime": "2026-11-19T09:00:00.000Z",
+   "sym": "INITUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 60,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "BB_MR",
+     "name": "Bollinger mean-reversion",
+     "avg_r": 0.35,
+     "n": 21,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 21,
+     "avg_r": -0.06,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.10485,
+   "stop": 0.09956304,
+   "t1": 0.11278044,
+   "t2": 0.12071087,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (21× · -0.06R)"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 21,
+    "win": 43,
+    "avg": -0.06,
+    "pf": 0.9
+   },
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (21× · -0.06R)"
+   ]
+  },
+  {
+   "ts": "2026-11-19T10:01:01.267Z",
+   "barTime": "2026-11-19T09:00:00.000Z",
+   "sym": "LINKUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 52,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": 0.04,
+     "n": 21,
+     "verdict": "WEAK"
+    },
+    "mine": {
+     "n": 26,
+     "avg_r": 0.02,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 9.2,
+   "stop": 9.06863026,
+   "t1": 9.39705461,
+   "t2": 9.59410921,
+   "rr": 3,
+   "fails": [
+    "خلاف سوگیری تایم‌فریم بالاتر",
+    "الگوی DESCENDING TRIANGLE خلاف جهت"
+   ],
+   "warns": [
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (26× · 0.02R)"
+   ],
+   "tm": {
+    "n": 26,
+    "win": 50,
+    "avg": 0.02,
+    "pf": 1.03
+   },
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "خلاف سوگیری تایم‌فریم بالاتر",
+    "الگوی DESCENDING TRIANGLE خلاف جهت"
+   ]
+  },
   {
    "ts": "2026-11-19T09:47:23.248Z",
    "barTime": "2026-11-19T09:00:00.000Z",
@@ -3458,237 +3682,6 @@
     "الگوی ASCENDING BROADENING WEDGE خلاف جهت",
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.05R)"
    ]
-  },
-  {
-   "ts": "2026-11-19T06:45:43.251Z",
-   "barTime": "2026-11-19T06:00:00.000Z",
-   "sym": "USDCAD",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 48,
-   "strategy": "RSI2",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.57,
-     "n": 17,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 17,
-     "avg_r": 0.57,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "UP",
-   "event": "CANDLE",
-   "sweep": "ARMED_WAIT_FVG_RETEST",
-   "entry": 1.43299997,
-   "stop": 1.43091902,
-   "t1": 1.43612139,
-   "t2": 1.43924281,
-   "rr": 3,
-   "fails": [],
-   "warns": [],
-   "tm": {
-    "n": 15,
-    "win": 27,
-    "avg": -0.96,
-    "pf": 0.22
-   },
-   "src": "yahoo",
-   "desk": {
-    "mode": "deferred: budget",
-    "llmToday": 92
-   },
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "DEFERRED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 1
-  },
-  {
-   "ts": "2026-11-19T06:45:43.081Z",
-   "barTime": "2026-11-19T05:00:00.000Z",
-   "sym": "OPUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 62,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.48,
-     "n": 22,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 22,
-     "avg_r": 0.48,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.0762,
-   "stop": 0.077767,
-   "t1": 0.0738495,
-   "t2": 0.07149901,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "الگوی DOUBLE BOTTOM خلاف جهت",
-    "الگوی INVERSE HEAD AND SHOULDERS خلاف جهت"
-   ],
-   "tm": {
-    "n": 22,
-    "win": 64,
-    "avg": 0.48,
-    "pf": 2.24
-   },
-   "src": "okx",
-   "desk": {
-    "mode": "deferred: budget",
-    "llmToday": 92
-   },
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "DEFERRED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 1
-  },
-  {
-   "ts": "2026-11-19T06:45:42.086Z",
-   "barTime": "2026-11-19T05:00:00.000Z",
-   "sym": "NESUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 72,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.45,
-     "n": 30,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": 0.45,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_UP",
-   "htf": "UP",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.2423,
-   "stop": 0.2257946,
-   "t1": 0.2670581,
-   "t2": 0.2918162,
-   "rr": 3,
-   "fails": [],
-   "warns": [],
-   "tm": {
-    "n": 30,
-    "win": 57,
-    "avg": 0.45,
-    "pf": 1.97
-   },
-   "src": "okx",
-   "desk": {
-    "mode": "deferred: budget",
-    "llmToday": 92
-   },
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "REJECTED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 4
-  },
-  {
-   "ts": "2026-11-19T06:45:41.098Z",
-   "barTime": "2026-11-19T05:00:00.000Z",
-   "sym": "FILUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 72,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.44,
-     "n": 15,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 25,
-     "avg_r": 0.4,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.5691,
-   "stop": 0.58256436,
-   "t1": 0.54890347,
-   "t2": 0.52870693,
-   "rr": 3,
-   "fails": [],
-   "warns": [],
-   "tm": {
-    "n": 25,
-    "win": 56,
-    "avg": 0.4,
-    "pf": 1.94
-   },
-   "src": "okx",
-   "desk": {
-    "mode": "deferred: budget",
-    "llmToday": 92
-   },
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "REJECTED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 4
   }
  ],
  "seen": {
@@ -4098,40 +4091,48 @@
   "EURAUD|4H|SHORT|2026-11-19T04:00:00.000Z": 1795081642081,
   "BREVUSDT|1H|LONG|2026-11-19T08:00:00.000Z": 1795081642235,
   "USDCHF|1H|LONG|2026-11-19T09:00:00.000Z": 1795081643231,
-  "USDCAD|1H|LONG|2026-11-19T09:00:00.000Z": 1795081643238
+  "USDCAD|1H|LONG|2026-11-19T09:00:00.000Z": 1795081643238,
+  "LINKUSDT|1H|LONG|2026-11-19T09:00:00.000Z": 1795082460333,
+  "INITUSDT|1H|LONG|2026-11-19T09:00:00.000Z": 1795082461267,
+  "STRKUSDT|1H|LONG|2026-11-19T09:00:00.000Z": 1795082462207,
+  "SOONUSDT|1H|LONG|2026-11-19T09:00:00.000Z": 1795082463147,
+  "BCHUSDT|1H|SHORT|2026-11-19T09:00:00.000Z": 1795082464086,
+  "EURJPY|1H|SHORT|2026-11-19T09:00:00.000Z": 1795082465058,
+  "PENGUUSDT|1H|SHORT|2026-11-19T09:00:00.000Z": 1795082465063,
+  "XPLUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795082474928
  },
- "lastRun": "2026-11-19T09:48:19.983Z",
- "runs": 125,
+ "lastRun": "2026-11-19T10:01:29.707Z",
+ "runs": 126,
  "errors": [],
- "durationSec": 173,
+ "durationSec": 44,
  "dataSrc": "okx",
  "stats": {
   "all": {
-   "n": 5,
-   "win": 20,
-   "avg": -0.45,
-   "total": -2.25,
-   "pf": 0.47,
-   "maxDD": 3.24
+   "n": 6,
+   "win": 17,
+   "avg": -0.55,
+   "total": -3.32,
+   "pf": 0.38,
+   "maxDD": 3.32
   },
   "byClass": {
    "crypto": {
-    "n": 5,
-    "win": 20,
-    "avg": -0.45,
-    "total": -2.25,
-    "pf": 0.47,
-    "maxDD": 3.24
+    "n": 6,
+    "win": 17,
+    "avg": -0.55,
+    "total": -3.32,
+    "pf": 0.38,
+    "maxDD": 3.32
    }
   },
   "byStrategy": {
    "SWEEP": {
-    "n": 1,
+    "n": 2,
     "win": 0,
-    "avg": -1.02,
-    "total": -1.02,
+    "avg": -1.04,
+    "total": -2.09,
     "pf": 0,
-    "maxDD": 1.02
+    "maxDD": 2.09
    },
    "LENS": {
     "n": 4,
@@ -4143,6 +4144,14 @@
    }
   },
   "byQuad": {
+   "Q3": {
+    "n": 5,
+    "win": 20,
+    "avg": -0.46,
+    "total": -2.3,
+    "pf": 0.47,
+    "maxDD": 3.24
+   },
    "Q2": {
     "n": 1,
     "win": 0,
@@ -4150,27 +4159,27 @@
     "total": -1.02,
     "pf": 0,
     "maxDD": 1.02
-   },
-   "Q3": {
-    "n": 4,
-    "win": 25,
-    "avg": -0.31,
-    "total": -1.23,
-    "pf": 0.62,
-    "maxDD": 3.24
    }
   },
   "byTf": {
    "1H": {
-    "n": 5,
-    "win": 20,
-    "avg": -0.45,
-    "total": -2.25,
-    "pf": 0.47,
-    "maxDD": 3.24
+    "n": 6,
+    "win": 17,
+    "avg": -0.55,
+    "total": -3.32,
+    "pf": 0.38,
+    "maxDD": 3.32
    }
   },
   "bySide": {
+   "SHORT": {
+    "n": 5,
+    "win": 20,
+    "avg": -0.46,
+    "total": -2.3,
+    "pf": 0.47,
+    "maxDD": 3.24
+   },
    "LONG": {
     "n": 1,
     "win": 0,
@@ -4178,17 +4187,17 @@
     "total": -1.02,
     "pf": 0,
     "maxDD": 1.02
-   },
-   "SHORT": {
-    "n": 4,
-    "win": 25,
-    "avg": -0.31,
-    "total": -1.23,
-    "pf": 0.62,
-    "maxDD": 3.24
    }
   },
   "bySym": {
+   "FILUSDT": {
+    "n": 1,
+    "win": 0,
+    "avg": -1.07,
+    "total": -1.07,
+    "pf": 0,
+    "maxDD": 1.07
+   },
    "NESUSDT": {
     "n": 1,
     "win": 0,
@@ -4231,8 +4240,8 @@
    }
   }
  },
- "equityR": -2.25,
- "equityUSD": -14.33,
+ "equityR": -3.32,
+ "equityUSD": -22.35,
  "config": {
   "symbols": [
    "BTCUSDT",
@@ -4250,8 +4259,8 @@
    "PUMPUSDT",
    "UNIUSDT",
    "SUIUSDT",
-   "FILUSDT",
    "WLDUSDT",
+   "FILUSDT",
    "LITUSDT",
    "TRUMPUSDT",
    "ENAUSDT",
@@ -4265,8 +4274,8 @@
    "BTWUSDT",
    "INJUSDT",
    "BCHUSDT",
-   "AVAXUSDT",
    "LTCUSDT",
+   "AVAXUSDT",
    "VVVUSDT",
    "ZROUSDT",
    "PROSUSDT",
@@ -4274,21 +4283,21 @@
    "XPLUSDT",
    "ARBUSDT",
    "ASTERUSDT",
-   "ONDOUSDT",
    "INITUSDT",
+   "ONDOUSDT",
    "PONSUSDT",
    "OKBUSDT",
    "ZILUSDT",
    "DGAIUSDT",
-   "UPUSDT",
    "PENGUUSDT",
+   "UPUSDT",
    "XLMUSDT",
    "TRXUSDT",
    "SOPHUSDT",
    "JUPUSDT",
    "NIGHTUSDT",
-   "DOTUSDT",
    "ETHFIUSDT",
+   "DOTUSDT",
    "SOONUSDT",
    "QNTUSDT",
    "APTUSDT",
@@ -4316,7 +4325,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6639989,
+   "minVolUSD": 6618725,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4326,12 +4335,12 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 14,
+   "candidates": 9,
    "deep": 8,
    "byClass": {
-    "crypto": 9,
+    "crypto": 8,
     "metal": 0,
-    "forex": 5,
+    "forex": 1,
     "stock": 0
    }
   },
@@ -4344,7 +4353,7 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 47,
+  "llmToday": 51,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -4359,7 +4368,7 @@
   ],
   "slots": 13,
   "slotsExhausted": 6,
-  "active": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
+  "active": "k3:gemini-3.6-flash",
   "slotTable": [
    {
     "id": "k1:gemini-3.5-flash-lite",
@@ -4417,8 +4426,8 @@
    },
    {
     "id": "k1:gemini-3.6-flash",
-    "calls": 8,
-    "errors": 8,
+    "calls": 9,
+    "errors": 9,
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
@@ -4426,8 +4435,8 @@
    },
    {
     "id": "k2:gemini-3.6-flash",
-    "calls": 8,
-    "errors": 8,
+    "calls": 9,
+    "errors": 9,
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
@@ -4435,7 +4444,7 @@
    },
    {
     "id": "k3:gemini-3.6-flash",
-    "calls": 7,
+    "calls": 9,
     "errors": 7,
     "exhausted": false,
     "reason": null,
@@ -4486,35 +4495,35 @@
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 67,
+   "left": 63,
    "tot": 207,
-   "frac": 0.32367149758454106
+   "frac": 0.30434782608695654
   },
   "requireAI": true,
-  "deferred": 9
+  "deferred": 7
  },
  "universeInfo": {
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6639989
+  "minVolUSD": 6618725
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 14,
+  "candidates": 9,
   "deep": 8,
   "byClass": {
-   "crypto": 9,
+   "crypto": 8,
    "metal": 0,
-   "forex": 5,
+   "forex": 1,
    "stock": 0
   }
  },
  "llm": {
   "day": "2026-11-19",
   "v": 6,
-  "calls": 47,
+  "calls": 51,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 2,
@@ -4583,27 +4592,27 @@
     "reason": "daily quota"
    },
    "k1:gemini-3.6-flash": {
-    "calls": 8,
+    "calls": 9,
     "exhausted": false,
-    "errors": 8,
-    "cooldownUntil": 1795081704418,
+    "errors": 9,
+    "cooldownUntil": 1795082536908,
     "r429": 1,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "lastErrAt": 1795081260778,
     "d429": 1
    },
    "k2:gemini-3.6-flash": {
-    "calls": 8,
+    "calls": 9,
     "exhausted": false,
-    "errors": 8,
-    "cooldownUntil": 1795081725121,
+    "errors": 9,
+    "cooldownUntil": 1795082542316,
     "r429": 1,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "lastErrAt": 1795081265347,
     "d429": 1
    },
    "k3:gemini-3.6-flash": {
-    "calls": 7,
+    "calls": 9,
     "exhausted": false,
     "errors": 7,
     "cooldownUntil": 1795081666508,
@@ -4633,7 +4642,7 @@
     "errors": 0
    }
   },
-  "active": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
+  "active": "k3:gemini-3.6-flash",
   "raw": [
    "k3:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
    "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
