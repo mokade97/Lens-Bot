@@ -20,13 +20,13 @@ const CFG = Object.assign({
   symbols: null, // legacy fixed list; if set, replaces the auto universe
   timeframes: ['4H', '1H'], maxCandidatesPerRun: 12, scanConcurrency: 4, runBudgetSec: 540, roundtableLite: true, roundtableMinBudgetFrac: 0.4,
   forexCosts: { feePct: 0, slipPct: 0.02, fundPer8h: 0 },
-  minScore: 70, account: 1000, riskPct: 1, minRR: 2, noCounterHtf: true, maxOpen: 6, maxBars: 40,
+  minScore: 70, account: 1000, riskPct: 1, minRR: 2, noCounterHtf: true, maxOpen: 6, maxBars: 40, paperTrade: true, maxExtAtr: 2,
   feePct: 0.1, slipPct: 0.03, fundPer8h: 0.01,
   useGemini: true, geminiModel: 'gemini-3.5-flash-lite', geminiModels: ['gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.6-flash'], providerOrder: ['gemini', 'openrouter'], openrouterModels: [], openrouterCount: 4, openrouterDaily: 45, minConfidence: 60, roundtable: true, requireAI: true, maxDeferRuns: 4, llmMinGapMs: 4500, dailyLLMBudget: 220, maxLLMPerRun: 24, macroCacheHours: 4,
   exchanges: ['okx', 'bitget', 'gate'], keepAlerts: 60, keepClosed: 400
 }, readJSON(path.join(ROOT, 'config.json'), {}));
 const STATE_FILE = path.join(ROOT, 'state.json');
-const S = Object.assign({ version: 1, positions: [], closed: [], alerts: [], seen: {}, lastRun: null, runs: 0, errors: [] }, readJSON(STATE_FILE, {}));
+const S = Object.assign({ version: 1, positions: [], closed: [], alerts: [], shadow: [], shadowClosed: [], seen: {}, lastRun: null, runs: 0, errors: [] }, readJSON(STATE_FILE, {}));
 
 function readJSON(f, d) { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return d; } }
 const r6 = x => x == null ? null : +(+x).toFixed(6);
@@ -108,6 +108,14 @@ PACKET: ${JSON.stringify(p)}`;
   function fallback(why) { if (CFG.requireAI !== false) return { decision: 'DEFER', confidence: null, reasons: ['AI در دسترس نبود (' + why + ') — تا اجرای بعدی به تعویق افتاد'], judge: 'deferred' }; return { decision: side, confidence: null, reasons: ['قاضی AI در دسترس نبود (' + why + ') — تصمیم موتور قطعی'], concerns: rc.warns, judge: 'rules(fallback)' }; }
 }
 
+/* ---------------- shadow ledger: EVERY analysed setup becomes a tracked trade (approved, rejected by rules, rejected by AI, deferred) so the analysis itself can be audited ---------------- */
+function shadowRecord(alert, verdict, d) {
+  if (!(alert.entry > 0 && alert.stop > 0 && alert.t1 > 0) || CFG.shadowLedger === false) return;
+  const id = `${alert.sym}|${alert.tf}|${alert.side}|${alert.barTime}`; const ex = S.shadow.find(x => x.id === id); if (ex) { if (verdict !== 'DEFERRED') { ex.verdict = verdict; ex.aiDecision = d && d.decision || ex.aiDecision; ex.confidence = d && d.confidence != null ? d.confidence : ex.confidence; } return; }
+  if (S.shadowClosed.some(x => x.id === id)) return;
+  S.shadow.push({ id, sym: alert.sym, cls: alert.cls, tf: alert.tf, side: alert.side, strategy: alert.strategy, quad: alert.quad, score: alert.score, chase: alert.chase || 0, entry: alert.entry, stop: alert.stop, t1: alert.t1, t2: alert.t2, verdict, aiDecision: d && d.decision || null, confidence: d && d.confidence != null ? d.confidence : null, openedAt: alert.ts, barTime: alert.barTime, lastBarT: Date.parse(alert.barTime), bars: 0, t1hit: false, mtm: 0 });
+}
+function confBucket(c) { return c == null ? 'n/a' : c >= 80 ? '80+' : c >= 65 ? '65-79' : c >= 50 ? '50-64' : '<50'; }
 /* ---------------- paper position management ---------------- */
 function manage(pos, k) {
   const closedBars = k.slice(0, -1).filter(b => b.t > pos.lastBarT); if (!closedBars.length) return null;
@@ -135,9 +143,10 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
   const U = await universe(); const tfs = CFG.timeframes; log(`universe: ${U.length} symbols (${['crypto', 'metal', 'forex', 'stock'].map(c => c + ' ' + U.filter(x => x.cls === c).length).join(', ')}) × ${tfs.join('/')}`);
   const pool = async (items, n, fn) => { const q = items.slice(); const w = Array.from({ length: n }, async () => { while (q.length) { const it = q.shift(); try { await fn(it); } catch (e) { S.errors.push((it.sym || '') + ' ' + (it.tf || '') + ': ' + (e.message || e)); } } }); await Promise.all(w); };
   // ---- phase A: manage open paper positions (always, even if the symbol dropped out of the universe)
+  await pool(S.shadow.slice(), CFG.scanConcurrency, async sh => { const k = await klinesAny(sh.sym, sh.tf, 120); if (!k) return; const res = manage(sh, k); if (res) { Object.assign(sh, res, { closedAt: new Date().toISOString() }); S.shadowClosed.unshift(sh); S.shadow = S.shadow.filter(x => x !== sh); } });
   await pool(S.positions.slice(), CFG.scanConcurrency, async pos => { const k = await klinesAny(pos.sym, pos.tf, 120); if (!k) return; const res = manage(pos, k); if (res) { Object.assign(pos, res, { status: 'CLOSED', closedAt: new Date().toISOString() }); S.closed.unshift(pos); S.positions = S.positions.filter(x => x !== pos); log('CLOSE', pos.sym, pos.tf, pos.side, res.out, res.rr + 'R'); } });
   // ---- phase B: quick scan of the whole universe on the trading timeframes (320 bars, engine packet only)
-  const cands = []; const jobs = []; U.forEach(u => tfs.forEach(tf => jobs.push({ sym: u.sym, cls: u.cls, tf })));
+  const cands = []; const jobs = []; let extendedN = 0; U.forEach(u => tfs.forEach(tf => jobs.push({ sym: u.sym, cls: u.cls, tf })));
   await pool(jobs, CFG.scanConcurrency, async ({ sym, cls, tf }) => {
     const k = await klinesAny(sym, tf, 320); if (!k) return;
     const p = lens.packet(sym, tf, k, null, 'N/A'); if (!p) return;
@@ -147,6 +156,8 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
     // cheap strategy-lab live signals on 320 bars (only to nominate; the real lab runs on 1000 bars in phase C)
     if (!side && CFG.useStrategyLab !== false) { try { const S0 = lens.series(k, null); const L = k.length - 2; const X = lens.labSeries(k, S0); for (const [id, st] of Object.entries(lens.STRATS)) { if (id === 'LENS') continue; const sg = st.sig(k, S0, X, L); if (sg) { side = typeof sg === 'string' ? sg : sg.side; strategy = id; break; } } } catch (e) { } }
     if (!side) return;
+    // extended-move filter: entering at the close of a candle that is already >N×ATR away from EMA20 is chasing (live ledger: 5% win) → skip
+    if (CFG.maxExtAtr) { try { const S0 = lens.series(k, null); const L = k.length - 2; const A = S0.atr[L], e20 = S0.e20[L]; if (A && e20) { const ext = (side === 'LONG' ? k[L].c - e20 : e20 - k[L].c) / A; if (ext > CFG.maxExtAtr) { extendedN++; return; } } } catch (e) { } }
     const score = side === 'LONG' ? p.scores.long : p.scores.short; const barKey = `${sym}|${tf}|${side}|${p.time}`; if (S.seen[barKey]) return;
     if (strategy === 'SWEEP' && score < CFG.minScore - 15) return;
     cands.push({ sym, cls, tf, side, strategy, score, barKey, quad: p.regime_quadrant && p.regime_quadrant.quadrant, pre: p });
@@ -158,7 +169,7 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
   const perClass = CFG.minDeepPerClass || 2; const picked = []; const used = new Set();
   for (const c of ['forex', 'metal', 'stock', 'crypto']) cands.filter(x => x.cls === c).slice(0, perClass).forEach(x => { if (picked.length < CFG.maxCandidatesPerRun) { picked.push(x); used.add(x); } });
   for (const x of cands) { if (picked.length >= CFG.maxCandidatesPerRun) break; if (!used.has(x)) { picked.push(x); used.add(x); } }
-  picked.sort((a, b) => prio(b) - prio(a)); S.scan = { symbols: U.length, pairs: jobs.length, candidates: cands.length, deep: Math.min(cands.length, CFG.maxCandidatesPerRun), byClass: ['crypto', 'metal', 'forex', 'stock'].reduce((o, c) => (o[c] = cands.filter(x => x.cls === c).length, o), {}) };
+  picked.sort((a, b) => prio(b) - prio(a)); S.scan = { symbols: U.length, pairs: jobs.length, candidates: cands.length, deep: Math.min(cands.length, CFG.maxCandidatesPerRun), extended: extendedN, byClass: ['crypto', 'metal', 'forex', 'stock'].reduce((o, c) => (o[c] = cands.filter(x => x.cls === c).length, o), {}) };
   log(`scan: ${jobs.length} pairs → ${cands.length} candidates (deep-analysing top ${S.scan.deep})`);
   const budgetMs = (CFG.runBudgetSec || 540) * 1000; let skippedForTime = 0;
   for (const cnd of picked) {
@@ -178,7 +189,8 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
       p._strategy = strategy; const rc = ruleCheck(p, side); let bt = null; try { bt = lens.backtest(k, hk, { tf }); } catch (e) { }
       const mine = lab && lab.strategies[strategy === 'SWEEP' ? 'LENS' : strategy];
       const alert = { ts: new Date().toISOString(), barTime: p.time, sym, cls, tf, side, score, strategy, lab: lab && { best: lab.best, mine: mine && { n: mine.n, avg_r: mine.avg_r, verdict: mine.verdict } }, quad: p.regime_quadrant && p.regime_quadrant.quadrant, regime: p.regime, htf: p.trend.htf_bias, event: p.event, sweep: sweep && sweep.status, entry: p.trade.entry, stop: p.trade.stop, t1: p.trade.target_1, t2: p.trade.target_2, rr: rc.rr, fails: rc.fails, warns: rc.warns, tm: bt && bt.all ? { n: bt.all.n, win: bt.all.win_rate, avg: bt.all.avg_r, pf: bt.all.profit_factor } : null, src: isForex(sym) ? 'yahoo' : dataSrc };
-      if (rc.fails.length) { alert.status = 'REJECTED_RULES'; alert.reasons = rc.fails; S.alerts.unshift(alert); log('REJECT', sym, tf, side, rc.fails.join('; ')); continue; }
+      alert.chase = p.chasing ? 1 : 0;
+      if (rc.fails.length) { alert.status = 'REJECTED_RULES'; alert.reasons = rc.fails; shadowRecord(alert, 'RULES_REJECTED'); S.alerts.unshift(alert); log('REJECT', sym, tf, side, rc.fails.join('; ')); continue; }
       // independent AI desk (roundtable) / judge
       const klinesBy = { [tf]: k }; if (hk) klinesBy[htf] = hk; if (CFG.roundtable && !klinesBy['1D']) { try { klinesBy['1D'] = await klinesAny(sym, '1D', 120); } catch (e) { } }
       const rem = desk.makeLLM(CFG, S).remaining(); const useRT = CFG.roundtable && rem.frac >= (CFG.roundtableMinBudgetFrac != null ? CFG.roundtableMinBudgetFrac : 0.4);   // ration: full roundtable while ≥40% of today's AI budget is left, otherwise single-call judge
@@ -187,14 +199,16 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
       alert.judge = d.judge; alert.confidence = d.confidence; alert.reasons = d.reasons || []; alert.concerns = d.concerns || []; alert.invalidation = d.invalidation || '';
       if (d.decision === 'DEFER') { S.pending = S.pending || {}; const n = (S.pending[cnd.barKey] || 0) + 1; S.pending[cnd.barKey] = n; const giveUp = n >= (CFG.maxDeferRuns || 4);
         if (!giveUp) delete S.seen[cnd.barKey]; // retry on the next run while the setup bar is still the latest closed bar
-        alert.status = giveUp ? 'REJECTED_AI' : 'DEFERRED_AI'; alert.aiDecision = 'DEFER'; alert.deferCount = n; S.alerts = S.alerts.filter(a => !(a.status === 'DEFERRED_AI' && a.sym === sym && a.tf === tf && a.barTime === p.time)); S.alerts.unshift(alert); log('DEFER', sym, tf, side, n + '/' + (CFG.maxDeferRuns || 4), (d.reasons || [])[0]); continue; }
+        alert.status = giveUp ? 'REJECTED_AI' : 'DEFERRED_AI'; alert.aiDecision = 'DEFER'; alert.deferCount = n; shadowRecord(alert, giveUp ? 'AI_UNAVAILABLE' : 'DEFERRED', d); S.alerts = S.alerts.filter(a => !(a.status === 'DEFERRED_AI' && a.sym === sym && a.tf === tf && a.barTime === p.time)); S.alerts.unshift(alert); log('DEFER', sym, tf, side, n + '/' + (CFG.maxDeferRuns || 4), (d.reasons || [])[0]); continue; }
       const approved = (d.decision === side) && (d.confidence == null || d.confidence >= CFG.minConfidence);
-      if (!approved) { alert.status = 'REJECTED_AI'; alert.aiDecision = d.decision; S.alerts.unshift(alert); log('AI-SKIP', sym, tf, side, d.decision, d.confidence); continue; }
+      if (!approved) { alert.status = 'REJECTED_AI'; alert.aiDecision = d.decision; shadowRecord(alert, 'AI_REJECTED', d); S.alerts.unshift(alert); log('AI-SKIP', sym, tf, side, d.decision, d.confidence); continue; }
       if (d.entry > 0 && d.stop > 0 && d.target_1 > 0 && ((side === 'LONG' && d.stop < d.entry) || (side === 'SHORT' && d.stop > d.entry))) { alert.entry = d.entry; alert.stop = d.stop; alert.t1 = d.target_1; alert.t2 = d.target_2 > 0 ? d.target_2 : alert.t2; }
       // open paper position (capacity, one per symbol); size in base units — for non-USD-quoted FX pairs the USD risk is approximated via the pair price
       const busy = S.positions.some(x => x.sym === sym); const cap = S.positions.length >= CFG.maxOpen;
       const R = Math.abs(alert.entry - alert.stop); const riskUSD = CFG.account * CFG.riskPct / 100 * rc.sizeMult; const quoteUSD = isForex(sym) && !/USD$/.test(sym) ? 1 / alert.entry : 1; const size = R ? riskUSD / (R * quoteUSD) : 0;
       alert.size = +size.toPrecision(5); alert.riskUSD = +riskUSD.toFixed(2); alert.sizeMult = rc.sizeMult;
+      shadowRecord(alert, 'AI_APPROVED', d);
+      if (CFG.paperTrade === false) { alert.status = 'ALERT_ONLY_PAPER_OFF'; S.alerts.unshift(alert); newAlerts.push(alert); log('ALERT', sym, tf, side, 'paper trading off'); continue; }
       if (busy || cap) { alert.status = busy ? 'ALERT_ONLY_BUSY' : 'ALERT_ONLY_CAP'; S.alerts.unshift(alert); newAlerts.push(alert); log('ALERT', sym, tf, side, alert.status); continue; }
       const pos = { id: cnd.barKey, sym, cls, tf, side, strategy, entry: alert.entry, stop: alert.stop, t1: alert.t1, t2: alert.t2, size: alert.size, riskUSD: alert.riskUSD, quad: alert.quad, score, confidence: d.confidence, openedAt: alert.ts, barTime: p.time, lastBarT: Date.parse(p.time), bars: 0, t1hit: false, mtm: 0, status: 'OPEN', reasons: alert.reasons };
       S.positions.push(pos); alert.status = 'OPENED_PAPER'; S.alerts.unshift(alert); newAlerts.push(alert); log('OPEN', sym, tf, side, strategy, '@', alert.entry, 'SL', alert.stop, 'T1', alert.t1, 'conf', d.confidence);
@@ -205,10 +219,12 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
   const cutoff = Date.now() - 14 * 864e5; Object.keys(S.seen).forEach(k => { if (S.seen[k] < cutoff) delete S.seen[k]; }); if (S.pending) Object.keys(S.pending).forEach(k => { const t = Date.parse(k.split('|')[3]); if (!(t > Date.now() - 3 * 864e5)) delete S.pending[k]; });
   S.lastRun = new Date().toISOString(); S.durationSec = Math.round((Date.now() - started) / 1000); S.dataSrc = dataSrc;
   S.stats = { all: stats(S.closed), byClass: by(S.closed, x => x.cls || 'crypto'), byStrategy: by(S.closed, x => x.strategy || 'LENS'), byQuad: by(S.closed, x => x.quad), byTf: by(S.closed, x => x.tf), bySide: by(S.closed, x => x.side), bySym: by(S.closed, x => x.sym) };
+  S.shadowClosed = S.shadowClosed.slice(0, CFG.keepShadow || 600); const SC = S.shadowClosed;
+  S.shadowStats = { all: stats(SC), byVerdict: by(SC, x => x.verdict), byConf: by(SC.filter(x => x.verdict === 'AI_APPROVED' || x.verdict === 'AI_REJECTED'), x => confBucket(x.confidence)), byAiDecision: by(SC, x => x.aiDecision ? (x.aiDecision === x.side ? 'AI agrees' : x.aiDecision === 'DEFER' ? 'DEFER' : 'AI against/' + x.aiDecision) : 'no AI'), byChase: by(SC, x => x.chase ? 'extended' : 'normal'), byStrategy: by(SC, x => x.strategy), byQuad: by(SC, x => x.quad), open: S.shadow.length };
   S.equityR = +(S.closed.reduce((s, x) => s + x.rr, 0)).toFixed(2); S.equityUSD = +(S.closed.reduce((s, x) => s + x.rr * (x.riskUSD || 0), 0)).toFixed(2);
-  S.config = { symbols: U.map(x => x.sym), universe: Object.assign({}, S.universeInfo || {}, { total: U.length, crypto: U.filter(x => x.cls === 'crypto').length, metal: U.filter(x => x.cls === 'metal').length, forex: U.filter(x => x.cls === 'forex').length, stock: U.filter(x => x.cls === 'stock').length }), scan: S.scan, timeframes: CFG.timeframes, minScore: CFG.minScore, account: CFG.account, riskPct: CFG.riskPct, maxOpen: CFG.maxOpen, judge: CFG.useGemini && (desk.geminiKeys().length || process.env.OPENROUTER_API_KEY) ? (CFG.roundtable ? 'roundtable:' : '') + CFG.geminiModel : 'rules-only', llmToday: S.llm ? S.llm.calls : 0, keys: desk.geminiKeys().length, models: CFG.geminiModels || [CFG.geminiModel], openrouterModels: CFG.openrouterModels || [], slots: S.llm && S.llm.slots ? Object.keys(S.llm.slots).length : 0, slotsExhausted: S.llm && S.llm.slots ? Object.values(S.llm.slots).filter(k => k.exhausted).length : 0, active: S.llm && S.llm.active || null, slotTable: S.llm && S.llm.slots ? Object.entries(S.llm.slots).map(([id, x]) => ({ id, calls: x.calls, errors: x.errors, exhausted: !!x.exhausted, reason: x.reason || null, lastErr: x.lastErr || null, cooling: !!(x.cooldownUntil && x.cooldownUntil > Date.now()) })) : [], llmRaw: S.llm && S.llm.raw || [], llmBudget: (() => { try { return desk.makeLLM(CFG, S).remaining(); } catch (e) { return null; } })(), requireAI: CFG.requireAI !== false, deferred: S.alerts.filter(a => a.status === 'DEFERRED_AI').length };
+  S.config = { symbols: U.map(x => x.sym), universe: Object.assign({}, S.universeInfo || {}, { total: U.length, crypto: U.filter(x => x.cls === 'crypto').length, metal: U.filter(x => x.cls === 'metal').length, forex: U.filter(x => x.cls === 'forex').length, stock: U.filter(x => x.cls === 'stock').length }), scan: S.scan, timeframes: CFG.timeframes, minScore: CFG.minScore, account: CFG.account, riskPct: CFG.riskPct, maxOpen: CFG.maxOpen, judge: CFG.useGemini && (desk.geminiKeys().length || process.env.OPENROUTER_API_KEY) ? (CFG.roundtable ? 'roundtable:' : '') + CFG.geminiModel : 'rules-only', llmToday: S.llm ? S.llm.calls : 0, keys: desk.geminiKeys().length, models: CFG.geminiModels || [CFG.geminiModel], openrouterModels: CFG.openrouterModels || [], slots: S.llm && S.llm.slots ? Object.keys(S.llm.slots).length : 0, slotsExhausted: S.llm && S.llm.slots ? Object.values(S.llm.slots).filter(k => k.exhausted).length : 0, active: S.llm && S.llm.active || null, slotTable: S.llm && S.llm.slots ? Object.entries(S.llm.slots).map(([id, x]) => ({ id, calls: x.calls, errors: x.errors, exhausted: !!x.exhausted, reason: x.reason || null, lastErr: x.lastErr || null, cooling: !!(x.cooldownUntil && x.cooldownUntil > Date.now()) })) : [], llmRaw: S.llm && S.llm.raw || [], llmBudget: (() => { try { return desk.makeLLM(CFG, S).remaining(); } catch (e) { return null; } })(), requireAI: CFG.requireAI !== false, paperTrade: CFG.paperTrade !== false, maxExtAtr: CFG.maxExtAtr || null, deferred: S.alerts.filter(a => a.status === 'DEFERRED_AI').length };
   fs.writeFileSync(STATE_FILE, JSON.stringify(S, null, 1));
-  const pub = { v: 1, lastRun: S.lastRun, durationSec: S.durationSec, dataSrc, config: S.config, equityR: S.equityR, equityUSD: S.equityUSD, stats: S.stats, positions: S.positions, alerts: S.alerts.slice(0, 40), closed: S.closed.slice(0, 60), errors: S.errors.slice(0, 10) };
+  const pub = { v: 1, lastRun: S.lastRun, durationSec: S.durationSec, dataSrc, config: S.config, equityR: S.equityR, equityUSD: S.equityUSD, stats: S.stats, shadowStats: S.shadowStats, shadow: S.shadow.slice(0, 60), shadowClosed: S.shadowClosed.slice(0, 60), positions: S.positions, alerts: S.alerts.slice(0, 40), closed: S.closed.slice(0, 60), errors: S.errors.slice(0, 10) };
   fs.mkdirSync(path.join(ROOT, 'public'), { recursive: true }); fs.writeFileSync(path.join(ROOT, 'public', 'bot.json'), JSON.stringify(pub));
   if (skippedForTime) log('time budget reached — deferred', skippedForTime, 'candidates to next run'); S.scan && (S.scan.timeSkipped = skippedForTime);
   log(`done in ${S.durationSec}s · open ${S.positions.length} · closed ${S.closed.length} · new alerts ${newAlerts.length} · equity ${S.equityR}R · src ${dataSrc} · errors ${S.errors.length}`);

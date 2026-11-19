@@ -175,7 +175,7 @@ function packet(sym,tf,k,htfK,htfName){
   const lv=vwapDay(k,L);const cur=candleObj(k,L,A,0);const vp=volumeProfile(k,L,A);const ch=championAt(k,S,L,A);const smc=smcZones(k,L,A);const cp=chartPatterns(k,L,A);const sx=structureExtras(k,S,L,A);if(sx){try{sx.sweep_choch_fvg=sweepSignals(k.slice(0,L+1),S.atr).live;}catch(e){sx.sweep_choch_fvg=null;}}
   const side=q.event==='LONG_SETUP'?'LONG':q.event==='SHORT_SETUP'?'SHORT':(q.ls>=q.ss?'LONG':'SHORT');const entry=k[L].c;const stop=side==='LONG'?entry-1.5*A:entry+1.5*A;const R=Math.abs(entry-stop);
   return {schema:'ai-agent-lens/v1',source:'in-app computed from exchange candles (closed bars only)',event:q.event,symbol:sym,timeframe:tf,time:new Date(k[L].t).toISOString(),
-    candle:cur,recent_candles:[4,3,2,1,0].map(b=>candleObj(k,L-b,S.atr[L-b],b)),regime,regime_quadrant:quad,extension_atr_from_ema50:ext50,extended:ext50!=null&&Math.abs(ext50)>=4,
+    candle:cur,recent_candles:[4,3,2,1,0].map(b=>candleObj(k,L-b,S.atr[L-b],b)),regime,regime_quadrant:quad,extension_atr_from_ema50:ext50,extended:ext50!=null&&Math.abs(ext50)>=4,extension_atr_from_ema20:S.e20[L]&&A?+(((k[L].c-S.e20[L])/A)).toFixed(2):null,chasing:!!(S.e20[L]&&A&&(side==='LONG'?k[L].c-S.e20[L]:S.e20[L]-k[L].c)/A>2),
     trend:{ema_fast:r2(S.e20[L],6),ema_mid:r2(S.e50[L],6),ema_slow:L>=210?r2(S.e200[L],6):null,stack:q.stack,slow_slope:slope,htf:htfName,htf_bias:q.hb},
     momentum:{rsi:r2(q.rs,1),macd_hist:r2(q.mh,6),macd_hist_rising:q.mh>q.mhp},strength:{adx:r2(q.adx,1),di_plus:r2(q.dip,1),di_minus:r2(q.din,1)},
     volatility:{atr:r2(A,6),atr_percentile:atrPct},volume:{relative:r2(q.relVol)},
