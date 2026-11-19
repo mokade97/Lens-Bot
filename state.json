@@ -356,6 +356,118 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-19T13:30:55.058Z",
+   "barTime": "2026-11-19T08:00:00.000Z",
+   "sym": "LITUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 40,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.28,
+     "n": 20,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 20,
+     "avg_r": 0.28,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 2.9644,
+   "stop": 3.16971722,
+   "t1": 2.65642417,
+   "t2": 2.34844833,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "الگوی INVERSE HEAD AND SHOULDERS خلاف جهت",
+    "ناحیه‌ی FVG فقط 0.44×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 21,
+    "win": 43,
+    "avg": 0.2,
+    "pf": 1.36
+   },
+   "src": "okx",
+   "judge": "judge:nvidia/nemotron-3-ultra-550b-a55b:free",
+   "confidence": 85,
+   "reasons": [
+    "امتیاز ۴۰ کمتر از آستانه ۷۰",
+    "الگوی معکوس سر و شانه صعودی در حال تشکیل",
+    "عملکرد تاریخی با HTF تقریبی بی‌حاشیه"
+   ],
+   "concerns": [
+    "FVG تنها ۰.۴۴ ATR جلوتر - فضای ناکافی",
+    "رژیم QUIET_RANGE از FVG جلوگیری می‌کند",
+    "حجم نسبی پایین (۰.۳۴) و MOMENTUM صعودی"
+   ],
+   "invalidation": "شکستن نکلاین ۳.۱۱۵۴ الگوی معکوس سر و شانه به سمت بالا",
+   "status": "REJECTED_AI",
+   "aiDecision": "SKIP"
+  },
+  {
+   "ts": "2026-11-19T13:30:50.998Z",
+   "barTime": "2026-11-19T13:00:00.000Z",
+   "sym": "AUDJPY",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 48,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": 0.48,
+     "n": 12,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 14,
+     "avg_r": 0.16,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q4",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 107.34899902,
+   "stop": 107.0427538,
+   "t1": 107.80836686,
+   "t2": 108.2677347,
+   "rr": 3,
+   "fails": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "خلاف سوگیری تایم‌فریم بالاتر"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 14,
+    "win": 36,
+    "avg": -0.37,
+    "pf": 0.52
+   },
+   "src": "yahoo",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "خلاف سوگیری تایم‌فریم بالاتر"
+   ]
+  },
+  {
    "ts": "2026-11-19T13:18:57.284Z",
    "barTime": "2026-11-19T13:00:00.000Z",
    "sym": "GBPJPY",
@@ -3492,112 +3604,6 @@
    "reasons": [
     "خلاف سوگیری تایم‌فریم بالاتر"
    ]
-  },
-  {
-   "ts": "2026-11-19T10:15:41.127Z",
-   "barTime": "2026-11-19T10:00:00.000Z",
-   "sym": "EURGBP",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 64,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "EMA_X",
-     "name": "EMA 20/50 crossover + HTF",
-     "avg_r": 0.41,
-     "n": 10,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 15,
-     "avg_r": -0.15,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "RANGE",
-   "htf": "NEUTRAL",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.83600998,
-   "stop": 0.83517182,
-   "t1": 0.83726722,
-   "t2": 0.83852446,
-   "rr": 3,
-   "fails": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "الگوی DESCENDING CHANNEL خلاف جهت",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (15× · -0.15R)"
-   ],
-   "warns": [
-    "نسبتاً کش‌شده (3.3×ATR)"
-   ],
-   "tm": {
-    "n": 15,
-    "win": 27,
-    "avg": -1.49,
-    "pf": 0.08
-   },
-   "src": "yahoo",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "الگوی DESCENDING CHANNEL خلاف جهت",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (15× · -0.15R)"
-   ]
-  },
-  {
-   "ts": "2026-11-19T10:15:41.121Z",
-   "barTime": "2026-11-19T10:00:00.000Z",
-   "sym": "EURUSD",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 56,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.39,
-     "n": 12,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 12,
-     "avg_r": 0.39,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 1.09998906,
-   "stop": 1.09866638,
-   "t1": 1.10197308,
-   "t2": 1.1039571,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ],
-   "warns": [
-    "ناحیه‌ی FVG فقط 0.69×ATR جلوتر"
-   ],
-   "tm": {
-    "n": 12,
-    "win": 42,
-    "avg": -0.55,
-    "pf": 0.36
-   },
-   "src": "yahoo",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ]
   }
  ],
  "seen": {
@@ -4094,12 +4100,20 @@
   "EURUSD|1H|LONG|2026-11-19T13:00:00.000Z": 1795094273948,
   "NZDUSD|1H|LONG|2026-11-19T13:00:00.000Z": 1795094273956,
   "EURGBP|1H|LONG|2026-11-19T13:00:00.000Z": 1795094337259,
-  "GBPJPY|1H|LONG|2026-11-19T13:00:00.000Z": 1795094337269
+  "GBPJPY|1H|LONG|2026-11-19T13:00:00.000Z": 1795094337269,
+  "AUDJPY|1H|LONG|2026-11-19T13:00:00.000Z": 1795095050988,
+  "GBPCHF|1H|SHORT|2026-11-19T13:00:00.000Z": 1795095050999,
+  "CHIPUSDT|1H|LONG|2026-11-19T12:00:00.000Z": 1795095051003,
+  "SHIBUSDT|4H|SHORT|2026-11-19T08:00:00.000Z": 1795095051939,
+  "IRYSUSDT|4H|SHORT|2026-11-19T08:00:00.000Z": 1795095052980,
+  "LITUSDT|4H|SHORT|2026-11-19T08:00:00.000Z": 1795095053927,
+  "SENTUSDT|4H|SHORT|2026-11-19T08:00:00.000Z": 1795095081120,
+  "ETHFIUSDT|4H|SHORT|2026-11-19T08:00:00.000Z": 1795095082066
  },
- "lastRun": "2026-11-19T13:19:12.195Z",
- "runs": 139,
+ "lastRun": "2026-11-19T13:31:23.006Z",
+ "runs": 140,
  "errors": [],
- "durationSec": 225,
+ "durationSec": 47,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -4280,8 +4294,8 @@
    "ASTERUSDT",
    "XPLUSDT",
    "ONDOUSDT",
-   "PONSUSDT",
    "UPUSDT",
+   "PONSUSDT",
    "OKBUSDT",
    "ZILUSDT",
    "DGAIUSDT",
@@ -4289,16 +4303,16 @@
    "XLMUSDT",
    "ETHFIUSDT",
    "JUPUSDT",
-   "TRXUSDT",
    "DOTUSDT",
+   "TRXUSDT",
    "SOPHUSDT",
    "CRVUSDT",
    "NIGHTUSDT",
    "SOONUSDT",
-   "QNTUSDT",
-   "ICPUSDT",
-   "OPUSDT",
    "CHIPUSDT",
+   "ICPUSDT",
+   "SHIBUSDT",
+   "OPUSDT",
    "XAUUSDT",
    "XAGUSDT",
    "EURUSD",
@@ -4320,7 +4334,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6717076,
+   "minVolUSD": 6716388,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4330,12 +4344,12 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 30,
+   "candidates": 23,
    "deep": 8,
    "byClass": {
-    "crypto": 23,
+    "crypto": 20,
     "metal": 0,
-    "forex": 7,
+    "forex": 3,
     "stock": 0
    }
   },
@@ -4348,7 +4362,7 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 85,
+  "llmToday": 86,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -4448,7 +4462,7 @@
    },
    {
     "id": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
-    "calls": 16,
+    "calls": 17,
     "errors": 0,
     "exhausted": false,
     "reason": null,
@@ -4490,9 +4504,9 @@
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 29,
+   "left": 28,
    "tot": 207,
-   "frac": 0.14009661835748793
+   "frac": 0.13526570048309178
   },
   "requireAI": true,
   "deferred": 0
@@ -4501,24 +4515,24 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6717076
+  "minVolUSD": 6716388
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 30,
+  "candidates": 23,
   "deep": 8,
   "byClass": {
-   "crypto": 23,
+   "crypto": 20,
    "metal": 0,
-   "forex": 7,
+   "forex": 3,
    "stock": 0
   }
  },
  "llm": {
   "day": "2026-11-19",
   "v": 6,
-  "calls": 85,
+  "calls": 86,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 2,
@@ -4617,7 +4631,7 @@
     "d429": 1
    },
    "or:nvidia/nemotron-3-ultra-550b-a55b:free": {
-    "calls": 16,
+    "calls": 17,
     "exhausted": false,
     "errors": 0
    },
