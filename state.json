@@ -351,6 +351,126 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-19T09:47:23.248Z",
+   "barTime": "2026-11-19T09:00:00.000Z",
+   "sym": "USDCAD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 26,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.47,
+     "n": 18,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 18,
+     "avg_r": 0.47,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "UP",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 1.43134999,
+   "stop": 1.43345844,
+   "t1": 1.42818732,
+   "t2": 1.42502465,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "ناحیه‌ی BREAKER فقط 0.25×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 16,
+    "win": 19,
+    "avg": -1.04,
+    "pf": 0.19
+   },
+   "src": "yahoo",
+   "judge": "judge:nvidia/nemotron-3-ultra-550b-a55b:free",
+   "confidence": 90,
+   "reasons": [
+    "تاریخچه‌ی استراتژی منفی است (avg_r -1.04)",
+    "امتیاز ۲۶ زیر آستانه ۷۰",
+    "مقاومت Breaker در ۰.۲۵ ATR"
+   ],
+   "concerns": [
+    "تضاد جهت: پکت SHORT، پیشنهاد LONG",
+    "رژیم QUIET_RANGE با حجم کم",
+    "لبه‌ی منفی در تست‌های با فیلتر HTF"
+   ],
+   "invalidation": "امتیاز به ۷۰ برسد و expectancy مثبت شود",
+   "status": "REJECTED_AI",
+   "aiDecision": "SKIP"
+  },
+  {
+   "ts": "2026-11-19T09:45:44.756Z",
+   "barTime": "2026-11-19T04:00:00.000Z",
+   "sym": "TAOUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 30,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.3,
+     "n": 20,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 20,
+     "avg_r": 0.3,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 197.14,
+   "stop": 189.10703688,
+   "t1": 209.18944468,
+   "t2": 221.23888935,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "ناحیه‌ی FVG فقط 0.59×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 27,
+    "win": 44,
+    "avg": 0.18,
+    "pf": 1.31
+   },
+   "src": "okx",
+   "judge": "judge:nvidia/nemotron-3-ultra-550b-a55b:free",
+   "confidence": 30,
+   "reasons": [
+    "امتیاز ۳۰ کمتر از آستانه ۷۰",
+    "ایده‌ی داخلی لنس LONG است",
+    "رژیم QUIET_RANGE از FVG پرهیز می‌کند"
+   ],
+   "concerns": [
+    "نرخ برد HTF فقط ۴۰٪",
+    "FVG زیرین در ۰.۵۹ ATR حمایت می‌دهد",
+    "حجم ۰.۷۵× میانگین"
+   ],
+   "invalidation": "بستن قیمت بالای ۱۹۸.۸۲ (پیشین روز) یا شکست FVG زیرین",
+   "status": "REJECTED_AI",
+   "aiDecision": "WAIT"
+  },
+  {
    "ts": "2026-11-19T09:41:00.363Z",
    "barTime": "2026-11-19T04:00:00.000Z",
    "sym": "LITUSDT",
@@ -3569,108 +3689,6 @@
    "status": "REJECTED_AI",
    "aiDecision": "DEFER",
    "deferCount": 4
-  },
-  {
-   "ts": "2026-11-19T06:15:40.938Z",
-   "barTime": "2026-11-19T06:00:00.000Z",
-   "sym": "EURAUD",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 78,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "MACD_EMA",
-     "name": "MACD cross + EMA200 filter",
-     "avg_r": 0.46,
-     "n": 17,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 16,
-     "avg_r": -0.05,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_UP",
-   "htf": "UP",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 1.63890004,
-   "stop": 1.6342757,
-   "t1": 1.64583656,
-   "t2": 1.65277307,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (16× · -0.05R)"
-   ],
-   "warns": [
-    "ناحیه‌ی FVG فقط 0.24×ATR جلوتر"
-   ],
-   "tm": {
-    "n": 16,
-    "win": 31,
-    "avg": -0.69,
-    "pf": 0.27
-   },
-   "src": "yahoo",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (16× · -0.05R)"
-   ]
-  },
-  {
-   "ts": "2026-11-19T06:01:03.455Z",
-   "barTime": "2026-11-19T05:00:00.000Z",
-   "sym": "SENTUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 20,
-   "strategy": "BB_MR",
-   "lab": {
-    "best": {
-     "id": "EMA_X",
-     "name": "EMA 20/50 crossover + HTF",
-     "avg_r": 0.7,
-     "n": 10,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 24,
-     "avg_r": 0.19,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_UP",
-   "htf": "UP",
-   "event": "CANDLE",
-   "sweep": "ARMED_WAIT_FVG_RETEST",
-   "entry": 0.02162,
-   "stop": 0.02021791,
-   "t1": 0.02372313,
-   "t2": 0.02582626,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ],
-   "warns": [
-    "ناحیه‌ی FVG فقط 0.73×ATR جلوتر"
-   ],
-   "tm": {
-    "n": 22,
-    "win": 59,
-    "avg": 0.31,
-    "pf": 1.71
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ]
   }
  ],
  "seen": {
@@ -4072,12 +4090,20 @@
   "DOGEUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795080808070,
   "ADAUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795081258750,
   "AUDJPY|4H|LONG|2026-11-19T04:00:00.000Z": 1795081259535,
-  "LITUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795081259703
+  "LITUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795081259703,
+  "EURCHF|1H|LONG|2026-11-19T09:00:00.000Z": 1795081542013,
+  "BTWUSDT|1H|SHORT|2026-11-19T08:00:00.000Z": 1795081542019,
+  "INITUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795081542726,
+  "TAOUSDT|4H|SHORT|2026-11-19T04:00:00.000Z": 1795081543822,
+  "EURAUD|4H|SHORT|2026-11-19T04:00:00.000Z": 1795081642081,
+  "BREVUSDT|1H|LONG|2026-11-19T08:00:00.000Z": 1795081642235,
+  "USDCHF|1H|LONG|2026-11-19T09:00:00.000Z": 1795081643231,
+  "USDCAD|1H|LONG|2026-11-19T09:00:00.000Z": 1795081643238
  },
- "lastRun": "2026-11-19T09:44:23.857Z",
- "runs": 124,
+ "lastRun": "2026-11-19T09:48:19.983Z",
+ "runs": 125,
  "errors": [],
- "durationSec": 667,
+ "durationSec": 173,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -4224,8 +4250,8 @@
    "PUMPUSDT",
    "UNIUSDT",
    "SUIUSDT",
-   "WLDUSDT",
    "FILUSDT",
+   "WLDUSDT",
    "LITUSDT",
    "TRUMPUSDT",
    "ENAUSDT",
@@ -4239,8 +4265,8 @@
    "BTWUSDT",
    "INJUSDT",
    "BCHUSDT",
-   "LTCUSDT",
    "AVAXUSDT",
+   "LTCUSDT",
    "VVVUSDT",
    "ZROUSDT",
    "PROSUSDT",
@@ -4249,20 +4275,20 @@
    "ARBUSDT",
    "ASTERUSDT",
    "ONDOUSDT",
-   "OKBUSDT",
-   "PONSUSDT",
    "INITUSDT",
+   "PONSUSDT",
+   "OKBUSDT",
    "ZILUSDT",
-   "UPUSDT",
    "DGAIUSDT",
+   "UPUSDT",
    "PENGUUSDT",
    "XLMUSDT",
    "TRXUSDT",
    "SOPHUSDT",
    "JUPUSDT",
    "NIGHTUSDT",
-   "ETHFIUSDT",
    "DOTUSDT",
+   "ETHFIUSDT",
    "SOONUSDT",
    "QNTUSDT",
    "APTUSDT",
@@ -4290,7 +4316,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6590572,
+   "minVolUSD": 6639989,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4300,12 +4326,12 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 18,
+   "candidates": 14,
    "deep": 8,
    "byClass": {
-    "crypto": 12,
+    "crypto": 9,
     "metal": 0,
-    "forex": 6,
+    "forex": 5,
     "stock": 0
    }
   },
@@ -4318,7 +4344,7 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 40,
+  "llmToday": 47,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -4391,26 +4417,26 @@
    },
    {
     "id": "k1:gemini-3.6-flash",
-    "calls": 6,
-    "errors": 6,
+    "calls": 8,
+    "errors": 8,
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "cooling": true
    },
    {
     "id": "k2:gemini-3.6-flash",
-    "calls": 6,
-    "errors": 6,
+    "calls": 8,
+    "errors": 8,
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "cooling": true
    },
    {
     "id": "k3:gemini-3.6-flash",
-    "calls": 6,
-    "errors": 6,
+    "calls": 7,
+    "errors": 7,
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
@@ -4418,7 +4444,7 @@
    },
    {
     "id": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
-    "calls": 7,
+    "calls": 9,
     "errors": 0,
     "exhausted": false,
     "reason": null,
@@ -4460,9 +4486,9 @@
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 74,
+   "left": 67,
    "tot": 207,
-   "frac": 0.357487922705314
+   "frac": 0.32367149758454106
   },
   "requireAI": true,
   "deferred": 9
@@ -4471,24 +4497,24 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6590572
+  "minVolUSD": 6639989
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 18,
+  "candidates": 14,
   "deep": 8,
   "byClass": {
-   "crypto": 12,
+   "crypto": 9,
    "metal": 0,
-   "forex": 6,
+   "forex": 5,
    "stock": 0
   }
  },
  "llm": {
   "day": "2026-11-19",
   "v": 6,
-  "calls": 40,
+  "calls": 47,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 2,
@@ -4557,37 +4583,37 @@
     "reason": "daily quota"
    },
    "k1:gemini-3.6-flash": {
-    "calls": 6,
+    "calls": 8,
     "exhausted": false,
-    "errors": 6,
-    "cooldownUntil": 1795081430651,
+    "errors": 8,
+    "cooldownUntil": 1795081704418,
     "r429": 1,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "lastErrAt": 1795081260778,
     "d429": 1
    },
    "k2:gemini-3.6-flash": {
-    "calls": 6,
+    "calls": 8,
     "exhausted": false,
-    "errors": 6,
-    "cooldownUntil": 1795081435670,
+    "errors": 8,
+    "cooldownUntil": 1795081725121,
     "r429": 1,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "lastErrAt": 1795081265347,
     "d429": 1
    },
    "k3:gemini-3.6-flash": {
-    "calls": 6,
+    "calls": 7,
     "exhausted": false,
-    "errors": 6,
-    "cooldownUntil": 1795081440391,
+    "errors": 7,
+    "cooldownUntil": 1795081666508,
     "r429": 1,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "lastErrAt": 1795081269799,
     "d429": 1
    },
    "or:nvidia/nemotron-3-ultra-550b-a55b:free": {
-    "calls": 7,
+    "calls": 9,
     "exhausted": false,
     "errors": 0
    },
