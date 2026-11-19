@@ -346,6 +346,330 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-19T01:15:42.842Z",
+   "barTime": "2026-11-19T00:00:00.000Z",
+   "sym": "UPUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 70,
+   "strategy": "MACD_EMA",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": 0.22,
+     "n": 27,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 13,
+     "avg_r": 0.24,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "UP",
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 0.2164,
+   "stop": 0.20220304,
+   "t1": 0.23769544,
+   "t2": 0.25899088,
+   "rr": 3,
+   "fails": [],
+   "warns": [],
+   "tm": {
+    "n": 29,
+    "win": 52,
+    "avg": 0.05,
+    "pf": 1.11
+   },
+   "src": "okx",
+   "desk": {
+    "mode": "deferred: budget",
+    "llmToday": 92
+   },
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 1
+  },
+  {
+   "ts": "2026-11-19T01:15:41.509Z",
+   "barTime": "2026-11-19T00:00:00.000Z",
+   "sym": "INJUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 68,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "BB_MR",
+     "name": "Bollinger mean-reversion",
+     "avg_r": 0.31,
+     "n": 18,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 20,
+     "avg_r": -0.47,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 7.013,
+   "stop": 7.20297384,
+   "t1": 6.72803925,
+   "t2": 6.44307849,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (20× · -0.47R)"
+   ],
+   "warns": [
+    "واگرایی منظم خلاف جهت (MACD)"
+   ],
+   "tm": {
+    "n": 20,
+    "win": 25,
+    "avg": -0.47,
+    "pf": 0.38
+   },
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (20× · -0.47R)"
+   ]
+  },
+  {
+   "ts": "2026-11-19T01:15:40.842Z",
+   "barTime": "2026-11-19T01:00:00.000Z",
+   "sym": "EURGBP",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 56,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": 0.26,
+     "n": 10,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 15,
+     "avg_r": -0.15,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "NEUTRAL",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.83468002,
+   "stop": 0.83383765,
+   "t1": 0.83594358,
+   "t2": 0.83720715,
+   "rr": 3,
+   "fails": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "الگوی DESCENDING CHANNEL خلاف جهت",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (15× · -0.15R)"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 15,
+    "win": 27,
+    "avg": -1.49,
+    "pf": 0.08
+   },
+   "src": "yahoo",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "الگوی DESCENDING CHANNEL خلاف جهت",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (15× · -0.15R)"
+   ]
+  },
+  {
+   "ts": "2026-11-19T01:15:40.833Z",
+   "barTime": "2026-11-19T00:00:00.000Z",
+   "sym": "QNTUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 72,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "MACD_EMA",
+     "name": "MACD cross + EMA200 filter",
+     "avg_r": 0.78,
+     "n": 10,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 28,
+     "avg_r": -0.04,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 32.52,
+   "stop": 33.37872555,
+   "t1": 31.23191167,
+   "t2": 29.94382335,
+   "rr": 3,
+   "fails": [
+    "الگوی ASCENDING TRIANGLE خلاف جهت",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.04R)"
+   ],
+   "warns": [
+    "ناحیه‌ی VI فقط 0.51×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 28,
+    "win": 39,
+    "avg": -0.04,
+    "pf": 0.94
+   },
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "الگوی ASCENDING TRIANGLE خلاف جهت",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.04R)"
+   ]
+  },
+  {
+   "ts": "2026-11-19T01:15:40.025Z",
+   "barTime": "2026-11-19T00:00:00.000Z",
+   "sym": "FILUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 78,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.44,
+     "n": 15,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 25,
+     "avg_r": 0.4,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.57,
+   "stop": 0.58331908,
+   "t1": 0.55002138,
+   "t2": 0.53004276,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-2.5×ATR)"
+   ],
+   "tm": {
+    "n": 25,
+    "win": 56,
+    "avg": 0.4,
+    "pf": 1.93
+   },
+   "src": "okx",
+   "desk": {
+    "mode": "deferred: budget",
+    "llmToday": 92
+   },
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (budget) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 2
+  },
+  {
+   "ts": "2026-11-19T01:15:39.370Z",
+   "barTime": "2026-11-19T00:00:00.000Z",
+   "sym": "SOONUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 78,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": 0.21,
+     "n": 15,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 31,
+     "avg_r": -0.24,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_UP",
+   "htf": "UP",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.2724,
+   "stop": 0.26099091,
+   "t1": 0.28951364,
+   "t2": 0.30662728,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (31× · -0.24R)"
+   ],
+   "warns": [
+    "نسبتاً کش‌شده (3.3×ATR)"
+   ],
+   "tm": {
+    "n": 31,
+    "win": 29,
+    "avg": -0.24,
+    "pf": 0.67
+   },
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (31× · -0.24R)"
+   ]
+  },
+  {
    "ts": "2026-11-19T01:04:47.476Z",
    "barTime": "2026-11-19T00:00:00.000Z",
    "sym": "XLMUSDT",
@@ -558,65 +882,6 @@
    "reasons": [
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (27× · -0.44R)"
    ]
-  },
-  {
-   "ts": "2026-11-19T01:00:58.655Z",
-   "barTime": "2026-11-19T00:00:00.000Z",
-   "sym": "FILUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 78,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.44,
-     "n": 15,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 25,
-     "avg_r": 0.4,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.57,
-   "stop": 0.58331908,
-   "t1": 0.55002138,
-   "t2": 0.53004276,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-2.5×ATR)"
-   ],
-   "tm": {
-    "n": 25,
-    "win": 56,
-    "avg": 0.4,
-    "pf": 1.93
-   },
-   "src": "okx",
-   "desk": {
-    "mode": "deferred: agents failed",
-    "llmToday": 92
-   },
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (agents failed) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "DEFERRED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 1
   },
   {
    "ts": "2026-11-19T01:00:58.069Z",
@@ -3964,515 +4229,6 @@
    "invalidation": "بسته شدن کندل 1H بالای سطح 0.07728",
    "status": "REJECTED_AI",
    "aiDecision": "SKIP"
-  },
-  {
-   "ts": "2026-11-18T22:55:02.222Z",
-   "barTime": "2026-11-18T21:00:00.000Z",
-   "sym": "UNIUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 70,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "BB_MR",
-     "name": "Bollinger mean-reversion",
-     "avg_r": 0.08,
-     "n": 25,
-     "verdict": "WEAK"
-    },
-    "mine": {
-     "n": 31,
-     "avg_r": -0.18,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 5.142,
-   "stop": 5.24860096,
-   "t1": 4.98209857,
-   "t2": 4.82219713,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (31× · -0.18R)"
-   ],
-   "warns": [
-    "واگرایی منظم خلاف جهت (MACD)",
-    "ناحیه‌ی BREAKER فقط 0.62×ATR جلوتر"
-   ],
-   "tm": {
-    "n": 31,
-    "win": 35,
-    "avg": -0.18,
-    "pf": 0.74
-   },
-   "src": "okx",
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (31× · -0.18R)"
-   ]
-  },
-  {
-   "ts": "2026-11-18T22:53:59.755Z",
-   "barTime": "2026-11-18T21:00:00.000Z",
-   "sym": "FILUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 76,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.44,
-     "n": 15,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 24,
-     "avg_r": 0.43,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.5683,
-   "stop": 0.58096946,
-   "t1": 0.54929581,
-   "t2": 0.53029162,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3.2×ATR)"
-   ],
-   "tm": {
-    "n": 24,
-    "win": 58,
-    "avg": 0.43,
-    "pf": 1.96
-   },
-   "src": "okx",
-   "desk": {
-    "mode": "roundtable",
-    "model": "gemini-3.5-flash-lite",
-    "llmCalls": 9,
-    "llmToday": 37,
-    "agents": {
-     "tech": {
-      "bias": "bearish",
-      "confidence": 85,
-      "key_points": [
-       "شکست ساختار نزولی (BOS) در 0.5746 تثبیت شده و قیمت 1.8% زیر آن معامله می‌شود.",
-       "الگوی سقف دوقلو (Double Top) با هدف 0.5355 و مستطیل با هدف 0.5340 شکست نزولی داده‌اند.",
-       "تراکم آرایش نزولی در EMA20 (0.5845)، EMA50 (0.5950) و EMA200 در تایم‌فریم‌های 1H و 4H.",
-       "مومنتوم RSI در level 32.2 بدون واگرایی مثبت، تداوم فشار فروش را تایید می‌کند."
-      ],
-      "what_changes_my_mind": "بستن کندل ۴ ساعته بالای سطح 0.5746 (S/R Flip)"
-     },
-     "macro": {
-      "error": "HTTP 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://aistudio.google.com/docs/rate-limits\"\n          }\n        ]\n      }\n    ]"
-     },
-     "sent": {
-      "bias": "bearish",
-      "confidence": 75,
-      "key_points": [
-       "نسبت حساب‌های Long/Short روی 2.95 است که نشان‌دهنده ورود معامله‌گران خرد به پوزیشن‌های لانگ در خلاف جهت روند است.",
-       "رشد 7.5% در Open Interest همزمان با افت قیمت، تاییدکننده ورود سرمایه جدید برای پوزیشن‌های شورت است.",
-       "نرخ Funding منفی (-0.0021%) و پریمیوم منفی (-0.0713%) غلبه معامله‌گران شورت در بازار پرپچوال را نشان می‌دهد.",
-       "شاخص ترس و طمع بازار در سطح 11 (Extreme Fear) قرار گرفته است."
-      ]
-     },
-     "bull": {
-      "confidence": 35,
-      "case": [
-       "شاخص RSI روزانه در محدوده اشباع فروش شدید 23.8 قرار دارد که احتمال رالی اصلاحی تا VWAP در 0.5854 را افزایش می‌دهد.",
-       "نرخ Funding منفی (-0.0021%) همراه با ترس شدید (شاخص 11) شرایط مساعدی برای وقوع Short Squeeze به سمت 0.5750 ایجاد کرده است.",
-       "نسبت Taker Buy/Sell برابر 1.077 نشان‌دهنده غلبه خریدهای مارکت در قیمت پایانی 0.5683 است.",
-       "کاهش حجم نسبی به 0.86 در آخرین کندل، نشان‌دهنده افت فشار فروشندگان در نزدیک کف 0.5640 است."
-      ]
-     },
-     "bear": {
-      "confidence": 80,
-      "case": [
-       "شکست ساختار نزولی (BOS) در 0.5746 تثبیت شده و قیمت 1.8% زیر آن در 0.5683 معامله می‌شود.",
-       "الگوی سقف دوقلو با هدف 0.5355 و آرایش نزولی EMA20 (0.5845) و EMA50 (0.5950) تداوم افت را تایید می‌کنند.",
-       "رشد 7.5% در Open Interest همزمان با کاهش قیمت، تاییدکننده ورود سرمایه تازه به پوزیشن‌های شورت است.",
-       "نسبت Long/Short خرد در 2.95 نشان‌دهنده به تله افتادن خریداران است که خطر شکار لیکوییدیتی تا 0.5500 را افزایش می‌دهد."
-      ]
-     }
-    }
-   },
-   "agreement": "تحلیلگر تکنیکال، احساسات بازار و موتور پیشنهاددهنده روی موقعیت شورت توافق دارند.",
-   "overruled": "هیچ‌کدام، شواهد نزولی کاملاً غالب هستند.",
-   "failWhy": "وقوع یک شورت اسکویز شدید ناشی از فاندینگ منفی و پوزیشن‌های انباشته خرد در کف.",
-   "nextCheck": "بررسی واکنش قیمت به حمایت کلیدی 0.5571 در کندل‌های آتی.",
-   "judge": "roundtable:gemini-3.5-flash-lite",
-   "confidence": 80,
-   "reasons": [
-    "شکست ساختار نزولی (BOS) در سطح 0.5746 با تثبیت قیمت 1.8 درصد پایین‌تر از آن.",
-    "رشد 7.5 درصدی Open Interest همراه با افت قیمت، ورود پول جدید برای شورت را تایید می‌کند.",
-    "نسبت لانگ به شورت خرد در سطح بالای 2.95 که پتانسیل ادامه ریزش تا استخر نقدینگی را فراهم می‌کند.",
-    "هم‌جهتی کامل با روند تایم‌فریم بالاتر (HTF Bias: DOWN) و تست موفق استراتژی لنز."
-   ],
-   "concerns": [
-    "اشباع فروش شدید RSI روزانه (23.8) که ریسک رالی اصلاحی موقت دارد.",
-    "منفی بودن نرخ Funding (-0.0021%) و احتمال وقوع Short Squeeze کوتاه مدت."
-   ],
-   "invalidation": "بستن کندل 4 ساعته بالای سطح 0.5746",
-   "size": 591.97,
-   "riskUSD": 7.5,
-   "sizeMult": 0.75,
-   "status": "OPENED_PAPER"
-  },
-  {
-   "ts": "2026-11-18T22:52:57.523Z",
-   "barTime": "2026-11-18T21:00:00.000Z",
-   "sym": "NESUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 72,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.46,
-     "n": 30,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": 0.46,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_UP",
-   "htf": "UP",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.2442,
-   "stop": 0.2277,
-   "t1": 0.2688,
-   "t2": 0.2935,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (2.9×ATR)"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 57,
-    "avg": 0.46,
-    "pf": 1.98
-   },
-   "src": "okx",
-   "desk": {
-    "mode": "roundtable",
-    "model": "gemini-3.5-flash-lite",
-    "llmCalls": 9,
-    "llmToday": 28,
-    "agents": {
-     "tech": {
-      "bias": "bullish",
-      "confidence": 75,
-      "key_points": [
-       "روند صعودی قوی با ADX برابر 44.1 و چیدمان صعودی EMAها (EMA20 در 0.2328 و EMA50 در 0.2129).",
-       "سیگنال Sweep/CHoCH/FVG در قیمت 0.2442 فعال شده و قیمت 4.7% بالاتر از VWAP (0.2331) معامله می‌شود.",
-       "سطح اصلاحی فیبوناچی 0.618 در قیمت 0.2413 حفظ شده و سقف قبلی در 0.2557 مقاومت اصلی است.",
-       "کاهش حجم در pullback اخیر (حجم نسبی 0.2) نشان‌دهنده عدم تمایل فروشندگان در بالای سطح 0.2385 است."
-      ],
-      "what_changes_my_mind": "بستن کندل 1 ساعته زیر سطح 0.2277 (حد ضرر ساختاری و پایین‌تر از EMA20)."
-     },
-     "macro": {
-      "error": "HTTP 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://aistudio.google.com/docs/rate-limits\"\n          }\n        ]\n      }\n    ]"
-     },
-     "sent": {
-      "bias": "bullish",
-      "confidence": 70,
-      "key_points": [
-       "افزایش 13.02 درصدی Open Interest (رسیدن به 7.26M) همزمان با رشد قیمت، نشان‌دهنده ورود پول جدید است.",
-       "نسبت حساب‌های اکانت Long/Short معادل 0.43 است که نشان از برتری معامله‌گران Short خرد و ریسک بالای Short Squeeze دارد.",
-       "نرخ فاندینگ تعادل دارد (0.005%) و پرمیوم منفی (-0.2878%) مانع از هیجان اضافی در پوزیشن‌های خرید اهرمی شده است.",
-       "شاخص ترس و طمع کل بازار در سطح 11 (Extreme Fear) قرار دارد که بستر مناسبی برای حرکات خلاف جهت معامله‌گران خرد فراهم می‌کند."
-      ]
-     },
-     "bull": {
-      "confidence": 75,
-      "case": [
-       "روند صعودی پرقدرت با ADX در سطح 44.1 و معامله قیمت در 0.2442 که 4.7% بالاتر از VWAP (0.2331) قرار دارد.",
-       "رشد 13.02 درصدی Open Interest تا 7.26M همزمان با افزایش قیمت که نشان‌دهنده ورود نقدینگی واقعی است.",
-       "نسبت Long/Short اکانت‌ها در سطح 0.43 و فاندینگ خنثی (0.005%) بستر ایده‌آلی برای Short Squeeze به سمت تارگت 0.2688 فراهم کرده است.",
-       "حفظ سطح اصلاحی 0.618 فیبوناچی در قیمت 0.2413 و افت شدید حجم در pullback اخیر (نسبت 0.2) که عدم تمایل فروشندگان را نشان می‌دهد."
-      ]
-     },
-     "bear": {
-      "confidence": 25,
-      "case": [
-       "اشباع خرید شدید در تایم‌فریم 4 ساعته با RSI در سطح 81.1 که احتمال اصلاح تکنیکال را بالا می‌برد.",
-       "افت مکتوم MACD (-0.00086) که در صورت عدم تثبیت فوری قیمت بالای 0.2463 سیگنال واگرایی منفی صادر می‌کند.",
-       "سلطه بالای بیت‌کوین (BTC.D = 57.97%) که به‌طور تاریخی نقدینگی ورود به آلت‌کوین‌ها را در نزدیکی مقاومت 0.2557 محدود می‌کند."
-      ]
-     }
-    }
-   },
-   "agreement": "تحلیلگر تکنیکال، احساسات بازار و موتور الگوریتمی روی سوی صعودی توافق دارند.",
-   "overruled": "هیچ‌کدام از تحلیلگران رد نشدند؛ هشدارهای ریسک با اندازه پوزیشن 0.5 برطرف شد.",
-   "failWhy": "برگشت ناگهانی نقدینگی به سمت بیت‌کوین و تشدید اشباع خرید در تایم‌فریم‌های بالا.",
-   "nextCheck": "بررسی تثبیت کندل 1 ساعته بالای مقاومت 0.2557.",
-   "judge": "roundtable:gemini-3.5-flash-lite",
-   "confidence": 75,
-   "reasons": [
-    "روند صعودی پرقدرت با ADX برابر 44.1 و قرارگیری قیمت در 0.2442 (4.7 درصد بالاتر از VWAP در 0.2331).",
-    "افزایش 13.02 درصدی Open Interest تا 7.26M و نسبت Long/Shots معادل 0.43 که پتانسیل Short Squeeze دارد.",
-    "حفظ سطح اصلاحی 0.618 فیبوناچی در قیمت 0.2413 همراه با افت حجم در پولبک اخیر.",
-    "ریسک به ریوارد مناسب (R:R = 3) در چارچوب قوانین مدیریت سرمایه."
-   ],
-   "concerns": [
-    "اشباع خرید 4 ساعته با RSI در سطح 81.1.",
-    "تسلط بالای بیت‌کوین (BTC.D = 57.97%) و احتمال کندی مقاومت 0.2557."
-   ],
-   "invalidation": "بستن کندل 1 ساعته زیر سطح 0.2277.",
-   "size": 303.03,
-   "riskUSD": 5,
-   "sizeMult": 0.5,
-   "status": "OPENED_PAPER"
-  },
-  {
-   "ts": "2026-11-18T22:52:02.239Z",
-   "barTime": "2026-11-18T21:00:00.000Z",
-   "sym": "ICPUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 80,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "DONCHIAN20",
-     "name": "Donchian 20 breakout (Turtle)",
-     "avg_r": 0.44,
-     "n": 16,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 23,
-     "avg_r": 0.15,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 2.18,
-   "stop": 2.22824312,
-   "t1": 2.10763532,
-   "t2": 2.03527064,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3.1×ATR)",
-    "واگرایی منظم خلاف جهت (RSI/MACD)"
-   ],
-   "tm": {
-    "n": 23,
-    "win": 52,
-    "avg": 0.15,
-    "pf": 1.32
-   },
-   "src": "okx",
-   "desk": {
-    "mode": "roundtable",
-    "model": "gemini-3.5-flash-lite",
-    "llmCalls": 9,
-    "llmToday": 19,
-    "agents": {
-     "tech": {
-      "bias": "bearish",
-      "confidence": 75,
-      "key_points": [
-       "شکست الگوی سر و شانه (Head & Shoulders) با خط گردن 2.246 و هدف قیمتی 1.872 (طبق متد Bulkowski)",
-       "تایید CHoCH نزولی در level 2.216 و چیدمان کاملاً نزولی EMAها (EMA20=2.235، EMA50=2.280، EMA200=2.362)",
-       "شاخص RSI در سطح 34.5 و ADX برابر 25.9 نشان‌دهنده ساختار CLEAN_TREND نزولی است",
-       "تشکیل FVG نزولی فعال در محدوده 2.199 تا 2.204 به عنوان مقاومت پیش‌رو"
-      ],
-      "what_changes_my_mind": "بسته‌شدن کندل 1 ساعته بالای سطح حد زیان 2.228 ساختار نزولی را باطل می‌کند."
-     },
-     "macro": {
-      "error": "HTTP 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://aistudio.google.com/docs/rate-limits\"\n          }\n        ]\n      }\n    ]"
-     },
-     "sent": {
-      "bias": "bearish",
-      "confidence": 70,
-      "key_points": [
-       "شاخص ترس و طمع کل بازار در عدد 11 (Extreme Fear) و ریزش 5.23%- ارزش مارکت کپ قرار دارد",
-       "نسبت حساب‌های Long/Short برابر 3.88 است که نشان‌دهنده سنگین شدن شدید معامله‌گران خرد روی پوزیشن‌های خرید است",
-       "نرخ فاندینگ منفی (-0.002%) همزمان با رشد 2.21%+ در Open Interest نشان‌دهنده ورود شورتهای جدید توسط نهنگ‌هاست",
-       "دامیننس تتر روی 8.13% قرار دارد که حاکی از خروج سرمایه از آلت‌کوین‌ها به سمت استیبل‌کوین است"
-      ]
-     },
-     "bull": {
-      "confidence": 35,
-      "case": [
-       "تشکیل واگرایی مثبت (Regular Bullish Divergence) در مقادیر RSI=34.5 روی کف قیمتی 2.178",
-       "قرار داشتن شاخص ترس و طمع در عدد 11 (Extreme Fear) که معمولاً با انحراف شدید قیمت و اتهام فروش بیش از حد همراه است",
-       "حجم نسبی پایین 0.61 که احتمال ضعف فروشندگان و نیاز بازار به اصلاح زمانی را تقویت می‌کند",
-       "پتانسیل بروز Short Squeeze با توجه به نسبت سنگین Long/Short معادل 3.88 و نرخ فاندینگ منفی (-0.002%) همزمان با رشد Open Interest"
-      ]
-     },
-     "bear": {
-      "confidence": 75,
-      "case": [
-       "تاییدیه CHoCH نزولی در سطح 2.216 و چیدمان کاملاً نزولی میانگین‌های متحرک (EMA20=2.235، EMA50=2.280 و EMA200=2.362)",
-       "تکمیل و شکست خط گردن الگوی سر و شانه در سطح 2.246 با هدف کلاسیک 1.873",
-       "تشکیل FVG نزولی فعال و پرنشده در محدوده 2.199 تا 2.204 به عنوان مقاومت دینامیک پیش‌رو",
-       "شاخص ADX برابر با 25.9 همراه با RSI در سطح 34.5 که نشان‌دهنده استمرار CLEAN_TREND نزولی است"
-      ]
-     }
-    }
-   },
-   "agreement": "مدل قطعی، تحلیل تکنیکال و سنتی همگی بر جهت نزولی توافق دارند، اما مدیریت ریسک به دلیل واگرایی و شرایط پرخطر ستاپ را رد می‌کند.",
-   "overruled": "پیشنهاد شورت اسکریپت به دلیل واگرایی منفی مومنتوم و احتمال اسکوئیز ناشی از احساسات افراطی بازار (Extreme Fear) و لزوم تبعیت از قوانین سخت‌گیرانه ریسک‌پذیری وتو شد.",
-   "failWhy": "بروز Short Squeeze آنی به دلیل انباشت پوزیشن‌های شورت نهنگ‌ها و ترس شدید بازار در سطح 11",
-   "nextCheck": "بررسی واکنش قیمت در صورت نفوذ به استخر نقدینگی 2.100",
-   "judge": "roundtable:gemini-3.5-flash-lite",
-   "confidence": 85,
-   "reasons": [
-    "حضور در روند نزولی پرقدرت با ADX برابر 25.9 و چیدمان کاملاً نزولی میانگین‌های متحرک",
-    "تایید ساختار نزولی و شکست خط گردن سر و شانه در سطح 2.246",
-    "تست مقاومت FVG فعال در محدوده 2.199 تا 2.204"
-   ],
-   "concerns": [
-    "وجود واگرایی مثبت (Regular Bullish Divergence) در RSI برابر 34.5",
-    "قرار داشتن شاخص ترس و طمع در عدد 11 و ریسک بالای Short Squeeze به دلیل نسبت Long/High معادل 3.88",
-    "حجم نسبی پایین 0.61 که از اعتبار شکست می‌کاهد"
-   ],
-   "invalidation": "بسته‌شدن کندل 1 ساعته بالای سطح 2.228",
-   "status": "REJECTED_AI",
-   "aiDecision": "SKIP"
-  },
-  {
-   "ts": "2026-11-18T22:51:01.895Z",
-   "barTime": "2026-11-18T21:00:00.000Z",
-   "sym": "BNBUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 80,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.02,
-     "n": 29,
-     "verdict": "WEAK"
-    },
-    "mine": {
-     "n": 29,
-     "avg_r": 0.02,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 576.77,
-   "stop": 582.82503706,
-   "t1": 567.68744441,
-   "t2": 558.60488881,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3×ATR)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (29× · 0.02R)"
-   ],
-   "tm": {
-    "n": 29,
-    "win": 45,
-    "avg": 0.02,
-    "pf": 1.03
-   },
-   "src": "okx",
-   "desk": {
-    "mode": "roundtable",
-    "model": "gemini-3.5-flash-lite",
-    "llmCalls": 10,
-    "llmToday": 10,
-    "agents": {
-     "tech": {
-      "bias": "bearish",
-      "confidence": 75,
-      "key_points": [
-       "روند نزولی Dow Structure با ساختار LH/LL و چینش کاملاً نزولی EMA20/50/200 به ترتیب در ۵۸۵.۲۳ و ۵۸۸.۹۸",
-       "شکست کف روز قبل ۵۸۰.۴۱ و تثبیت قیمت در ۵۷۶.۷۷ با شاخص ADX برابر ۲۸.۱",
-       "وجود شکاف ارزش منصفانه (FVG) فعال در محدوده ۵۷۹.۳۲ تا ۵۸۲.۲۲ به عنوان مقاومت اصلی",
-       "هدف‌گذاری نزولی بر اساس امتداد فیبوناچی ۱.۲۷۲ در ۵۶۹.۲۰ و ۱.۶۱۸ در ۵۶۱.۰۵"
-      ],
-      "what_changes_my_mind": "بسته شدن کندل 1H بالای سطح FVG و قیمت ۵۸۲.۸۳"
-     },
-     "macro": {
-      "error": "HTTP 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://aistudio.google.com/docs/rate-limits\"\n          }\n        ]\n      }\n    ]"
-     },
-     "sent": {
-      "bias": "bearish",
-      "confidence": 70,
-      "key_points": [
-       "شاخص ترس و طمع روی عدد ۱۱ (Extreme Fear) ثبت شده که نشان‌دهنده ترس شدید در کل بازار است",
-       "نسبت حساب‌های Long/Short برابر ۲.۲۶ است که نشان می‌دهد ۶۹٪ معامله‌گران خرد در پوزیشن خرید به دام افتاده‌اند",
-       "نرخ Funding Rate برابر -0.0007% و پریمیوم -0.0642% بر غلبه فشار فروشندگان آتی دلالت دارد",
-       "کاهش ۰.۵۹٪ در Open Interest طی ۲۴ ساعت گذشته نشان‌دهنده لیکوئید شدن پوزیشن‌های خرید است"
-      ]
-     },
-     "bull": {
-      "confidence": 30,
-      "case": [
-       "قیمت فعلی در ۵۷۶.۷۷ بسیار نزدیک به کف سوئینگ 1H در ۵۷۵.۶۰ قرار دارد و شاخص RSI به عدد اشباع فروش ۳۰.۳ رسیده که پتانسیل بازگشت اصلاحی را ایجاد می‌کند.",
-       "نسبت Long/Short روی عدد ۲.۲۶ با ۶۹٪ معامله‌گران خرد لانگ و شاخص ترس و طمع روی ۱۱ (Extreme Fear) احتمال وقوع یک Short Squeeze موضعی را تقویت می‌کند."
-      ]
-     },
-     "bear": {
-      "confidence": 85,
-      "case": [
-       "ساختار Dow کاملاً نزولی با آرایش Lower High و Lower Low و چینش نزولی EMA20/50/200 است و شکست کف روز قبل در ۵۸۰.۴۱ با تثبیت در ۵۷۶.۷۷ و شتاب ADX برابر ۲۸.۱ تایید شده است.",
-       "شکاف ارزش منصفانه (FVG) در محدوده ۵۷۹.۳۲ تا ۵۸۲.۲۲ به عنوان مقاومت معتبر عمل می‌کند و اهداف نزولی امتداد فیبوناچی ۱.۲۷۲ در ۵۶۹.۲۰ و ۱.۶۱۸ در ۵۶۱.۰۵ فعال هستند.",
-       "نرخ Funding Rate منفی (-0.0007%)، پریمیوم منفی (-0.0642%) و کاهش ۰.۵۹٪ در Open Interest نشان‌دهنده سیطره فروشندگان و ریزش پوزیشن‌های خرید است."
-      ]
-     }
-    }
-   },
-   "agreement": "تحلیل تکنیکال و سنتیمنت روی جهت نزولی هم‌راستا هستند اما الگوی استراتژی ضعیف است",
-   "overruled": "استفاده از ورود آنی رد شد تا قیمت ابتدا به محدوده مقاومتی FVG برسد",
-   "failWhy": "وقوع Short Squeeze موضعی به دلیل نسبت بالای لانگ‌های خرد (۲.۲۶) قبل از ادامه ریزش",
-   "nextCheck": "بررسی واکنش قیمت در صورت پولبک به محدوده ۵۷۹.۳۲",
-   "judge": "roundtable:gemini-3.5-flash-lite",
-   "confidence": 65,
-   "reasons": [
-    "ساختار Dow نزولی با شکست کف ۵۸۰.۴۱ و تثبیت در قیمت ۵۷۶.۷۷",
-    "وجود مقاومت معتبر FVG در محدوده ۵۷۹.۳۲ تا ۵۸۲.۲۲",
-    "تایید روند نزولی با ADX برابر ۲۸.۱ و میانگین‌های متحرک کاملاً نزولی"
-   ],
-   "concerns": [
-    "آرایش استراتژی لنز امتیاز ضعیفی دارد (avg_r = 0.02)",
-    "نزدیکی RSI به محدوده اشباع فروش (۳۰.۳) و ریسک اصلاح صعودی مقطعی"
-   ],
-   "invalidation": "بسته شدن کندل 1H بالای سطح ۵۸۲.۸۳",
-   "status": "REJECTED_AI",
-   "aiDecision": "WAIT"
   }
  ],
  "seen": {
@@ -4709,12 +4465,18 @@
   "JUPUSDT|1H|LONG|2026-11-19T00:00:00.000Z": 1795050057477,
   "ASTERUSDT|1H|SHORT|2026-11-19T00:00:00.000Z": 1795050285035,
   "AAVEUSDT|1H|LONG|2026-11-19T00:00:00.000Z": 1795050286324,
-  "XLMUSDT|1H|SHORT|2026-11-19T00:00:00.000Z": 1795050286909
+  "XLMUSDT|1H|SHORT|2026-11-19T00:00:00.000Z": 1795050286909,
+  "SOONUSDT|1H|LONG|2026-11-19T00:00:00.000Z": 1795050938664,
+  "QNTUSDT|1H|SHORT|2026-11-19T00:00:00.000Z": 1795050940154,
+  "EURGBP|1H|LONG|2026-11-19T01:00:00.000Z": 1795050940833,
+  "INJUSDT|1H|SHORT|2026-11-19T00:00:00.000Z": 1795050940842,
+  "OKBUSDT|1H|LONG|2026-11-19T00:00:00.000Z": 1795050941509,
+  "MMTUSDT|1H|LONG|2026-11-19T00:00:00.000Z": 1795050942971
  },
- "lastRun": "2026-11-19T01:04:47.476Z",
- "runs": 88,
+ "lastRun": "2026-11-19T01:15:43.734Z",
+ "runs": 89,
  "errors": [],
- "durationSec": 242,
+ "durationSec": 17,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -4835,9 +4597,9 @@
    "FILUSDT",
    "TRUMPUSDT",
    "HUMAUSDT",
+   "IRYSUSDT",
    "AAVEUSDT",
    "ADAUSDT",
-   "IRYSUSDT",
    "LINKUSDT",
    "LTCUSDT",
    "AVAXUSDT",
@@ -4845,35 +4607,35 @@
    "BCHUSDT",
    "INJUSDT",
    "ZROUSDT",
-   "ASTERUSDT",
-   "TAOUSDT",
-   "UPUSDT",
    "PROSUSDT",
+   "ASTERUSDT",
+   "UPUSDT",
+   "TAOUSDT",
    "VVVUSDT",
    "ARBUSDT",
    "ZILUSDT",
-   "PENGUUSDT",
    "OKBUSDT",
+   "PENGUUSDT",
    "ONDOUSDT",
    "XPLUSDT",
-   "TRXUSDT",
-   "SOPHUSDT",
    "NESUSDT",
+   "TRXUSDT",
    "BTWUSDT",
+   "SOPHUSDT",
    "DGAIUSDT",
    "XLMUSDT",
    "NIGHTUSDT",
    "JUPUSDT",
    "DOTUSDT",
    "ICPUSDT",
-   "APTUSDT",
    "SOONUSDT",
+   "APTUSDT",
    "GRAMUSDT",
    "QNTUSDT",
    "PONSUSDT",
    "OPUSDT",
    "AXISUSDT",
-   "SHIBUSDT",
+   "PIUSDT",
    "XAUUSDT",
    "XAGUSDT",
    "EURUSD",
@@ -4895,7 +4657,7 @@
    "cryptoListed": 273,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 5789938,
+   "minVolUSD": 5793908,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -4905,12 +4667,12 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 12,
+   "candidates": 9,
    "deep": 8,
    "byClass": {
-    "crypto": 12,
+    "crypto": 8,
     "metal": 0,
-    "forex": 0,
+    "forex": 1,
     "stock": 0
    }
   },
@@ -5023,23 +4785,23 @@
    "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "requireAI": true,
-  "deferred": 11
+  "deferred": 12
  },
  "universeInfo": {
   "cryptoListed": 273,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 5789938
+  "minVolUSD": 5793908
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 12,
+  "candidates": 9,
   "deep": 8,
   "byClass": {
-   "crypto": 12,
+   "crypto": 8,
    "metal": 0,
-   "forex": 0,
+   "forex": 1,
    "stock": 0
   }
  },
@@ -5212,7 +4974,8 @@
   "SHIBUSDT|1H|SHORT|2026-11-18T22:00:00.000Z": 1,
   "USDCAD|1H|LONG|2026-11-18T23:00:00.000Z": 1,
   "GRAMUSDT|4H|SHORT|2026-11-18T20:00:00.000Z": 1,
-  "FILUSDT|1H|SHORT|2026-11-19T00:00:00.000Z": 1,
-  "ICPUSDT|1H|SHORT|2026-11-19T00:00:00.000Z": 1
+  "FILUSDT|1H|SHORT|2026-11-19T00:00:00.000Z": 2,
+  "ICPUSDT|1H|SHORT|2026-11-19T00:00:00.000Z": 1,
+  "UPUSDT|1H|LONG|2026-11-19T00:00:00.000Z": 1
  }
 }
