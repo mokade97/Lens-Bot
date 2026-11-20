@@ -544,6 +544,61 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-20T21:18:08.526Z",
+   "barTime": "2026-11-20T21:00:00.000Z",
+   "sym": "NZDUSD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 6,
+   "strategy": "BB_MR",
+   "lab": {
+    "best": {
+     "id": "MACD_EMA",
+     "name": "MACD cross + EMA200 filter",
+     "avg_r": 0.7,
+     "n": 13,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 30,
+     "avg_r": 0.3,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ARMED_WAIT_FVG_RETEST",
+   "entry": 0.54680663,
+   "stop": 0.54794228,
+   "t1": 0.54510317,
+   "t2": 0.5433997,
+   "rr": 3,
+   "fails": [
+    "خلاف سوگیری تایم‌فریم بالاتر",
+    "الگوی HEAD AND SHOULDERS خلاف جهت"
+   ],
+   "warns": [
+    "BOS BEARISH خلاف جهت",
+    "ناحیه‌ی FVG فقط 0.04×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 13,
+    "win": 38,
+    "avg": -0.3,
+    "pf": 0.63
+   },
+   "src": "yahoo",
+   "chase": 1,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "خلاف سوگیری تایم‌فریم بالاتر",
+    "الگوی HEAD AND SHOULDERS خلاف جهت"
+   ]
+  },
+  {
    "ts": "2026-11-20T21:15:49.823Z",
    "barTime": "2026-11-20T20:00:00.000Z",
    "sym": "PIUSDT",
@@ -3805,68 +3860,6 @@
    "reasons": [
     "الگوی ASCENDING CHANNEL خلاف جهت"
    ]
-  },
-  {
-   "ts": "2026-11-20T17:01:07.084Z",
-   "barTime": "2026-11-20T16:00:00.000Z",
-   "sym": "PIUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 80,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "MACD_EMA",
-     "name": "MACD cross + EMA200 filter",
-     "avg_r": 1.17,
-     "n": 14,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": 0.37,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.0497,
-   "stop": 0.05161896,
-   "t1": 0.04682157,
-   "t2": 0.04394313,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3.8×ATR)",
-    "واگرایی منظم خلاف جهت (RSI/MACD)"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 57,
-    "avg": 0.37,
-    "pf": 1.8
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "aiMode": "shadow",
-   "aiDecision": "DEFER",
-   "aiAgrees": null,
-   "volMult": 1,
-   "size": 2605.6,
-   "riskUSD": 5,
-   "sizeMult": 0.5,
-   "status": "ALERT_ONLY_BUSY"
   }
  ],
  "shadow": [
@@ -7466,6 +7459,31 @@
    "openedAt": "2026-11-20T21:15:49.823Z",
    "barTime": "2026-11-20T20:00:00.000Z",
    "lastBarT": 1795204800000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
+  },
+  {
+   "id": "NZDUSD|1H|LONG|2026-11-20T21:00:00.000Z",
+   "sym": "NZDUSD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "BB_MR",
+   "quad": "Q3",
+   "score": 6,
+   "chase": 1,
+   "entry": 0.54680663,
+   "stop": 0.54794228,
+   "t1": 0.54510317,
+   "t2": 0.5433997,
+   "verdict": "RULES_REJECTED",
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-20T21:18:08.526Z",
+   "barTime": "2026-11-20T21:00:00.000Z",
+   "lastBarT": 1795208400000,
    "bars": 0,
    "t1hit": false,
    "mtm": 0,
@@ -15042,12 +15060,13 @@
   "USDCAD|1H|LONG|2026-11-20T21:00:00.000Z": 1795209346937,
   "UPUSDT|1H|SHORT|2026-11-20T20:00:00.000Z": 1795209346945,
   "UNIUSDT|1H|LONG|2026-11-20T20:00:00.000Z": 1795209347930,
-  "PIUSDT|1H|LONG|2026-11-20T20:00:00.000Z": 1795209348861
+  "PIUSDT|1H|LONG|2026-11-20T20:00:00.000Z": 1795209348861,
+  "NZDUSD|1H|LONG|2026-11-20T21:00:00.000Z": 1795209488509
  },
- "lastRun": "2026-11-20T21:15:49.825Z",
- "runs": 277,
+ "lastRun": "2026-11-20T21:18:08.528Z",
+ "runs": 278,
  "errors": [],
- "durationSec": 23,
+ "durationSec": 20,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -15235,8 +15254,8 @@
    "SUIUSDT",
    "TRUMPUSDT",
    "PUMPUSDT",
-   "FILUSDT",
    "BARDUSDT",
+   "FILUSDT",
    "IRYSUSDT",
    "ADAUSDT",
    "LITUSDT",
@@ -15274,9 +15293,9 @@
    "NIGHTUSDT",
    "GRAMUSDT",
    "ICPUSDT",
-   "PIUSDT",
    "HUSDT",
    "HBARUSDT",
+   "PIUSDT",
    "ETCUSDT",
    "DOSUSDT",
    "XAUUSDT",
@@ -15300,7 +15319,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 7479127,
+   "minVolUSD": 7431137,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -15310,13 +15329,13 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 5,
-   "deep": 5,
+   "candidates": 1,
+   "deep": 1,
    "extended": 44,
    "byClass": {
-    "crypto": 3,
+    "crypto": 0,
     "metal": 0,
-    "forex": 2,
+    "forex": 1,
     "stock": 0
    }
   },
@@ -15484,18 +15503,18 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 7479127
+  "minVolUSD": 7431137
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 5,
-  "deep": 5,
+  "candidates": 1,
+  "deep": 1,
   "extended": 44,
   "byClass": {
-   "crypto": 3,
+   "crypto": 0,
    "metal": 0,
-   "forex": 2,
+   "forex": 1,
    "stock": 0
   }
  },
@@ -16090,7 +16109,7 @@
     "maxDD": 15.07
    }
   },
-  "open": 149,
+  "open": 150,
   "dupSkipped": 268
  },
  "shadowDup": 268,
@@ -16145,7 +16164,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=6, against=36 (need ≥40 each)",
-  "asOf": "2026-11-20T21:15:49.826Z"
+  "asOf": "2026-11-20T21:18:08.529Z"
  },
  "shadowIndep": {
   "n": 220,
