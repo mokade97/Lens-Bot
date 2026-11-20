@@ -207,7 +207,7 @@ function labSeries(k,S){const c=S.c;const n=c.length;const r2=rsi(c,2);const bbM
   return {r2,bbM,bbS,hh,ll,tenkan,kijun,spanA,spanB};}
 const STRATS={
   ICHI:{name:'Ichimoku TK cross + cloud filter',kind:'trend',sig:(k,S,X,i)=>{if(!X.spanA||X.spanA[i]==null||X.spanB[i]==null||X.tenkan[i-1]==null)return null;const top=Math.max(X.spanA[i],X.spanB[i]),bot=Math.min(X.spanA[i],X.spanB[i]);const c=S.c[i];
-    const up=X.tenkan[i]>X.kijun[i]&&X.tenkan[i-1]<=X.kijun[i-1],dn=X.tenkan[i]<X.kijun[i]&&X.tenkan[i-1]>=X.kijun[i-1];if(up&&c>top)return {side:'LONG',score:70};if(dn&&c<bot)return {side:'SHORT',score:75};return null;}},
+    const up=X.tenkan[i]>X.kijun[i]&&X.tenkan[i-1]<=X.kijun[i-1],dn=X.tenkan[i]<X.kijun[i]&&X.tenkan[i-1]>=X.kijun[i-1];if(!up&&!dn)return null;/* v98 (Exp 23): ADX14>20 filter — trend must be active; +0.015R, DD −17% */if(S.adx&&S.adx[i]!=null&&S.adx[i]<=20)return null;if(up&&c>top)return {side:'LONG',score:70};if(dn&&c<bot)return {side:'SHORT',score:75};return null;}},
   LENS:{name:'Lens setup',kind:'confluence',sig:(k,S,X,i)=>{const q=scoreAt(k,S,i);return q.event==='LONG_SETUP'?{side:'LONG',score:q.ls}:q.event==='SHORT_SETUP'?{side:'SHORT',score:q.ss}:null;}},
   DONCHIAN20:{name:'Donchian 20 breakout (Turtle)',kind:'trend',sig:(k,S,X,i)=>{if(X.hh[i]==null)return null;const c=S.c[i];if(c>X.hh[i]&&(S.e200[i]==null||c>S.e200[i]))return 'LONG';if(c<X.ll[i]&&(S.e200[i]==null||c<S.e200[i]))return 'SHORT';return null;}},
   RSI2:{name:'RSI-2 pullback (Connors)',kind:'mean-reversion',sig:(k,S,X,i)=>{const c=S.c[i];if(i<200||X.r2[i]==null)return null;if(c>S.e200[i]&&X.r2[i]<10&&c<S.e20[i])return 'LONG';if(c<S.e200[i]&&X.r2[i]>90&&c>S.e20[i])return 'SHORT';return null;}},
@@ -239,7 +239,9 @@ function backtest(k,htfK,opts={}){const maxBars=opts.maxBars||40,minScore=opts.m
 const HTF={'15m':'1H','1H':'4H','4H':'1D','1D':'1D'};
 async function build(sym,tf){const [k,h]=await Promise.all([klinesAny(sym,tf,320),HTF[tf]!==tf?klinesAny(sym,HTF[tf],120):Promise.resolve(null)]);return packet(sym,tf,k,h,h?HTF[tf]:'N/A');}
 async function buildAll(sym,tf){const [k,h]=await Promise.all([klinesAny(sym,tf,1000),HTF[tf]!==tf?klinesAny(sym,HTF[tf],200):Promise.resolve(null)]);if(!k)return null;const hh=h||null;const pk=packet(sym,tf,k,hh,h?HTF[tf]:'N/A');let lab=null;try{lab=strategyLab(k,hh,{tf});}catch(e){}if(pk)pk.strategy_lab=lab;return {packet:pk,backtest:backtest(k,hh,{tf}),backtestLoose:backtest(k,hh,{loose:true,tf}),lab,k};}
-window.lens={packet,build,buildAll,backtest,strategyLab,STRATS,labSeries,simulate,HTF,championAt,series,smcZones,chartPatterns,structureExtras,sweepSignals};
+/* v98 (Exp 23): volatility-target risk multiplier = clamp(mean ATR% of previous 500 bars / current ATR%, 0.5, 1.5). Robust across windows 250–1000 and clamps; inverse weighting is worse. */
+function volMult(k,S,i,win=500,lo=0.5,hi=1.5){i=i==null?k.length-1:i;if(!S||!S.atr||!S.atr[i]||!k[i])return 1;const cur=S.atr[i]/k[i].c;let s=0,n=0;for(let j=Math.max(1,i-win);j<i;j++){if(S.atr[j]&&k[j].c){s+=S.atr[j]/k[j].c;n++;}}if(n<100||!cur)return 1;return +Math.min(hi,Math.max(lo,(s/n)/cur)).toFixed(2);}
+window.lens={volMult,packet,build,buildAll,backtest,strategyLab,STRATS,labSeries,simulate,HTF,championAt,series,smcZones,chartPatterns,structureExtras,sweepSignals};
 })();
 
 module.exports=window.lens;

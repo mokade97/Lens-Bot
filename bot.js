@@ -208,7 +208,7 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
       if (d.entry > 0 && d.stop > 0 && d.target_1 > 0 && ((side === 'LONG' && d.stop < d.entry) || (side === 'SHORT' && d.stop > d.entry))) { alert.entry = d.entry; alert.stop = d.stop; alert.t1 = d.target_1; alert.t2 = d.target_2 > 0 ? d.target_2 : alert.t2; }
       // open paper position (capacity, one per symbol); size in base units — for non-USD-quoted FX pairs the USD risk is approximated via the pair price
       const busy = S.positions.some(x => x.sym === sym); const cap = S.positions.length >= CFG.maxOpen;
-      const R = Math.abs(alert.entry - alert.stop); const riskUSD = CFG.account * CFG.riskPct / 100 * rc.sizeMult; const quoteUSD = isForex(sym) && !/USD$/.test(sym) ? 1 / alert.entry : 1; const size = R ? riskUSD / (R * quoteUSD) : 0;
+      const R = Math.abs(alert.entry - alert.stop); let volM = 1; if (strategy === 'ICHI') { try { volM = lens.volMult(k, lens.series(k, null)); } catch (e) { } } alert.volMult = volM; const riskUSD = CFG.account * CFG.riskPct / 100 * rc.sizeMult * volM; // v98: ICHI risk scaled by volatility target (Exp 23) const quoteUSD = isForex(sym) && !/USD$/.test(sym) ? 1 / alert.entry : 1; const size = R ? riskUSD / (R * quoteUSD) : 0;
       alert.size = +size.toPrecision(5); alert.riskUSD = +riskUSD.toFixed(2); alert.sizeMult = rc.sizeMult;
       shadowRecord(alert, 'AI_APPROVED', d);
       if (CFG.paperTrade === false) { alert.status = 'ALERT_ONLY_PAPER_OFF'; S.alerts.unshift(alert); newAlerts.push(alert); log('ALERT', sym, tf, side, 'paper trading off'); continue; }
