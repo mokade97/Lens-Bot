@@ -155,4 +155,4 @@ function summarize(a) {
   const pick = (o, keys) => o ? (o.error ? { error: o.error } : Object.fromEntries(keys.filter(k => o[k] != null).map(k => [k, o[k]]))) : null;
   return { tech: pick(a.tech, ['bias', 'confidence', 'key_points', 'what_changes_my_mind']), macro: pick(a.macro, ['bias', 'confidence', 'key_points', 'events_next_7d', 'note_for_symbol', 'cached']), sent: pick(a.sent, ['bias', 'confidence', 'key_points']), bull: a.debate && a.debate.bull ? pick(a.debate.bull, ['confidence', 'case']) : null, bear: a.debate && a.debate.bear ? pick(a.debate.bear, ['confidence', 'case']) : null };
 }
-module.exports = { resolveOpenRouter, OR_PREFER, decide, liveMarket, derivatives, mtfFromEngine, geminiKeys, makeLLM, classify429, J };
+module.exports = { SKILL, resolveOpenRouter, OR_PREFER, decide, liveMarket, derivatives, mtfFromEngine, geminiKeys, makeLLM, classify429, J };
