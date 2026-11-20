@@ -480,6 +480,174 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-20T18:15:50.320Z",
+   "barTime": "2026-11-20T17:00:00.000Z",
+   "sym": "PEPEUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 0,
+   "strategy": "BB_MR",
+   "lab": {
+    "best": {
+     "id": "LENS",
+     "name": "Lens setup",
+     "avg_r": 0.23,
+     "n": 28,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 24,
+     "avg_r": 0.15,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.00000341,
+   "stop": 0.00000352,
+   "t1": 0.00000324,
+   "t2": 0.00000308,
+   "rr": 3,
+   "fails": [
+    "خلاف سوگیری تایم‌فریم بالاتر",
+    "CHOCH BEARISH خلاف جهت"
+   ],
+   "warns": [
+    "ناحیه‌ی FVG فقط 0.56×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 28,
+    "win": 46,
+    "avg": 0.23,
+    "pf": 1.42
+   },
+   "src": "okx",
+   "chase": 1,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "خلاف سوگیری تایم‌فریم بالاتر",
+    "CHOCH BEARISH خلاف جهت"
+   ]
+  },
+  {
+   "ts": "2026-11-20T18:15:45.394Z",
+   "barTime": "2026-11-20T18:00:00.000Z",
+   "sym": "EURGBP",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 68,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": 0.48,
+     "n": 10,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 18,
+     "avg_r": -0.36,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "UP",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.83758998,
+   "stop": 0.83655398,
+   "t1": 0.83914397,
+   "t2": 0.84069797,
+   "rr": 3,
+   "fails": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (18× · -0.36R)"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 18,
+    "win": 22,
+    "avg": -1.63,
+    "pf": 0.06
+   },
+   "src": "yahoo",
+   "chase": 0,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (18× · -0.36R)"
+   ]
+  },
+  {
+   "ts": "2026-11-20T18:15:45.311Z",
+   "barTime": "2026-11-20T18:00:00.000Z",
+   "sym": "EURAUD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 86,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.64,
+     "n": 16,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 16,
+     "avg_r": 0.18,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_UP",
+   "htf": "UP",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 1.65486002,
+   "stop": 1.64996943,
+   "t1": 1.6621959,
+   "t2": 1.66953178,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (3.3×ATR)",
+    "واگرایی منظم خلاف جهت (RSI/MACD)"
+   ],
+   "tm": {
+    "n": 16,
+    "win": 38,
+    "avg": -0.47,
+    "pf": 0.44
+   },
+   "src": "yahoo",
+   "chase": 0,
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "aiMode": "shadow",
+   "aiDecision": "DEFER",
+   "aiAgrees": null,
+   "volMult": 1,
+   "size": 1691.9,
+   "riskUSD": 5,
+   "sizeMult": 0.5,
+   "status": "ALERT_ONLY_CAP"
+  },
+  {
    "ts": "2026-11-20T18:01:11.369Z",
    "barTime": "2026-11-20T17:00:00.000Z",
    "sym": "VVVUSDT",
@@ -3695,172 +3863,6 @@
    "reasons": [
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.22R)"
    ]
-  },
-  {
-   "ts": "2026-11-20T14:46:03.553Z",
-   "barTime": "2026-11-20T08:00:00.000Z",
-   "sym": "YBUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "LONG",
-   "score": 62,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "ICHI",
-     "name": "Ichimoku TK cross + cloud filter",
-     "avg_r": 0.75,
-     "n": 9,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 36,
-     "avg_r": -0.09,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "NEUTRAL",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.04937,
-   "stop": 0.04364808,
-   "t1": 0.05795288,
-   "t2": 0.06653575,
-   "rr": 3,
-   "fails": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (36× · -0.09R)"
-   ],
-   "warns": [],
-   "tm": {
-    "n": 36,
-    "win": 31,
-    "avg": -0.09,
-    "pf": 0.88
-   },
-   "src": "okx",
-   "chase": 0,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (36× · -0.09R)"
-   ]
-  },
-  {
-   "ts": "2026-11-20T14:46:02.566Z",
-   "barTime": "2026-11-20T08:00:00.000Z",
-   "sym": "XLMUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 76,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "ICHI",
-     "name": "Ichimoku TK cross + cloud filter",
-     "avg_r": 0.95,
-     "n": 9,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 19,
-     "avg_r": 0.41,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.13208,
-   "stop": 0.13676154,
-   "t1": 0.12505769,
-   "t2": 0.11803538,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-2.5×ATR)"
-   ],
-   "tm": {
-    "n": 19,
-    "win": 53,
-    "avg": 0.41,
-    "pf": 1.81
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "aiMode": "shadow",
-   "aiDecision": "DEFER",
-   "aiAgrees": null,
-   "volMult": 1,
-   "size": 1602,
-   "riskUSD": 7.5,
-   "sizeMult": 0.75,
-   "status": "ALERT_ONLY_CAP"
-  },
-  {
-   "ts": "2026-11-20T14:46:01.620Z",
-   "barTime": "2026-11-20T13:00:00.000Z",
-   "sym": "DOTUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 82,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.28,
-     "n": 17,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 27,
-     "avg_r": -0.08,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.6896,
-   "stop": 0.70259258,
-   "t1": 0.67011112,
-   "t2": 0.65062225,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (27× · -0.08R)"
-   ],
-   "warns": [
-    "نسبتاً کش‌شده (-2.5×ATR)",
-    "واگرایی منظم خلاف جهت (RSI/MACD)"
-   ],
-   "tm": {
-    "n": 27,
-    "win": 41,
-    "avg": -0.08,
-    "pf": 0.86
-   },
-   "src": "okx",
-   "chase": 0,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (27× · -0.08R)"
-   ]
   }
  ],
  "shadow": [
@@ -3883,10 +3885,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T15:30:57.435Z",
    "barTime": "2026-11-19T15:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 26,
+   "lastBarT": 1795197600000,
+   "bars": 27,
    "t1hit": true,
-   "mtm": 2.63
+   "mtm": 2.53
   },
   {
    "id": "CRVUSDT|4H|SHORT|2026-11-19T12:00:00.000Z",
@@ -4339,10 +4341,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T16:35:50.692Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 25,
+   "lastBarT": 1795197600000,
+   "bars": 26,
    "t1hit": true,
-   "mtm": 2.45
+   "mtm": 2.35
   },
   {
    "id": "BCHUSDT|4H|SHORT|2026-11-19T12:00:00.000Z",
@@ -4627,10 +4629,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T17:15:39.788Z",
    "barTime": "2026-11-19T17:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 24,
+   "lastBarT": 1795197600000,
+   "bars": 25,
    "t1hit": true,
-   "mtm": 2.82
+   "mtm": 2.59
   },
   {
    "id": "OPUSDT|4H|SHORT|2026-11-19T12:00:00.000Z",
@@ -5011,10 +5013,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T20:15:49.513Z",
    "barTime": "2026-11-19T20:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 21,
+   "lastBarT": 1795197600000,
+   "bars": 22,
    "t1hit": true,
-   "mtm": 2.79
+   "mtm": 2.55
   },
   {
    "id": "ENAUSDT|4H|SHORT|2026-11-19T16:00:00.000Z",
@@ -5087,30 +5089,6 @@
    "bars": 21,
    "t1hit": true,
    "mtm": 2.39
-  },
-  {
-   "id": "AUDJPY|1H|SHORT|2026-11-19T21:00:00.000Z",
-   "sym": "AUDJPY",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "SHORT",
-   "strategy": "LENS",
-   "quad": "Q2",
-   "score": 86,
-   "chase": 0,
-   "entry": 106.29199982,
-   "stop": 106.66181596,
-   "t1": 105.7372756,
-   "t2": 105.18255139,
-   "verdict": "DEFERRED",
-   "aiDecision": "DEFER",
-   "confidence": null,
-   "openedAt": "2026-11-19T21:30:57.223Z",
-   "barTime": "2026-11-19T21:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 20,
-   "t1hit": true,
-   "mtm": 2.76
   },
   {
    "id": "HUMAUSDT|4H|LONG|2026-11-19T16:00:00.000Z",
@@ -5443,10 +5421,10 @@
    "confidence": 85,
    "openedAt": "2026-11-20T01:01:52.392Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 17,
+   "lastBarT": 1795197600000,
+   "bars": 18,
    "t1hit": true,
-   "mtm": 1.52
+   "mtm": 1.42
   },
   {
    "id": "SKYUSDT|4H|SHORT|2026-11-19T20:00:00.000Z",
@@ -5491,10 +5469,10 @@
    "confidence": 85,
    "openedAt": "2026-11-20T01:16:12.199Z",
    "barTime": "2026-11-20T01:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 16,
+   "lastBarT": 1795197600000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 1.67
+   "mtm": 1.57
   },
   {
    "id": "BTCUSDT|1H|SHORT|2026-11-20T01:00:00.000Z",
@@ -5611,10 +5589,10 @@
    "confidence": 85,
    "openedAt": "2026-11-20T02:16:47.921Z",
    "barTime": "2026-11-20T02:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 15,
+   "lastBarT": 1795197600000,
+   "bars": 16,
    "t1hit": true,
-   "mtm": 1.72
+   "mtm": 1.62
   },
   {
    "id": "FILUSDT|1H|SHORT|2026-11-20T01:00:00.000Z",
@@ -6883,10 +6861,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T06:01:08.244Z",
    "barTime": "2026-11-20T05:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 12,
+   "lastBarT": 1795197600000,
+   "bars": 13,
    "t1hit": true,
-   "mtm": 1.96
+   "mtm": 1.86
   },
   {
    "id": "HUMAUSDT|1H|LONG|2026-11-20T05:00:00.000Z",
@@ -6955,10 +6933,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T06:15:46.745Z",
    "barTime": "2026-11-20T06:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 11,
+   "lastBarT": 1795197600000,
+   "bars": 12,
    "t1hit": true,
-   "mtm": 2.14
+   "mtm": 2.04
   },
   {
    "id": "INITUSDT|1H|SHORT|2026-11-20T06:00:00.000Z",
@@ -7075,10 +7053,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T07:30:59.146Z",
    "barTime": "2026-11-20T07:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 10,
+   "lastBarT": 1795197600000,
+   "bars": 11,
    "t1hit": true,
-   "mtm": 2.18
+   "mtm": 2.08
   },
   {
    "id": "OKBUSDT|4H|SHORT|2026-11-20T04:00:00.000Z",
@@ -7219,10 +7197,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T08:30:55.689Z",
    "barTime": "2026-11-20T08:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 9,
+   "lastBarT": 1795197600000,
+   "bars": 10,
    "t1hit": true,
-   "mtm": 0.98
+   "mtm": 1.07
   },
   {
    "id": "NIGHTUSDT|4H|SHORT|2026-11-20T04:00:00.000Z",
@@ -7291,10 +7269,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T13:01:16.901Z",
    "barTime": "2026-11-20T13:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 4,
+   "lastBarT": 1795197600000,
+   "bars": 5,
    "t1hit": false,
-   "mtm": 0.57
+   "mtm": 0.01
   },
   {
    "id": "HBARUSDT|1H|SHORT|2026-11-20T12:00:00.000Z",
@@ -7510,10 +7488,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T15:45:51.244Z",
    "barTime": "2026-11-20T15:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 2,
+   "lastBarT": 1795197600000,
+   "bars": 3,
    "t1hit": false,
-   "mtm": 0.12,
+   "mtm": -0.02,
    "live": "ALERT_ONLY_CAP"
   },
   {
@@ -7585,10 +7563,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T16:01:18.544Z",
    "barTime": "2026-11-20T15:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 2,
+   "lastBarT": 1795197600000,
+   "bars": 3,
    "t1hit": false,
-   "mtm": 0.62,
+   "mtm": 0.92,
    "live": "REJECTED_RULES"
   },
   {
@@ -7685,10 +7663,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T16:30:59.508Z",
    "barTime": "2026-11-20T16:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 1,
+   "lastBarT": 1795197600000,
+   "bars": 2,
    "t1hit": false,
-   "mtm": 0.4,
+   "mtm": 0.93,
    "live": "ALERT_ONLY_CAP"
   },
   {
@@ -7760,10 +7738,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T17:30:58.328Z",
    "barTime": "2026-11-20T17:00:00.000Z",
-   "lastBarT": 1795194000000,
-   "bars": 0,
+   "lastBarT": 1795197600000,
+   "bars": 1,
    "t1hit": false,
-   "mtm": 0,
+   "mtm": 0.1,
    "live": "REJECTED_RULES"
   },
   {
@@ -7815,9 +7793,63 @@
    "t1hit": false,
    "mtm": 0,
    "live": "REJECTED_RULES"
+  },
+  {
+   "id": "PEPEUSDT|1H|LONG|2026-11-20T17:00:00.000Z",
+   "sym": "PEPEUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "BB_MR",
+   "quad": "Q2",
+   "score": 0,
+   "chase": 1,
+   "entry": 0.00000341,
+   "stop": 0.00000352,
+   "t1": 0.00000324,
+   "t2": 0.00000308,
+   "verdict": "RULES_REJECTED",
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-20T18:15:50.320Z",
+   "barTime": "2026-11-20T17:00:00.000Z",
+   "lastBarT": 1795194000000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
   }
  ],
  "shadowClosed": [
+  {
+   "id": "AUDJPY|1H|SHORT|2026-11-19T21:00:00.000Z",
+   "sym": "AUDJPY",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q2",
+   "score": 86,
+   "chase": 0,
+   "entry": 106.29199982,
+   "stop": 106.66181596,
+   "t1": 105.7372756,
+   "t2": 105.18255139,
+   "verdict": "DEFERRED",
+   "aiDecision": "DEFER",
+   "confidence": null,
+   "openedAt": "2026-11-19T21:30:57.223Z",
+   "barTime": "2026-11-19T21:00:00.000Z",
+   "lastBarT": 1795197600000,
+   "bars": 21,
+   "t1hit": true,
+   "mtm": 2.76,
+   "out": "T2",
+   "rr": 2.19,
+   "gross": 2.25,
+   "costR": 0.057,
+   "closedAt": "2026-11-20T18:15:29.066Z"
+  },
   {
    "id": "ZROUSDT|1H|LONG|2026-11-20T16:00:00.000Z",
    "sym": "ZROUSDT",
@@ -14382,12 +14414,20 @@
   "PUMPUSDT|1H|SHORT|2026-11-20T17:00:00.000Z": 1795197669720,
   "VVVUSDT|1H|SHORT|2026-11-20T17:00:00.000Z": 1795197670545,
   "BTWUSDT|1H|LONG|2026-11-20T17:00:00.000Z": 1795197671369,
-  "SOLUSDT|1H|LONG|2026-11-20T17:00:00.000Z": 1795197672202
+  "SOLUSDT|1H|LONG|2026-11-20T17:00:00.000Z": 1795197672202,
+  "EURAUD|1H|LONG|2026-11-20T18:00:00.000Z": 1795198545291,
+  "EURGBP|1H|LONG|2026-11-20T18:00:00.000Z": 1795198545384,
+  "OKBUSDT|1H|LONG|2026-11-20T17:00:00.000Z": 1795198545394,
+  "PENGUUSDT|1H|LONG|2026-11-20T17:00:00.000Z": 1795198546193,
+  "BERAUSDT|1H|LONG|2026-11-20T17:00:00.000Z": 1795198546975,
+  "ICPUSDT|1H|LONG|2026-11-20T17:00:00.000Z": 1795198547789,
+  "TRUMPUSDT|1H|LONG|2026-11-20T17:00:00.000Z": 1795198548658,
+  "PEPEUSDT|1H|LONG|2026-11-20T17:00:00.000Z": 1795198549517
  },
- "lastRun": "2026-11-20T18:01:13.030Z",
- "runs": 263,
+ "lastRun": "2026-11-20T18:15:50.322Z",
+ "runs": 264,
  "errors": [],
- "durationSec": 26,
+ "durationSec": 24,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -14582,24 +14622,24 @@
    "VVVUSDT",
    "PONSUSDT",
    "OPUSDT",
-   "BTWUSDT",
    "ASTERUSDT",
-   "DOTUSDT",
    "SHIBUSDT",
+   "DOTUSDT",
+   "BTWUSDT",
    "APTUSDT",
    "XLMUSDT",
    "PENGUUSDT",
    "JUPUSDT",
-   "SKYUSDT",
    "CRVUSDT",
+   "SKYUSDT",
    "XPLUSDT",
    "ZROUSDT",
    "NIGHTUSDT",
    "BERAUSDT",
    "ICPUSDT",
+   "UPUSDT",
    "HUSDT",
    "HBARUSDT",
-   "UPUSDT",
    "PIUSDT",
    "YBUSDT",
    "GRAMUSDT",
@@ -14624,7 +14664,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 7668260,
+   "minVolUSD": 7619644,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -14634,13 +14674,13 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 14,
+   "candidates": 9,
    "deep": 8,
-   "extended": 67,
+   "extended": 65,
    "byClass": {
-    "crypto": 13,
+    "crypto": 7,
     "metal": 0,
-    "forex": 1,
+    "forex": 2,
     "stock": 0
    }
   },
@@ -14808,18 +14848,18 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 7668260
+  "minVolUSD": 7619644
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 14,
+  "candidates": 9,
   "deep": 8,
-  "extended": 67,
+  "extended": 65,
   "byClass": {
-   "crypto": 13,
+   "crypto": 7,
    "metal": 0,
-   "forex": 1,
+   "forex": 2,
    "stock": 0
   }
  },
@@ -15187,14 +15227,22 @@
  },
  "shadowStats": {
   "all": {
-   "n": 188,
+   "n": 189,
    "win": 58,
-   "avg": 0.8,
-   "total": 150.42,
-   "pf": 2.79,
+   "avg": 0.81,
+   "total": 152.61,
+   "pf": 2.82,
    "maxDD": 51.52
   },
   "byVerdict": {
+   "DEFERRED": {
+    "n": 15,
+    "win": 67,
+    "avg": 1.09,
+    "total": 16.37,
+    "pf": 4.04,
+    "maxDD": 5.38
+   },
    "RULES_REJECTED": {
     "n": 121,
     "win": 58,
@@ -15218,14 +15266,6 @@
     "total": 20.98,
     "pf": 5.03,
     "maxDD": 3.16
-   },
-   "DEFERRED": {
-    "n": 14,
-    "win": 64,
-    "avg": 1.01,
-    "total": 14.18,
-    "pf": 3.64,
-    "maxDD": 5.38
    },
    "AI_APPROVED": {
     "n": 4,
@@ -15271,6 +15311,14 @@
    }
   },
   "byAiDecision": {
+   "DEFER": {
+    "n": 32,
+    "win": 69,
+    "avg": 1.17,
+    "total": 37.35,
+    "pf": 4.53,
+    "maxDD": 8.54
+   },
    "no AI": {
     "n": 121,
     "win": 58,
@@ -15286,14 +15334,6 @@
     "total": 3.67,
     "pf": 1.23,
     "maxDD": 12.69
-   },
-   "DEFER": {
-    "n": 31,
-    "win": 68,
-    "avg": 1.13,
-    "total": 35.16,
-    "pf": 4.32,
-    "maxDD": 8.54
    },
    "AI against/WAIT": {
     "n": 8,
@@ -15313,6 +15353,14 @@
    }
   },
   "byChase": {
+   "normal": {
+    "n": 184,
+    "win": 60,
+    "avg": 0.86,
+    "total": 158,
+    "pf": 3.01,
+    "maxDD": 47.17
+   },
    "extended": {
     "n": 5,
     "win": 0,
@@ -15320,17 +15368,17 @@
     "total": -5.39,
     "pf": 0,
     "maxDD": 5.39
-   },
-   "normal": {
-    "n": 183,
-    "win": 60,
-    "avg": 0.85,
-    "total": 155.81,
-    "pf": 2.98,
-    "maxDD": 47.17
    }
   },
   "byStrategy": {
+   "LENS": {
+    "n": 83,
+    "win": 73,
+    "avg": 1.32,
+    "total": 109.29,
+    "pf": 5.72,
+    "maxDD": 16.83
+   },
    "BB_MR": {
     "n": 11,
     "win": 0,
@@ -15346,14 +15394,6 @@
     "total": 57.28,
     "pf": 2.59,
     "maxDD": 23.85
-   },
-   "LENS": {
-    "n": 82,
-    "win": 73,
-    "avg": 1.31,
-    "total": 107.1,
-    "pf": 5.62,
-    "maxDD": 16.83
    },
    "ICHI": {
     "n": 8,
@@ -15381,6 +15421,14 @@
    }
   },
   "byQuad": {
+   "Q2": {
+    "n": 45,
+    "win": 53,
+    "avg": 0.63,
+    "total": 28.33,
+    "pf": 2.29,
+    "maxDD": 19.68
+   },
    "Q1": {
     "n": 41,
     "win": 73,
@@ -15388,14 +15436,6 @@
     "total": 53.49,
     "pf": 5.53,
     "maxDD": 6.51
-   },
-   "Q2": {
-    "n": 44,
-    "win": 52,
-    "avg": 0.59,
-    "total": 26.14,
-    "pf": 2.19,
-    "maxDD": 19.68
    },
    "Q4": {
     "n": 38,
@@ -15415,9 +15455,9 @@
    }
   },
   "open": 164,
-  "dupSkipped": 238
+  "dupSkipped": 240
  },
- "shadowDup": 238,
+ "shadowDup": 240,
  "judgeReport": {
   "mode": "shadow",
   "agree": {
@@ -15469,21 +15509,21 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=4, against=32 (need ≥40 each)",
-  "asOf": "2026-11-20T18:01:13.031Z"
+  "asOf": "2026-11-20T18:15:50.324Z"
  },
  "shadowIndep": {
-  "n": 188,
+  "n": 189,
   "clusters": 4,
   "clusterStats": {
    "n": 4,
    "win": 50,
-   "avg": 0.28,
-   "total": 1.13,
-   "pf": 1.66,
+   "avg": 0.29,
+   "total": 1.14,
+   "pf": 1.67,
    "maxDD": 1.06
   },
-  "topDayShare": 0.53,
-  "maxSameDir": 108,
+  "topDayShare": 0.52,
+  "maxSameDir": 109,
   "days": [
    {
     "day": "2026-11-20",
@@ -15499,12 +15539,12 @@
    {
     "day": "2026-11-19",
     "long": 19,
-    "short": 70,
-    "n": 89,
-    "win": 66,
-    "avg": 1.06,
-    "total": 94,
-    "pf": 3.93,
+    "short": 71,
+    "n": 90,
+    "win": 67,
+    "avg": 1.07,
+    "total": 96.19,
+    "pf": 4,
     "maxDD": 11.34
    }
   ],
@@ -15523,8 +15563,8 @@
    },
    {
     "k": "2026-11-19 SHORT",
-    "n": 70,
-    "rr": 1.52,
+    "n": 71,
+    "rr": 1.53,
     "win": 80
    },
    {
@@ -15537,24 +15577,24 @@
   "warn": true
  },
  "reconcile": {
-  "approved": 67,
+  "approved": 68,
   "byLive": {
    "unknown": {
-    "n": 67,
-    "win": 58,
-    "avg": 0.82,
-    "total": 55.25,
-    "pf": 2.87,
+    "n": 68,
+    "win": 59,
+    "avg": 0.84,
+    "total": 57.44,
+    "pf": 2.94,
     "maxDD": 24.36
    }
   },
   "byLiveTf": {
    "unknown 1H": {
-    "n": 59,
+    "n": 60,
     "win": 63,
-    "avg": 0.97,
-    "total": 57.19,
-    "pf": 3.46,
+    "avg": 0.99,
+    "total": 59.38,
+    "pf": 3.55,
     "maxDD": 19.06
    },
    "unknown 4H": {
