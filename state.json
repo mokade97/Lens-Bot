@@ -448,6 +448,402 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-20T13:15:55.747Z",
+   "barTime": "2026-11-20T13:00:00.000Z",
+   "sym": "EURAUD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 78,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.59,
+     "n": 16,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 16,
+     "avg_r": 0.11,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_UP",
+   "htf": "UP",
+   "event": "LONG_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 1.64935005,
+   "stop": 1.64489605,
+   "t1": 1.65603104,
+   "t2": 1.66271202,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "واگرایی منظم خلاف جهت (RSI/MACD)",
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (16× · 0.11R)"
+   ],
+   "tm": {
+    "n": 16,
+    "win": 31,
+    "avg": -0.54,
+    "pf": 0.36
+   },
+   "src": "yahoo",
+   "chase": 0,
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 2
+  },
+  {
+   "ts": "2026-11-20T13:15:55.577Z",
+   "barTime": "2026-11-20T12:00:00.000Z",
+   "sym": "WLDUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 92,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.46,
+     "n": 18,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 29,
+     "avg_r": 0.14,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.2427,
+   "stop": 0.24866575,
+   "t1": 0.23375137,
+   "t2": 0.22480274,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-3.2×ATR)",
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (29× · 0.14R)"
+   ],
+   "tm": {
+    "n": 29,
+    "win": 52,
+    "avg": 0.14,
+    "pf": 1.28
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 1
+  },
+  {
+   "ts": "2026-11-20T13:15:54.572Z",
+   "barTime": "2026-11-20T12:00:00.000Z",
+   "sym": "PEPEUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 92,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "LENS",
+     "name": "Lens setup",
+     "avg_r": 0.2,
+     "n": 28,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 28,
+     "avg_r": 0.2,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.00000353,
+   "stop": 0.00000363,
+   "t1": 0.00000339,
+   "t2": 0.00000325,
+   "rr": 2.8,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-2.8×ATR)"
+   ],
+   "tm": {
+    "n": 28,
+    "win": 46,
+    "avg": 0.2,
+    "pf": 1.36
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 1
+  },
+  {
+   "ts": "2026-11-20T13:15:53.519Z",
+   "barTime": "2026-11-20T12:00:00.000Z",
+   "sym": "DOGEUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 92,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "MACD_EMA",
+     "name": "MACD cross + EMA200 filter",
+     "avg_r": 0.19,
+     "n": 16,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 31,
+     "avg_r": -0.04,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.05652,
+   "stop": 0.05750363,
+   "t1": 0.05504455,
+   "t2": 0.0535691,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (31× · -0.04R)"
+   ],
+   "warns": [
+    "نسبتاً کش‌شده (-2.6×ATR)",
+    "واگرایی منظم خلاف جهت (MACD)"
+   ],
+   "tm": {
+    "n": 31,
+    "win": 39,
+    "avg": -0.04,
+    "pf": 0.94
+   },
+   "src": "okx",
+   "chase": 0,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (31× · -0.04R)"
+   ]
+  },
+  {
+   "ts": "2026-11-20T13:15:52.492Z",
+   "barTime": "2026-11-20T12:00:00.000Z",
+   "sym": "PENGUUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 100,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "ICHI",
+     "name": "Ichimoku TK cross + cloud filter",
+     "avg_r": 0.46,
+     "n": 13,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 31,
+     "avg_r": 0.08,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.004396,
+   "stop": 0.0045042,
+   "t1": 0.0042337,
+   "t2": 0.0040714,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-3.2×ATR)",
+    "واگرایی منظم خلاف جهت (MACD)",
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (31× · 0.08R)"
+   ],
+   "tm": {
+    "n": 31,
+    "win": 48,
+    "avg": 0.08,
+    "pf": 1.15
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 3
+  },
+  {
+   "ts": "2026-11-20T13:15:51.412Z",
+   "barTime": "2026-11-20T12:00:00.000Z",
+   "sym": "BNBUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 100,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "LENS",
+     "name": "Lens setup",
+     "avg_r": 0.38,
+     "n": 24,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 24,
+     "avg_r": 0.38,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 567.26,
+   "stop": 574.80011855,
+   "t1": 555.94982218,
+   "t2": 544.63964435,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-2.6×ATR)",
+    "واگرایی منظم خلاف جهت (RSI/MACD)"
+   ],
+   "tm": {
+    "n": 24,
+    "win": 54,
+    "avg": 0.38,
+    "pf": 1.84
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 3
+  },
+  {
+   "ts": "2026-11-20T13:15:50.388Z",
+   "barTime": "2026-11-20T12:00:00.000Z",
+   "sym": "SOLUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 100,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.38,
+     "n": 20,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 27,
+     "avg_r": 0.08,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 71.06,
+   "stop": 72.38643699,
+   "t1": 69.07034452,
+   "t2": 67.08068904,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "واگرایی منظم خلاف جهت (MACD)",
+    "ناحیه‌ی BREAKER فقط 0.87×ATR جلوتر",
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (27× · 0.08R)"
+   ],
+   "tm": {
+    "n": 27,
+    "win": 48,
+    "avg": 0.08,
+    "pf": 1.16
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "deferred",
+   "confidence": null,
+   "reasons": [
+    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
+   ],
+   "concerns": [],
+   "invalidation": "",
+   "status": "DEFERRED_AI",
+   "aiDecision": "DEFER",
+   "deferCount": 3
+  },
+  {
    "ts": "2026-11-20T13:12:50.442Z",
    "barTime": "2026-11-20T13:00:00.000Z",
    "sym": "GBPUSD",
@@ -501,63 +897,6 @@
     "رژیم Q4 (آشوب) — بیرون بمان",
     "خلاف سوگیری تایم‌فریم بالاتر"
    ]
-  },
-  {
-   "ts": "2026-11-20T13:12:50.309Z",
-   "barTime": "2026-11-20T13:00:00.000Z",
-   "sym": "EURAUD",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 78,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.59,
-     "n": 16,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 16,
-     "avg_r": 0.1,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_UP",
-   "htf": "UP",
-   "event": "LONG_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 1.64916003,
-   "stop": 1.64470604,
-   "t1": 1.65584102,
-   "t2": 1.662522,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "واگرایی منظم خلاف جهت (RSI/MACD)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (16× · 0.1R)"
-   ],
-   "tm": {
-    "n": 16,
-    "win": 31,
-    "avg": -0.54,
-    "pf": 0.36
-   },
-   "src": "yahoo",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "DEFERRED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 1
   },
   {
    "ts": "2026-11-20T13:12:50.301Z",
@@ -673,64 +1012,6 @@
    "deferCount": 1
   },
   {
-   "ts": "2026-11-20T13:12:48.084Z",
-   "barTime": "2026-11-20T12:00:00.000Z",
-   "sym": "PENGUUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 100,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "ICHI",
-     "name": "Ichimoku TK cross + cloud filter",
-     "avg_r": 0.46,
-     "n": 13,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 31,
-     "avg_r": 0.08,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.004396,
-   "stop": 0.0045042,
-   "t1": 0.0042337,
-   "t2": 0.0040714,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3.2×ATR)",
-    "واگرایی منظم خلاف جهت (MACD)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (31× · 0.08R)"
-   ],
-   "tm": {
-    "n": 31,
-    "win": 48,
-    "avg": 0.08,
-    "pf": 1.15
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "DEFERRED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 2
-  },
-  {
    "ts": "2026-11-20T13:12:46.948Z",
    "barTime": "2026-11-20T12:00:00.000Z",
    "sym": "LINKUSDT",
@@ -773,121 +1054,6 @@
     "win": 48,
     "avg": 0.02,
     "pf": 1.04
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "DEFERRED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 2
-  },
-  {
-   "ts": "2026-11-20T13:12:45.845Z",
-   "barTime": "2026-11-20T12:00:00.000Z",
-   "sym": "BNBUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 100,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.38,
-     "n": 24,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 24,
-     "avg_r": 0.38,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 567.26,
-   "stop": 574.80011855,
-   "t1": 555.94982218,
-   "t2": 544.63964435,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-2.6×ATR)",
-    "واگرایی منظم خلاف جهت (RSI/MACD)"
-   ],
-   "tm": {
-    "n": 24,
-    "win": 54,
-    "avg": 0.38,
-    "pf": 1.84
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "DEFERRED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 2
-  },
-  {
-   "ts": "2026-11-20T13:12:44.735Z",
-   "barTime": "2026-11-20T12:00:00.000Z",
-   "sym": "SOLUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 100,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.38,
-     "n": 20,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 27,
-     "avg_r": 0.08,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 71.06,
-   "stop": 72.38643699,
-   "t1": 69.07034452,
-   "t2": 67.08068904,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "واگرایی منظم خلاف جهت (MACD)",
-    "ناحیه‌ی BREAKER فقط 0.87×ATR جلوتر",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (27× · 0.08R)"
-   ],
-   "tm": {
-    "n": 27,
-    "win": 48,
-    "avg": 0.08,
-    "pf": 1.16
    },
    "src": "okx",
    "chase": 0,
@@ -3580,171 +3746,6 @@
    "status": "REJECTED_AI",
    "aiDecision": "DEFER",
    "deferCount": 4
-  },
-  {
-   "ts": "2026-11-20T09:45:48.119Z",
-   "barTime": "2026-11-20T08:00:00.000Z",
-   "sym": "ARBUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 84,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.19,
-     "n": 20,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 27,
-     "avg_r": 0.09,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.12032,
-   "stop": 0.12313106,
-   "t1": 0.1161034,
-   "t2": 0.11188681,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "ناحیه‌ی FVG فقط 0.07×ATR جلوتر",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (27× · 0.09R)"
-   ],
-   "tm": {
-    "n": 27,
-    "win": 44,
-    "avg": 0.09,
-    "pf": 1.15
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "REJECTED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 4
-  },
-  {
-   "ts": "2026-11-20T09:45:47.401Z",
-   "barTime": "2026-11-20T08:00:00.000Z",
-   "sym": "BCHUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 92,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "ICHI",
-     "name": "Ichimoku TK cross + cloud filter",
-     "avg_r": 0.46,
-     "n": 13,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 26,
-     "avg_r": 0.35,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 201.92,
-   "stop": 205.82259298,
-   "t1": 196.06611053,
-   "t2": 190.21222107,
-   "rr": 3,
-   "fails": [],
-   "warns": [],
-   "tm": {
-    "n": 26,
-    "win": 54,
-    "avg": 0.35,
-    "pf": 1.75
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "REJECTED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 4
-  },
-  {
-   "ts": "2026-11-20T09:31:04.653Z",
-   "barTime": "2026-11-20T08:00:00.000Z",
-   "sym": "OPUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 72,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.34,
-     "n": 24,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 24,
-     "avg_r": 0.34,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.07369,
-   "stop": 0.07550286,
-   "t1": 0.0709707,
-   "t2": 0.06825141,
-   "rr": 3,
-   "fails": [],
-   "warns": [],
-   "tm": {
-    "n": 24,
-    "win": 58,
-    "avg": 0.34,
-    "pf": 1.76
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "deferred",
-   "confidence": null,
-   "reasons": [
-    "AI در دسترس نبود (LLM budget exhausted (all keys/models)) — تا اجرای بعدی به تعویق افتاد"
-   ],
-   "concerns": [],
-   "invalidation": "",
-   "status": "DEFERRED_AI",
-   "aiDecision": "DEFER",
-   "deferCount": 2
   }
  ],
  "shadow": [
@@ -13040,12 +13041,14 @@
   "EURAUD|1H|LONG|2026-11-20T12:00:00.000Z": 1795179676781,
   "EURGBP|1H|LONG|2026-11-20T13:00:00.000Z": 1795179676894,
   "ADAUSDT|4H|SHORT|2026-11-20T08:00:00.000Z": 1795180369383,
-  "GBPUSD|1H|LONG|2026-11-20T13:00:00.000Z": 1795180370434
+  "GBPUSD|1H|LONG|2026-11-20T13:00:00.000Z": 1795180370434,
+  "DOGEUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 1795180552660,
+  "GBPCHF|1H|SHORT|2026-11-20T13:00:00.000Z": 1795180555809
  },
- "lastRun": "2026-11-20T13:12:50.443Z",
- "runs": 241,
+ "lastRun": "2026-11-20T13:15:55.818Z",
+ "runs": 242,
  "errors": [],
- "durationSec": 31,
+ "durationSec": 29,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -13227,8 +13230,8 @@
    "PONSUSDT",
    "TRXUSDT",
    "ASTERUSDT",
-   "APTUSDT",
    "XLMUSDT",
+   "APTUSDT",
    "PENGUUSDT",
    "OPUSDT",
    "DOTUSDT",
@@ -13266,7 +13269,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 6959060,
+   "minVolUSD": 6936648,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -13276,11 +13279,11 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 51,
+   "candidates": 50,
    "deep": 8,
-   "extended": 16,
+   "extended": 17,
    "byClass": {
-    "crypto": 48,
+    "crypto": 47,
     "metal": 0,
     "forex": 3,
     "stock": 0
@@ -13444,22 +13447,22 @@
   "requireAI": true,
   "paperTrade": true,
   "maxExtAtr": 2,
-  "deferred": 22
+  "deferred": 23
  },
  "universeInfo": {
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 6959060
+  "minVolUSD": 6936648
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 51,
+  "candidates": 50,
   "deep": 8,
-  "extended": 16,
+  "extended": 17,
   "byClass": {
-   "crypto": 48,
+   "crypto": 47,
    "metal": 0,
    "forex": 3,
    "stock": 0
@@ -13808,12 +13811,14 @@
   "ADAUSDT|4H|SHORT|2026-11-20T08:00:00.000Z": 4,
   "EURAUD|1H|LONG|2026-11-20T12:00:00.000Z": 4,
   "DOTUSDT|4H|SHORT|2026-11-20T08:00:00.000Z": 1,
-  "SOLUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 2,
-  "BNBUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 2,
+  "SOLUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 3,
+  "BNBUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 3,
   "LINKUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 2,
-  "PENGUUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 2,
+  "PENGUUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 3,
   "SHIBUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 1,
-  "EURAUD|1H|LONG|2026-11-20T13:00:00.000Z": 1
+  "EURAUD|1H|LONG|2026-11-20T13:00:00.000Z": 2,
+  "PEPEUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 1,
+  "WLDUSDT|1H|SHORT|2026-11-20T12:00:00.000Z": 1
  },
  "orModels": {
   "day": "2026-11-20",
@@ -14047,7 +14052,7 @@
    }
   },
   "open": 241,
-  "dupSkipped": 148
+  "dupSkipped": 155
  },
- "shadowDup": 148
+ "shadowDup": 155
 }
