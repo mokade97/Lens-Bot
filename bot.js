@@ -7,7 +7,7 @@
      Time Machine backtest. Then applies the app's Risk-Check rules, and (optionally) asks a SEPARATE
      Gemini key to judge each candidate (LONG/SHORT/WAIT/SKIP + reasons in Persian).
    - Paper positions are managed on CLOSED candles only: SL −1R, T1 (half) then SL = +0.25R, T2 = +2.25R/+3R,
-     timeout 40 bars = mark-to-market. Costs (fee+slippage+funding) are deducted.
+     timeout 40 bars = mark-to-market. Costs (fee+slippage+funding) are deducted. v104: shadow independence + shadow↔live reconciliation.
    - Output: state.json (full) + public/bot.json (compact, read by the app's 🤖 Bot card).
    ============================================================================ */
 const fs = require('fs'); const path = require('path');
@@ -131,6 +131,29 @@ function judgeReport(SC) {
   return { mode: CFG.aiMode || 'shadow', agree: A, against: B, byConf, verdict, detail, asOf: new Date().toISOString() };
 }
 function confBucket(c) { return c == null ? 'n/a' : c >= 80 ? '80+' : c >= 65 ? '65-79' : c >= 50 ? '50-64' : '<50'; }
+/* v104: how many INDEPENDENT bets are behind the shadow N? Same-direction setups opened in the same UTC day on correlated symbols are one bet, not many.
+   cluster = (day, side); clusterStats treats each cluster's mean R as ONE sample. maxSameDir = largest number of same-direction rows open at once. */
+function independence(SC) {
+  if (!SC.length) return null; const day = x => (x.openedAt || '').slice(0, 10);
+  const cl = {}; SC.forEach(x => { const k = day(x) + ' ' + x.side; (cl[k] = cl[k] || []).push(x); });
+  const clusters = Object.entries(cl).map(([k, a]) => ({ k, n: a.length, rr: +(a.reduce((q, x) => q + x.rr, 0) / a.length).toFixed(2), win: Math.round(100 * a.filter(x => x.rr > 0).length / a.length) })).sort((a, b) => a.k < b.k ? 1 : -1);
+  const cs = stats(clusters.map(c => ({ rr: c.rr })));
+  const byDay = {}; SC.forEach(x => { (byDay[day(x)] = byDay[day(x)] || []).push(x); }); const days = Object.entries(byDay).sort((a, b) => a[0] < b[0] ? 1 : -1).map(([d, a]) => Object.assign({ day: d, long: a.filter(x => x.side === 'LONG').length, short: a.filter(x => x.side === 'SHORT').length }, stats(a)));
+  const ev = []; SC.forEach(x => { ev.push([Date.parse(x.openedAt), 1, x.side]); ev.push([Date.parse(x.closedAt || x.openedAt) + 1, -1, x.side]); }); ev.sort((a, b) => a[0] - b[0]); let L = 0, Sh = 0, mx = 0; ev.forEach(e => { if (e[2] === 'LONG') L += e[1]; else Sh += e[1]; mx = Math.max(mx, L, Sh); });
+  const share = Math.max(...days.map(d => d.n)) / SC.length;
+  return { n: SC.length, clusters: clusters.length, clusterStats: cs, topDayShare: +share.toFixed(2), maxSameDir: mx, days: days.slice(0, 14), recent: clusters.slice(0, 10), warn: clusters.length < 20 || share > 0.4 };
+}
+/* v104: shadow ↔ live reconciliation — for every rules-approved shadow setup, what did the live book do and how did each bucket perform? */
+function reconcile(SC) {
+  const ok = SC.filter(x => x.verdict !== 'RULES_REJECTED'); if (!ok.length) return null;
+  const lab = x => !x.live ? 'unknown' : x.live === 'OPENED_PAPER' ? 'opened' : x.live === 'ALERT_ONLY_CAP' ? 'missed: cap' : x.live === 'ALERT_ONLY_BUSY' ? 'missed: busy' : x.live === 'REJECTED_AI' ? 'ai-skip' : x.live === 'ALERT_ONLY_PAPER_OFF' ? 'paper off' : x.live;
+  const byLive = by(ok, lab); const byLiveTf = by(ok, x => lab(x) + ' ' + x.tf);
+  // per-position diff: live closed trade vs its shadow twin (same id) — should be ≈0; a gap means data/management divergence
+  const twins = S.closed.map(p => { const sh = SC.find(x => x.id === p.id); return sh ? { sym: p.sym, tf: p.tf, side: p.side, live: p.rr, shadow: sh.rr, diff: +(p.rr - sh.rr).toFixed(2), liveOut: p.out, shOut: sh.out } : null; }).filter(Boolean);
+  const bad = twins.filter(t => Math.abs(t.diff) > 0.05);
+  const missed = ok.filter(x => /ALERT_ONLY_(CAP|BUSY)/.test(x.live || '')); const missedStats = stats(missed); const openedStats = stats(ok.filter(x => x.live === 'OPENED_PAPER'));
+  return { approved: ok.length, byLive, byLiveTf, twins: twins.length, twinMismatch: bad.length, twinSample: bad.slice(0, 5), missed: missedStats, opened: openedStats, missedByTf: by(missed, x => x.tf), openedByTf: by(ok.filter(x => x.live === 'OPENED_PAPER'), x => x.tf) };
+}
 /* ---------------- paper position management ---------------- */
 function manage(pos, k) {
   const closedBars = k.slice(0, -1).filter(b => b.t > pos.lastBarT); if (!closedBars.length) return null;
@@ -232,6 +255,8 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
       S.positions.push(pos); alert.status = 'OPENED_PAPER'; S.alerts.unshift(alert); newAlerts.push(alert); log('OPEN', sym, tf, side, strategy, '@', alert.entry, 'SL', alert.stop, 'T1', alert.t1, 'conf', d.confidence);
     } catch (e) { S.errors.push(sym + ' ' + tf + ': ' + (e.message || e)); }
   }
+  // v104: link each shadow row to what the LIVE book did with the same setup (OPENED_PAPER / ALERT_ONLY_CAP / ALERT_ONLY_BUSY / REJECTED_* ) so the shadow↔live gap is traceable
+  S.alerts.forEach(a => { const id = `${a.sym}|${a.tf}|${a.side}|${a.barTime}`; const sh = S.shadow.find(x => x.id === id) || S.shadowClosed.find(x => x.id === id); if (sh && a.status && a.status !== 'DEFERRED_AI') sh.live = a.status; });
   // housekeeping
   S.alerts = S.alerts.slice(0, CFG.keepAlerts); S.closed = S.closed.slice(0, CFG.keepClosed);
   const cutoff = Date.now() - 14 * 864e5; Object.keys(S.seen).forEach(k => { if (S.seen[k] < cutoff) delete S.seen[k]; }); if (S.pending) Object.keys(S.pending).forEach(k => { const t = Date.parse(k.split('|')[3]); if (!(t > Date.now() - 3 * 864e5)) delete S.pending[k]; });
@@ -240,10 +265,11 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
   S.shadowClosed = S.shadowClosed.slice(0, CFG.keepShadow || 600); const SC = S.shadowClosed;
   S.shadowStats = { all: stats(SC), byVerdict: by(SC, x => x.verdict), byConf: by(SC.filter(x => x.verdict === 'AI_APPROVED' || x.verdict === 'AI_REJECTED'), x => confBucket(x.confidence)), byAiDecision: by(SC, x => x.aiDecision ? (x.aiDecision === x.side ? 'AI agrees' : x.aiDecision === 'DEFER' ? 'DEFER' : 'AI against/' + x.aiDecision) : 'no AI'), byChase: by(SC, x => x.chase ? 'extended' : 'normal'), byStrategy: by(SC, x => x.strategy), byQuad: by(SC, x => x.quad), open: S.shadow.length, dupSkipped: S.shadowDup || 0 };
   S.judgeReport = judgeReport(SC);
+  S.shadowIndep = independence(SC); S.reconcile = reconcile(SC);
   S.equityR = +(S.closed.reduce((s, x) => s + x.rr, 0)).toFixed(2); S.equityUSD = +(S.closed.reduce((s, x) => s + x.rr * (x.riskUSD || 0), 0)).toFixed(2);
   S.config = { symbols: U.map(x => x.sym), universe: Object.assign({}, S.universeInfo || {}, { total: U.length, crypto: U.filter(x => x.cls === 'crypto').length, metal: U.filter(x => x.cls === 'metal').length, forex: U.filter(x => x.cls === 'forex').length, stock: U.filter(x => x.cls === 'stock').length }), scan: S.scan, timeframes: CFG.timeframes, minScore: CFG.minScore, account: CFG.account, riskPct: CFG.riskPct, maxOpen: CFG.maxOpen, judge: CFG.useGemini && (desk.geminiKeys().length || process.env.OPENROUTER_API_KEY) ? (CFG.roundtable ? 'roundtable:' : '') + CFG.geminiModel : 'rules-only', llmToday: S.llm ? S.llm.calls : 0, keys: desk.geminiKeys().length, models: CFG.geminiModels || [CFG.geminiModel], openrouterModels: CFG.openrouterModels || [], slots: S.llm && S.llm.slots ? Object.keys(S.llm.slots).length : 0, slotsExhausted: S.llm && S.llm.slots ? Object.values(S.llm.slots).filter(k => k.exhausted).length : 0, active: S.llm && S.llm.active || null, slotTable: S.llm && S.llm.slots ? Object.entries(S.llm.slots).map(([id, x]) => ({ id, calls: x.calls, errors: x.errors, exhausted: !!x.exhausted, reason: x.reason || null, lastErr: x.lastErr || null, cooling: !!(x.cooldownUntil && x.cooldownUntil > Date.now()) })) : [], llmRaw: S.llm && S.llm.raw || [], llmBudget: (() => { try { return desk.makeLLM(CFG, S).remaining(); } catch (e) { return null; } })(), requireAI: CFG.requireAI !== false, paperTrade: CFG.paperTrade !== false, maxExtAtr: CFG.maxExtAtr || null, deferred: S.alerts.filter(a => a.status === 'DEFERRED_AI').length };
   fs.writeFileSync(STATE_FILE, JSON.stringify(S, null, 1));
-  const pub = { v: 1, lastRun: S.lastRun, durationSec: S.durationSec, dataSrc, config: S.config, equityR: S.equityR, equityUSD: S.equityUSD, stats: S.stats, shadowStats: S.shadowStats, judgeReport: S.judgeReport, shadow: S.shadow.slice(0, 60), shadowClosed: S.shadowClosed.slice(0, 60), positions: S.positions, alerts: S.alerts.slice(0, 40), closed: S.closed.slice(0, 60), errors: S.errors.slice(0, 10) };
+  const pub = { v: 1, lastRun: S.lastRun, durationSec: S.durationSec, dataSrc, config: S.config, equityR: S.equityR, equityUSD: S.equityUSD, stats: S.stats, shadowStats: S.shadowStats, judgeReport: S.judgeReport, shadowIndep: S.shadowIndep, reconcile: S.reconcile, shadow: S.shadow.slice(0, 60), shadowClosed: S.shadowClosed.slice(0, 60), positions: S.positions, alerts: S.alerts.slice(0, 40), closed: S.closed.slice(0, 60), errors: S.errors.slice(0, 10) };
   fs.mkdirSync(path.join(ROOT, 'public'), { recursive: true }); fs.writeFileSync(path.join(ROOT, 'public', 'bot.json'), JSON.stringify(pub));
   if (skippedForTime) log('time budget reached — deferred', skippedForTime, 'candidates to next run'); S.scan && (S.scan.timeSkipped = skippedForTime);
   log(`done in ${S.durationSec}s · open ${S.positions.length} · closed ${S.closed.length} · new alerts ${newAlerts.length} · equity ${S.equityR}R · src ${dataSrc} · errors ${S.errors.length}`);
