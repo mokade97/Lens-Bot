@@ -544,6 +544,59 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-20T21:30:56.346Z",
+   "barTime": "2026-11-20T21:00:00.000Z",
+   "sym": "EURAUD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 78,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.67,
+     "n": 16,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 16,
+     "avg_r": 0.19,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_UP",
+   "htf": "UP",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 1.65696001,
+   "stop": 1.65208516,
+   "t1": 1.66427229,
+   "t2": 1.67158457,
+   "rr": 3,
+   "fails": [
+    "Time Machine: این ستاپ روی این نماد منفی است (16× · -0.46R)"
+   ],
+   "warns": [
+    "نسبتاً کش‌شده (3.5×ATR)",
+    "واگرایی منظم خلاف جهت (MACD)"
+   ],
+   "tm": {
+    "n": 16,
+    "win": 38,
+    "avg": -0.46,
+    "pf": 0.46
+   },
+   "src": "yahoo",
+   "chase": 0,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "Time Machine: این ستاپ روی این نماد منفی است (16× · -0.46R)"
+   ]
+  },
+  {
    "ts": "2026-11-20T21:18:08.526Z",
    "barTime": "2026-11-20T21:00:00.000Z",
    "sym": "NZDUSD",
@@ -3807,58 +3860,6 @@
    "status": "REJECTED_RULES",
    "reasons": [
     "خلاف سوگیری تایم‌فریم بالاتر"
-   ]
-  },
-  {
-   "ts": "2026-11-20T17:01:08.163Z",
-   "barTime": "2026-11-20T16:00:00.000Z",
-   "sym": "XPLUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 82,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "EMA_X",
-     "name": "EMA 20/50 crossover + HTF",
-     "avg_r": 1.18,
-     "n": 9,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 27,
-     "avg_r": 0.05,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.04425,
-   "stop": 0.04536858,
-   "t1": 0.04257214,
-   "t2": 0.04089427,
-   "rr": 3,
-   "fails": [
-    "الگوی ASCENDING CHANNEL خلاف جهت"
-   ],
-   "warns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (27× · 0.05R)"
-   ],
-   "tm": {
-    "n": 27,
-    "win": 44,
-    "avg": 0.05,
-    "pf": 1.09
-   },
-   "src": "okx",
-   "chase": 0,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "الگوی ASCENDING CHANNEL خلاف جهت"
    ]
   }
  ],
@@ -15061,10 +15062,11 @@
   "UPUSDT|1H|SHORT|2026-11-20T20:00:00.000Z": 1795209346945,
   "UNIUSDT|1H|LONG|2026-11-20T20:00:00.000Z": 1795209347930,
   "PIUSDT|1H|LONG|2026-11-20T20:00:00.000Z": 1795209348861,
-  "NZDUSD|1H|LONG|2026-11-20T21:00:00.000Z": 1795209488509
+  "NZDUSD|1H|LONG|2026-11-20T21:00:00.000Z": 1795209488509,
+  "EURAUD|1H|LONG|2026-11-20T21:00:00.000Z": 1795210256333
  },
- "lastRun": "2026-11-20T21:18:08.528Z",
- "runs": 278,
+ "lastRun": "2026-11-20T21:30:56.347Z",
+ "runs": 279,
  "errors": [],
  "durationSec": 20,
  "dataSrc": "okx",
@@ -15291,9 +15293,9 @@
    "XPLUSDT",
    "BERAUSDT",
    "NIGHTUSDT",
-   "GRAMUSDT",
-   "ICPUSDT",
    "HUSDT",
+   "ICPUSDT",
+   "GRAMUSDT",
    "HBARUSDT",
    "PIUSDT",
    "ETCUSDT",
@@ -15319,7 +15321,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 7431137,
+   "minVolUSD": 7466563,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -15503,7 +15505,7 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 7431137
+  "minVolUSD": 7466563
  },
  "scan": {
   "symbols": 76,
@@ -16110,9 +16112,9 @@
    }
   },
   "open": 150,
-  "dupSkipped": 268
+  "dupSkipped": 269
  },
- "shadowDup": 268,
+ "shadowDup": 269,
  "judgeReport": {
   "mode": "shadow",
   "agree": {
@@ -16164,7 +16166,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=6, against=36 (need ≥40 each)",
-  "asOf": "2026-11-20T21:18:08.529Z"
+  "asOf": "2026-11-20T21:30:56.349Z"
  },
  "shadowIndep": {
   "n": 220,
