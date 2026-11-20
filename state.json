@@ -448,6 +448,58 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-20T07:30:59.146Z",
+   "barTime": "2026-11-20T07:00:00.000Z",
+   "sym": "EURAUD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 78,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "ICHI",
+     "name": "Ichimoku TK cross + cloud filter",
+     "avg_r": 0.73,
+     "n": 13,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 17,
+     "avg_r": -0.01,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_UP",
+   "htf": "UP",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 1.64555001,
+   "stop": 1.64107664,
+   "t1": 1.65226007,
+   "t2": 1.65897012,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (17× · -0.01R)"
+   ],
+   "warns": [
+    "واگرایی منظم خلاف جهت (RSI/MACD)"
+   ],
+   "tm": {
+    "n": 17,
+    "win": 29,
+    "avg": -0.65,
+    "pf": 0.31
+   },
+   "src": "yahoo",
+   "chase": 0,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (17× · -0.01R)"
+   ]
+  },
+  {
    "ts": "2026-11-20T07:16:23.450Z",
    "barTime": "2026-11-20T00:00:00.000Z",
    "sym": "MEGAUSDT",
@@ -3708,67 +3760,6 @@
     "شکست کاذب محتمل در رنج"
    ],
    "invalidation": "بازگشت قیمت بالای ۸۶.۸۶ (استاپ) یا شکست FVG به سمت بالا",
-   "status": "REJECTED_AI",
-   "aiDecision": "WAIT"
-  },
-  {
-   "ts": "2026-11-20T04:45:43.556Z",
-   "barTime": "2026-11-20T00:00:00.000Z",
-   "sym": "INJUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 70,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "BB_MR",
-     "name": "Bollinger mean-reversion",
-     "avg_r": 0.5,
-     "n": 22,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 24,
-     "avg_r": 0.31,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "NEUTRAL",
-   "event": "SHORT_SETUP",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 6.705,
-   "stop": 7.14860084,
-   "t1": 6.03959874,
-   "t2": 5.37419748,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "الگوی DESCENDING BROADENING WEDGE خلاف جهت"
-   ],
-   "tm": {
-    "n": 24,
-    "win": 63,
-    "avg": 0.31,
-    "pf": 1.79
-   },
-   "src": "okx",
-   "chase": 0,
-   "judge": "judge:nvidia/nemotron-3-ultra-550b-a55b:free",
-   "confidence": 55,
-   "reasons": [
-    "الگوی صعودی DESCENDING BROADENING WEDGE در تضاد با شورت",
-    "سیگنال لنگ سوپ/چوچ/اف‌وی‌جی برای لونغ فعال شده",
-    "بایاس HTF خنثی و ریتریسمن فیب عمیق (۰.۸۷) نزدیکی حمایت"
-   ],
-   "concerns": [
-    "شروع معامله در برابر الگو و سیگنال‌های متضاد",
-    "استاپ‌لاس در محدوده بریکر عدم‌تخلیه (مقاومت)",
-    "نمونه‌های کم با فیلتر HTF (n=9)"
-   ],
-   "invalidation": "بازگشت قیمت بالای ۷.۱۴۸۶ (استاپ) یا شکست بریکر ۷.۲۹۱ با حجم بالا",
    "status": "REJECTED_AI",
    "aiDecision": "WAIT"
   }
@@ -9869,6 +9860,30 @@
    "bars": 0,
    "t1hit": false,
    "mtm": 0
+  },
+  {
+   "id": "EURAUD|1H|LONG|2026-11-20T07:00:00.000Z",
+   "sym": "EURAUD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "SWEEP",
+   "quad": "Q2",
+   "score": 78,
+   "chase": 0,
+   "entry": 1.64555001,
+   "stop": 1.64107664,
+   "t1": 1.65226007,
+   "t2": 1.65897012,
+   "verdict": "RULES_REJECTED",
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-20T07:30:59.146Z",
+   "barTime": "2026-11-20T07:00:00.000Z",
+   "lastBarT": 1795158000000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0
   }
  ],
  "shadowClosed": [
@@ -12346,12 +12361,13 @@
   "YBUSDT|1H|LONG|2026-11-20T06:00:00.000Z": 1795158951126,
   "EURGBP|1H|LONG|2026-11-20T07:00:00.000Z": 1795158982504,
   "MEGAUSDT|4H|SHORT|2026-11-20T00:00:00.000Z": 1795158982529,
-  "BARDUSDT|1H|SHORT|2026-11-20T06:00:00.000Z": 1795158983450
+  "BARDUSDT|1H|SHORT|2026-11-20T06:00:00.000Z": 1795158983450,
+  "EURAUD|1H|LONG|2026-11-20T07:00:00.000Z": 1795159859134
  },
- "lastRun": "2026-11-20T07:16:24.325Z",
- "runs": 216,
+ "lastRun": "2026-11-20T07:30:59.147Z",
+ "runs": 217,
  "errors": [],
- "durationSec": 56,
+ "durationSec": 19,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -12527,29 +12543,29 @@
    "ARBUSDT",
    "YBUSDT",
    "SKYUSDT",
-   "VVVUSDT",
    "OKBUSDT",
-   "SENTUSDT",
+   "VVVUSDT",
    "INITUSDT",
+   "SENTUSDT",
    "ONDOUSDT",
    "ASTERUSDT",
    "CRVUSDT",
    "PONSUSDT",
    "PENGUUSDT",
    "DOTUSDT",
-   "XPLUSDT",
    "OPUSDT",
-   "NESUSDT",
+   "XPLUSDT",
    "APTUSDT",
+   "NESUSDT",
    "XLMUSDT",
    "UPUSDT",
    "BREVUSDT",
    "ZROUSDT",
-   "DGAIUSDT",
    "JUPUSDT",
+   "DGAIUSDT",
    "SHIBUSDT",
-   "NIGHTUSDT",
    "TRXUSDT",
+   "NIGHTUSDT",
    "MEGAUSDT",
    "XAUUSDT",
    "XAGUSDT",
@@ -12572,7 +12588,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 7598329,
+   "minVolUSD": 7586796,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -12582,11 +12598,11 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 4,
-   "deep": 4,
-   "extended": 12,
+   "candidates": 1,
+   "deep": 1,
+   "extended": 13,
    "byClass": {
-    "crypto": 3,
+    "crypto": 0,
     "metal": 0,
     "forex": 1,
     "stock": 0
@@ -12756,16 +12772,16 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 7598329
+  "minVolUSD": 7586796
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 4,
-  "deep": 4,
-  "extended": 12,
+  "candidates": 1,
+  "deep": 1,
+  "extended": 13,
   "byClass": {
-   "crypto": 3,
+   "crypto": 0,
    "metal": 0,
    "forex": 1,
    "stock": 0
@@ -13267,6 +13283,6 @@
     "maxDD": 14
    }
   },
-  "open": 254
+  "open": 255
  }
 }
