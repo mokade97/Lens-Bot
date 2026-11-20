@@ -7,7 +7,7 @@
      Time Machine backtest. Then applies the app's Risk-Check rules, and (optionally) asks a SEPARATE
      Gemini key to judge each candidate (LONG/SHORT/WAIT/SKIP + reasons in Persian).
    - Paper positions are managed on CLOSED candles only: SL −1R, T1 (half) then SL = +0.25R, T2 = +2.25R/+3R,
-     timeout 40 bars = mark-to-market. Costs (fee+slippage+funding) are deducted. v104: shadow independence + shadow↔live reconciliation.
+     timeout 40 bars = mark-to-market. Costs (fee+slippage+funding) are deducted. v104: shadow independence + shadow↔live reconciliation. v105: Time Machine hard-fail (n≥15, avg≤−0.2R) + AI budget reserve for blocked setups.
    - Output: state.json (full) + public/bot.json (compact, read by the app's 🤖 Bot card).
    ============================================================================ */
 const fs = require('fs'); const path = require('path');
@@ -79,7 +79,7 @@ let dataSrc = null;
 async function klinesAny(sym, tf, n) { if (isForex(sym)) { try { const k = await yahoo(sym, tf, n); if (k && k.length > 50) return k; } catch (err) { S.errors.push(sym + ' yahoo: ' + (err.message || err)); } return null; } for (const e of CFG.exchanges) { try { const k = await EX[e](sym, tf, n); if (k && k.length > 50) { dataSrc = e; return k; } } catch (err) { } } return null; }
 
 /* ---------------- rule check (mirror of the app's Risk Check) ---------------- */
-function ruleCheck(p, side) {
+function ruleCheck(p, side, bt) {
   const fails = [], warns = [];
   const Q = p.regime_quadrant; if (Q && Q.quadrant === 'Q4') fails.push('رژیم Q4 (آشوب) — بیرون بمان');
   const hb = p.trend && p.trend.htf_bias; if (CFG.noCounterHtf && ((side === 'LONG' && hb === 'DOWN') || (side === 'SHORT' && hb === 'UP'))) fails.push('خلاف سوگیری تایم‌فریم بالاتر');
@@ -90,6 +90,8 @@ function ruleCheck(p, side) {
   const z = p.smc_zones; if (z) { const opp = side === 'LONG' ? z.nearest_resistance : z.nearest_support; if (opp && Math.abs(opp.distance_atr) < 1) warns.push('ناحیه‌ی ' + opp.type + ' فقط ' + Math.abs(opp.distance_atr) + '×ATR جلوتر'); }
   const lab = p.strategy_lab; const sid = p._strategy || 'LENS'; if (lab && lab.strategies && lab.strategies[sid === 'SWEEP' ? 'LENS' : sid]) { const v = lab.strategies[sid === 'SWEEP' ? 'LENS' : sid]; if (v.n >= 15 && v.verdict === 'NEGATIVE') fails.push('آزمایشگاه استراتژی: ' + v.name + ' روی این نماد منفی است (' + v.n + '× · ' + v.avg_r + 'R)'); else if (v.n >= 8 && v.verdict !== 'EDGE') warns.push('آزمایشگاه استراتژی: ' + v.name + ' این‌جا ' + (v.verdict === 'WEAK' ? 'ضعیف' : 'بدون مزیت') + ' (' + v.n + '× · ' + v.avg_r + 'R)'); }
   const R = Math.abs(p.trade.entry - p.trade.stop), rr = R ? Math.abs(p.trade.target_2 - p.trade.entry) / R : 0; if (rr < CFG.minRR) fails.push('R:R در T2 = ' + rr.toFixed(2) + ' < ' + CFG.minRR);
+  // v105: Time Machine — this exact setup on this symbol's own history; a clearly negative record (n≥15, avg ≤ −0.2R) is a hard fail, mildly negative a warning
+  const tm = bt && bt.all; if (tm && tm.n >= (CFG.tmMinN || 15)) { if (tm.avg_r <= (CFG.tmFailAvgR != null ? CFG.tmFailAvgR : -0.2)) fails.push('Time Machine: این ستاپ روی این نماد منفی است (' + tm.n + '× · ' + tm.avg_r + 'R)'); else if (tm.avg_r < 0) warns.push('Time Machine منفی (' + tm.n + '× · ' + tm.avg_r + 'R)'); }
   return { fails, warns, rr: +rr.toFixed(2), sizeMult: Q ? Q.size_multiplier : 1 };
 }
 
@@ -225,14 +227,17 @@ function by(arr, f) { const m = {}; arr.forEach(x => { const k = f(x) || '—'; 
       // re-validate the nomination on full data (HTF now known); lab-nominated strategies must have a proven edge here
       if (strategy !== 'LENS' && strategy !== 'SWEEP') { const v = lab && lab.strategies[strategy]; const lv = lab && (lab.live_signals || []).find(x => x.id === strategy); const okV = v && (v.verdict === 'EDGE' || (strategy === 'ICHI' && v.verdict !== 'NEGATIVE')); if (!okV || !lv) { log('skip', sym, tf, strategy, 'no edge on full data'); continue; } side = lv.side; }
       const score = side === 'LONG' ? p.scores.long : p.scores.short;
-      p._strategy = strategy; const rc = ruleCheck(p, side); let bt = null; try { bt = lens.backtest(k, hk, { tf }); } catch (e) { }
+      p._strategy = strategy; let bt = null; try { bt = lens.backtest(k, hk, { tf }); } catch (e) { } const rc = ruleCheck(p, side, bt);
       const mine = lab && lab.strategies[strategy === 'SWEEP' ? 'LENS' : strategy];
       const alert = { ts: new Date().toISOString(), barTime: p.time, sym, cls, tf, side, score, strategy, lab: lab && { best: lab.best, mine: mine && { n: mine.n, avg_r: mine.avg_r, verdict: mine.verdict } }, quad: p.regime_quadrant && p.regime_quadrant.quadrant, regime: p.regime, htf: p.trend.htf_bias, event: p.event, sweep: sweep && sweep.status, entry: p.trade.entry, stop: p.trade.stop, t1: p.trade.target_1, t2: p.trade.target_2, rr: rc.rr, fails: rc.fails, warns: rc.warns, tm: bt && bt.all ? { n: bt.all.n, win: bt.all.win_rate, avg: bt.all.avg_r, pf: bt.all.profit_factor } : null, src: isForex(sym) ? 'yahoo' : dataSrc };
       alert.chase = p.chasing ? 1 : 0;
       if (rc.fails.length) { alert.status = 'REJECTED_RULES'; alert.reasons = rc.fails; shadowRecord(alert, 'RULES_REJECTED'); S.alerts.unshift(alert); log('REJECT', sym, tf, side, rc.fails.join('; ')); continue; }
       // independent AI desk (roundtable) / judge
       const klinesBy = { [tf]: k }; if (hk) klinesBy[htf] = hk; if (CFG.roundtable && !klinesBy['1D']) { try { klinesBy['1D'] = await klinesAny(sym, '1D', 120); } catch (e) { } }
-      const rem = desk.makeLLM(CFG, S).remaining(); const useRT = CFG.roundtable && rem.frac >= (CFG.roundtableMinBudgetFrac != null ? CFG.roundtableMinBudgetFrac : 0.4);   // ration: full roundtable while ≥40% of today's AI budget is left, otherwise single-call judge
+      // v105: AI budget reserve — a setup that cannot be opened anyway (max-open reached / symbol busy) only gets AI while plenty of today's budget is left; otherwise it goes straight to the shadow ledger without an AI opinion, so budget stays for setups that CAN be traded
+      const blocked = S.positions.some(x => x.sym === sym) || S.positions.length >= CFG.maxOpen; const rem0 = desk.makeLLM(CFG, S).remaining();
+      if (blocked && rem0.frac < (CFG.blockedMinBudgetFrac != null ? CFG.blockedMinBudgetFrac : 0.4)) { alert.status = S.positions.some(x => x.sym === sym) ? 'ALERT_ONLY_BUSY' : 'ALERT_ONLY_CAP'; alert.aiMode = 'shadow'; alert.aiDecision = null; alert.aiAgrees = null; alert.judge = 'skipped:budget-reserve'; alert.reasons = ['AI صدا زده نشد — سقف/مشغول و بودجهٔ AI زیر ' + Math.round(100 * (CFG.blockedMinBudgetFrac != null ? CFG.blockedMinBudgetFrac : 0.4)) + '٪ (رزرو برای ستاپ‌های قابل‌معامله)']; alert.concerns = rc.warns; shadowRecord(alert, 'AI_UNAVAILABLE'); S.alerts.unshift(alert); newAlerts.push(alert); S.llmReserved = (S.llmReserved || 0) + 1; log('ALERT', sym, tf, side, alert.status, 'no-AI (budget reserve)'); continue; }
+      const rem = rem0; const useRT = CFG.roundtable && rem.frac >= (CFG.roundtableMinBudgetFrac != null ? CFG.roundtableMinBudgetFrac : 0.4);   // ration: full roundtable while ≥40% of today's AI budget is left, otherwise single-call judge
       const d = useRT ? await desk.decide({ lens, CFG, S, sym, tf, side, packet: p, bt, rc, klines: k, klinesBy, fallbackJudge: () => judge(p, side, rc, bt) }) : await judge(p, side, rc, bt);
       if (d.trace) { alert.desk = d.trace; } alert.agreement = d.agreement; alert.overruled = d.overruled; alert.failWhy = d.why_this_could_fail; alert.nextCheck = d.next_check;
       alert.judge = d.judge; alert.confidence = d.confidence; alert.reasons = d.reasons || []; alert.concerns = d.concerns || []; alert.invalidation = d.invalidation || '';
