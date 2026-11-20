@@ -480,6 +480,59 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-20T19:45:44.037Z",
+   "barTime": "2026-11-20T19:00:00.000Z",
+   "sym": "USDJPY",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 64,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "BB_MR",
+     "name": "Bollinger mean-reversion",
+     "avg_r": 0.61,
+     "n": 21,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 11,
+     "avg_r": -0.58,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "NEUTRAL",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 158.54200745,
+   "stop": 158.87822431,
+   "t1": 158.03768216,
+   "t2": 157.53335687,
+   "rr": 3,
+   "fails": [
+    "رژیم Q4 (آشوب) — بیرون بمان"
+   ],
+   "warns": [
+    "نسبتاً کش‌شده (-3×ATR)",
+    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (11× · -0.58R)"
+   ],
+   "tm": {
+    "n": 11,
+    "win": 9,
+    "avg": -1.25,
+    "pf": 0.08
+   },
+   "src": "yahoo",
+   "chase": 0,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "رژیم Q4 (آشوب) — بیرون بمان"
+   ]
+  },
+  {
    "ts": "2026-11-20T19:30:54.737Z",
    "barTime": "2026-11-20T18:00:00.000Z",
    "sym": "BERAUSDT",
@@ -3811,59 +3864,6 @@
    "riskUSD": 10,
    "sizeMult": 1,
    "status": "ALERT_ONLY_CAP"
-  },
-  {
-   "ts": "2026-11-20T15:31:12.234Z",
-   "barTime": "2026-11-20T14:00:00.000Z",
-   "sym": "UNIUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 92,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "EMA_X",
-     "name": "EMA 20/50 crossover + HTF",
-     "avg_r": 0.04,
-     "n": 17,
-     "verdict": "WEAK"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": -0.04,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 4.731,
-   "stop": 4.84420858,
-   "t1": 4.56118712,
-   "t2": 4.39137425,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.04R)"
-   ],
-   "warns": [
-    "نسبتاً کش‌شده (-3.3×ATR)",
-    "واگرایی منظم خلاف جهت (MACD)"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 40,
-    "avg": -0.04,
-    "pf": 0.93
-   },
-   "src": "okx",
-   "chase": 0,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.04R)"
-   ]
   }
  ],
  "shadow": [
@@ -7871,6 +7871,31 @@
    "t1hit": false,
    "mtm": 0,
    "live": "ALERT_ONLY_CAP"
+  },
+  {
+   "id": "USDJPY|1H|SHORT|2026-11-20T19:00:00.000Z",
+   "sym": "USDJPY",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q4",
+   "score": 64,
+   "chase": 0,
+   "entry": 158.54200745,
+   "stop": 158.87822431,
+   "t1": 158.03768216,
+   "t2": 157.53335687,
+   "verdict": "RULES_REJECTED",
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-20T19:45:44.037Z",
+   "barTime": "2026-11-20T19:00:00.000Z",
+   "lastBarT": 1795201200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
   }
  ],
  "shadowClosed": [
@@ -14615,12 +14640,13 @@
   "EURJPY|1H|SHORT|2026-11-20T19:00:00.000Z": 1795203053997,
   "GBPCHF|1H|SHORT|2026-11-20T19:00:00.000Z": 1795203054015,
   "BERAUSDT|1H|SHORT|2026-11-20T18:00:00.000Z": 1795203054084,
-  "EURCHF|1H|SHORT|2026-11-20T19:00:00.000Z": 1795203054869
+  "EURCHF|1H|SHORT|2026-11-20T19:00:00.000Z": 1795203054869,
+  "USDJPY|1H|SHORT|2026-11-20T19:00:00.000Z": 1795203944013
  },
- "lastRun": "2026-11-20T19:30:54.880Z",
- "runs": 270,
+ "lastRun": "2026-11-20T19:45:44.039Z",
+ "runs": 271,
  "errors": [],
- "durationSec": 17,
+ "durationSec": 16,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -14806,19 +14832,19 @@
    "AAVEUSDT",
    "INJUSDT",
    "TAOUSDT",
+   "STRKUSDT",
    "AVAXUSDT",
    "ARBUSDT",
-   "STRKUSDT",
    "TRXUSDT",
    "ONDOUSDT",
-   "RAVEUSDT",
    "VVVUSDT",
+   "RAVEUSDT",
    "PONSUSDT",
    "ASTERUSDT",
    "SHIBUSDT",
    "OPUSDT",
-   "APTUSDT",
    "DOTUSDT",
+   "APTUSDT",
    "BTWUSDT",
    "PENGUUSDT",
    "JUPUSDT",
@@ -14829,12 +14855,12 @@
    "ZROUSDT",
    "BERAUSDT",
    "NIGHTUSDT",
-   "SKYUSDT",
    "ICPUSDT",
    "GRAMUSDT",
-   "HUSDT",
    "HBARUSDT",
+   "HUSDT",
    "PIUSDT",
+   "SKYUSDT",
    "ETCUSDT",
    "XAUUSDT",
    "XAGUSDT",
@@ -14857,7 +14883,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 7501493,
+   "minVolUSD": 7634643,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -14867,13 +14893,13 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 4,
-   "deep": 4,
+   "candidates": 1,
+   "deep": 1,
    "extended": 76,
    "byClass": {
-    "crypto": 1,
+    "crypto": 0,
     "metal": 0,
-    "forex": 3,
+    "forex": 1,
     "stock": 0
    }
   },
@@ -15041,18 +15067,18 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 7501493
+  "minVolUSD": 7634643
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 4,
-  "deep": 4,
+  "candidates": 1,
+  "deep": 1,
   "extended": 76,
   "byClass": {
-   "crypto": 1,
+   "crypto": 0,
    "metal": 0,
-   "forex": 3,
+   "forex": 1,
    "stock": 0
   }
  },
@@ -15647,7 +15673,7 @@
     "maxDD": 15.07
    }
   },
-  "open": 166,
+  "open": 167,
   "dupSkipped": 251
  },
  "shadowDup": 251,
@@ -15702,7 +15728,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=5, against=33 (need ≥40 each)",
-  "asOf": "2026-11-20T19:30:54.882Z"
+  "asOf": "2026-11-20T19:45:44.041Z"
  },
  "shadowIndep": {
   "n": 193,
