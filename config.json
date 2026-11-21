@@ -36,7 +36,6 @@
  "minNotionalUSD": 5,
  "maxSameDirCrypto": 2,
  "liveFill": true,
- "minRR": 2,
  "noCounterHtf": true,
  "maxOpen": 8,
  "maxOpenByTf": {
@@ -111,10 +110,18 @@
   "ICHI",
   "DONCHIAN20"
  ],
- "sideSizeMult": {
-  "LONG": 0.5
- },
+ "sideSizeMult": {},
  "q4Size": 0.5,
  "q4Hard": false,
- "cooldownBars": 6
+ "cooldownBars": 6,
+ "liveSides": {
+  "ICHI": [
+   "SHORT"
+  ]
+ },
+ "chaseShadow": true,
+ "stopRuleR": -15,
+ "slipReviewN": 30,
+ "slipReviewPct": 0.35,
+ "scanBars": 400
 }
