@@ -140,6 +140,35 @@
     "استراتژی Lens با فیلتر HTF: win rate 33٪، avg_r -0.09 (منفی) — لبه‌ای ندارد.",
     "OI +24.36٪ در 24h با افت قیمت = شورت‌های جدید، نه پوشش؛ سوخت نزول."
    ]
+  },
+  {
+   "id": "IRYSUSDT|1H|LONG|2026-11-21T04:00:00.000Z",
+   "sym": "IRYSUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "RSI2",
+   "entry": 0.02046,
+   "stop": 0.01887658,
+   "t1": 0.02283513,
+   "t2": 0.02521025,
+   "size": 4736.6,
+   "riskUSD": 7.5,
+   "quad": "Q3",
+   "score": 30,
+   "confidence": 85,
+   "openedAt": "2026-11-21T05:15:42.754Z",
+   "barTime": "2026-11-21T04:00:00.000Z",
+   "lastBarT": 1795233600000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "status": "OPEN",
+   "reasons": [
+    "انتظار منفی با فیلتر HTF (win_rate ۴۰٪، avg_r -۰.۱۴)",
+    "رژیم QUIET_RANGE: FVG در لیست اجتناب، هشدار قانون‌چک",
+    "سیگنال سوپ/CHoCH کوتاه‌طرف و واگرایی‌های پنهان ریزی"
+   ]
   }
  ],
  "closed": [
@@ -593,6 +622,127 @@
   }
  ],
  "alerts": [
+  {
+   "ts": "2026-11-21T05:15:42.754Z",
+   "barTime": "2026-11-21T04:00:00.000Z",
+   "sym": "IRYSUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 30,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": 0.58,
+     "n": 22,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 20,
+     "avg_r": 0.16,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "UP",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.02046,
+   "stop": 0.01887658,
+   "t1": 0.02283513,
+   "t2": 0.02521025,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "ناحیه‌ی FVG فقط 0.33×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 26,
+    "win": 54,
+    "avg": 0.39,
+    "pf": 1.81
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "judge:nvidia/nemotron-3-ultra-550b-a55b:free",
+   "confidence": 85,
+   "reasons": [
+    "انتظار منفی با فیلتر HTF (win_rate ۴۰٪، avg_r -۰.۱۴)",
+    "رژیم QUIET_RANGE: FVG در لیست اجتناب، هشدار قانون‌چک",
+    "سیگنال سوپ/CHoCH کوتاه‌طرف و واگرایی‌های پنهان ریزی"
+   ],
+   "concerns": [
+    "امتیاز ۳۰ زیر آستانه ۷۰",
+    "حجم پایین (۰.۶۹x) و کندل سبینینگ‌تاپ",
+    "قیمت در ۰.۷۰۵ فایب، بدون تایید 반전"
+   ],
+   "invalidation": "بستن ۴ساعته بالای ۰.۰۲۲۱۸ (سطح سوپ) بایاس لنگ را لغو می‌کند",
+   "aiMode": "shadow",
+   "aiDecision": "SKIP",
+   "aiAgrees": 0,
+   "volMult": 1,
+   "size": 4736.6,
+   "riskUSD": 7.5,
+   "sizeMult": 0.75,
+   "status": "OPENED_PAPER"
+  },
+  {
+   "ts": "2026-11-21T05:15:40.739Z",
+   "barTime": "2026-11-21T00:00:00.000Z",
+   "sym": "DOSUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 78,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": 0.31,
+     "n": 10,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 16,
+     "avg_r": -0.24,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "NEUTRAL",
+   "event": "SHORT_SETUP",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.1518,
+   "stop": 0.16768173,
+   "t1": 0.1279774,
+   "t2": 0.10415481,
+   "rr": 3,
+   "fails": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (16× · -0.24R)",
+    "Time Machine: این ستاپ روی این نماد منفی است (16× · -0.24R)"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 16,
+    "win": 25,
+    "avg": -0.24,
+    "pf": 0.64
+   },
+   "src": "okx",
+   "chase": 0,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "رژیم Q4 (آشوب) — بیرون بمان",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (16× · -0.24R)",
+    "Time Machine: این ستاپ روی این نماد منفی است (16× · -0.24R)"
+   ]
+  },
   {
    "ts": "2026-11-21T05:01:07.943Z",
    "barTime": "2026-11-21T04:00:00.000Z",
@@ -5332,117 +5482,6 @@
     "AI صدا زده نشد — سقف/مشغول و بودجهٔ AI زیر 40٪ (رزرو برای ستاپ‌های قابل‌معامله)"
    ],
    "concerns": []
-  },
-  {
-   "ts": "2026-11-20T22:01:00.485Z",
-   "barTime": "2026-11-20T21:00:00.000Z",
-   "sym": "PONSUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 84,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "DONCHIAN20",
-     "name": "Donchian 20 breakout (Turtle)",
-     "avg_r": 0.77,
-     "n": 17,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 27,
-     "avg_r": 0.11,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.0957,
-   "stop": 0.10062732,
-   "t1": 0.08830902,
-   "t2": 0.08091803,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3.4×ATR)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (27× · 0.11R)"
-   ],
-   "tm": {
-    "n": 27,
-    "win": 44,
-    "avg": 0.11,
-    "pf": 1.21
-   },
-   "src": "okx",
-   "chase": 0,
-   "status": "ALERT_ONLY_CAP",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "skipped:budget-reserve",
-   "reasons": [
-    "AI صدا زده نشد — سقف/مشغول و بودجهٔ AI زیر 40٪ (رزرو برای ستاپ‌های قابل‌معامله)"
-   ],
-   "concerns": [
-    "نسبتاً کش‌شده (-3.4×ATR)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (27× · 0.11R)"
-   ]
-  },
-  {
-   "ts": "2026-11-20T22:00:59.848Z",
-   "barTime": "2026-11-20T21:00:00.000Z",
-   "sym": "XPLUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 56,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "EMA_X",
-     "name": "EMA 20/50 crossover + HTF",
-     "avg_r": 1.13,
-     "n": 9,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 27,
-     "avg_r": 0.04,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.0453,
-   "stop": 0.04419921,
-   "t1": 0.04695119,
-   "t2": 0.04860237,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ],
-   "warns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (27× · 0.04R)"
-   ],
-   "tm": {
-    "n": 27,
-    "win": 44,
-    "avg": 0.04,
-    "pf": 1.07
-   },
-   "src": "okx",
-   "chase": 0,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ]
   }
  ],
  "shadow": [
@@ -7990,6 +8029,31 @@
    "openedAt": "2026-11-21T05:01:07.943Z",
    "barTime": "2026-11-21T04:00:00.000Z",
    "lastBarT": 1795233600000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
+  },
+  {
+   "id": "DOSUSDT|4H|SHORT|2026-11-21T00:00:00.000Z",
+   "sym": "DOSUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q4",
+   "score": 78,
+   "chase": 0,
+   "entry": 0.1518,
+   "stop": 0.16768173,
+   "t1": 0.1279774,
+   "t2": 0.10415481,
+   "verdict": "RULES_REJECTED",
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-21T05:15:40.739Z",
+   "barTime": "2026-11-21T00:00:00.000Z",
+   "lastBarT": 1795219200000,
    "bars": 0,
    "t1hit": false,
    "mtm": 0,
@@ -17381,12 +17445,16 @@
   "AVAXUSDT|1H|LONG|2026-11-21T04:00:00.000Z": 1795237264600,
   "XLMUSDT|1H|LONG|2026-11-21T04:00:00.000Z": 1795237265441,
   "BERAUSDT|1H|LONG|2026-11-21T04:00:00.000Z": 1795237266287,
-  "HBARUSDT|1H|LONG|2026-11-21T04:00:00.000Z": 1795237267104
+  "HBARUSDT|1H|LONG|2026-11-21T04:00:00.000Z": 1795237267104,
+  "DOSUSDT|4H|SHORT|2026-11-21T00:00:00.000Z": 1795238140037,
+  "MMTUSDT|1H|LONG|2026-11-21T04:00:00.000Z": 1795238140739,
+  "HMSTRUSDT|1H|LONG|2026-11-21T04:00:00.000Z": 1795238141397,
+  "IRYSUSDT|1H|LONG|2026-11-21T04:00:00.000Z": 1795238142100
  },
- "lastRun": "2026-11-21T05:01:07.944Z",
- "runs": 310,
+ "lastRun": "2026-11-21T05:16:21.140Z",
+ "runs": 311,
  "errors": [],
- "durationSec": 24,
+ "durationSec": 55,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -17600,48 +17668,48 @@
    "PUMPUSDT",
    "FILUSDT",
    "ADAUSDT",
-   "BARDUSDT",
-   "LTCUSDT",
    "LITUSDT",
+   "LTCUSDT",
+   "BARDUSDT",
    "ENAUSDT",
    "LINKUSDT",
    "BCHUSDT",
-   "OKBUSDT",
    "ENSOUSDT",
+   "OKBUSDT",
    "AAVEUSDT",
    "IRYSUSDT",
    "AVAXUSDT",
    "INJUSDT",
-   "HUMAUSDT",
    "TAOUSDT",
+   "HUMAUSDT",
    "ARBUSDT",
    "STRKUSDT",
    "TRXUSDT",
    "ONDOUSDT",
-   "PONSUSDT",
    "VVVUSDT",
+   "PONSUSDT",
    "DOTUSDT",
    "SHIBUSDT",
    "ASTERUSDT",
    "APTUSDT",
+   "UPUSDT",
+   "XLMUSDT",
    "OPUSDT",
    "PENGUUSDT",
-   "XLMUSDT",
-   "UPUSDT",
    "CRVUSDT",
-   "ZROUSDT",
    "XPLUSDT",
+   "ZROUSDT",
    "GRAMUSDT",
-   "BTWUSDT",
    "ICPUSDT",
+   "BTWUSDT",
    "JUPUSDT",
    "HUSDT",
    "BERAUSDT",
-   "NIGHTUSDT",
    "HMSTRUSDT",
    "ETCUSDT",
+   "DOSUSDT",
    "HBARUSDT",
-   "RAVEUSDT",
+   "NIGHTUSDT",
    "XAUUSDT",
    "XAGUSDT",
    "EURUSD",
@@ -17663,7 +17731,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 8506428,
+   "minVolUSD": 8426001,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -17673,11 +17741,11 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 11,
-   "deep": 8,
-   "extended": 70,
+   "candidates": 4,
+   "deep": 4,
+   "extended": 71,
    "byClass": {
-    "crypto": 11,
+    "crypto": 4,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -17692,7 +17760,7 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 82,
+  "llmToday": 83,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -17792,7 +17860,7 @@
    },
    {
     "id": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
-    "calls": 3,
+    "calls": 4,
     "errors": 1,
     "exhausted": false,
     "reason": null,
@@ -17834,9 +17902,9 @@
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 38,
+   "left": 37,
    "tot": 207,
-   "frac": 0.18357487922705315
+   "frac": 0.178743961352657
   },
   "requireAI": true,
   "paperTrade": true,
@@ -17847,16 +17915,16 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 8506428
+  "minVolUSD": 8426001
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 11,
-  "deep": 8,
-  "extended": 70,
+  "candidates": 4,
+  "deep": 4,
+  "extended": 71,
   "byClass": {
-   "crypto": 11,
+   "crypto": 4,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -17865,7 +17933,7 @@
  "llm": {
   "day": "2026-11-21",
   "v": 6,
-  "calls": 82,
+  "calls": 83,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 18,
@@ -17964,7 +18032,7 @@
     "reason": "daily quota"
    },
    "or:nvidia/nemotron-3-ultra-550b-a55b:free": {
-    "calls": 3,
+    "calls": 4,
     "exhausted": false,
     "errors": 1,
     "cooldownUntil": 1795234759754
@@ -18468,10 +18536,10 @@
     "maxDD": 19.68
    }
   },
-  "open": 105,
-  "dupSkipped": 315
+  "open": 106,
+  "dupSkipped": 316
  },
- "shadowDup": 315,
+ "shadowDup": 316,
  "judgeReport": {
   "mode": "shadow",
   "agree": {
@@ -18523,7 +18591,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=11, against=51 (need ≥40 each)",
-  "asOf": "2026-11-21T05:01:07.945Z"
+  "asOf": "2026-11-21T05:16:21.141Z"
  },
  "shadowIndep": {
   "n": 279,
