@@ -544,6 +544,145 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-21T03:45:46.885Z",
+   "barTime": "2026-11-21T02:00:00.000Z",
+   "sym": "PIUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 72,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "MACD_EMA",
+     "name": "MACD cross + EMA200 filter",
+     "avg_r": 1.07,
+     "n": 14,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 29,
+     "avg_r": 0.38,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.0501,
+   "stop": 0.05193116,
+   "t1": 0.04735326,
+   "t2": 0.04460652,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "واگرایی منظم خلاف جهت (MACD)",
+    "الگوی DESCENDING BROADENING WEDGE خلاف جهت"
+   ],
+   "tm": {
+    "n": 29,
+    "win": 55,
+    "avg": 0.38,
+    "pf": 1.77
+   },
+   "src": "okx",
+   "chase": 0,
+   "desk": {
+    "mode": "roundtable",
+    "model": "gemini-3.5-flash-lite",
+    "llmCalls": 3,
+    "llmToday": 67,
+    "agents": {
+     "tech": {
+      "bias": "bearish",
+      "confidence": 70,
+      "key_points": [
+       "روند نزولی با ADX=58.4 که نشان‌دهنده قدرت بالای روند فعلی است.",
+       "تشکیل الگوی Bearish Engulfing در قیمت 0.0501 که نشان‌دهنده فشار فروش قوی است.",
+       "قیمت 2.3 ATR پایین‌تر از EMA50 قرار دارد که نشان‌دهنده وضعیت اشباع فروش در کوتاه‌مدت است.",
+       "شکست قیمت به زیر کف قبلی (0.04987) در کندل آخر، تاییدکننده ادامه حرکت نزولی است."
+      ],
+      "what_changes_my_mind": "بسته شدن کندل 1 ساعته بالای سطح 0.05129 (سقف کندل فعلی)."
+     },
+     "macro": {
+      "bias": "bearish",
+      "confidence": 65,
+      "key_points": [
+       "Fear & Greed در ۱۲ (Extreme Fear) — سیگنال کنتراریان احتمالی اما روند نزولی قوی",
+       "BTC Dominance ۵۷.۷۵٪ — ریسک‌آف درcrypto پایین، پول به بیت‌کوین می‌چسبد",
+       "مجموع مارکت‌کپ ۲.۰۴T، تغییر ۲۴ساعته -۷.۶۵٪ — اصلاح شدید، حجم فروش بالا",
+       "فد احتمالاً در حالت توقف/کاهش نرخ (دسامبر ۲۰۲۶) — ریال‌ییلدها همچنان بالا، DXY در محدوده ۱۰۴-۱۰۶",
+       "جریان‌های ETF بیت‌کوین منفی ۳ روز متوالی (برآورد) — تقاضای مؤسسه‌ای ضعیف"
+      ],
+      "events_next_7d": [
+       "2026-11-24 — FOMC Minutes (نوامبر) — تاثیر: متوسط، اگر لهجه تاقیبی باشد ریسک‌اف",
+       "2026-11-26 — US Thanksgiving (تعطیلی بازار) — تاثیر: نقدینگی پایین، حرکات اغراق‌آمیز",
+       "2026-11-27 — US PCE Price Index (اکتبر) — تاثیر: بالا، داده تورم اصلی فد",
+       "2026-11-28 — Monthly Options Expiry (BTC/ETH) — تاثیر: بالا، گاما/ونوم پینینگ به سمت ۹۰K-۹۲K",
+       "2026-11-30 — End-of-month Rebalancing — تاثیر: متوسط، فروش احتمالی سهام/باندها"
+      ],
+      "cached": "2026-11-21T00:02:55.042Z"
+     },
+     "sent": {
+      "bias": "bearish",
+      "confidence": 65,
+      "key_points": [
+       "کاهش 21.24 درصدی در Open Interest که نشان‌دهنده خروج گسترده پوزیشن‌ها و لیکوئید شدن است.",
+       "نرخ تامین مالی (Funding) منفی 0.0095 درصد که نشان‌دهنده فشار برای پوزیشن‌های فروش است.",
+       "نسبت حساب‌های لانگ به شورت 2.09 است که نشان‌دهنده گیر افتادن خریداران در تله است.",
+       "شاخص ترس و طمع در عدد 12 (ترس شدید) قرار دارد که نشان‌دهنده فضای منفی حاکم بر بازار است."
+      ]
+     },
+     "bull": {
+      "confidence": 35,
+      "case": [
+       "قیمت در فاصله 2.3 ATR زیر EMA50 قرار دارد که از نظر آماری در تایم‌فریم 1H نشان‌دهنده وضعیت اشباع فروش (Oversold) و پتانسیل بازگشت میانگین (Mean Reversion) است.",
+       "سطح 0.04716 (کف نوسانی 20 نوامبر) به عنوان یک حمایت معتبر عمل می‌کند که با PDL (0.04716) همپوشانی دارد و ریسک نزول بیشتر را محدود می‌کند.",
+       "نرخ تامین مالی (Funding) منفی 0.0095 درصد نشان‌دهنده اشباع فروش در بازار مشتقات است که می‌تواند سوخت لازم برای یک Short Squeeze سریع را فراهم کند.",
+       "نسبت لانگ به شورت 2.09 در کنار کاهش 21.24 درصدی OI نشان می‌دهد که بخش بزرگی از فروشندگان قبلاً تسویه کرده‌اند و فشار فروش جدید در حال کاهش است."
+      ]
+     },
+     "bear": {
+      "confidence": 70,
+      "case": [
+       "ADX=58.4 تاییدکننده یک روند نزولی بسیار قدرتمند است که طبق متدولوژی Dow، تا زمانی که ساختار LL/LH شکسته نشود، باید با روند معامله کرد.",
+       "قیمت زیر VWAP (0.050431) و EMA50 معامله می‌شود که نشان‌دهنده کنترل کامل فروشندگان بر جریان سفارشات است.",
+       "تشکیل الگوی Bearish Engulfing در قیمت 0.0501 و شکست کف 0.04987، تاییدکننده ورود حجم فروش جدید و تداوم فشار نزولی است.",
+       "جریان‌های کلان منفی (خروج سرمایه از ETFها و Fear & Greed در عدد 12) فضای ریسک‌گریزی ایجاد کرده که مانع از ورود نقدینگی جدید برای حمایت از قیمت می‌شود."
+      ]
+     }
+    }
+   },
+   "agreement": "Technical and Macro analysts agree on bearish bias, but Risk Manager enforces SKIP due to Q4 regime and high volatility constraints.",
+   "overruled": "پیشنهاد SHORT توسط موتور تعیین‌کننده به دلیل نقض قوانین مدیریت ریسک (Q4 regime) رد شد.",
+   "failWhy": "وقوع یک Short Squeeze سریع به دلیل فاندینگ منفی و نسبت بالای لانگ به شورت در بازار کم‌نقدینگی.",
+   "nextCheck": "بررسی بازگشت قیمت به بالای 0.05129 با حجم معاملات بالاتر از میانگین 20 روزه.",
+   "judge": "roundtable:gemini-3.1-flash-lite",
+   "confidence": 85,
+   "reasons": [
+    "ADX 58.4 نشان‌دهنده روند نزولی بسیار قدرتمند است که طبق قوانین، معامله در جهت روند مجاز است اما در شرایط Q4 regime باید از ورود اجتناب کرد.",
+    "قیمت در وضعیت اشباع فروش (2.3 ATR زیر EMA50) قرار دارد که ریسک بازگشت ناگهانی (Mean Reversion) را افزایش می‌دهد.",
+    "نسبت لانگ به شورت 2.09 و کاهش 21.24 درصدی OI نشان‌دهنده خروج نقدینگی و ریسک بالای Short Squeeze است.",
+    "قوانین مدیریت ریسک برای این حساب (Q4 regime) ورود به پوزیشن‌های جدید را بدون تاییدیه شکست با حجم بالا ممنوع کرده است."
+   ],
+   "concerns": [
+    "نوسانات شدید (ATR percentile 84) که احتمال فعال شدن حد ضرر را قبل از رسیدن به هدف افزایش می‌دهد.",
+    "احتمال بازگشت قیمت به دلیل اشباع فروش شدید در تایم‌فریم 1H.",
+    "نقدینگی پایین بازار که می‌تواند حرکات غیرمنطقی ایجاد کند."
+   ],
+   "invalidation": "بسته شدن کندل 1 ساعته بالای 0.05129",
+   "aiMode": "shadow",
+   "aiDecision": "SKIP",
+   "aiAgrees": 0,
+   "volMult": 1,
+   "size": 2730.5,
+   "riskUSD": 5,
+   "sizeMult": 0.5,
+   "status": "ALERT_ONLY_BUSY"
+  },
+  {
    "ts": "2026-11-21T03:01:06.934Z",
    "barTime": "2026-11-21T02:00:00.000Z",
    "sym": "PONSUSDT",
@@ -5114,60 +5253,6 @@
    "status": "REJECTED_RULES",
    "reasons": [
     "خلاف سوگیری تایم‌فریم بالاتر"
-   ]
-  },
-  {
-   "ts": "2026-11-20T20:15:50.505Z",
-   "barTime": "2026-11-20T20:00:00.000Z",
-   "sym": "EURGBP",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 68,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "EMA_X",
-     "name": "EMA 20/50 crossover + HTF",
-     "avg_r": 0.48,
-     "n": 10,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 18,
-     "avg_r": -0.33,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "UP",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.83820999,
-   "stop": 0.83721096,
-   "t1": 0.83970853,
-   "t2": 0.84120706,
-   "rr": 3,
-   "fails": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (18× · -0.33R)",
-    "Time Machine: این ستاپ روی این نماد منفی است (18× · -1.6R)"
-   ],
-   "warns": [],
-   "tm": {
-    "n": 18,
-    "win": 22,
-    "avg": -1.6,
-    "pf": 0.07
-   },
-   "src": "yahoo",
-   "chase": 0,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (18× · -0.33R)",
-    "Time Machine: این ستاپ روی این نماد منفی است (18× · -1.6R)"
    ]
   }
  ],
@@ -16716,12 +16801,13 @@
   "INJUSDT|1H|SHORT|2026-11-21T02:00:00.000Z": 1795230065073,
   "PONSUSDT|1H|SHORT|2026-11-21T02:00:00.000Z": 1795230065971,
   "ONDOUSDT|1H|SHORT|2026-11-21T02:00:00.000Z": 1795230078117,
-  "XLMUSDT|1H|SHORT|2026-11-21T02:00:00.000Z": 1795230079012
+  "XLMUSDT|1H|SHORT|2026-11-21T02:00:00.000Z": 1795230079012,
+  "PIUSDT|1H|SHORT|2026-11-21T02:00:00.000Z": 1795232745845
  },
- "lastRun": "2026-11-21T03:30:55.242Z",
- "runs": 304,
+ "lastRun": "2026-11-21T03:45:58.155Z",
+ "runs": 305,
  "errors": [],
- "durationSec": 20,
+ "durationSec": 32,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -16902,54 +16988,54 @@
    "DOGEUSDT",
    "HYPEUSDT",
    "PEPEUSDT",
-   "MMTUSDT",
    "NEARUSDT",
+   "MMTUSDT",
    "UNIUSDT",
    "WLDUSDT",
-   "TRUMPUSDT",
    "SUIUSDT",
+   "TRUMPUSDT",
    "PUMPUSDT",
    "BARDUSDT",
    "FILUSDT",
    "ADAUSDT",
    "LITUSDT",
-   "ENAUSDT",
    "LTCUSDT",
+   "ENAUSDT",
    "LINKUSDT",
-   "IRYSUSDT",
    "BCHUSDT",
+   "IRYSUSDT",
    "OKBUSDT",
-   "HUMAUSDT",
    "AAVEUSDT",
+   "HUMAUSDT",
    "INJUSDT",
-   "ARBUSDT",
    "ENSOUSDT",
-   "AVAXUSDT",
+   "ARBUSDT",
    "TAOUSDT",
+   "AVAXUSDT",
    "STRKUSDT",
    "TRXUSDT",
    "VVVUSDT",
-   "PONSUSDT",
    "ONDOUSDT",
-   "UPUSDT",
+   "PONSUSDT",
    "SHIBUSDT",
-   "ASTERUSDT",
    "DOTUSDT",
+   "ASTERUSDT",
    "APTUSDT",
+   "UPUSDT",
+   "OPUSDT",
+   "XLMUSDT",
+   "PENGUUSDT",
    "ZROUSDT",
    "BTWUSDT",
-   "PENGUUSDT",
-   "XLMUSDT",
-   "OPUSDT",
    "CRVUSDT",
-   "JUPUSDT",
    "XPLUSDT",
+   "GRAMUSDT",
+   "JUPUSDT",
    "HUSDT",
-   "BERAUSDT",
    "ICPUSDT",
+   "BERAUSDT",
    "RAVEUSDT",
    "HMSTRUSDT",
-   "GRAMUSDT",
    "NIGHTUSDT",
    "PIUSDT",
    "HBARUSDT",
@@ -16974,7 +17060,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 7557659,
+   "minVolUSD": 7976996,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -16984,11 +17070,11 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 0,
-   "deep": 0,
-   "extended": 20,
+   "candidates": 1,
+   "deep": 1,
+   "extended": 21,
    "byClass": {
-    "crypto": 0,
+    "crypto": 1,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -17003,7 +17089,7 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 64,
+  "llmToday": 67,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -17018,7 +17104,7 @@
   ],
   "slots": 13,
   "slotsExhausted": 0,
-  "active": "k3:gemini-3.5-flash-lite",
+  "active": "k3:gemini-3.1-flash-lite",
   "slotTable": [
    {
     "id": "k1:gemini-3.5-flash-lite",
@@ -17049,7 +17135,7 @@
    },
    {
     "id": "k1:gemini-3.1-flash-lite",
-    "calls": 1,
+    "calls": 2,
     "errors": 1,
     "exhausted": false,
     "reason": null,
@@ -17058,7 +17144,7 @@
    },
    {
     "id": "k2:gemini-3.1-flash-lite",
-    "calls": 1,
+    "calls": 2,
     "errors": 1,
     "exhausted": false,
     "reason": null,
@@ -17067,7 +17153,7 @@
    },
    {
     "id": "k3:gemini-3.1-flash-lite",
-    "calls": 1,
+    "calls": 2,
     "errors": 1,
     "exhausted": false,
     "reason": null,
@@ -17145,9 +17231,9 @@
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 143,
+   "left": 140,
    "tot": 207,
-   "frac": 0.6908212560386473
+   "frac": 0.6763285024154589
   },
   "requireAI": true,
   "paperTrade": true,
@@ -17158,16 +17244,16 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 7557659
+  "minVolUSD": 7976996
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 0,
-  "deep": 0,
-  "extended": 20,
+  "candidates": 1,
+  "deep": 1,
+  "extended": 21,
   "byClass": {
-   "crypto": 0,
+   "crypto": 1,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -17176,7 +17262,7 @@
  "llm": {
   "day": "2026-11-21",
   "v": 6,
-  "calls": 64,
+  "calls": 67,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 18,
@@ -17209,7 +17295,7 @@
     "cooldownUntil": 1795219363210
    },
    "k1:gemini-3.1-flash-lite": {
-    "calls": 1,
+    "calls": 2,
     "exhausted": false,
     "errors": 1,
     "r429": 1,
@@ -17219,7 +17305,7 @@
     "cooldownUntil": 1795219367701
    },
    "k2:gemini-3.1-flash-lite": {
-    "calls": 1,
+    "calls": 2,
     "exhausted": false,
     "errors": 1,
     "r429": 1,
@@ -17229,7 +17315,7 @@
     "cooldownUntil": 1795219372193
    },
    "k3:gemini-3.1-flash-lite": {
-    "calls": 1,
+    "calls": 2,
     "exhausted": false,
     "errors": 1,
     "r429": 1,
@@ -17289,7 +17375,7 @@
     "errors": 0
    }
   },
-  "active": "k3:gemini-3.5-flash-lite",
+  "active": "k3:gemini-3.1-flash-lite",
   "raw": [
    "k3:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
    "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
@@ -17761,9 +17847,9 @@
    }
   },
   "open": 149,
-  "dupSkipped": 305
+  "dupSkipped": 306
  },
- "shadowDup": 305,
+ "shadowDup": 306,
  "judgeReport": {
   "mode": "shadow",
   "agree": {
@@ -17815,7 +17901,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=6, against=36 (need ≥40 each)",
-  "asOf": "2026-11-21T03:30:55.243Z"
+  "asOf": "2026-11-21T03:45:58.157Z"
  },
  "shadowIndep": {
   "n": 230,
