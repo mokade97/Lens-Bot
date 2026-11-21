@@ -696,6 +696,114 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-21T10:45:44.948Z",
+   "barTime": "2026-11-19T16:00:00.000Z",
+   "sym": "INJUSDT",
+   "cls": "crypto",
+   "tf": "1D",
+   "side": "SHORT",
+   "score": 78,
+   "strategy": "LENS",
+   "lab": null,
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "NEUTRAL",
+   "event": "SHORT_SETUP",
+   "sweep": null,
+   "entry": 6.129,
+   "stop": 7.26628646,
+   "t1": 4.4230703,
+   "t2": 2.71714061,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز",
+    "واگرایی منظم خلاف جهت (MACD)"
+   ],
+   "tm": null,
+   "src": "bitget",
+   "chase": 0,
+   "hourUtc": 16,
+   "volMult": 1,
+   "sideMult": 1,
+   "size": 1.3189,
+   "riskUSD": 1.5,
+   "sizeMult": 0.5,
+   "notionalUSD": 8.08,
+   "status": "ALERT_ONLY_SHADOW",
+   "aiMode": "shadow",
+   "aiDecision": null,
+   "aiAgrees": null,
+   "judge": "shadow-only",
+   "reasons": [
+    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
+   ],
+   "concerns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز",
+    "واگرایی منظم خلاف جهت (MACD)"
+   ]
+  },
+  {
+   "ts": "2026-11-21T10:45:44.381Z",
+   "barTime": "2026-11-19T16:00:00.000Z",
+   "sym": "GRAMUSDT",
+   "cls": "crypto",
+   "tf": "1D",
+   "side": "SHORT",
+   "score": 68,
+   "strategy": "LENS",
+   "lab": {
+    "best": null,
+    "mine": {
+     "n": 2,
+     "avg_r": 0.34,
+     "verdict": "INSUFFICIENT"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "NEUTRAL",
+   "event": "CANDLE",
+   "sweep": "ARMED_WAIT_FVG_RETEST",
+   "entry": 0.993,
+   "stop": 1.1047838,
+   "t1": 0.8253243,
+   "t2": 0.6576486,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-2.9×ATR)",
+    "واگرایی منظم خلاف جهت (RSI/MACD)"
+   ],
+   "tm": {
+    "n": 2,
+    "win": 50,
+    "avg": 0.34,
+    "pf": 1.65
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 16,
+   "volMult": 1,
+   "sideMult": 1,
+   "size": 13.419,
+   "riskUSD": 1.5,
+   "sizeMult": 0.5,
+   "notionalUSD": 13.32,
+   "status": "ALERT_ONLY_SHADOW",
+   "aiMode": "shadow",
+   "aiDecision": null,
+   "aiAgrees": null,
+   "judge": "shadow-only",
+   "reasons": [
+    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
+   ],
+   "concerns": [
+    "نسبتاً کش‌شده (-2.9×ATR)",
+    "واگرایی منظم خلاف جهت (RSI/MACD)"
+   ]
+  },
+  {
    "ts": "2026-11-21T10:09:16.615Z",
    "barTime": "2026-11-19T16:00:00.000Z",
    "sym": "NEARUSDT",
@@ -4420,193 +4528,6 @@
    "riskUSD": 10,
    "sizeMult": 1,
    "status": "ALERT_ONLY_CAP"
-  },
-  {
-   "ts": "2026-11-21T02:01:22.506Z",
-   "barTime": "2026-11-21T01:00:00.000Z",
-   "sym": "IRYSUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 70,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "DONCHIAN20",
-     "name": "Donchian 20 breakout (Turtle)",
-     "avg_r": 0.58,
-     "n": 22,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 26,
-     "avg_r": 0.39,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "UP",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.02169,
-   "stop": 0.0200554,
-   "t1": 0.0241419,
-   "t2": 0.02659381,
-   "rr": 3,
-   "fails": [],
-   "warns": [],
-   "tm": {
-    "n": 26,
-    "win": 54,
-    "avg": 0.39,
-    "pf": 1.81
-   },
-   "src": "okx",
-   "chase": 0,
-   "desk": {
-    "mode": "roundtable",
-    "model": "gemini-3.5-flash-lite",
-    "llmCalls": 3,
-    "llmToday": 58,
-    "agents": {
-     "tech": {
-      "bias": "bullish",
-      "confidence": 70,
-      "key_points": [
-       "قیمت 0.02169 دلار بالاتر از میانگین متحرک 20 و 50 ساعته قرار دارد.",
-       "شاخص RSI در سطح 53.3 و مثبت است.",
-       "محدوده حمایتی فیرویوت (FVG) در سطح 0.02033 تا 0.02109 قرار دارد.",
-       "نسبت ریسک به ریوارد در حالت تنظیم پوزیشن لانگ بالای 1:1.5 است."
-      ],
-      "what_changes_my_mind": "بسته شدن کندل 1 ساعته پایین‌تر از سطح حمایتی 0.02005 دلار."
-     },
-     "macro": {
-      "bias": "bearish",
-      "confidence": 65,
-      "key_points": [
-       "Fear & Greed در ۱۲ (Extreme Fear) — سیگنال کنتراریان احتمالی اما روند نزولی قوی",
-       "BTC Dominance ۵۷.۷۵٪ — ریسک‌آف درcrypto پایین، پول به بیت‌کوین می‌چسبد",
-       "مجموع مارکت‌کپ ۲.۰۴T، تغییر ۲۴ساعته -۷.۶۵٪ — اصلاح شدید، حجم فروش بالا",
-       "فد احتمالاً در حالت توقف/کاهش نرخ (دسامبر ۲۰۲۶) — ریال‌ییلدها همچنان بالا، DXY در محدوده ۱۰۴-۱۰۶",
-       "جریان‌های ETF بیت‌کوین منفی ۳ روز متوالی (برآورد) — تقاضای مؤسسه‌ای ضعیف"
-      ],
-      "events_next_7d": [
-       "2026-11-24 — FOMC Minutes (نوامبر) — تاثیر: متوسط، اگر لهجه تاقیبی باشد ریسک‌اف",
-       "2026-11-26 — US Thanksgiving (تعطیلی بازار) — تاثیر: نقدینگی پایین، حرکات اغراق‌آمیز",
-       "2026-11-27 — US PCE Price Index (اکتبر) — تاثیر: بالا، داده تورم اصلی فد",
-       "2026-11-28 — Monthly Options Expiry (BTC/ETH) — تاثیر: بالا، گاما/ونوم پینینگ به سمت ۹۰K-۹۲K",
-       "2026-11-30 — End-of-month Rebalancing — تاثیر: متوسط، فروش احتمالی سهام/باندها"
-      ],
-      "cached": "2026-11-21T00:02:55.042Z"
-     },
-     "sent": {
-      "bias": "bullish",
-      "confidence": 65,
-      "key_points": [
-       "نرخ تامین سرمایه (Funding) منفی 0.3452% که نشان‌دهنده شورت‌های تحت فشار است.",
-       "شاخص ترس و طمع در عدد 12 (ترس شدید) قرار دارد که پتانسیل بازگشت تضادی (Contrarian) دارد.",
-       "نسبت حساب‌های لانگ به شورت 1.71 است که گرایش کلی لانگ را نشان می‌دهد.",
-       "تغییرات باز open interest با کاهش 19.52% در روز گذشته همراه بوده که تسویه پوزیشن‌ها را نشان می‌دهد."
-      ]
-     },
-     "bull": {
-      "confidence": 68,
-      "case": [
-       "قیمت فعلی 0.02169 دلار بالاتر از میانگین متحرک 20 و 50 ساعته و VWAP در 0.021544 قرار دارد.",
-       "نرخ تامین سرمایه (Funding Rate) منفی 0.3452% است که پتانسیل شورت اسکوییز (Short Squeeze) روی پوزیشن‌های فروش سنگین را فراهم می‌کند.",
-       "شاخص ترس و طمع در سطح 12 (ترس شدید) قرار دارد که به عنوان سیگنال سنتی کنتراریان برای بازگشت قیمت عمل می‌کند.",
-       "محدوده حمایتی فیرویوت (FVG) بین 0.02033 تا 0.02109 دلار پناهگاه محکمی برای حفظ ساختار صعودی 1 ساعته ایجاد کرده است."
-      ]
-     },
-     "bear": {
-      "confidence": 62,
-      "case": [
-       "مارکت‌کپ کل کریپتو با کاهش 7.65 درصدی در 24 ساعت گذشته به 2.04 تریلیون دلار رسیده و بیت‌کوین‌دامیننس در سطح 57.75% نقدینگی آلت‌کوین‌ها را تحت فشار گذاشته است.",
-       "حجم معاملات نسبی در کندل‌های صعودی اخیر پایین (0.49) بوده که نشان‌دهنده عدم مشارکت خریداران واقعی در این رالی ضعیف است.",
-       "جریان‌های خروجی ETFهای بیت‌کوین و شرایط کلان 'Extreme Fear' در بازار حاکی از ریسک‌گریزی نهادی گسترده است.",
-       "قیمت همچنان در یک محدوده رنج گیر افتاده و خطر فیک‌بریک‌اوت (Fake breakout) و بازگشت به سمت کف نوسانی 0.01977 دلار بالاست."
-      ]
-     }
-    }
-   },
-   "agreement": "موتور قطعی و تحلیلگران روی پوزیشن لانگ نظر دارند اما رژیم بازار Q3 و ریسک کلان حاکم است",
-   "overruled": "موتور قطعی (Proposal LONG) به دلیل مغایرت مستقیم با قوانین رژیم Q3 و مدیریت ریسک وتو شد.",
-   "failWhy": "ورود به پوزیشن لانگ در دل رنج آرام و شرایط کلان Extreme Fear بدون مومنتوم واقعی حجم",
-   "nextCheck": "بررسی تغییر رژیم از Q3 به حالت ترندینگ یا ورود حجم بالای 1.5x میانگین",
-   "judge": "roundtable:gemini-3.5-flash-lite",
-   "confidence": 85,
-   "reasons": [
-    "رژیم فعلی بازار Q3 (رنج آرام با ADX معادل 15.3) است که طبق قوانین ریسک‌منجر مستلزم SKIP است.",
-    "شاخص ترس و طمع در سطح 12 (ترس شدید) و روند کلی بازار کلان خرسی است.",
-    "حجم معاملات نسبی پایین (0.49) در کندل‌های صعودی اخیر وجود دارد."
-   ],
-   "concerns": [
-    "ممنوعیت صریح ترید در رژیم Q3 بدون بریک‌آوت حجم‌دار تاییدشده",
-    "فشار تسلط بیت‌کوین (BTC.D) روی 57.75% و خروج سرمایه از آلت‌کوین‌ها",
-    "کاهش 19.52 درصدی Open Interest و احتمال فیک‌بریک‌اوت در محدوده رنج"
-   ],
-   "invalidation": "بسته شدن کندل 1 ساعته پایین‌تر از سطح حمایتی 0.02005 دلار",
-   "aiMode": "shadow",
-   "aiDecision": "SKIP",
-   "aiAgrees": 0,
-   "volMult": 1,
-   "size": 4588.3,
-   "riskUSD": 7.5,
-   "sizeMult": 0.75,
-   "status": "ALERT_ONLY_CAP"
-  },
-  {
-   "ts": "2026-11-21T02:01:21.572Z",
-   "barTime": "2026-11-20T20:00:00.000Z",
-   "sym": "ENSOUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "LONG",
-   "score": 50,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "EMA_X",
-     "name": "EMA 20/50 crossover + HTF",
-     "avg_r": 0.46,
-     "n": 9,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 27,
-     "avg_r": 0.22,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.4264,
-   "stop": 0.39661549,
-   "t1": 0.47107677,
-   "t2": 0.51575354,
-   "rr": 3,
-   "fails": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ],
-   "warns": [],
-   "tm": {
-    "n": 27,
-    "win": 52,
-    "avg": 0.22,
-    "pf": 1.49
-   },
-   "src": "okx",
-   "chase": 0,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "رژیم Q4 (آشوب) — بیرون بمان",
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ]
   }
  ],
  "shadow": [
@@ -7049,6 +6970,58 @@
    "aiDecision": null,
    "confidence": null,
    "openedAt": "2026-11-21T10:09:16.615Z",
+   "barTime": "2026-11-19T16:00:00.000Z",
+   "lastBarT": 1795104000000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "ALERT_ONLY_SHADOW"
+  },
+  {
+   "id": "GRAMUSDT|1D|SHORT|2026-11-19T16:00:00.000Z",
+   "sym": "GRAMUSDT",
+   "cls": "crypto",
+   "tf": "1D",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q2",
+   "score": 68,
+   "chase": 0,
+   "entry": 0.993,
+   "stop": 1.1047838,
+   "t1": 0.8253243,
+   "t2": 0.6576486,
+   "verdict": "SHADOW_ONLY",
+   "hourUtc": 16,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-21T10:45:44.381Z",
+   "barTime": "2026-11-19T16:00:00.000Z",
+   "lastBarT": 1795104000000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "ALERT_ONLY_SHADOW"
+  },
+  {
+   "id": "INJUSDT|1D|SHORT|2026-11-19T16:00:00.000Z",
+   "sym": "INJUSDT",
+   "cls": "crypto",
+   "tf": "1D",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q4",
+   "score": 78,
+   "chase": 0,
+   "entry": 6.129,
+   "stop": 7.26628646,
+   "t1": 4.4230703,
+   "t2": 2.71714061,
+   "verdict": "SHADOW_ONLY",
+   "hourUtc": 16,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-21T10:45:44.948Z",
    "barTime": "2026-11-19T16:00:00.000Z",
    "lastBarT": 1795104000000,
    "bars": 0,
@@ -17195,12 +17168,14 @@
   "ENSOUSDT|1H|LONG|2026-11-21T09:00:00.000Z": 1795255264656,
   "INJUSDT|1H|SHORT|2026-11-21T09:00:00.000Z": 1795255265468,
   "PONSUSDT|1H|SHORT|2026-11-21T09:00:00.000Z": 1795255266286,
-  "NEARUSDT|1D|SHORT|2026-11-19T16:00:00.000Z": 1795255756139
+  "NEARUSDT|1D|SHORT|2026-11-19T16:00:00.000Z": 1795255756139,
+  "GRAMUSDT|1D|SHORT|2026-11-19T16:00:00.000Z": 1795257944114,
+  "INJUSDT|1D|SHORT|2026-11-19T16:00:00.000Z": 1795257944382
  },
- "lastRun": "2026-11-21T10:31:00.043Z",
- "runs": 336,
+ "lastRun": "2026-11-21T10:45:44.950Z",
+ "runs": 337,
  "errors": [],
- "durationSec": 22,
+ "durationSec": 18,
  "dataSrc": "bitget",
  "stats": {
   "all": {
@@ -17432,9 +17407,9 @@
    "PEPEUSDT",
    "NEARUSDT",
    "UNIUSDT",
+   "WLDUSDT",
    "SUIUSDT",
    "TRUMPUSDT",
-   "WLDUSDT",
    "MMTUSDT",
    "PUMPUSDT",
    "ADAUSDT",
@@ -17468,16 +17443,16 @@
    "ZROUSDT",
    "GRAMUSDT",
    "OPUSDT",
-   "CRVUSDT",
    "BTWUSDT",
+   "CRVUSDT",
    "UPUSDT",
    "XLMUSDT",
    "ICPUSDT",
    "HUSDT",
    "JUPUSDT",
    "YBUSDT",
-   "ETCUSDT",
    "BERAUSDT",
+   "ETCUSDT",
    "NIGHTUSDT",
    "TIAUSDT",
    "HBARUSDT",
@@ -17488,7 +17463,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 8276478,
+   "minVolUSD": 8240215,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -17498,11 +17473,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 0,
-   "deep": 0,
-   "extended": 43,
+   "candidates": 2,
+   "deep": 2,
+   "extended": 41,
    "byClass": {
-    "crypto": 0,
+    "crypto": 2,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -17716,16 +17691,16 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 8276478
+  "minVolUSD": 8240215
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 0,
-  "deep": 0,
-  "extended": 43,
+  "candidates": 2,
+  "deep": 2,
+  "extended": 41,
   "byClass": {
-   "crypto": 0,
+   "crypto": 2,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -18338,7 +18313,7 @@
    }
   },
   "byHour": {},
-  "open": 100,
+  "open": 102,
   "dupSkipped": 335
  },
  "shadowDup": 335,
@@ -18393,7 +18368,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=13, against=55 (need ≥40 each)",
-  "asOf": "2026-11-21T10:31:00.045Z"
+  "asOf": "2026-11-21T10:45:44.952Z"
  },
  "shadowIndep": {
   "n": 303,
@@ -18638,6 +18613,14 @@
    "side": "SHORT"
   },
   "NEARUSDT|1D": {
+   "t": 1795104000000,
+   "side": "SHORT"
+  },
+  "GRAMUSDT|1D": {
+   "t": 1795104000000,
+   "side": "SHORT"
+  },
+  "INJUSDT|1D": {
    "t": 1795104000000,
    "side": "SHORT"
   }
