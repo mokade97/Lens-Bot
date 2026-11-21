@@ -140,6 +140,35 @@
     "استراتژی Lens با فیلتر HTF: win rate 33٪، avg_r -0.09 (منفی) — لبه‌ای ندارد.",
     "OI +24.36٪ در 24h با افت قیمت = شورت‌های جدید، نه پوشش؛ سوخت نزول."
    ]
+  },
+  {
+   "id": "IRYSUSDT|1H|LONG|2026-11-21T05:00:00.000Z",
+   "sym": "IRYSUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "RSI2",
+   "entry": 0.01882,
+   "stop": 0.02054424,
+   "t1": 0.01623363,
+   "t2": 0.01364727,
+   "size": 4349.7,
+   "riskUSD": 7.5,
+   "quad": "Q3",
+   "score": 40,
+   "confidence": 85,
+   "openedAt": "2026-11-21T06:15:46.090Z",
+   "barTime": "2026-11-21T05:00:00.000Z",
+   "lastBarT": 1795237200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "status": "OPEN",
+   "reasons": [
+    "ساختار ۱ساعته صریحاً BEARISH با رویداد BREAK_DOWN و BOS نزولی تاییدشده",
+    "رول-چک هشدار می‌دهد: BOS نزولی خلاف جهت پیشنهاد LONG",
+    "تایم‌ماشین با هم‌سویی HTF (UP) expectancy منفی دارد (avg_r=-0.14, WR=40%)"
+   ]
   }
  ],
  "closed": [
@@ -627,6 +656,73 @@
   }
  ],
  "alerts": [
+  {
+   "ts": "2026-11-21T06:15:46.090Z",
+   "barTime": "2026-11-21T05:00:00.000Z",
+   "sym": "IRYSUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 40,
+   "strategy": "RSI2",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": 0.58,
+     "n": 22,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 20,
+     "avg_r": 0.15,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "UP",
+   "event": "CANDLE",
+   "sweep": "ARMED_WAIT_FVG_RETEST",
+   "entry": 0.01882,
+   "stop": 0.02054424,
+   "t1": 0.01623363,
+   "t2": 0.01364727,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "BOS BEARISH خلاف جهت"
+   ],
+   "tm": {
+    "n": 26,
+    "win": 54,
+    "avg": 0.39,
+    "pf": 1.81
+   },
+   "src": "okx",
+   "chase": 0,
+   "judge": "judge:nvidia/nemotron-3-ultra-550b-a55b:free",
+   "confidence": 85,
+   "reasons": [
+    "ساختار ۱ساعته صریحاً BEARISH با رویداد BREAK_DOWN و BOS نزولی تاییدشده",
+    "رول-چک هشدار می‌دهد: BOS نزولی خلاف جهت پیشنهاد LONG",
+    "تایم‌ماشین با هم‌سویی HTF (UP) expectancy منفی دارد (avg_r=-0.14, WR=40%)"
+   ],
+   "concerns": [
+    "مومنتوم فعلی قوی نزولی: کندل WIDE_RANGE_BEAR با حجم ۳.۱۵x و بسته شدن زیر Low روز قبل",
+    "ستاپ/CHoCH/FVG در حالت ARMED برای SHORT، منتظر ری‌تست FVG بالا",
+    "رژیم QUIET_RANGE: پرهیز از breakout/emacross/fvg، فقط mean-reversion با تأیید"
+   ],
+   "invalidation": "بازگشت قیمت بالای ۰.۰۲۰۹۳ (حد بالا FVG تازه) با کندل ۱ساعته ببندد",
+   "aiMode": "shadow",
+   "aiDecision": "SKIP",
+   "aiAgrees": 0,
+   "volMult": 1,
+   "size": 4349.7,
+   "riskUSD": 7.5,
+   "sizeMult": 0.75,
+   "status": "OPENED_PAPER"
+  },
   {
    "ts": "2026-11-21T06:01:04.504Z",
    "barTime": "2026-11-21T05:00:00.000Z",
@@ -5435,60 +5531,6 @@
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (21× · -0.43R)",
     "Time Machine: این ستاپ روی این نماد منفی است (21× · -0.43R)"
    ]
-  },
-  {
-   "ts": "2026-11-20T22:01:03.805Z",
-   "barTime": "2026-11-20T21:00:00.000Z",
-   "sym": "PUMPUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 72,
-   "strategy": "SWEEP",
-   "lab": {
-    "best": {
-     "id": "MACD_EMA",
-     "name": "MACD cross + EMA200 filter",
-     "avg_r": 0.25,
-     "n": 18,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 29,
-     "avg_r": -0.2,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ENTRY_TRIGGERED",
-   "entry": 0.002417,
-   "stop": 0.00250839,
-   "t1": 0.00227991,
-   "t2": 0.00214283,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.2R)",
-    "Time Machine: این ستاپ روی این نماد منفی است (29× · -0.2R)"
-   ],
-   "warns": [
-    "الگوی DESCENDING BROADENING WEDGE خلاف جهت"
-   ],
-   "tm": {
-    "n": 29,
-    "win": 34,
-    "avg": -0.2,
-    "pf": 0.7
-   },
-   "src": "okx",
-   "chase": 0,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.2R)",
-    "Time Machine: این ستاپ روی این نماد منفی است (29× · -0.2R)"
-   ]
   }
  ],
  "shadow": [
@@ -8040,6 +8082,31 @@
    "t1hit": false,
    "mtm": 0,
    "live": "REJECTED_RULES"
+  },
+  {
+   "id": "IRYSUSDT|1H|LONG|2026-11-21T05:00:00.000Z",
+   "sym": "IRYSUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "RSI2",
+   "quad": "Q3",
+   "score": 40,
+   "chase": 0,
+   "entry": 0.01882,
+   "stop": 0.02054424,
+   "t1": 0.01623363,
+   "t2": 0.01364727,
+   "verdict": "AI_REJECTED",
+   "aiDecision": "SKIP",
+   "confidence": 85,
+   "openedAt": "2026-11-21T06:15:46.090Z",
+   "barTime": "2026-11-21T05:00:00.000Z",
+   "lastBarT": 1795237200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "OPENED_PAPER"
   }
  ],
  "shadowClosed": [
@@ -17530,12 +17597,13 @@
   "HMSTRUSDT|1H|LONG|2026-11-21T05:00:00.000Z": 1795240862753,
   "DOTUSDT|1H|LONG|2026-11-21T05:00:00.000Z": 1795240863339,
   "ZROUSDT|1H|LONG|2026-11-21T05:00:00.000Z": 1795240863917,
-  "DOSUSDT|1H|LONG|2026-11-21T05:00:00.000Z": 1795240864504
+  "DOSUSDT|1H|LONG|2026-11-21T05:00:00.000Z": 1795240864504,
+  "IRYSUSDT|1H|LONG|2026-11-21T05:00:00.000Z": 1795241745118
  },
- "lastRun": "2026-11-21T06:01:05.107Z",
- "runs": 314,
+ "lastRun": "2026-11-21T06:16:09.449Z",
+ "runs": 315,
  "errors": [],
- "durationSec": 18,
+ "durationSec": 41,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -17799,14 +17867,14 @@
    "GRAMUSDT",
    "ICPUSDT",
    "BTWUSDT",
-   "HUSDT",
    "JUPUSDT",
+   "HUSDT",
    "BERAUSDT",
    "HMSTRUSDT",
    "ETCUSDT",
-   "DOSUSDT",
-   "HBARUSDT",
    "NIGHTUSDT",
+   "HBARUSDT",
+   "DOSUSDT",
    "XAUUSDT",
    "XAGUSDT",
    "EURUSD",
@@ -17828,7 +17896,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 8349860,
+   "minVolUSD": 8299967,
    "total": 76,
    "crypto": 60,
    "metal": 2,
@@ -17838,11 +17906,11 @@
   "scan": {
    "symbols": 76,
    "pairs": 152,
-   "candidates": 8,
-   "deep": 8,
+   "candidates": 1,
+   "deep": 1,
    "extended": 66,
    "byClass": {
-    "crypto": 8,
+    "crypto": 1,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -17857,7 +17925,7 @@
   "riskPct": 1,
   "maxOpen": 8,
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 83,
+  "llmToday": 84,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -17957,7 +18025,7 @@
    },
    {
     "id": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
-    "calls": 4,
+    "calls": 5,
     "errors": 1,
     "exhausted": false,
     "reason": null,
@@ -17999,9 +18067,9 @@
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 37,
+   "left": 36,
    "tot": 207,
-   "frac": 0.178743961352657
+   "frac": 0.17391304347826086
   },
   "requireAI": true,
   "paperTrade": true,
@@ -18012,16 +18080,16 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 8349860
+  "minVolUSD": 8299967
  },
  "scan": {
   "symbols": 76,
   "pairs": 152,
-  "candidates": 8,
-  "deep": 8,
+  "candidates": 1,
+  "deep": 1,
   "extended": 66,
   "byClass": {
-   "crypto": 8,
+   "crypto": 1,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -18030,7 +18098,7 @@
  "llm": {
   "day": "2026-11-21",
   "v": 6,
-  "calls": 83,
+  "calls": 84,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 18,
@@ -18129,7 +18197,7 @@
     "reason": "daily quota"
    },
    "or:nvidia/nemotron-3-ultra-550b-a55b:free": {
-    "calls": 4,
+    "calls": 5,
     "exhausted": false,
     "errors": 1,
     "cooldownUntil": 1795234759754
@@ -18633,7 +18701,7 @@
     "maxDD": 23.53
    }
   },
-  "open": 105,
+  "open": 106,
   "dupSkipped": 317
  },
  "shadowDup": 317,
@@ -18688,7 +18756,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=11, against=52 (need ≥40 each)",
-  "asOf": "2026-11-21T06:01:05.109Z"
+  "asOf": "2026-11-21T06:16:09.451Z"
  },
  "shadowIndep": {
   "n": 282,
