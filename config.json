@@ -1,18 +1,120 @@
 {
-  "universe": {
-    "classes": ["crypto", "metal", "forex"],
-    "cryptoTop": 60, "stockTop": 20,
-    "cryptoAlways": ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT", "BNBUSDT"],
-    "cryptoExclude": [],
-    "metals": ["XAUUSDT", "XAGUSDT"],
-    "forex": ["EURUSD", "GBPUSD", "USDJPY", "USDCHF", "AUDUSD", "USDCAD", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY", "AUDJPY", "EURAUD", "EURCHF", "GBPCHF"]
-  },
-  "timeframes": ["4H", "1H"],
-  "maxCandidatesPerRun": 8, "minDeepPerClass": 2, "scanConcurrency": 4,
-  "minScore": 70, "account": 100, "riskPct": 3, "maxOpenRiskPct": 6, "dailyLossR": 2, "weeklyLossR": 3.5, "maxNotionalMult": 3, "minNotionalUSD": 5, "maxSameDirCrypto": 2, "liveFill": true, "minRR": 2, "noCounterHtf": true, "maxOpen": 8, "maxOpenByTf": { "1H": 3 }, "labStrategies": ["ICHI"], "paperTrade": true, "strategyPriority": { "ICHI": 3, "LENS": 2, "SWEEP": 1 }, "strategySides": { "ICHI": "BOTH" }, "maxExtAtr": 2, "maxBars": 40,
-  "feePct": 0.1, "slipPct": 0.03, "fundPer8h": 0.01,
-  "forexCosts": { "feePct": 0, "slipPct": 0.02, "fundPer8h": 0 },
-  "useGemini": true, "geminiModel": "gemini-3.5-flash-lite", "geminiModels": ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3.6-flash"], "requireAI": true, "aiMode": "shadow", "judgeMinN": 40, "providerOrder": ["gemini", "openrouter"], "openrouterModels": [], "openrouterCount": 4, "openrouterDaily": 45, "roundtableLite": true, "runBudgetSec": 540, "maxDeferRuns": 4, "llmMinGapMs": 4500, "minConfidence": 60,
-  "roundtable": true, "useStrategyLab": true, "dailyLLMBudget": 220, "maxLLMPerRun": 24, "macroCacheHours": 4,
-  "exchanges": ["okx", "bitget", "gate"]
+ "universe": {
+  "classes": [
+   "crypto",
+   "metal"
+  ],
+  "cryptoTop": 60,
+  "stockTop": 20,
+  "cryptoAlways": [
+   "BTCUSDT",
+   "ETHUSDT",
+   "SOLUSDT",
+   "XRPUSDT",
+   "BNBUSDT"
+  ],
+  "cryptoExclude": [],
+  "metals": [
+   "XAUUSDT",
+   "XAGUSDT"
+  ]
+ },
+ "timeframes": [
+  "4H",
+  "1D"
+ ],
+ "maxCandidatesPerRun": 8,
+ "minDeepPerClass": 2,
+ "scanConcurrency": 4,
+ "minScore": 70,
+ "account": 100,
+ "riskPct": 3,
+ "maxOpenRiskPct": 6,
+ "dailyLossR": 2,
+ "weeklyLossR": 3.5,
+ "maxNotionalMult": 3,
+ "minNotionalUSD": 5,
+ "maxSameDirCrypto": 2,
+ "liveFill": true,
+ "minRR": 2,
+ "noCounterHtf": true,
+ "maxOpen": 8,
+ "maxOpenByTf": {
+  "1D": 3
+ },
+ "labStrategies": [
+  "ICHI"
+ ],
+ "paperTrade": true,
+ "strategyPriority": {
+  "ICHI": 3,
+  "DONCHIAN20": 2,
+  "LENS": 1,
+  "SWEEP": 0
+ },
+ "strategySides": {
+  "ICHI": "BOTH"
+ },
+ "maxExtAtr": 2,
+ "maxBars": 40,
+ "feePct": 0.1,
+ "slipPct": 0.2,
+ "fundPer8h": 0.01,
+ "useGemini": true,
+ "geminiModel": "gemini-3.5-flash-lite",
+ "geminiModels": [
+  "gemini-3.5-flash-lite",
+  "gemini-3.1-flash-lite",
+  "gemini-3.6-flash"
+ ],
+ "requireAI": true,
+ "aiMode": "shadow",
+ "judgeMinN": 40,
+ "providerOrder": [
+  "gemini",
+  "openrouter"
+ ],
+ "openrouterModels": [],
+ "openrouterCount": 4,
+ "openrouterDaily": 45,
+ "roundtableLite": true,
+ "runBudgetSec": 540,
+ "maxDeferRuns": 4,
+ "llmMinGapMs": 4500,
+ "minConfidence": 60,
+ "roundtable": true,
+ "useStrategyLab": true,
+ "dailyLLMBudget": 220,
+ "maxLLMPerRun": 24,
+ "macroCacheHours": 4,
+ "exchanges": [
+  "okx",
+  "bitget",
+  "gate"
+ ],
+ "shadowTimeframes": [
+  "1H"
+ ],
+ "shadowClasses": [
+  "metal"
+ ],
+ "liveStrategies": [
+  "ICHI"
+ ],
+ "labStrategiesByTf": {
+  "1D": [
+   "ICHI",
+   "DONCHIAN20"
+  ]
+ },
+ "labLenient": [
+  "ICHI",
+  "DONCHIAN20"
+ ],
+ "sideSizeMult": {
+  "LONG": 0.5
+ },
+ "q4Size": 0.5,
+ "q4Hard": false,
+ "cooldownBars": 6
 }
