@@ -785,6 +785,59 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-22T05:15:52.281Z",
+   "barTime": "2026-11-22T04:00:00.000Z",
+   "sym": "PARTIUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 50,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "BB_MR",
+     "name": "Bollinger mean-reversion",
+     "avg_r": -0.01,
+     "n": 13,
+     "verdict": "NEGATIVE"
+    },
+    "mine": {
+     "n": 7,
+     "avg_r": 0.08,
+     "verdict": "INSUFFICIENT"
+    }
+   },
+   "quad": "Q4",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.03638,
+   "stop": 0.03508125,
+   "t1": 0.03832813,
+   "t2": 0.04027626,
+   "rr": 3,
+   "fails": [
+    "Time Machine (رکورد ستاپ LENS همین نماد): منفی (23× · -0.23R)"
+   ],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز"
+   ],
+   "tm": {
+    "n": 23,
+    "win": 39,
+    "avg": -0.23,
+    "pf": 0.65
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "Time Machine (رکورد ستاپ LENS همین نماد): منفی (23× · -0.23R)"
+   ]
+  },
+  {
    "ts": "2026-11-22T05:01:08.193Z",
    "barTime": "2026-11-22T04:00:00.000Z",
    "sym": "DGAIUSDT",
@@ -4156,59 +4209,6 @@
     "win": 42,
     "avg": 0.17,
     "pf": 1.26
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 13,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ]
-  },
-  {
-   "ts": "2026-11-21T14:01:05.845Z",
-   "barTime": "2026-11-21T13:00:00.000Z",
-   "sym": "BCHUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 70,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "ICHI",
-     "name": "Ichimoku TK cross + cloud filter",
-     "avg_r": 0.75,
-     "n": 9,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 28,
-     "avg_r": 0.17,
-     "verdict": "EDGE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "DOWN",
-   "event": "LONG_SETUP",
-   "sweep": null,
-   "entry": 199.1,
-   "stop": 193.05521728,
-   "t1": 208.16717408,
-   "t2": 217.23434816,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ],
-   "warns": [
-    "رژیم Q4 (آشوب) — نیم‌سایز"
-   ],
-   "tm": {
-    "n": 28,
-    "win": 50,
-    "avg": 0.17,
-    "pf": 1.3
    },
    "src": "okx",
    "chase": 0,
@@ -10030,6 +10030,32 @@
    "aiDecision": null,
    "confidence": null,
    "openedAt": "2026-11-22T05:01:08.193Z",
+   "barTime": "2026-11-22T04:00:00.000Z",
+   "lastBarT": 1795320000000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
+  },
+  {
+   "id": "PARTIUSDT|1H|LONG|2026-11-22T04:00:00.000Z",
+   "sym": "PARTIUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "ICHI",
+   "quad": "Q4",
+   "score": 50,
+   "chase": 0,
+   "entry": 0.03638,
+   "stop": 0.03508125,
+   "t1": 0.03832813,
+   "t2": 0.04027626,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 4,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T05:15:52.281Z",
    "barTime": "2026-11-22T04:00:00.000Z",
    "lastBarT": 1795320000000,
    "bars": 0,
@@ -21476,12 +21502,13 @@
   "XAUUSDT|1H|LENS|SHORT|2026-11-22T03:00:00.000Z": 1795320073784,
   "GRAMUSDT|1H|LENS|SHORT|2026-11-22T03:00:00.000Z": 1795320949691,
   "UNIUSDT|1H|LENS|SHORT|2026-11-22T04:00:00.000Z": 1795323666949,
-  "DGAIUSDT|1H|LENS|LONG|2026-11-22T04:00:00.000Z": 1795323667541
+  "DGAIUSDT|1H|LENS|LONG|2026-11-22T04:00:00.000Z": 1795323667541,
+  "PARTIUSDT|1H|ICHI|LONG|2026-11-22T04:00:00.000Z": 1795324551391
  },
- "lastRun": "2026-11-22T05:01:08.195Z",
- "runs": 414,
+ "lastRun": "2026-11-22T05:15:52.283Z",
+ "runs": 415,
  "errors": [],
- "durationSec": 20,
+ "durationSec": 26,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -21751,15 +21778,15 @@
    "TAOUSDT",
    "BARDUSDT",
    "AVAXUSDT",
-   "ONDOUSDT",
    "OKBUSDT",
+   "ONDOUSDT",
    "STRKUSDT",
    "TRXUSDT",
    "YBUSDT",
    "PARTIUSDT",
    "XPLUSDT",
-   "DOTUSDT",
    "ZROUSDT",
+   "DOTUSDT",
    "NIGHTUSDT",
    "PONSUSDT",
    "ICPUSDT",
@@ -21769,9 +21796,9 @@
    "APTUSDT",
    "ASTERUSDT",
    "HUMAUSDT",
+   "DGAIUSDT",
    "SHIBUSDT",
    "GRAMUSDT",
-   "DGAIUSDT",
    "XLMUSDT",
    "HUSDT",
    "INITUSDT",
@@ -21785,7 +21812,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 5855184,
+   "minVolUSD": 5786652,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -21795,11 +21822,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 2,
-   "deep": 2,
-   "extended": 15,
+   "candidates": 1,
+   "deep": 1,
+   "extended": 12,
    "byClass": {
-    "crypto": 2,
+    "crypto": 1,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -21971,7 +21998,7 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 601,
+   "cooldownSkipped": 611,
    "aiTextStripped": 0
   }
  },
@@ -21979,16 +22006,16 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 5855184
+  "minVolUSD": 5786652
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 2,
-  "deep": 2,
-  "extended": 15,
+  "candidates": 1,
+  "deep": 1,
+  "extended": 12,
   "byClass": {
-   "crypto": 2,
+   "crypto": 1,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -22490,7 +22517,7 @@
     "maxDD": 1.02
    }
   },
-  "open": 167,
+  "open": 168,
   "dupSkipped": 346
  },
  "shadowDup": 346,
@@ -22545,7 +22572,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=13, against=55 (need ≥40 each)",
-  "asOf": "2026-11-22T05:01:08.196Z"
+  "asOf": "2026-11-22T05:15:52.287Z"
  },
  "shadowIndep": {
   "n": 323,
@@ -23262,9 +23289,13 @@
   "DGAIUSDT|1H|LENS": {
    "t": 1795320000000,
    "side": "LONG"
+  },
+  "PARTIUSDT|1H|ICHI": {
+   "t": 1795320000000,
+   "side": "LONG"
   }
  },
- "cooldownSkipped": 601,
+ "cooldownSkipped": 611,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
