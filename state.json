@@ -39,6 +39,134 @@
  "closed": [],
  "alerts": [
   {
+   "ts": "2026-11-22T23:15:43.443Z",
+   "barTime": "2026-11-22T22:00:00.000Z",
+   "sym": "PEPEUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 62,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "BB_MR",
+     "name": "Bollinger mean-reversion",
+     "avg_r": 0.15,
+     "n": 23,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 27,
+     "avg_r": 0.09,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": "ARMED_WAIT_FVG_RETEST",
+   "entry": 0.00000338,
+   "stop": 0.00000344,
+   "t1": 0.00000329,
+   "t2": 0.0000032,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (27× · 0.09R)"
+   ],
+   "tm": {
+    "n": 27,
+    "win": 48,
+    "avg": 0.09,
+    "pf": 1.15
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 22,
+   "volMult": 1,
+   "sideMult": 1,
+   "size": 37500000,
+   "riskUSD": 2.25,
+   "sizeMult": 0.75,
+   "notionalUSD": 126.75,
+   "status": "ALERT_ONLY_SHADOW",
+   "aiMode": "shadow",
+   "aiDecision": null,
+   "aiAgrees": null,
+   "judge": "shadow-only",
+   "reasons": [
+    "تایم‌فریم 1H فقط سایه (بک‌تست ۵ ساله: 1H منفی)"
+   ],
+   "concerns": [
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (27× · 0.09R)"
+   ]
+  },
+  {
+   "ts": "2026-11-22T23:15:42.391Z",
+   "barTime": "2026-11-22T22:00:00.000Z",
+   "sym": "BTWUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 82,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": 0.6,
+     "n": 9,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 23,
+     "avg_r": 0.26,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "UP",
+   "event": "LONG_SETUP",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.73772,
+   "stop": 0.69545042,
+   "t1": 0.80112436,
+   "t2": 0.86452873,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "واگرایی منظم خلاف جهت (MACD)"
+   ],
+   "tm": {
+    "n": 23,
+    "win": 52,
+    "avg": 0.26,
+    "pf": 1.52
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 22,
+   "volMult": 1,
+   "sideMult": 1,
+   "size": 53.23,
+   "riskUSD": 2.25,
+   "sizeMult": 0.75,
+   "notionalUSD": 39.27,
+   "status": "ALERT_ONLY_SHADOW",
+   "aiMode": "shadow",
+   "aiDecision": null,
+   "aiAgrees": null,
+   "judge": "shadow-only",
+   "reasons": [
+    "تایم‌فریم 1H فقط سایه (بک‌تست ۵ ساله: 1H منفی)"
+   ],
+   "concerns": [
+    "واگرایی منظم خلاف جهت (MACD)"
+   ]
+  },
+  {
    "ts": "2026-11-22T23:01:02.558Z",
    "barTime": "2026-11-22T22:00:00.000Z",
    "sym": "XLMUSDT",
@@ -843,6 +971,58 @@
    "t1hit": false,
    "mtm": 0,
    "live": "REJECTED_RULES"
+  },
+  {
+   "id": "BTWUSDT|1H|LONG|2026-11-22T22:00:00.000Z",
+   "sym": "BTWUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q3",
+   "score": 82,
+   "chase": 0,
+   "entry": 0.73772,
+   "stop": 0.69545042,
+   "t1": 0.80112436,
+   "t2": 0.86452873,
+   "verdict": "SHADOW_ONLY",
+   "hourUtc": 22,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T23:15:42.391Z",
+   "barTime": "2026-11-22T22:00:00.000Z",
+   "lastBarT": 1795384800000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "ALERT_ONLY_SHADOW"
+  },
+  {
+   "id": "PEPEUSDT|1H|SHORT|2026-11-22T22:00:00.000Z",
+   "sym": "PEPEUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q3",
+   "score": 62,
+   "chase": 0,
+   "entry": 0.00000338,
+   "stop": 0.00000344,
+   "t1": 0.00000329,
+   "t2": 0.0000032,
+   "verdict": "SHADOW_ONLY",
+   "hourUtc": 22,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T23:15:43.443Z",
+   "barTime": "2026-11-22T22:00:00.000Z",
+   "lastBarT": 1795384800000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "ALERT_ONLY_SHADOW"
   }
  ],
  "shadowClosed": [],
@@ -857,10 +1037,12 @@
   "AIUSDT|1D|LENS|LONG|2026-11-21T16:00:00.000Z": 1795388022805,
   "UPUSDT|4H|LENS|LONG|2026-11-22T16:00:00.000Z": 1795388056970,
   "UPUSDT|1H|LENS|LONG|2026-11-22T21:00:00.000Z": 1795388057865,
-  "XLMUSDT|1H|LENS|SHORT|2026-11-22T22:00:00.000Z": 1795388461640
+  "XLMUSDT|1H|LENS|SHORT|2026-11-22T22:00:00.000Z": 1795388461640,
+  "BTWUSDT|1H|LENS|LONG|2026-11-22T22:00:00.000Z": 1795389341847,
+  "PEPEUSDT|1H|LENS|SHORT|2026-11-22T22:00:00.000Z": 1795389342774
  },
- "lastRun": "2026-11-22T23:01:02.558Z",
- "runs": 3,
+ "lastRun": "2026-11-22T23:15:43.572Z",
+ "runs": 4,
  "errors": [],
  "orModels": {
   "day": "2026-11-22",
@@ -876,7 +1058,7 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 4851154
+  "minVolUSD": 4860771
  },
  "lastCard": {
   "BARDUSDT|1D|ICHI": {
@@ -910,16 +1092,24 @@
   "XLMUSDT|1H|LENS": {
    "t": 1795384800000,
    "side": "SHORT"
+  },
+  "BTWUSDT|1H|LENS": {
+   "t": 1795384800000,
+   "side": "LONG"
+  },
+  "PEPEUSDT|1H|LENS": {
+   "t": 1795384800000,
+   "side": "SHORT"
   }
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 1,
-  "deep": 1,
+  "candidates": 2,
+  "deep": 2,
   "extended": 2,
   "byClass": {
-   "crypto": 1,
+   "crypto": 2,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -1063,7 +1253,7 @@
   "sumSlip": 0.712,
   "worst": 0.712
  },
- "durationSec": 19,
+ "durationSec": 17,
  "dataSrc": "okx",
  "stats": {
   "all": null,
@@ -1084,7 +1274,7 @@
   "byStrategy": {},
   "byQuad": {},
   "byHour": {},
-  "open": 8,
+  "open": 10,
   "dupSkipped": 0
  },
  "judgeReport": {
@@ -1098,7 +1288,7 @@
   "byConf": {},
   "verdict": "INSUFFICIENT",
   "detail": "n agree=0, against=0 (need ≥40 each)",
-  "asOf": "2026-11-22T23:01:02.559Z"
+  "asOf": "2026-11-22T23:15:43.572Z"
  },
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
@@ -1135,8 +1325,8 @@
    "ADAUSDT",
    "LITUSDT",
    "ENAUSDT",
-   "INJUSDT",
    "NESUSDT",
+   "INJUSDT",
    "BCHUSDT",
    "LINKUSDT",
    "LTCUSDT",
@@ -1158,17 +1348,17 @@
    "ALLOUSDT",
    "DOTUSDT",
    "ICPUSDT",
-   "ASTERUSDT",
    "XPLUSDT",
    "BARDUSDT",
+   "ASTERUSDT",
    "ETHFIUSDT",
    "XLMUSDT",
    "HUSDT",
    "GRAMUSDT",
-   "INITUSDT",
-   "PENGUUSDT",
-   "CRVUSDT",
    "SHIBUSDT",
+   "CRVUSDT",
+   "PENGUUSDT",
+   "INITUSDT",
    "JUPUSDT",
    "ZROUSDT",
    "XAUUSDT",
@@ -1178,7 +1368,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 4851154,
+   "minVolUSD": 4860771,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -1188,11 +1378,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 1,
-   "deep": 1,
+   "candidates": 2,
+   "deep": 2,
    "extended": 2,
    "byClass": {
-    "crypto": 1,
+    "crypto": 2,
     "metal": 0,
     "forex": 0,
     "stock": 0
