@@ -4,6 +4,117 @@
  "closed": [],
  "alerts": [
   {
+   "ts": "2026-11-22T21:15:47.212Z",
+   "barTime": "2026-11-22T16:00:00.000Z",
+   "sym": "UPUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "score": 70,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.28,
+     "n": 20,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 34,
+     "avg_r": -0.16,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 0.2385,
+   "stop": 0.21128589,
+   "t1": 0.27932116,
+   "t2": 0.32014233,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (34× · -0.16R)"
+   ],
+   "warns": [
+    "Time Machine منفی (34× · -0.16R)"
+   ],
+   "tm": {
+    "n": 34,
+    "win": 35,
+    "avg": -0.16,
+    "pf": 0.77
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 16,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (34× · -0.16R)"
+   ]
+  },
+  {
+   "ts": "2026-11-22T21:15:46.301Z",
+   "barTime": "2026-11-21T16:00:00.000Z",
+   "sym": "AIUSDT",
+   "cls": "crypto",
+   "tf": "1D",
+   "side": "LONG",
+   "score": 78,
+   "strategy": "LENS",
+   "lab": {
+    "best": null,
+    "mine": {
+     "n": 4,
+     "avg_r": -1.04,
+     "verdict": "INSUFFICIENT"
+    }
+   },
+   "quad": "Q4",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 0.0149,
+   "stop": 0.01299228,
+   "t1": 0.01776158,
+   "t2": 0.02062316,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز"
+   ],
+   "tm": {
+    "n": 4,
+    "win": 0,
+    "avg": -1.04,
+    "pf": 0
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 16,
+   "volMult": 1,
+   "sideMult": 1,
+   "size": 786.28,
+   "riskUSD": 1.5,
+   "sizeMult": 0.5,
+   "notionalUSD": 11.72,
+   "status": "ALERT_ONLY_SHADOW",
+   "aiMode": "shadow",
+   "aiDecision": null,
+   "aiAgrees": null,
+   "judge": "shadow-only",
+   "reasons": [
+    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
+   ],
+   "concerns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز"
+   ]
+  },
+  {
    "ts": "2026-11-22T21:10:32.480Z",
    "barTime": "2026-11-22T20:00:00.000Z",
    "sym": "XAUUSDT",
@@ -259,6 +370,58 @@
    "t1hit": false,
    "mtm": 0,
    "live": "REJECTED_RULES"
+  },
+  {
+   "id": "AIUSDT|1D|LONG|2026-11-21T16:00:00.000Z",
+   "sym": "AIUSDT",
+   "cls": "crypto",
+   "tf": "1D",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q4",
+   "score": 78,
+   "chase": 0,
+   "entry": 0.0149,
+   "stop": 0.01299228,
+   "t1": 0.01776158,
+   "t2": 0.02062316,
+   "verdict": "SHADOW_ONLY",
+   "hourUtc": 16,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T21:15:46.301Z",
+   "barTime": "2026-11-21T16:00:00.000Z",
+   "lastBarT": 1795276800000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "ALERT_ONLY_SHADOW"
+  },
+  {
+   "id": "UPUSDT|4H|LONG|2026-11-22T16:00:00.000Z",
+   "sym": "UPUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q3",
+   "score": 70,
+   "chase": 0,
+   "entry": 0.2385,
+   "stop": 0.21128589,
+   "t1": 0.27932116,
+   "t2": 0.32014233,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 16,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T21:15:47.212Z",
+   "barTime": "2026-11-22T16:00:00.000Z",
+   "lastBarT": 1795363200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
   }
  ],
  "shadowClosed": [],
@@ -270,10 +433,12 @@
   "DGAIUSDT|1D|ICHI|LONG|2026-11-21T16:00:00.000Z": 1795381831096,
   "VVVUSDT|1D|DONCHIAN20|LONG|2026-11-21T16:00:00.000Z": 1795381831353,
   "DGAIUSDT|1D|DONCHIAN20|LONG|2026-11-21T16:00:00.000Z": 1795381831611,
-  "XAUUSDT|1H|LENS|SHORT|2026-11-22T20:00:00.000Z": 1795381831865
+  "XAUUSDT|1H|LENS|SHORT|2026-11-22T20:00:00.000Z": 1795381831865,
+  "AIUSDT|1D|LENS|LONG|2026-11-21T16:00:00.000Z": 1795382145954,
+  "UPUSDT|4H|LENS|LONG|2026-11-22T16:00:00.000Z": 1795382146302
  },
- "lastRun": "2026-11-22T21:10:32.480Z",
- "runs": 1,
+ "lastRun": "2026-11-22T21:15:47.212Z",
+ "runs": 2,
  "errors": [],
  "orModels": {
   "day": "2026-11-22",
@@ -289,7 +454,7 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 4838499
+  "minVolUSD": 4836747
  },
  "lastCard": {
   "NIGHTUSDT|4H|ICHI": {
@@ -303,22 +468,30 @@
   "XAUUSDT|1H|LENS": {
    "t": 1795377600000,
    "side": "SHORT"
+  },
+  "AIUSDT|1D|LENS": {
+   "t": 1795276800000,
+   "side": "LONG"
+  },
+  "UPUSDT|4H|LENS": {
+   "t": 1795363200000,
+   "side": "LONG"
   }
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 10,
-  "deep": 8,
+  "candidates": 2,
+  "deep": 2,
   "extended": 2,
   "byClass": {
-   "crypto": 9,
-   "metal": 1,
+   "crypto": 2,
+   "metal": 0,
    "forex": 0,
    "stock": 0
   }
  },
- "durationSec": 18,
+ "durationSec": 20,
  "dataSrc": "okx",
  "stats": {
   "all": null,
@@ -339,7 +512,7 @@
   "byStrategy": {},
   "byQuad": {},
   "byHour": {},
-  "open": 3,
+  "open": 5,
   "dupSkipped": 0
  },
  "judgeReport": {
@@ -353,7 +526,7 @@
   "byConf": {},
   "verdict": "INSUFFICIENT",
   "detail": "n agree=0, against=0 (need ≥40 each)",
-  "asOf": "2026-11-22T21:10:32.481Z"
+  "asOf": "2026-11-22T21:15:47.212Z"
  },
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
@@ -451,8 +624,8 @@
    "BCHUSDT",
    "LINKUSDT",
    "LTCUSDT",
-   "TAOUSDT",
    "NESUSDT",
+   "TAOUSDT",
    "NIGHTUSDT",
    "OKBUSDT",
    "AIUSDT",
@@ -467,8 +640,8 @@
    "BERAUSDT",
    "UPUSDT",
    "TRXUSDT",
-   "DOTUSDT",
    "ALLOUSDT",
+   "DOTUSDT",
    "ICPUSDT",
    "BARDUSDT",
    "INITUSDT",
@@ -490,7 +663,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 4838499,
+   "minVolUSD": 4836747,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -500,12 +673,12 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 10,
-   "deep": 8,
+   "candidates": 2,
+   "deep": 2,
    "extended": 2,
    "byClass": {
-    "crypto": 9,
-    "metal": 1,
+    "crypto": 2,
+    "metal": 0,
     "forex": 0,
     "stock": 0
    }
@@ -554,10 +727,101 @@
    "nvidia/nemotron-3.5-super-vl:free",
    "baidu/ernie-5.5-flash-preview:free"
   ],
-  "slots": 0,
+  "slots": 10,
   "slotsExhausted": 0,
   "active": null,
-  "slotTable": [],
+  "slotTable": [
+   {
+    "id": "k1:gemini-3.5-flash-lite",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "k2:gemini-3.5-flash-lite",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "k3:gemini-3.5-flash-lite",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "k1:gemini-3.1-flash-lite",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "k2:gemini-3.1-flash-lite",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "k3:gemini-3.1-flash-lite",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "k1:gemini-3.6-flash",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "k2:gemini-3.6-flash",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "k3:gemini-3.6-flash",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   },
+   {
+    "id": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "calls": 0,
+    "errors": 0,
+    "exhausted": false,
+    "reason": null,
+    "lastErr": null,
+    "cooling": false
+   }
+  ],
   "llmRaw": [],
   "llmBudget": {
    "left": 207,
