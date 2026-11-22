@@ -39,6 +39,59 @@
  "closed": [],
  "alerts": [
   {
+   "ts": "2026-11-22T23:01:02.558Z",
+   "barTime": "2026-11-22T22:00:00.000Z",
+   "sym": "XLMUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 82,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.35,
+     "n": 22,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 33,
+     "avg_r": -0.45,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": null,
+   "entry": 0.12698,
+   "stop": 0.12854699,
+   "t1": 0.12462951,
+   "t2": 0.12227903,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (33× · -0.45R)",
+    "Time Machine: منفی (33× · -0.45R)"
+   ],
+   "warns": [],
+   "tm": {
+    "n": 33,
+    "win": 24,
+    "avg": -0.45,
+    "pf": 0.44
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 22,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (33× · -0.45R)",
+    "Time Machine: منفی (33× · -0.45R)"
+   ]
+  },
+  {
    "ts": "2026-11-22T22:54:18.747Z",
    "barTime": "2026-11-22T21:00:00.000Z",
    "sym": "UPUSDT",
@@ -748,7 +801,44 @@
    "confidence": null,
    "openedAt": "2026-11-22T22:54:18.747Z",
    "barTime": "2026-11-22T21:00:00.000Z",
-   "lastBarT": 1795381200000,
+   "lastBarT": 1795384800000,
+   "bars": 1,
+   "t1hit": false,
+   "mtm": -0.42,
+   "live": "REJECTED_RULES",
+   "alt": {
+    "be": {
+     "sl": 0.2344907,
+     "t1hit": false
+    },
+    "tr": {
+     "sl": 0.2344907,
+     "ext": 0.2476,
+     "t1hit": false
+    }
+   }
+  },
+  {
+   "id": "XLMUSDT|1H|SHORT|2026-11-22T22:00:00.000Z",
+   "sym": "XLMUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q3",
+   "score": 82,
+   "chase": 0,
+   "entry": 0.12698,
+   "stop": 0.12854699,
+   "t1": 0.12462951,
+   "t2": 0.12227903,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 22,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T23:01:02.558Z",
+   "barTime": "2026-11-22T22:00:00.000Z",
+   "lastBarT": 1795384800000,
    "bars": 0,
    "t1hit": false,
    "mtm": 0,
@@ -766,10 +856,11 @@
   "DGAIUSDT|1D|DONCHIAN20|LONG|2026-11-21T16:00:00.000Z": 1795388021740,
   "AIUSDT|1D|LENS|LONG|2026-11-21T16:00:00.000Z": 1795388022805,
   "UPUSDT|4H|LENS|LONG|2026-11-22T16:00:00.000Z": 1795388056970,
-  "UPUSDT|1H|LENS|LONG|2026-11-22T21:00:00.000Z": 1795388057865
+  "UPUSDT|1H|LENS|LONG|2026-11-22T21:00:00.000Z": 1795388057865,
+  "XLMUSDT|1H|LENS|SHORT|2026-11-22T22:00:00.000Z": 1795388461640
  },
- "lastRun": "2026-11-22T22:54:18.748Z",
- "runs": 2,
+ "lastRun": "2026-11-22T23:01:02.558Z",
+ "runs": 3,
  "errors": [],
  "orModels": {
   "day": "2026-11-22",
@@ -785,7 +876,7 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 4866120
+  "minVolUSD": 4851154
  },
  "lastCard": {
   "BARDUSDT|1D|ICHI": {
@@ -815,16 +906,20 @@
   "UPUSDT|1H|LENS": {
    "t": 1795381200000,
    "side": "LONG"
+  },
+  "XLMUSDT|1H|LENS": {
+   "t": 1795384800000,
+   "side": "SHORT"
   }
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 2,
-  "deep": 2,
-  "extended": 3,
+  "candidates": 1,
+  "deep": 1,
+  "extended": 2,
   "byClass": {
-   "crypto": 2,
+   "crypto": 1,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -968,7 +1063,7 @@
   "sumSlip": 0.712,
   "worst": 0.712
  },
- "durationSec": 22,
+ "durationSec": 19,
  "dataSrc": "okx",
  "stats": {
   "all": null,
@@ -989,7 +1084,7 @@
   "byStrategy": {},
   "byQuad": {},
   "byHour": {},
-  "open": 7,
+  "open": 8,
   "dupSkipped": 0
  },
  "judgeReport": {
@@ -1003,7 +1098,7 @@
   "byConf": {},
   "verdict": "INSUFFICIENT",
   "detail": "n agree=0, against=0 (need ≥40 each)",
-  "asOf": "2026-11-22T22:54:18.748Z"
+  "asOf": "2026-11-22T23:01:02.559Z"
  },
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
@@ -1040,8 +1135,8 @@
    "ADAUSDT",
    "LITUSDT",
    "ENAUSDT",
-   "NESUSDT",
    "INJUSDT",
+   "NESUSDT",
    "BCHUSDT",
    "LINKUSDT",
    "LTCUSDT",
@@ -1063,14 +1158,14 @@
    "ALLOUSDT",
    "DOTUSDT",
    "ICPUSDT",
-   "BARDUSDT",
    "ASTERUSDT",
    "XPLUSDT",
+   "BARDUSDT",
    "ETHFIUSDT",
    "XLMUSDT",
    "HUSDT",
-   "INITUSDT",
    "GRAMUSDT",
+   "INITUSDT",
    "PENGUUSDT",
    "CRVUSDT",
    "SHIBUSDT",
@@ -1083,7 +1178,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 4866120,
+   "minVolUSD": 4851154,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -1093,11 +1188,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 2,
-   "deep": 2,
-   "extended": 3,
+   "candidates": 1,
+   "deep": 1,
+   "extended": 2,
    "byClass": {
-    "crypto": 2,
+    "crypto": 1,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -1218,7 +1313,7 @@
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": true
+    "cooling": false
    },
    {
     "id": "k2:gemini-3.6-flash",
@@ -1227,7 +1322,7 @@
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": true
+    "cooling": false
    },
    {
     "id": "k3:gemini-3.6-flash",
@@ -1236,7 +1331,7 @@
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": true
+    "cooling": false
    },
    {
     "id": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
