@@ -788,6 +788,62 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-22T08:31:01.231Z",
+   "barTime": "2026-11-22T04:00:00.000Z",
+   "sym": "TRXUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 80,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": -0.17,
+     "n": 14,
+     "verdict": "NEGATIVE"
+    },
+    "mine": {
+     "n": 33,
+     "avg_r": -0.65,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.30348,
+   "stop": 0.3069303,
+   "t1": 0.29830456,
+   "t2": 0.29312911,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (33× · -0.65R)",
+    "Time Machine: منفی (33× · -0.65R)"
+   ],
+   "warns": [
+    "واگرایی منظم خلاف جهت (RSI)",
+    "الگوی DESCENDING BROADENING WEDGE خلاف جهت"
+   ],
+   "tm": {
+    "n": 33,
+    "win": 21,
+    "avg": -0.65,
+    "pf": 0.31
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (33× · -0.65R)",
+    "Time Machine: منفی (33× · -0.65R)"
+   ]
+  },
+  {
    "ts": "2026-11-22T08:15:51.456Z",
    "barTime": "2026-11-22T07:00:00.000Z",
    "sym": "TRXUSDT",
@@ -4203,60 +4259,6 @@
     "win": 50,
     "avg": 0.21,
     "pf": 1.38
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 13,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ]
-  },
-  {
-   "ts": "2026-11-21T14:30:55.776Z",
-   "barTime": "2026-11-21T13:00:00.000Z",
-   "sym": "LINKUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 56,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "DONCHIAN20",
-     "name": "Donchian 20 breakout (Turtle)",
-     "avg_r": 0.04,
-     "n": 22,
-     "verdict": "WEAK"
-    },
-    "mine": {
-     "n": 26,
-     "avg_r": 0.03,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": null,
-   "entry": 8.672,
-   "stop": 8.42825525,
-   "t1": 9.03761713,
-   "t2": 9.40323426,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر"
-   ],
-   "warns": [
-    "رژیم Q4 (آشوب) — نیم‌سایز",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (26× · 0.03R)"
-   ],
-   "tm": {
-    "n": 26,
-    "win": 50,
-    "avg": 0.03,
-    "pf": 1.06
    },
    "src": "okx",
    "chase": 0,
@@ -22105,12 +22107,13 @@
   "GRAMUSDT|1H|SWEEP|SHORT|2026-11-22T06:00:00.000Z": 1795330873126,
   "INITUSDT|1H|ICHI|SHORT|2026-11-22T07:00:00.000Z": 1795334463968,
   "VVVUSDT|4H|ICHI|LONG|2026-11-22T04:00:00.000Z": 1795334464852,
-  "TRXUSDT|1H|LENS|SHORT|2026-11-22T07:00:00.000Z": 1795335350666
+  "TRXUSDT|1H|LENS|SHORT|2026-11-22T07:00:00.000Z": 1795335350666,
+  "TRXUSDT|4H|LENS|SHORT|2026-11-22T04:00:00.000Z": 1795336260643
  },
- "lastRun": "2026-11-22T08:15:51.458Z",
- "runs": 427,
+ "lastRun": "2026-11-22T08:31:01.232Z",
+ "runs": 428,
  "errors": [],
- "durationSec": 25,
+ "durationSec": 20,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -22377,35 +22380,35 @@
    "LTCUSDT",
    "TAOUSDT",
    "ARBUSDT",
-   "IRYSUSDT",
    "BARDUSDT",
+   "IRYSUSDT",
    "AVAXUSDT",
    "OKBUSDT",
    "STRKUSDT",
    "ONDOUSDT",
    "AIUSDT",
    "PARTIUSDT",
-   "TRXUSDT",
    "PONSUSDT",
+   "TRXUSDT",
    "NIGHTUSDT",
    "ICPUSDT",
    "DGAIUSDT",
    "DOTUSDT",
    "XPLUSDT",
-   "UPUSDT",
-   "YBUSDT",
    "ZROUSDT",
+   "UPUSDT",
    "CRVUSDT",
    "HUMAUSDT",
    "ASTERUSDT",
+   "YBUSDT",
    "APTUSDT",
-   "INITUSDT",
-   "XLMUSDT",
    "PENGUUSDT",
+   "XLMUSDT",
+   "INITUSDT",
    "SHIBUSDT",
-   "HUSDT",
    "BERAUSDT",
-   "ETHFIUSDT",
+   "OPUSDT",
+   "HUSDT",
    "GRAMUSDT",
    "XAUUSDT",
    "XAGUSDT"
@@ -22414,7 +22417,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 5330890,
+   "minVolUSD": 5342424,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -22426,7 +22429,7 @@
    "pairs": 186,
    "candidates": 1,
    "deep": 1,
-   "extended": 15,
+   "extended": 18,
    "byClass": {
     "crypto": 1,
     "metal": 0,
@@ -22600,7 +22603,7 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 732,
+   "cooldownSkipped": 744,
    "aiTextStripped": 0
   }
  },
@@ -22608,14 +22611,14 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 5330890
+  "minVolUSD": 5342424
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
   "candidates": 1,
   "deep": 1,
-  "extended": 15,
+  "extended": 18,
   "byClass": {
    "crypto": 1,
    "metal": 0,
@@ -23127,9 +23130,9 @@
    }
   },
   "open": 171,
-  "dupSkipped": 349
+  "dupSkipped": 350
  },
- "shadowDup": 349,
+ "shadowDup": 350,
  "judgeReport": {
   "mode": "shadow",
   "agree": {
@@ -23181,7 +23184,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=13, against=55 (need ≥40 each)",
-  "asOf": "2026-11-22T08:15:51.460Z"
+  "asOf": "2026-11-22T08:31:01.235Z"
  },
  "shadowIndep": {
   "n": 330,
@@ -23951,9 +23954,13 @@
   "TRXUSDT|1H|LENS": {
    "t": 1795330800000,
    "side": "SHORT"
+  },
+  "TRXUSDT|4H|LENS": {
+   "t": 1795320000000,
+   "side": "SHORT"
   }
  },
- "cooldownSkipped": 732,
+ "cooldownSkipped": 744,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
