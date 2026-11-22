@@ -46,10 +46,10 @@
    "confidence": 90,
    "openedAt": "2026-11-21T04:15:52.319Z",
    "barTime": "2026-11-21T03:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 31,
+   "lastBarT": 1795345200000,
+   "bars": 32,
    "t1hit": true,
-   "mtm": 0.74,
+   "mtm": -0.03,
    "status": "OPEN",
    "reasons": [
     "رژیم HIGH_VOLATILITY (ATR percentile 100) → قانون صریح: SKIP مگر بریک‌اوت تاییدشده با حجم؛ شمع 1H در پایین 14% رنج بسته شده (ادامۀ فروش).",
@@ -60,7 +60,10 @@
    "alt": {
     "be": {
      "sl": 0.4598,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 32,
+     "gross": 0.75
     },
     "tr": {
      "sl": 0.4714357142857143,
@@ -805,6 +808,281 @@
   }
  ],
  "alerts": [
+  {
+   "ts": "2026-11-22T12:01:18.045Z",
+   "barTime": "2026-11-22T08:00:00.000Z",
+   "sym": "MMTUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 50,
+   "strategy": "SWEEP",
+   "lab": {
+    "best": {
+     "id": "BB_MR",
+     "name": "Bollinger mean-reversion",
+     "avg_r": 0.08,
+     "n": 16,
+     "verdict": "WEAK"
+    },
+    "mine": {
+     "n": 32,
+     "avg_r": 0,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "UP",
+   "event": "CANDLE",
+   "sweep": "ENTRY_TRIGGERED",
+   "entry": 0.2018,
+   "stop": 0.16231873,
+   "t1": 0.26102191,
+   "t2": 0.32024382,
+   "rr": 3,
+   "fails": [
+    "خلاف سوگیری تایم‌فریم بالاتر",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (32× · 0R)",
+    "طرح معامله با جهت نمی‌خواند (استاپ/هدف سمت اشتباه)"
+   ],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز"
+   ],
+   "tm": {
+    "n": 32,
+    "win": 41,
+    "avg": 0,
+    "pf": 1.01
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 8,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "خلاف سوگیری تایم‌فریم بالاتر",
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (32× · 0R)",
+    "طرح معامله با جهت نمی‌خواند (استاپ/هدف سمت اشتباه)"
+   ]
+  },
+  {
+   "ts": "2026-11-22T12:01:17.164Z",
+   "barTime": "2026-11-22T11:00:00.000Z",
+   "sym": "DGAIUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 86,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.21,
+     "n": 19,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 29,
+     "avg_r": -0.01,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q2",
+   "regime": "TREND_UP",
+   "htf": "UP",
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 0.8881,
+   "stop": 0.85281251,
+   "t1": 0.94103124,
+   "t2": 0.99396247,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.01R)"
+   ],
+   "warns": [
+    "کش‌شده از EMA50 (5.3×ATR)",
+    "Time Machine منفی (29× · -0.01R)"
+   ],
+   "tm": {
+    "n": 29,
+    "win": 41,
+    "avg": -0.01,
+    "pf": 0.99
+   },
+   "src": "okx",
+   "chase": 1,
+   "hourUtc": 11,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.01R)"
+   ]
+  },
+  {
+   "ts": "2026-11-22T12:01:16.276Z",
+   "barTime": "2026-11-22T08:00:00.000Z",
+   "sym": "VVVUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "score": 70,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.39,
+     "n": 16,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 29,
+     "avg_r": -0.43,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "NEUTRAL",
+   "event": "LONG_SETUP",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 25.322,
+   "stop": 23.62391073,
+   "t1": 27.86913391,
+   "t2": 30.41626782,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.43R)",
+    "Time Machine: منفی (29× · -0.43R)"
+   ],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز",
+    "نسبتاً کش‌شده (3.3×ATR)"
+   ],
+   "tm": {
+    "n": 29,
+    "win": 24,
+    "avg": -0.43,
+    "pf": 0.46
+   },
+   "src": "okx",
+   "chase": 1,
+   "hourUtc": 8,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.43R)",
+    "Time Machine: منفی (29× · -0.43R)"
+   ]
+  },
+  {
+   "ts": "2026-11-22T12:01:15.362Z",
+   "barTime": "2026-11-22T11:00:00.000Z",
+   "sym": "PARTIUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 70,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": -0.01,
+     "n": 24,
+     "verdict": "NEGATIVE"
+    },
+    "mine": {
+     "n": 23,
+     "avg_r": -0.22,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q4",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 0.03738,
+   "stop": 0.03616707,
+   "t1": 0.03919939,
+   "t2": 0.04101878,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (23× · -0.22R)",
+    "Time Machine: منفی (23× · -0.22R)"
+   ],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز"
+   ],
+   "tm": {
+    "n": 23,
+    "win": 39,
+    "avg": -0.22,
+    "pf": 0.67
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 11,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (23× · -0.22R)",
+    "Time Machine: منفی (23× · -0.22R)"
+   ]
+  },
+  {
+   "ts": "2026-11-22T12:01:14.465Z",
+   "barTime": "2026-11-22T08:00:00.000Z",
+   "sym": "CPUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "score": 60,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "LENS",
+     "name": "Lens setup",
+     "avg_r": 0.68,
+     "n": 9,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 2,
+     "avg_r": 2.17,
+     "verdict": "INSUFFICIENT"
+    }
+   },
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "DOWN",
+   "event": "CANDLE",
+   "sweep": null,
+   "entry": 0.006694,
+   "stop": 0.00617092,
+   "t1": 0.00747862,
+   "t2": 0.00826324,
+   "rr": 3,
+   "fails": [
+    "خلاف سوگیری تایم‌فریم بالاتر"
+   ],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز"
+   ],
+   "tm": {
+    "n": 9,
+    "win": 67,
+    "avg": 0.68,
+    "pf": 2.92
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 8,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "خلاف سوگیری تایم‌فریم بالاتر"
+   ]
+  },
   {
    "ts": "2026-11-22T11:01:03.299Z",
    "barTime": "2026-11-22T10:00:00.000Z",
@@ -4011,290 +4289,6 @@
     "خلاف سوگیری تایم‌فریم بالاتر",
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (32× · -0.09R)"
    ]
-  },
-  {
-   "ts": "2026-11-21T14:45:57.611Z",
-   "barTime": "2026-11-21T13:00:00.000Z",
-   "sym": "TAOUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 62,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.38,
-     "n": 21,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": -0.21,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": null,
-   "entry": 188.32,
-   "stop": 181.95777034,
-   "t1": 197.86334449,
-   "t2": 207.40668897,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.21R)",
-    "Time Machine: منفی (30× · -0.21R)"
-   ],
-   "warns": [
-    "رژیم Q4 (آشوب) — نیم‌سایز",
-    "ناحیه‌ی BREAKER فقط 0.18×ATR جلوتر"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 37,
-    "avg": -0.21,
-    "pf": 0.72
-   },
-   "src": "okx",
-   "chase": 1,
-   "hourUtc": 13,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.21R)",
-    "Time Machine: منفی (30× · -0.21R)"
-   ]
-  },
-  {
-   "ts": "2026-11-21T14:45:56.739Z",
-   "barTime": "2026-11-21T13:00:00.000Z",
-   "sym": "ZROUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 62,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "BB_MR",
-     "name": "Bollinger mean-reversion",
-     "avg_r": 0.18,
-     "n": 23,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 28,
-     "avg_r": -0.51,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": null,
-   "entry": 1.1678,
-   "stop": 1.1252326,
-   "t1": 1.2316511,
-   "t2": 1.29550221,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.51R)",
-    "Time Machine: منفی (28× · -0.51R)"
-   ],
-   "warns": [],
-   "tm": {
-    "n": 28,
-    "win": 32,
-    "avg": -0.51,
-    "pf": 0.31
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 13,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.51R)",
-    "Time Machine: منفی (28× · -0.51R)"
-   ]
-  },
-  {
-   "ts": "2026-11-21T14:45:55.820Z",
-   "barTime": "2026-11-21T13:00:00.000Z",
-   "sym": "ZECUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 70,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "ICHI",
-     "name": "Ichimoku TK cross + cloud filter",
-     "avg_r": 0.19,
-     "n": 8,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 28,
-     "avg_r": -0.03,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "DOWN",
-   "event": "LONG_SETUP",
-   "sweep": null,
-   "entry": 800.18,
-   "stop": 761.0723827,
-   "t1": 858.84142595,
-   "t2": 917.5028519,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.03R)"
-   ],
-   "warns": [
-    "رژیم Q4 (آشوب) — نیم‌سایز",
-    "ناحیه‌ی FVG فقط 0.86×ATR جلوتر",
-    "Time Machine منفی (28× · -0.03R)"
-   ],
-   "tm": {
-    "n": 28,
-    "win": 50,
-    "avg": -0.03,
-    "pf": 0.94
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 13,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · -0.03R)"
-   ]
-  },
-  {
-   "ts": "2026-11-21T14:45:54.893Z",
-   "barTime": "2026-11-21T13:00:00.000Z",
-   "sym": "XRPUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 62,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "MACD_EMA",
-     "name": "MACD cross + EMA200 filter",
-     "avg_r": 0.23,
-     "n": 20,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 33,
-     "avg_r": -0.29,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ARMED_WAIT_FVG_RETEST",
-   "entry": 0.9308,
-   "stop": 0.90664117,
-   "t1": 0.96703824,
-   "t2": 1.00327648,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (33× · -0.29R)",
-    "Time Machine: منفی (33× · -0.29R)"
-   ],
-   "warns": [
-    "رژیم Q4 (آشوب) — نیم‌سایز"
-   ],
-   "tm": {
-    "n": 33,
-    "win": 33,
-    "avg": -0.29,
-    "pf": 0.64
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 13,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (33× · -0.29R)",
-    "Time Machine: منفی (33× · -0.29R)"
-   ]
-  },
-  {
-   "ts": "2026-11-21T14:45:53.976Z",
-   "barTime": "2026-11-21T13:00:00.000Z",
-   "sym": "XLMUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "score": 62,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.27,
-     "n": 22,
-     "verdict": "EDGE"
-    },
-    "mine": {
-     "n": 30,
-     "avg_r": -0.43,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q4",
-   "regime": "HIGH_VOLATILITY",
-   "htf": "DOWN",
-   "event": "CANDLE",
-   "sweep": "ARMED_WAIT_FVG_RETEST",
-   "entry": 0.12931,
-   "stop": 0.12598477,
-   "t1": 0.13429785,
-   "t2": 0.1392857,
-   "rr": 3,
-   "fails": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.43R)",
-    "Time Machine: منفی (30× · -0.43R)"
-   ],
-   "warns": [
-    "رژیم Q4 (آشوب) — نیم‌سایز"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 23,
-    "avg": -0.43,
-    "pf": 0.44
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 13,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "خلاف سوگیری تایم‌فریم بالاتر",
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (30× · -0.43R)",
-    "Time Machine: منفی (30× · -0.43R)"
-   ]
   }
  ],
  "shadow": [
@@ -4365,14 +4359,17 @@
    "confidence": 75,
    "openedAt": "2026-11-19T16:17:15.399Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 16,
+   "lastBarT": 1795334400000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 0.82,
+   "mtm": 0.25,
    "alt": {
     "be": {
      "sl": 0.03176,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 17,
+     "gross": 0.75
     },
     "tr": {
      "sl": 0.03197428571428571,
@@ -4400,10 +4397,10 @@
    "confidence": 55,
    "openedAt": "2026-11-19T16:18:01.801Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 16,
+   "lastBarT": 1795334400000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 1.92,
+   "mtm": 1.28,
    "alt": {
     "be": {
      "sl": 104.68,
@@ -4459,17 +4456,17 @@
    "confidence": null,
    "openedAt": "2026-11-19T16:35:50.684Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 16,
+   "lastBarT": 1795334400000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 1.91,
+   "mtm": 1.2,
    "alt": {
     "be": {
      "sl": 0.5652,
      "t1hit": true
     },
     "tr": {
-     "sl": 0.55925,
+     "sl": 0.5584357142857143,
      "ext": 0.4976,
      "t1hit": true
     }
@@ -4494,10 +4491,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T16:45:44.761Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 16,
+   "lastBarT": 1795334400000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 1.83,
+   "mtm": 1.01,
    "alt": {
     "be": {
      "sl": 0.002664,
@@ -4529,10 +4526,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T16:45:45.749Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 16,
+   "lastBarT": 1795334400000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 1.42,
+   "mtm": 0.7,
    "alt": {
     "be": {
      "sl": 0.10673,
@@ -4564,17 +4561,17 @@
    "confidence": null,
    "openedAt": "2026-11-19T16:54:56.345Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 16,
+   "lastBarT": 1795334400000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 2.29,
+   "mtm": 1.73,
    "alt": {
     "be": {
      "sl": 0.1126,
      "t1hit": true
     },
     "tr": {
-     "sl": 0.10302857142857143,
+     "sl": 0.10296428571428572,
      "ext": 0.0864,
      "t1hit": true
     }
@@ -4599,10 +4596,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T17:01:09.557Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 16,
+   "lastBarT": 1795334400000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 1.46,
+   "mtm": 1.05,
    "alt": {
     "be": {
      "sl": 0.13431,
@@ -4634,10 +4631,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T17:45:57.145Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 16,
+   "lastBarT": 1795334400000,
+   "bars": 17,
    "t1hit": false,
-   "mtm": 0.53,
+   "mtm": 0.22,
    "alt": {
     "be": {
      "sl": 0.54539539,
@@ -4669,10 +4666,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T18:15:49.896Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 16,
+   "lastBarT": 1795334400000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": -0.02,
+   "mtm": -0.14,
    "alt": {
     "be": {
      "sl": 0.00743175,
@@ -4704,14 +4701,17 @@
    "confidence": null,
    "openedAt": "2026-11-19T20:01:05.329Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 15,
+   "lastBarT": 1795334400000,
+   "bars": 16,
    "t1hit": true,
-   "mtm": 0.67,
+   "mtm": 0.08,
    "alt": {
     "be": {
      "sl": 0.03143,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 16,
+     "gross": 0.75
     },
     "tr": {
      "sl": 0.03197428571428571,
@@ -4739,10 +4739,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T20:01:09.546Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 15,
+   "lastBarT": 1795334400000,
+   "bars": 16,
    "t1hit": true,
-   "mtm": 1.19,
+   "mtm": 0.79,
    "alt": {
     "be": {
      "sl": 0.13302,
@@ -4798,10 +4798,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T20:13:10.222Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 15,
+   "lastBarT": 1795334400000,
+   "bars": 16,
    "t1hit": true,
-   "mtm": 2.04,
+   "mtm": 1.4,
    "alt": {
     "be": {
      "sl": 105.36,
@@ -4857,10 +4857,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T20:45:45.841Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 15,
+   "lastBarT": 1795334400000,
+   "bars": 16,
    "t1hit": true,
-   "mtm": 1.4,
+   "mtm": 0.67,
    "alt": {
     "be": {
      "sl": 0.10644,
@@ -4892,10 +4892,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T23:01:07.767Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 15,
+   "lastBarT": 1795334400000,
+   "bars": 16,
    "t1hit": true,
-   "mtm": -0.23,
+   "mtm": -0.35,
    "alt": {
     "be": {
      "sl": 0.00765173,
@@ -4927,17 +4927,17 @@
    "confidence": null,
    "openedAt": "2026-11-19T23:15:46.168Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 15,
+   "lastBarT": 1795334400000,
+   "bars": 16,
    "t1hit": false,
-   "mtm": 0.71,
+   "mtm": 0.62,
    "alt": {
     "be": {
      "sl": 0.0501817,
      "t1hit": false
     },
     "tr": {
-     "sl": 0.04808,
+     "sl": 0.04780142857142857,
      "ext": 0.04355,
      "t1hit": false
     }
@@ -4962,10 +4962,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T00:03:34.131Z",
    "barTime": "2026-11-19T20:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 14,
+   "lastBarT": 1795334400000,
+   "bars": 15,
    "t1hit": true,
-   "mtm": 1.17,
+   "mtm": 0.41,
    "alt": {
     "be": {
      "sl": 0.10484,
@@ -4997,10 +4997,10 @@
    "confidence": 85,
    "openedAt": "2026-11-20T00:16:26.954Z",
    "barTime": "2026-11-19T20:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 14,
+   "lastBarT": 1795334400000,
+   "bars": 15,
    "t1hit": true,
-   "mtm": 1.95,
+   "mtm": 1.3,
    "alt": {
     "be": {
      "sl": 104.71,
@@ -5056,17 +5056,17 @@
    "confidence": null,
    "openedAt": "2026-11-20T00:17:23.811Z",
    "barTime": "2026-11-19T20:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 14,
+   "lastBarT": 1795334400000,
+   "bars": 15,
    "t1hit": true,
-   "mtm": 0.44,
+   "mtm": 0.2,
    "alt": {
     "be": {
      "sl": 0.0508,
      "t1hit": true
     },
     "tr": {
-     "sl": 0.04661357142857143,
+     "sl": 0.04702071428571429,
      "ext": 0.05988,
      "t1hit": true
     }
@@ -5091,10 +5091,10 @@
    "confidence": 85,
    "openedAt": "2026-11-20T00:31:18.590Z",
    "barTime": "2026-11-19T20:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 14,
+   "lastBarT": 1795334400000,
+   "bars": 15,
    "t1hit": true,
-   "mtm": 1.17,
+   "mtm": 0.75,
    "alt": {
     "be": {
      "sl": 0.13276,
@@ -5150,17 +5150,17 @@
    "confidence": 90,
    "openedAt": "2026-11-20T01:15:47.329Z",
    "barTime": "2026-11-19T20:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 14,
+   "lastBarT": 1795334400000,
+   "bars": 15,
    "t1hit": false,
-   "mtm": 0.71,
+   "mtm": 0.63,
    "alt": {
     "be": {
      "sl": 0.05044765,
      "t1hit": false
     },
     "tr": {
-     "sl": 0.04808,
+     "sl": 0.04780142857142857,
      "ext": 0.04355,
      "t1hit": false
     }
@@ -5257,10 +5257,10 @@
    "confidence": 85,
    "openedAt": "2026-11-20T04:14:56.042Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 0.96,
+   "mtm": 0.59,
    "alt": {
     "be": {
      "sl": 0.9271,
@@ -5292,14 +5292,17 @@
    "confidence": 85,
    "openedAt": "2026-11-20T04:15:16.779Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 0.51,
+   "mtm": -0.09,
    "alt": {
     "be": {
      "sl": 0.03113,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 14,
+     "gross": 0.75
     },
     "tr": {
      "sl": 0.03197428571428571,
@@ -5327,17 +5330,17 @@
    "confidence": 55,
    "openedAt": "2026-11-20T04:15:42.607Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": false,
-   "mtm": 0.23,
+   "mtm": 0.15,
    "alt": {
     "be": {
      "sl": 0.04864067,
      "t1hit": false
     },
     "tr": {
-     "sl": 0.04808,
+     "sl": 0.04780142857142857,
      "ext": 0.04355,
      "t1hit": false
     }
@@ -5386,17 +5389,17 @@
    "confidence": null,
    "openedAt": "2026-11-20T04:18:07.998Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.07,
+   "mtm": 0.51,
    "alt": {
     "be": {
      "sl": 0.2912,
      "t1hit": true
     },
     "tr": {
-     "sl": 0.29325,
+     "sl": 0.2928428571428571,
      "ext": 0.261,
      "t1hit": true
     }
@@ -5421,17 +5424,17 @@
    "confidence": null,
    "openedAt": "2026-11-20T04:18:08.900Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 0.96,
+   "mtm": 0.41,
    "alt": {
     "be": {
      "sl": 0.07313,
      "t1hit": true
     },
     "tr": {
-     "sl": 0.07376357142857143,
+     "sl": 0.07356642857142856,
      "ext": 0.06591,
      "t1hit": true
     }
@@ -5456,10 +5459,10 @@
    "confidence": 60,
    "openedAt": "2026-11-20T04:19:07.795Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.65,
+   "mtm": 0.99,
    "alt": {
     "be": {
      "sl": 103.21,
@@ -5491,17 +5494,17 @@
    "confidence": null,
    "openedAt": "2026-11-20T04:19:33.580Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.07,
+   "mtm": 0.73,
    "alt": {
     "be": {
      "sl": 0.00000358,
      "t1hit": true
     },
     "tr": {
-     "sl": 0.000003654314285714286,
+     "sl": 0.000003622492857142857,
      "ext": 0.0000032422,
      "t1hit": true
     }
@@ -5526,10 +5529,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T04:19:34.508Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.18,
+   "mtm": 0.36,
    "alt": {
     "be": {
      "sl": 0.002544,
@@ -5561,17 +5564,17 @@
    "confidence": 75,
    "openedAt": "2026-11-20T04:30:52.733Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.63,
+   "mtm": 0.95,
    "alt": {
     "be": {
      "sl": 0.5591,
      "t1hit": true
     },
     "tr": {
-     "sl": 0.55925,
+     "sl": 0.5584357142857143,
      "ext": 0.4976,
      "t1hit": true
     }
@@ -5596,17 +5599,17 @@
    "confidence": 80,
    "openedAt": "2026-11-20T04:32:07.016Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.32,
+   "mtm": 0.66,
    "alt": {
     "be": {
      "sl": 0.1493,
      "t1hit": true
     },
     "tr": {
-     "sl": 0.15121428571428572,
+     "sl": 0.1510857142857143,
      "ext": 0.1366,
      "t1hit": true
     }
@@ -5631,17 +5634,17 @@
    "confidence": 80,
    "openedAt": "2026-11-20T04:33:35.901Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 0.98,
+   "mtm": 0.35,
    "alt": {
     "be": {
      "sl": 3.048,
      "t1hit": true
     },
     "tr": {
-     "sl": 3.024142857142857,
+     "sl": 3.0142857142857142,
      "ext": 2.641,
      "t1hit": true
     }
@@ -5666,17 +5669,17 @@
    "confidence": 55,
    "openedAt": "2026-11-20T04:45:43.556Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.71,
+   "mtm": 1.15,
    "alt": {
     "be": {
      "sl": 6.705,
      "t1hit": true
     },
     "tr": {
-     "sl": 6.681,
+     "sl": 6.647142857142857,
      "ext": 5.856,
      "t1hit": true
     }
@@ -5701,17 +5704,17 @@
    "confidence": 55,
    "openedAt": "2026-11-20T04:47:31.052Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.64,
+   "mtm": 1.09,
    "alt": {
     "be": {
      "sl": 0.1065,
      "t1hit": true
     },
     "tr": {
-     "sl": 0.10302857142857143,
+     "sl": 0.10296428571428572,
      "ext": 0.0864,
      "t1hit": true
     }
@@ -5736,10 +5739,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T04:47:54.786Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": false,
-   "mtm": 0.56,
+   "mtm": 0.39,
    "alt": {
     "be": {
      "sl": 0.04814814,
@@ -5771,10 +5774,10 @@
    "confidence": 85,
    "openedAt": "2026-11-20T05:31:34.339Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 0.17,
+   "mtm": -0.28,
    "alt": {
     "be": {
      "sl": 188.13,
@@ -5809,17 +5812,17 @@
    "confidence": null,
    "openedAt": "2026-11-20T05:45:48.482Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.05,
+   "mtm": 0.56,
    "alt": {
     "be": {
      "sl": 0.00473306,
      "t1hit": false
     },
     "tr": {
-     "sl": 0.0046122142857142855,
+     "sl": 0.0046045,
      "ext": 0.004093,
      "t1hit": false
     }
@@ -5844,10 +5847,10 @@
    "confidence": 70,
    "openedAt": "2026-11-20T05:45:50.139Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.15,
+   "mtm": 0.73,
    "alt": {
     "be": {
      "sl": 0.13265,
@@ -5879,10 +5882,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T05:47:06.577Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 13,
+   "lastBarT": 1795334400000,
+   "bars": 14,
    "t1hit": false,
-   "mtm": 0.32,
+   "mtm": -0.02,
    "alt": {
     "be": {
      "sl": 0.53458202,
@@ -5986,10 +5989,10 @@
    "confidence": 65,
    "openedAt": "2026-11-20T08:03:19.977Z",
    "barTime": "2026-11-20T04:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 12,
+   "lastBarT": 1795334400000,
+   "bars": 13,
    "t1hit": true,
-   "mtm": 0.97,
+   "mtm": 0.24,
    "alt": {
     "be": {
      "sl": 8.874,
@@ -6051,44 +6054,6 @@
    "mtm": 2.03
   },
   {
-   "id": "NIGHTUSDT|4H|SHORT|2026-11-20T04:00:00.000Z",
-   "sym": "NIGHTUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "strategy": "EMA_X",
-   "quad": "Q3",
-   "score": 54,
-   "chase": 0,
-   "entry": 0.043409,
-   "stop": 0.04656891,
-   "t1": 0.03866914,
-   "t2": 0.03392928,
-   "verdict": "DEFERRED",
-   "aiDecision": "DEFER",
-   "confidence": null,
-   "openedAt": "2026-11-20T08:47:08.814Z",
-   "barTime": "2026-11-20T04:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 12,
-   "t1hit": false,
-   "mtm": -0.42,
-   "alt": {
-    "be": {
-     "sl": 0.04656891,
-     "t1hit": false
-    },
-    "tr": {
-     "sl": 0.04542492857142857,
-     "ext": 0.039309,
-     "t1hit": false,
-     "out": "SL",
-     "bars": 9,
-     "gross": -0.64
-    }
-   }
-  },
-  {
    "id": "EURGBP|1H|LONG|2026-11-20T13:00:00.000Z",
    "sym": "EURGBP",
    "cls": "forex",
@@ -6131,19 +6096,25 @@
    "confidence": null,
    "openedAt": "2026-11-20T14:01:09.135Z",
    "barTime": "2026-11-20T08:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 11,
+   "lastBarT": 1795334400000,
+   "bars": 12,
    "t1hit": true,
-   "mtm": 0.71,
+   "mtm": -0.43,
    "alt": {
     "be": {
      "sl": 0.3314,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 12,
+     "gross": 0.75
     },
     "tr": {
      "sl": 0.34117857142857144,
      "ext": 0.3034,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 12,
+     "gross": 0.44
     }
    }
   },
@@ -6166,10 +6137,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T14:01:11.267Z",
    "barTime": "2026-11-20T08:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 11,
+   "lastBarT": 1795334400000,
+   "bars": 12,
    "t1hit": true,
-   "mtm": 1.05,
+   "mtm": 0.43,
    "alt": {
     "be": {
      "sl": 0.30980222,
@@ -6201,10 +6172,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T14:16:03.786Z",
    "barTime": "2026-11-20T08:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 11,
+   "lastBarT": 1795334400000,
+   "bars": 12,
    "t1hit": true,
-   "mtm": 1.39,
+   "mtm": 0.92,
    "live": "ALERT_ONLY_CAP",
    "alt": {
     "be": {
@@ -6212,7 +6183,7 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 0.05401857142857143,
+     "sl": 0.05397142857142857,
      "ext": 0.04909,
      "t1hit": true
     }
@@ -6294,42 +6265,6 @@
    "live": "ALERT_ONLY_CAP"
   },
   {
-   "id": "MMTUSDT|4H|LONG|2026-11-20T12:00:00.000Z",
-   "sym": "MMTUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "LONG",
-   "strategy": "SWEEP",
-   "quad": "Q2",
-   "score": 60,
-   "chase": 0,
-   "entry": 0.2435,
-   "stop": 0.19732488,
-   "t1": 0.31276268,
-   "t2": 0.38202536,
-   "verdict": "RULES_REJECTED",
-   "aiDecision": null,
-   "confidence": null,
-   "openedAt": "2026-11-20T16:31:00.609Z",
-   "barTime": "2026-11-20T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 10,
-   "t1hit": false,
-   "mtm": -0.41,
-   "live": "REJECTED_RULES",
-   "alt": {
-    "be": {
-     "sl": 0.19732488,
-     "t1hit": false
-    },
-    "tr": {
-     "sl": 0.19732488,
-     "ext": 0.2427,
-     "t1hit": false
-    }
-   }
-  },
-  {
    "id": "USDCAD|1H|LONG|2026-11-20T17:00:00.000Z",
    "sym": "USDCAD",
    "cls": "forex",
@@ -6373,10 +6308,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T18:45:48.463Z",
    "barTime": "2026-11-20T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 10,
+   "lastBarT": 1795334400000,
+   "bars": 11,
    "t1hit": false,
-   "mtm": -0.33,
+   "mtm": -0.46,
    "live": "ALERT_ONLY_CAP",
    "alt": {
     "be": {
@@ -6409,10 +6344,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T18:45:49.379Z",
    "barTime": "2026-11-20T12:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 10,
+   "lastBarT": 1795334400000,
+   "bars": 11,
    "t1hit": false,
-   "mtm": 0.62,
+   "mtm": 0.89,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -6420,7 +6355,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.05325214285714286,
+     "sl": 0.051595714285714286,
      "ext": 0.04521,
      "t1hit": false
     }
@@ -6495,10 +6430,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T23:01:06.395Z",
    "barTime": "2026-11-20T22:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 36,
+   "lastBarT": 1795345200000,
+   "bars": 37,
    "t1hit": true,
-   "mtm": 0.69,
+   "mtm": 0.83,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -6534,15 +6469,18 @@
    "confidence": null,
    "openedAt": "2026-11-21T04:01:30.118Z",
    "barTime": "2026-11-21T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 7,
+   "lastBarT": 1795334400000,
+   "bars": 8,
    "t1hit": true,
-   "mtm": 0.71,
+   "mtm": -0.03,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
      "sl": 0.4598,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 8,
+     "gross": 0.75
     },
     "tr": {
      "sl": 0.42058224,
@@ -6570,15 +6508,18 @@
    "confidence": 90,
    "openedAt": "2026-11-21T04:15:52.319Z",
    "barTime": "2026-11-21T03:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 31,
+   "lastBarT": 1795345200000,
+   "bars": 32,
    "t1hit": true,
-   "mtm": 0.74,
+   "mtm": -0.03,
    "live": "OPENED_PAPER",
    "alt": {
     "be": {
      "sl": 0.4598,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 32,
+     "gross": 0.75
     },
     "tr": {
      "sl": 0.4728428571428571,
@@ -6609,10 +6550,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T05:01:01.872Z",
    "barTime": "2026-11-21T04:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 30,
+   "lastBarT": 1795345200000,
+   "bars": 31,
    "t1hit": true,
-   "mtm": 1.08,
+   "mtm": 1.2,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -6645,10 +6586,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T05:15:40.739Z",
    "barTime": "2026-11-21T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 7,
+   "lastBarT": 1795334400000,
+   "bars": 8,
    "t1hit": false,
-   "mtm": 0.82,
+   "mtm": 0.71,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -6681,10 +6622,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T05:45:50.941Z",
    "barTime": "2026-11-21T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 7,
+   "lastBarT": 1795334400000,
+   "bars": 8,
    "t1hit": false,
-   "mtm": -0.32,
+   "mtm": -0.28,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8161,8 +8102,8 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:01:04.667Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
    "mtm": 0.43,
    "live": "REJECTED_RULES",
@@ -8201,10 +8142,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:01:05.264Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.05,
+   "mtm": 0.12,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8241,10 +8182,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:01:05.845Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": -0.04,
+   "mtm": -0.09,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8281,10 +8222,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:01:06.441Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.31,
+   "mtm": 0.35,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8321,10 +8262,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:01:07.628Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.18,
+   "mtm": 0.06,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8361,10 +8302,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:01:08.207Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": -0.13,
+   "mtm": -0.09,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8401,10 +8342,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:15:53.861Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.33,
+   "mtm": 0.25,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8441,8 +8382,8 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:15:54.755Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
    "mtm": 1.05,
    "live": "REJECTED_RULES",
@@ -8452,8 +8393,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.09914785714285715,
-     "ext": 0.10314,
+     "sl": 0.09918071428571429,
+     "ext": 0.10319,
      "t1hit": false
     }
    }
@@ -8478,10 +8419,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:15:58.346Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.76,
+   "mtm": 0.58,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8489,49 +8430,9 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 2.882714285714286,
-     "ext": 3.007,
+     "sl": 2.8925,
+     "ext": 3.017,
      "t1hit": false
-    }
-   }
-  },
-  {
-   "id": "NIGHTUSDT|1H|LONG|2026-11-21T13:00:00.000Z",
-   "sym": "NIGHTUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "LONG",
-   "strategy": "LENS",
-   "quad": "Q3",
-   "score": 62,
-   "chase": 0,
-   "entry": 0.042414,
-   "stop": 0.04084851,
-   "t1": 0.04476223,
-   "t2": 0.04711047,
-   "verdict": "RULES_REJECTED",
-   "hourUtc": 13,
-   "aiDecision": null,
-   "confidence": null,
-   "openedAt": "2026-11-21T14:15:59.323Z",
-   "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
-   "t1hit": true,
-   "mtm": 2.1,
-   "live": "REJECTED_RULES",
-   "alt": {
-    "be": {
-     "sl": 0.042414,
-     "t1hit": true
-    },
-    "tr": {
-     "sl": 0.044153,
-     "ext": 0.046043,
-     "t1hit": true,
-     "out": "T1_THEN_SL",
-     "bars": 20,
-     "gross": 1.31
     }
    }
   },
@@ -8555,10 +8456,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:16:00.222Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.21,
+   "mtm": 0.41,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8595,10 +8496,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:30:55.776Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.59,
+   "mtm": 0.51,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8635,10 +8536,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:30:56.385Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.68,
+   "mtm": 0.51,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8675,10 +8576,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:30:57.554Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.67,
+   "mtm": 0.89,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8715,10 +8616,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:30:58.725Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.41,
+   "mtm": 0.37,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8755,10 +8656,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:30:59.345Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": true,
-   "mtm": 1.61,
+   "mtm": 1.39,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8795,10 +8696,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:30:59.936Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": true,
-   "mtm": 1.47,
+   "mtm": 1.09,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8832,10 +8733,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:45:53.058Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.44,
+   "mtm": 0.37,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8872,10 +8773,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:45:53.976Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.16,
+   "mtm": -0.04,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8912,10 +8813,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:45:54.893Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.04,
+   "mtm": -0.11,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8952,10 +8853,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:45:56.739Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.15,
+   "mtm": 0.13,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8963,7 +8864,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 1.1437357142857143,
+     "sl": 1.1506785714285714,
      "ext": 1.2026,
      "t1hit": false
     }
@@ -8989,10 +8890,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:45:57.611Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": 0.4,
+   "mtm": 0.33,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9029,10 +8930,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T14:45:58.569Z",
    "barTime": "2026-11-21T13:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 21,
+   "lastBarT": 1795345200000,
+   "bars": 22,
    "t1hit": false,
-   "mtm": -0.04,
+   "mtm": -0.02,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9069,10 +8970,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T15:15:53.215Z",
    "barTime": "2026-11-21T14:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 20,
+   "lastBarT": 1795345200000,
+   "bars": 21,
    "t1hit": false,
-   "mtm": 1.02,
+   "mtm": 1.09,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9080,8 +8981,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.1782357142857143,
-     "ext": 0.1849,
+     "sl": 0.18015714285714285,
+     "ext": 0.1871,
      "t1hit": false
     }
    }
@@ -9132,10 +9033,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T20:01:05.652Z",
    "barTime": "2026-11-21T19:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 15,
+   "lastBarT": 1795345200000,
+   "bars": 16,
    "t1hit": false,
-   "mtm": -0.46,
+   "mtm": -0.56,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9172,10 +9073,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T23:15:54.648Z",
    "barTime": "2026-11-21T22:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 12,
+   "lastBarT": 1795345200000,
+   "bars": 13,
    "t1hit": false,
-   "mtm": -0.06,
+   "mtm": -0.25,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9212,10 +9113,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T03:15:55.974Z",
    "barTime": "2026-11-22T02:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 8,
+   "lastBarT": 1795345200000,
+   "bars": 9,
    "t1hit": false,
-   "mtm": -0.41,
+   "mtm": -0.49,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9252,20 +9153,20 @@
    "confidence": null,
    "openedAt": "2026-11-22T05:01:08.193Z",
    "barTime": "2026-11-22T04:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 6,
-   "t1hit": false,
-   "mtm": 0.79,
+   "lastBarT": 1795345200000,
+   "bars": 7,
+   "t1hit": true,
+   "mtm": 1.93,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
-     "sl": 0.80440567,
-     "t1hit": false
+     "sl": 0.833,
+     "t1hit": true
     },
     "tr": {
-     "sl": 0.80440567,
-     "ext": 0.8659,
-     "t1hit": false
+     "sl": 0.8195571428571429,
+     "ext": 0.9,
+     "t1hit": true
     }
    }
   },
@@ -9289,10 +9190,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T06:01:05.940Z",
    "barTime": "2026-11-22T00:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 1,
+   "lastBarT": 1795334400000,
+   "bars": 2,
    "t1hit": false,
-   "mtm": -0.23,
+   "mtm": 0.01,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9301,7 +9202,7 @@
     },
     "tr": {
      "sl": 0.45398427,
-     "ext": 0.4858,
+     "ext": 0.4967,
      "t1hit": false
     }
    }
@@ -9326,10 +9227,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T07:01:13.126Z",
    "barTime": "2026-11-22T06:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 4,
+   "lastBarT": 1795345200000,
+   "bars": 5,
    "t1hit": true,
-   "mtm": 1.51,
+   "mtm": 1,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9337,8 +9238,8 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 0.09075714285714287,
-     "ext": 0.098,
+     "sl": 0.09115714285714287,
+     "ext": 0.099,
      "t1hit": true
     }
    }
@@ -9363,11 +9264,22 @@
    "confidence": null,
    "openedAt": "2026-11-22T08:01:05.523Z",
    "barTime": "2026-11-22T04:00:00.000Z",
-   "lastBarT": 1795320000000,
-   "bars": 0,
+   "lastBarT": 1795334400000,
+   "bars": 1,
    "t1hit": false,
-   "mtm": 0,
-   "live": "REJECTED_RULES"
+   "mtm": 0.16,
+   "live": "REJECTED_RULES",
+   "alt": {
+    "be": {
+     "sl": 23.32528847,
+     "t1hit": false
+    },
+    "tr": {
+     "sl": 23.32528847,
+     "ext": 25.877,
+     "t1hit": false
+    }
+   }
   },
   {
    "id": "ETHFIUSDT|1H|LONG|2026-11-22T08:00:00.000Z",
@@ -9389,10 +9301,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T09:01:11.390Z",
    "barTime": "2026-11-22T08:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 2,
+   "lastBarT": 1795345200000,
+   "bars": 3,
    "t1hit": false,
-   "mtm": 0.47,
+   "mtm": -0.03,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9426,10 +9338,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T09:01:12.115Z",
    "barTime": "2026-11-22T08:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 2,
+   "lastBarT": 1795345200000,
+   "bars": 3,
    "t1hit": false,
-   "mtm": 0.51,
+   "mtm": 0.85,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9437,8 +9349,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.9407142857142858,
-     "ext": 0.969,
+     "sl": 0.9436428571428572,
+     "ext": 0.973,
      "t1hit": false
     }
    }
@@ -9463,10 +9375,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T09:01:13.271Z",
    "barTime": "2026-11-22T08:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 2,
+   "lastBarT": 1795345200000,
+   "bars": 3,
    "t1hit": false,
-   "mtm": -0.02,
+   "mtm": -0.13,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9500,10 +9412,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T10:01:17.414Z",
    "barTime": "2026-11-22T09:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 1,
+   "lastBarT": 1795345200000,
+   "bars": 2,
    "t1hit": false,
-   "mtm": -0.61,
+   "mtm": -0.54,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9537,10 +9449,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T10:15:51.776Z",
    "barTime": "2026-11-22T09:00:00.000Z",
-   "lastBarT": 1795341600000,
-   "bars": 1,
+   "lastBarT": 1795345200000,
+   "bars": 2,
    "t1hit": false,
-   "mtm": -0.58,
+   "mtm": -0.72,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9553,9 +9465,258 @@
      "t1hit": false
     }
    }
+  },
+  {
+   "id": "CPUSDT|4H|LONG|2026-11-22T08:00:00.000Z",
+   "sym": "CPUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "strategy": "ICHI",
+   "quad": "Q4",
+   "score": 60,
+   "chase": 0,
+   "entry": 0.006694,
+   "stop": 0.00617092,
+   "t1": 0.00747862,
+   "t2": 0.00826324,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 8,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T12:01:14.465Z",
+   "barTime": "2026-11-22T08:00:00.000Z",
+   "lastBarT": 1795334400000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
+  },
+  {
+   "id": "PARTIUSDT|1H|LONG|2026-11-22T11:00:00.000Z",
+   "sym": "PARTIUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q4",
+   "score": 70,
+   "chase": 0,
+   "entry": 0.03738,
+   "stop": 0.03616707,
+   "t1": 0.03919939,
+   "t2": 0.04101878,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 11,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T12:01:15.362Z",
+   "barTime": "2026-11-22T11:00:00.000Z",
+   "lastBarT": 1795345200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
+  },
+  {
+   "id": "MMTUSDT|4H|SHORT|2026-11-22T08:00:00.000Z",
+   "sym": "MMTUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "strategy": "SWEEP",
+   "quad": "Q4",
+   "score": 50,
+   "chase": 0,
+   "entry": 0.2018,
+   "stop": 0.16231873,
+   "t1": 0.26102191,
+   "t2": 0.32024382,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 8,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T12:01:18.045Z",
+   "barTime": "2026-11-22T08:00:00.000Z",
+   "lastBarT": 1795334400000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
   }
  ],
  "shadowClosed": [
+  {
+   "id": "NIGHTUSDT|1H|LONG|2026-11-21T13:00:00.000Z",
+   "sym": "NIGHTUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q3",
+   "score": 62,
+   "chase": 0,
+   "entry": 0.042414,
+   "stop": 0.04084851,
+   "t1": 0.04476223,
+   "t2": 0.04711047,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 13,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-21T14:15:59.323Z",
+   "barTime": "2026-11-21T13:00:00.000Z",
+   "lastBarT": 1795345200000,
+   "bars": 22,
+   "t1hit": true,
+   "mtm": 2.1,
+   "live": "REJECTED_RULES",
+   "alt": {
+    "be": {
+     "sl": 0.042414,
+     "t1hit": true,
+     "out": "T2",
+     "bars": 22,
+     "gross": 2.25
+    },
+    "tr": {
+     "sl": 0.044153,
+     "ext": 0.046043,
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 20,
+     "gross": 1.31
+    }
+   },
+   "out": "T2",
+   "rr": 2.16,
+   "gross": 2.25,
+   "costR": 0.089,
+   "altBE": {
+    "out": "T2",
+    "rr": 2.16,
+    "bars": 22
+   },
+   "altTR": {
+    "out": "T1_THEN_SL",
+    "rr": 1.22,
+    "bars": 20
+   },
+   "closedAt": "2026-11-22T12:00:54.237Z"
+  },
+  {
+   "id": "MMTUSDT|4H|LONG|2026-11-20T12:00:00.000Z",
+   "sym": "MMTUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "strategy": "SWEEP",
+   "quad": "Q2",
+   "score": 60,
+   "chase": 0,
+   "entry": 0.2435,
+   "stop": 0.19732488,
+   "t1": 0.31276268,
+   "t2": 0.38202536,
+   "verdict": "RULES_REJECTED",
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-20T16:31:00.609Z",
+   "barTime": "2026-11-20T12:00:00.000Z",
+   "lastBarT": 1795334400000,
+   "bars": 11,
+   "t1hit": false,
+   "mtm": -0.41,
+   "live": "REJECTED_RULES",
+   "alt": {
+    "be": {
+     "sl": 0.19732488,
+     "t1hit": false,
+     "out": "SL",
+     "bars": 11,
+     "gross": -1
+    },
+    "tr": {
+     "sl": 0.19732488,
+     "ext": 0.2427,
+     "t1hit": false,
+     "out": "SL",
+     "bars": 11,
+     "gross": -1
+    }
+   },
+   "out": "SL",
+   "rr": -1.02,
+   "gross": -1,
+   "costR": 0.019,
+   "altBE": {
+    "out": "SL",
+    "rr": -1.02,
+    "bars": 11
+   },
+   "altTR": {
+    "out": "SL",
+    "rr": -1.02,
+    "bars": 11
+   },
+   "closedAt": "2026-11-22T12:00:51.705Z"
+  },
+  {
+   "id": "NIGHTUSDT|4H|SHORT|2026-11-20T04:00:00.000Z",
+   "sym": "NIGHTUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "strategy": "EMA_X",
+   "quad": "Q3",
+   "score": 54,
+   "chase": 0,
+   "entry": 0.043409,
+   "stop": 0.04656891,
+   "t1": 0.03866914,
+   "t2": 0.03392928,
+   "verdict": "DEFERRED",
+   "aiDecision": "DEFER",
+   "confidence": null,
+   "openedAt": "2026-11-20T08:47:08.814Z",
+   "barTime": "2026-11-20T04:00:00.000Z",
+   "lastBarT": 1795334400000,
+   "bars": 13,
+   "t1hit": false,
+   "mtm": -0.42,
+   "alt": {
+    "be": {
+     "sl": 0.04656891,
+     "t1hit": false,
+     "out": "SL",
+     "bars": 13,
+     "gross": -1
+    },
+    "tr": {
+     "sl": 0.04542492857142857,
+     "ext": 0.039309,
+     "t1hit": false,
+     "out": "SL",
+     "bars": 9,
+     "gross": -0.64
+    }
+   },
+   "out": "SL",
+   "rr": -1.05,
+   "gross": -1,
+   "costR": 0.05,
+   "altBE": {
+    "out": "SL",
+    "rr": -1.05,
+    "bars": 13
+   },
+   "altTR": {
+    "out": "SL",
+    "rr": -0.69,
+    "bars": 9
+   },
+   "closedAt": "2026-11-22T12:00:51.440Z"
+  },
   {
    "id": "AIUSDT|1H|LONG|2026-11-22T05:00:00.000Z",
    "sym": "AIUSDT",
@@ -22865,12 +23026,17 @@
   "VVVUSDT|1H|LENS|LONG|2026-11-22T08:00:00.000Z": 1795338072691,
   "TRXUSDT|1H|ICHI|LONG|2026-11-22T09:00:00.000Z": 1795341676661,
   "BTWUSDT|1H|LENS|LONG|2026-11-22T09:00:00.000Z": 1795342550828,
-  "NIGHTUSDT|1H|LENS|LONG|2026-11-22T10:00:00.000Z": 1795345262659
+  "NIGHTUSDT|1H|LENS|LONG|2026-11-22T10:00:00.000Z": 1795345262659,
+  "CPUSDT|4H|ICHI|LONG|2026-11-22T08:00:00.000Z": 1795348873474,
+  "PARTIUSDT|1H|LENS|LONG|2026-11-22T11:00:00.000Z": 1795348874465,
+  "VVVUSDT|4H|LENS|LONG|2026-11-22T08:00:00.000Z": 1795348875362,
+  "DGAIUSDT|1H|LENS|LONG|2026-11-22T11:00:00.000Z": 1795348876276,
+  "MMTUSDT|4H|SWEEP|SHORT|2026-11-22T08:00:00.000Z": 1795348877165
  },
- "lastRun": "2026-11-22T11:45:50.637Z",
- "runs": 442,
+ "lastRun": "2026-11-22T12:01:18.047Z",
+ "runs": 443,
  "errors": [],
- "durationSec": 24,
+ "durationSec": 29,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -23130,13 +23296,13 @@
    "PUMPUSDT",
    "TRUMPUSDT",
    "WLDUSDT",
-   "SUIUSDT",
    "VVVUSDT",
+   "SUIUSDT",
    "ENSOUSDT",
    "AAVEUSDT",
+   "ENAUSDT",
    "ADAUSDT",
    "FILUSDT",
-   "ENAUSDT",
    "LITUSDT",
    "BCHUSDT",
    "INJUSDT",
@@ -23166,13 +23332,13 @@
    "XLMUSDT",
    "HUMAUSDT",
    "INITUSDT",
-   "PENGUUSDT",
    "CPUSDT",
+   "PENGUUSDT",
    "APTUSDT",
-   "PARTIUSDT",
    "BERAUSDT",
    "ETHFIUSDT",
    "GRAMUSDT",
+   "PARTIUSDT",
    "SHIBUSDT",
    "OPUSDT",
    "XAUUSDT",
@@ -23182,7 +23348,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 5332317,
+   "minVolUSD": 5335525,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -23192,11 +23358,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 0,
-   "deep": 0,
-   "extended": 12,
+   "candidates": 5,
+   "deep": 5,
+   "extended": 13,
    "byClass": {
-    "crypto": 0,
+    "crypto": 5,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -23368,7 +23534,7 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 864,
+   "cooldownSkipped": 873,
    "aiTextStripped": 0
   }
  },
@@ -23376,16 +23542,16 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 5332317
+  "minVolUSD": 5335525
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 0,
-  "deep": 0,
-  "extended": 12,
+  "candidates": 5,
+  "deep": 5,
+  "extended": 13,
   "byClass": {
-   "crypto": 0,
+   "crypto": 5,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -23493,20 +23659,14 @@
   }
  },
  "pending": {
-  "BCHUSDT|4H|SHORT|2026-11-19T12:00:00.000Z": 4,
-  "ADAUSDT|4H|SHORT|2026-11-19T12:00:00.000Z": 4,
   "PENGUUSDT|1H|SHORT|2026-11-19T15:00:00.000Z": 1,
-  "TAOUSDT|4H|SHORT|2026-11-19T12:00:00.000Z": 4,
-  "PONSUSDT|4H|SHORT|2026-11-19T12:00:00.000Z": 3,
   "PENGUUSDT|1H|SHORT|2026-11-19T16:00:00.000Z": 4,
-  "XLMUSDT|4H|SHORT|2026-11-19T12:00:00.000Z": 4,
   "BNBUSDT|1H|SHORT|2026-11-19T16:00:00.000Z": 4,
   "GBPJPY|1H|SHORT|2026-11-19T17:00:00.000Z": 1,
   "OPUSDT|1H|SHORT|2026-11-19T16:00:00.000Z": 1,
   "FILUSDT|1H|SHORT|2026-11-19T16:00:00.000Z": 1,
   "OPUSDT|1H|SHORT|2026-11-19T17:00:00.000Z": 4,
   "XPLUSDT|1H|SHORT|2026-11-19T17:00:00.000Z": 3,
-  "NEARUSDT|4H|SHORT|2026-11-19T12:00:00.000Z": 4,
   "YBUSDT|1H|LONG|2026-11-19T18:00:00.000Z": 4,
   "OPUSDT|1H|SHORT|2026-11-19T18:00:00.000Z": 3,
   "CRVUSDT|1H|SHORT|2026-11-19T18:00:00.000Z": 4,
@@ -23601,14 +23761,30 @@
  },
  "shadowStats": {
   "all": {
-   "n": 355,
-   "win": 59,
-   "avg": 0.76,
-   "total": 268.56,
-   "pf": 2.7,
+   "n": 358,
+   "win": 58,
+   "avg": 0.75,
+   "total": 268.65,
+   "pf": 2.68,
    "maxDD": 51.52
   },
   "byVerdict": {
+   "RULES_REJECTED": {
+    "n": 220,
+    "win": 54,
+    "avg": 0.6,
+    "total": 131.43,
+    "pf": 2.2,
+    "maxDD": 31.82
+   },
+   "DEFERRED": {
+    "n": 19,
+    "win": 68,
+    "avg": 1.08,
+    "total": 20.54,
+    "pf": 4.19,
+    "maxDD": 5.38
+   },
    "SHADOW_ONLY": {
     "n": 8,
     "win": 13,
@@ -23616,14 +23792,6 @@
     "total": -7.64,
     "pf": 0.02,
     "maxDD": 7.83
-   },
-   "RULES_REJECTED": {
-    "n": 218,
-    "win": 54,
-    "avg": 0.6,
-    "total": 130.29,
-    "pf": 2.2,
-    "maxDD": 30.8
    },
    "AI_UNAVAILABLE": {
     "n": 42,
@@ -23640,14 +23808,6 @@
     "total": 57.65,
     "pf": 3.74,
     "maxDD": 14.77
-   },
-   "DEFERRED": {
-    "n": 18,
-    "win": 72,
-    "avg": 1.2,
-    "total": 21.59,
-    "pf": 5.01,
-    "maxDD": 5.38
    },
    "AI_APPROVED": {
     "n": 13,
@@ -23694,12 +23854,20 @@
   },
   "byAiDecision": {
    "no AI": {
-    "n": 235,
+    "n": 237,
     "win": 52,
     "avg": 0.51,
-    "total": 118.91,
+    "total": 120.05,
     "pf": 1.97,
-    "maxDD": 42.54
+    "maxDD": 43.37
+   },
+   "DEFER": {
+    "n": 52,
+    "win": 73,
+    "avg": 1.26,
+    "total": 65.74,
+    "pf": 5.72,
+    "maxDD": 8.54
    },
    "AI against/SKIP": {
     "n": 39,
@@ -23708,14 +23876,6 @@
     "total": 26.94,
     "pf": 2.42,
     "maxDD": 12.69
-   },
-   "DEFER": {
-    "n": 51,
-    "win": 75,
-    "avg": 1.31,
-    "total": 66.79,
-    "pf": 6.19,
-    "maxDD": 8.54
    },
    "AI against/WAIT": {
     "n": 17,
@@ -23735,6 +23895,14 @@
    }
   },
   "byChase": {
+   "normal": {
+    "n": 343,
+    "win": 61,
+    "avg": 0.83,
+    "total": 283.28,
+    "pf": 2.95,
+    "maxDD": 47.17
+   },
    "extended": {
     "n": 15,
     "win": 7,
@@ -23742,32 +23910,32 @@
     "total": -14.63,
     "pf": 0.01,
     "maxDD": 14.82
-   },
-   "normal": {
-    "n": 340,
-    "win": 61,
-    "avg": 0.83,
-    "total": 283.19,
-    "pf": 2.98,
-    "maxDD": 47.17
    }
   },
   "byStrategy": {
    "LENS": {
-    "n": 184,
+    "n": 185,
     "win": 66,
     "avg": 1.02,
-    "total": 187.34,
-    "pf": 3.74,
+    "total": 189.5,
+    "pf": 3.77,
     "maxDD": 38.77
    },
    "SWEEP": {
-    "n": 121,
+    "n": 122,
     "win": 65,
-    "avg": 0.9,
-    "total": 108.34,
-    "pf": 3.42,
+    "avg": 0.88,
+    "total": 107.32,
+    "pf": 3.34,
     "maxDD": 23.85
+   },
+   "EMA_X": {
+    "n": 1,
+    "win": 0,
+    "avg": -1.05,
+    "total": -1.05,
+    "pf": 0,
+    "maxDD": 1.05
    },
    "ICHI": {
     "n": 13,
@@ -23811,21 +23979,21 @@
    }
   },
   "byQuad": {
-   "Q2": {
-    "n": 85,
-    "win": 53,
-    "avg": 0.51,
-    "total": 43.56,
-    "pf": 2.05,
-    "maxDD": 19.68
-   },
    "Q3": {
-    "n": 112,
+    "n": 114,
     "win": 54,
     "avg": 0.62,
-    "total": 69.39,
+    "total": 70.5,
     "pf": 2.23,
-    "maxDD": 22.51
+    "maxDD": 23.56
+   },
+   "Q2": {
+    "n": 86,
+    "win": 52,
+    "avg": 0.49,
+    "total": 42.54,
+    "pf": 2,
+    "maxDD": 19.68
    },
    "Q4": {
     "n": 70,
@@ -23845,6 +24013,14 @@
    }
   },
   "byHour": {
+   "13Z": {
+    "n": 9,
+    "win": 11,
+    "avg": -0.77,
+    "total": -6.95,
+    "pf": 0.24,
+    "maxDD": 9.11
+   },
    "05Z": {
     "n": 6,
     "win": 17,
@@ -23909,14 +24085,6 @@
     "pf": 0,
     "maxDD": 1.07
    },
-   "13Z": {
-    "n": 8,
-    "win": 0,
-    "avg": -1.14,
-    "total": -9.11,
-    "pf": 0,
-    "maxDD": 9.11
-   },
    "11Z": {
     "n": 2,
     "win": 0,
@@ -23943,9 +24111,9 @@
    }
   },
   "open": 151,
-  "dupSkipped": 353
+  "dupSkipped": 355
  },
- "shadowDup": 353,
+ "shadowDup": 355,
  "judgeReport": {
   "mode": "shadow",
   "agree": {
@@ -23997,21 +24165,21 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=13, against=56 (need ≥40 each)",
-  "asOf": "2026-11-22T11:45:50.640Z"
+  "asOf": "2026-11-22T12:01:18.048Z"
  },
  "shadowIndep": {
-  "n": 355,
+  "n": 358,
   "clusters": 8,
   "clusterStats": {
    "n": 8,
    "win": 25,
-   "avg": -0.22,
-   "total": -1.75,
-   "pf": 0.65,
-   "maxDD": 3.71
+   "avg": -0.21,
+   "total": -1.64,
+   "pf": 0.66,
+   "maxDD": 3.57
   },
   "topDayShare": 0.51,
-  "maxSameDir": 181,
+  "maxSameDir": 182,
   "days": [
    {
     "day": "2026-11-22",
@@ -24026,24 +24194,24 @@
    },
    {
     "day": "2026-11-21",
-    "long": 20,
+    "long": 21,
     "short": 10,
-    "n": 30,
-    "win": 7,
-    "avg": -0.87,
-    "total": -26.21,
-    "pf": 0.14,
+    "n": 31,
+    "win": 10,
+    "avg": -0.78,
+    "total": -24.05,
+    "pf": 0.21,
     "maxDD": 28.44
    },
    {
     "day": "2026-11-20",
-    "long": 53,
-    "short": 129,
-    "n": 182,
-    "win": 61,
-    "avg": 0.81,
-    "total": 148.25,
-    "pf": 3.01,
+    "long": 54,
+    "short": 130,
+    "n": 184,
+    "win": 60,
+    "avg": 0.79,
+    "total": 146.18,
+    "pf": 2.92,
     "maxDD": 40.26
    },
    {
@@ -24079,20 +24247,20 @@
    },
    {
     "k": "2026-11-21 LONG",
-    "n": 20,
-    "rr": -0.76,
-    "win": 10
+    "n": 21,
+    "rr": -0.62,
+    "win": 14
    },
    {
     "k": "2026-11-20 SHORT",
-    "n": 129,
-    "rr": 1.53,
+    "n": 130,
+    "rr": 1.51,
     "win": 82
    },
    {
     "k": "2026-11-20 LONG",
-    "n": 53,
-    "rr": -0.93,
+    "n": 54,
+    "rr": -0.94,
     "win": 9
    },
    {
@@ -24111,8 +24279,16 @@
   "warn": true
  },
  "reconcile": {
-  "approved": 137,
+  "approved": 138,
   "byLive": {
+   "unknown": {
+    "n": 113,
+    "win": 73,
+    "avg": 1.31,
+    "total": 148.38,
+    "pf": 5.68,
+    "maxDD": 24.36
+   },
    "shadow-only": {
     "n": 8,
     "win": 13,
@@ -24145,14 +24321,6 @@
     "pf": 0,
     "maxDD": 2.09
    },
-   "unknown": {
-    "n": 112,
-    "win": 74,
-    "avg": 1.33,
-    "total": 149.43,
-    "pf": 5.87,
-    "maxDD": 24.36
-   },
    "missed: busy": {
     "n": 1,
     "win": 0,
@@ -24163,6 +24331,14 @@
    }
   },
   "byLiveTf": {
+   "unknown 4H": {
+    "n": 35,
+    "win": 80,
+    "avg": 1.55,
+    "total": 54.32,
+    "pf": 8.32,
+    "maxDD": 5.3
+   },
    "shadow-only 1H": {
     "n": 8,
     "win": 13,
@@ -24202,14 +24378,6 @@
     "total": 94.06,
     "pf": 4.87,
     "maxDD": 19.06
-   },
-   "unknown 4H": {
-    "n": 34,
-    "win": 82,
-    "avg": 1.63,
-    "total": 55.37,
-    "pf": 9.69,
-    "maxDD": 5.3
    },
    "missed: busy 1H": {
     "n": 1,
@@ -24735,7 +24903,7 @@
    "side": "LONG"
   },
   "DGAIUSDT|1H|LENS": {
-   "t": 1795320000000,
+   "t": 1795345200000,
    "side": "LONG"
   },
   "PARTIUSDT|1H|ICHI": {
@@ -24789,26 +24957,42 @@
   "TRXUSDT|1H|ICHI": {
    "t": 1795338000000,
    "side": "LONG"
+  },
+  "CPUSDT|4H|ICHI": {
+   "t": 1795334400000,
+   "side": "LONG"
+  },
+  "PARTIUSDT|1H|LENS": {
+   "t": 1795345200000,
+   "side": "LONG"
+  },
+  "VVVUSDT|4H|LENS": {
+   "t": 1795334400000,
+   "side": "LONG"
+  },
+  "MMTUSDT|4H|SWEEP": {
+   "t": 1795334400000,
+   "side": "SHORT"
   }
  },
- "cooldownSkipped": 864,
+ "cooldownSkipped": 873,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
-   "n": 55,
-   "avgBase": -0.828,
-   "avgAlt": -0.906,
-   "diff": -0.078,
-   "se": 0.044,
+   "n": 58,
+   "avgBase": -0.784,
+   "avgAlt": -0.858,
+   "diff": -0.074,
+   "se": 0.042,
    "t": -1.76
   },
   "trail3atr": {
-   "n": 55,
-   "avgBase": -0.828,
-   "avgAlt": -0.768,
-   "diff": 0.061,
+   "n": 58,
+   "avgBase": -0.784,
+   "avgAlt": -0.737,
+   "diff": 0.047,
    "se": 0.056,
-   "t": 1.09
+   "t": 0.85
   }
  }
 }
