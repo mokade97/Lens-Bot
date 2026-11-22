@@ -39,6 +39,112 @@
  "closed": [],
  "alerts": [
   {
+   "ts": "2026-11-22T22:54:18.747Z",
+   "barTime": "2026-11-22T21:00:00.000Z",
+   "sym": "UPUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 86,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": 0.22,
+     "n": 18,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 28,
+     "avg_r": 0,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_UP",
+   "htf": "UP",
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 0.2476,
+   "stop": 0.2344907,
+   "t1": 0.26726396,
+   "t2": 0.28692791,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · 0R)"
+   ],
+   "warns": [
+    "نسبتاً کش‌شده (3.4×ATR)"
+   ],
+   "tm": {
+    "n": 28,
+    "win": 50,
+    "avg": 0,
+    "pf": 1
+   },
+   "src": "okx",
+   "chase": 1,
+   "hourUtc": 21,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · 0R)"
+   ]
+  },
+  {
+   "ts": "2026-11-22T22:54:17.865Z",
+   "barTime": "2026-11-22T16:00:00.000Z",
+   "sym": "UPUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "score": 70,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.28,
+     "n": 20,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 34,
+     "avg_r": -0.16,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 0.2385,
+   "stop": 0.21128589,
+   "t1": 0.27932116,
+   "t2": 0.32014233,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (34× · -0.16R)"
+   ],
+   "warns": [
+    "Time Machine منفی (34× · -0.16R)"
+   ],
+   "tm": {
+    "n": 34,
+    "win": 35,
+    "avg": -0.16,
+    "pf": 0.77
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 16,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (34× · -0.16R)"
+   ]
+  },
+  {
    "ts": "2026-11-22T22:53:43.860Z",
    "barTime": "2026-11-21T16:00:00.000Z",
    "sym": "AIUSDT",
@@ -595,6 +701,58 @@
    "t1hit": false,
    "mtm": 0,
    "live": "ALERT_ONLY_SHADOW"
+  },
+  {
+   "id": "UPUSDT|4H|LONG|2026-11-22T16:00:00.000Z",
+   "sym": "UPUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q3",
+   "score": 70,
+   "chase": 0,
+   "entry": 0.2385,
+   "stop": 0.21128589,
+   "t1": 0.27932116,
+   "t2": 0.32014233,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 16,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T22:54:17.865Z",
+   "barTime": "2026-11-22T16:00:00.000Z",
+   "lastBarT": 1795363200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
+  },
+  {
+   "id": "UPUSDT|1H|LONG|2026-11-22T21:00:00.000Z",
+   "sym": "UPUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q1",
+   "score": 86,
+   "chase": 1,
+   "entry": 0.2476,
+   "stop": 0.2344907,
+   "t1": 0.26726396,
+   "t2": 0.28692791,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 21,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-22T22:54:18.747Z",
+   "barTime": "2026-11-22T21:00:00.000Z",
+   "lastBarT": 1795381200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
   }
  ],
  "shadowClosed": [],
@@ -606,10 +764,12 @@
   "DGAIUSDT|1D|ICHI|LONG|2026-11-21T16:00:00.000Z": 1795388019043,
   "VVVUSDT|1D|DONCHIAN20|LONG|2026-11-21T16:00:00.000Z": 1795388020628,
   "DGAIUSDT|1D|DONCHIAN20|LONG|2026-11-21T16:00:00.000Z": 1795388021740,
-  "AIUSDT|1D|LENS|LONG|2026-11-21T16:00:00.000Z": 1795388022805
+  "AIUSDT|1D|LENS|LONG|2026-11-21T16:00:00.000Z": 1795388022805,
+  "UPUSDT|4H|LENS|LONG|2026-11-22T16:00:00.000Z": 1795388056970,
+  "UPUSDT|1H|LENS|LONG|2026-11-22T21:00:00.000Z": 1795388057865
  },
- "lastRun": "2026-11-22T22:53:43.860Z",
- "runs": 1,
+ "lastRun": "2026-11-22T22:54:18.748Z",
+ "runs": 2,
  "errors": [],
  "orModels": {
   "day": "2026-11-22",
@@ -625,7 +785,7 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 4870013
+  "minVolUSD": 4866120
  },
  "lastCard": {
   "BARDUSDT|1D|ICHI": {
@@ -647,16 +807,24 @@
   "AIUSDT|1D|LENS": {
    "t": 1795276800000,
    "side": "LONG"
+  },
+  "UPUSDT|4H|LENS": {
+   "t": 1795363200000,
+   "side": "LONG"
+  },
+  "UPUSDT|1H|LENS": {
+   "t": 1795381200000,
+   "side": "LONG"
   }
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 10,
-  "deep": 8,
+  "candidates": 2,
+  "deep": 2,
   "extended": 3,
   "byClass": {
-   "crypto": 10,
+   "crypto": 2,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -800,7 +968,7 @@
   "sumSlip": 0.712,
   "worst": 0.712
  },
- "durationSec": 149,
+ "durationSec": 22,
  "dataSrc": "okx",
  "stats": {
   "all": null,
@@ -821,7 +989,7 @@
   "byStrategy": {},
   "byQuad": {},
   "byHour": {},
-  "open": 5,
+  "open": 7,
   "dupSkipped": 0
  },
  "judgeReport": {
@@ -835,7 +1003,7 @@
   "byConf": {},
   "verdict": "INSUFFICIENT",
   "detail": "n agree=0, against=0 (need ≥40 each)",
-  "asOf": "2026-11-22T22:53:43.861Z"
+  "asOf": "2026-11-22T22:54:18.748Z"
  },
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
@@ -872,8 +1040,8 @@
    "ADAUSDT",
    "LITUSDT",
    "ENAUSDT",
-   "INJUSDT",
    "NESUSDT",
+   "INJUSDT",
    "BCHUSDT",
    "LINKUSDT",
    "LTCUSDT",
@@ -895,8 +1063,8 @@
    "ALLOUSDT",
    "DOTUSDT",
    "ICPUSDT",
-   "ASTERUSDT",
    "BARDUSDT",
+   "ASTERUSDT",
    "XPLUSDT",
    "ETHFIUSDT",
    "XLMUSDT",
@@ -915,7 +1083,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 4870013,
+   "minVolUSD": 4866120,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -925,11 +1093,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 10,
-   "deep": 8,
+   "candidates": 2,
+   "deep": 2,
    "extended": 3,
    "byClass": {
-    "crypto": 10,
+    "crypto": 2,
     "metal": 0,
     "forex": 0,
     "stock": 0
