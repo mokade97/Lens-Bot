@@ -835,6 +835,60 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-23T10:30:57.430Z",
+   "barTime": "2026-11-23T09:00:00.000Z",
+   "sym": "MONUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 86,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.35,
+     "n": 21,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 28,
+     "avg_r": 0,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "event": "SHORT_SETUP",
+   "sweep": null,
+   "entry": 0.01162,
+   "stop": 0.01197674,
+   "t1": 0.01108489,
+   "t2": 0.01054979,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · 0R)"
+   ],
+   "warns": [
+    "کش‌شده از EMA50 (-4.8×ATR)",
+    "واگرایی منظم خلاف جهت (MACD)"
+   ],
+   "tm": {
+    "n": 28,
+    "win": 43,
+    "avg": 0,
+    "pf": 1
+   },
+   "src": "okx",
+   "chase": 1,
+   "hourUtc": 9,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (28× · 0R)"
+   ]
+  },
+  {
    "ts": "2026-11-23T10:06:29.058Z",
    "barTime": "2026-11-23T09:00:00.000Z",
    "sym": "AIUSDT",
@@ -4336,135 +4390,6 @@
     "واگرایی‌های پنهان صعودی در RSI (روی عدد 36) ریسک بازگشت موقت قیمت را بالا می‌برد."
    ],
    "invalidation": "بسته شدن کندل روزانه بالای مقاومت 1.007 دلار",
-   "aiMode": "shadow",
-   "aiDecision": "SKIP",
-   "aiAgrees": 0,
-   "status": "ALERT_ONLY_LOSSCAP"
-  },
-  {
-   "ts": "2026-11-22T16:01:11.763Z",
-   "barTime": "2026-11-21T16:00:00.000Z",
-   "sym": "BARDUSDT",
-   "cls": "crypto",
-   "tf": "1D",
-   "side": "SHORT",
-   "score": 46,
-   "strategy": "ICHI",
-   "lab": {
-    "best": {
-     "id": "BB_MR",
-     "name": "Bollinger mean-reversion",
-     "avg_r": -0.25,
-     "n": 8,
-     "verdict": "NEGATIVE"
-    },
-    "mine": {
-     "n": 1,
-     "avg_r": -1.04,
-     "verdict": "INSUFFICIENT"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "NEUTRAL",
-   "event": "CANDLE",
-   "sweep": null,
-   "entry": 0.09058,
-   "stop": 0.11288391,
-   "t1": 0.05712413,
-   "t2": 0.02366827,
-   "rr": 3,
-   "fails": [],
-   "warns": [],
-   "tm": {
-    "n": 6,
-    "win": 50,
-    "avg": 0.46,
-    "pf": 1.89
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 16,
-   "volMult": 0.6,
-   "sideMult": 1,
-   "size": 40.352,
-   "riskUSD": 0.9,
-   "sizeMult": 0.5,
-   "notionalUSD": 3.66,
-   "rail": {
-    "status": "ALERT_ONLY_LOSSCAP",
-    "why": "حد ضرر روزانه (-3.47R ≤ −2R) — امروز ورود جدید نداریم"
-   },
-   "aiTextStripped": 1,
-   "desk": {
-    "mode": "roundtable",
-    "model": "gemini-3.5-flash-lite",
-    "llmCalls": 13,
-    "llmToday": 13,
-    "agents": {
-     "tech": {
-      "bias": "bearish",
-      "confidence": 60,
-      "key_points": [
-       "قیمت در محدوده BREAKER نزولی در سطح 0.1016 تا 0.1107 قرار دارد و 0.7 ATR با آن فاصله دارد.",
-       "اندیکاتور ADX روی عدد 30.2 نشان‌دهنده رژیم روند دار نزولی است.",
-       "شاخص RSI روی عدد 44.5 قرار دارد و ساختار قیمت LH و LL است (اسوینگ پایین 0.0797 و اسوینگ بالا 0.1736).",
-       "کندل اخیر اینورتد هامر با بدنه 11.5 درصد و سایه بالایی 84.7 درصد در محدوده مقاومتی تشکیل شده است."
-      ],
-      "what_changes_my_mind": "بسته شدن کندل روزانه بالای سطح 0.1107"
-     },
-     "macro": {
-      "error": "HTTP 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://aistudio.google.com/docs/rate-limits\"\n          }\n        ]\n      }\n    ]"
-     },
-     "sent": {
-      "bias": "bullish",
-      "confidence": 55,
-      "key_points": [
-       "نرخ فاندینگ منفی شدید در سطح -0.2894 درصد نشان‌دهنده تجمع موقعیت‌های شورت است.",
-       "تغییرات موقعیت باز (OI) در 24 ساعت گذشته 8.21 درصد افزایش یافته که نشان‌دهنده ورود پول جدید است.",
-       "شاخص ترس و طمع در عدد 11 (ترس شدید) قرار دارد که پتانسیل بازگشت صعودی از کف را فراهم می‌کند.",
-       "نسبت حساب‌های لانگ به شورت روی عدد 1.47 است."
-      ]
-     },
-     "bull": {
-      "confidence": 55,
-      "case": [
-       "نرخ فاندینگ -0.2894% نشان‌دهنده اشباع فروش و پتانسیل بالای Squeeze است.",
-       "افزایش 8.21 درصدی OI در 24 ساعت گذشته نشان‌دهنده ورود نقدینگی جدید در سطوح حمایتی است.",
-       "شاخص ترس و طمع در عدد 11 (ترس شدید) از نظر تاریخی در BARDUSDT با بازگشت‌های قیمتی همراه بوده است.",
-       "قیمت در حال حاضر 13.6% بالاتر از سوینگ پایین 0.0797 قرار دارد که نشان‌دهنده حفظ ساختار حمایتی است."
-      ]
-     },
-     "bear": {
-      "confidence": 60,
-      "case": [
-       "قیمت در محدوده BREAKER نزولی (0.1016 - 0.1107) محبوس شده و 0.7 ATR با سقف آن فاصله دارد.",
-       "ساختار 1D همچنان LH و LL است (سوینگ بالا 0.1736 و سوینگ پایین 0.0797).",
-       "کندل اینورتد هامر اخیر با سایه بالایی 84.7% در محدوده مقاومتی، نشان‌دهنده قدرت فروشندگان در تست سطوح بالاتر است.",
-       "ADX روی عدد 30.2 تاییدکننده قدرت روند نزولی جاری است و هرگونه صعود بدون حجم، صرفاً پولبک به مقاومت محسوب می‌شود."
-      ]
-     }
-    }
-   },
-   "agreement": "Technical and Strategy Lab agree on SKIP/Negative edge; Sentiment and Bull case are speculative.",
-   "overruled": "Overruled the deterministic engine's SHORT proposal due to the HIGH_VOLATILITY regime and negative strategy backtest results.",
-   "failWhy": "A short squeeze triggered by extreme negative funding could force a rapid move above the 0.1107 breaker.",
-   "nextCheck": "Wait for ADX to drop below 20 or price to establish a clear range base above 0.08283.",
-   "judge": "roundtable:gemini-3.1-flash-lite",
-   "confidence": 85,
-   "reasons": [
-    "حد ضرر روزانه (-3.47R ≤ −2R) — امروز ورود جدید نداریم",
-    "حالت سایه: AI مخالف است (SKIP 85) — نظرش ثبت شد، معامله طبق موتور باز می‌شود",
-    "Regime is HIGH_VOLATILITY (ATR percentile 92) and Q2, mandating SKIP per desk rules.",
-    "Strategy Lab performance for ICHI on this symbol is negative (Avg R -1.04).",
-    "Price is trapped in a bearish breaker (0.1016-0.1107) with ADX 30.2 confirming trend strength."
-   ],
-   "concerns": [
-    "High volatility regime makes mean-reversion and trend-following setups unreliable.",
-    "Macro data access is currently exhausted, increasing event risk.",
-    "Conflict between bearish structure and bullish sentiment (funding/OI) creates high uncertainty."
-   ],
-   "invalidation": "Daily close above 0.1107.",
    "aiMode": "shadow",
    "aiDecision": "SKIP",
    "aiAgrees": 0,
@@ -9517,6 +9442,32 @@
    "aiDecision": null,
    "confidence": null,
    "openedAt": "2026-11-23T10:01:08.679Z",
+   "barTime": "2026-11-23T09:00:00.000Z",
+   "lastBarT": 1795424400000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
+  },
+  {
+   "id": "MONUSDT|1H|SHORT|2026-11-23T09:00:00.000Z",
+   "sym": "MONUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q1",
+   "score": 86,
+   "chase": 1,
+   "entry": 0.01162,
+   "stop": 0.01197674,
+   "t1": 0.01108489,
+   "t2": 0.01054979,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 9,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-23T10:30:57.430Z",
    "barTime": "2026-11-23T09:00:00.000Z",
    "lastBarT": 1795424400000,
    "bars": 0,
@@ -26444,13 +26395,14 @@
   "ENSOUSDT|1H|ICHI|SHORT|2026-11-23T09:00:00.000Z": 1795428067067,
   "TRXUSDT|1H|LENS|LONG|2026-11-23T09:00:00.000Z": 1795428067889,
   "AIUSDT|1H|ICHI|LONG|2026-11-23T09:00:00.000Z": 1795428387009,
-  "AIUSDT|1H|LENS|LONG|2026-11-23T09:00:00.000Z": 1795428388158
+  "AIUSDT|1H|LENS|LONG|2026-11-23T09:00:00.000Z": 1795428388158,
+  "MONUSDT|1H|LENS|SHORT|2026-11-23T09:00:00.000Z": 1795429856692
  },
- "lastRun": "2026-11-23T10:15:47.131Z",
- "runs": 526,
+ "lastRun": "2026-11-23T10:30:57.432Z",
+ "runs": 527,
  "errors": [],
  "durationSec": 20,
- "dataSrc": "bitget",
+ "dataSrc": "okx",
  "stats": {
   "all": {
    "n": 21,
@@ -26724,24 +26676,24 @@
    "AAVEUSDT",
    "ENAUSDT",
    "ENSOUSDT",
-   "FILUSDT",
    "ADAUSDT",
+   "FILUSDT",
    "BCHUSDT",
    "NESUSDT",
    "NIGHTUSDT",
    "INJUSDT",
    "LINKUSDT",
-   "LTCUSDT",
    "OKBUSDT",
+   "LTCUSDT",
    "UPUSDT",
    "ARBUSDT",
-   "TAOUSDT",
    "BERAUSDT",
+   "TAOUSDT",
    "STRKUSDT",
    "AVAXUSDT",
-   "CPUSDT",
    "HUSDT",
    "JUPUSDT",
+   "CPUSDT",
    "ONDOUSDT",
    "XPLUSDT",
    "PONSUSDT",
@@ -26752,16 +26704,16 @@
    "ICPUSDT",
    "XLMUSDT",
    "IRYSUSDT",
-   "PENGUUSDT",
    "ETCUSDT",
+   "PENGUUSDT",
    "ZROUSDT",
    "CRVUSDT",
    "TRXUSDT",
    "SHIBUSDT",
+   "MONUSDT",
    "ASTERUSDT",
    "ETHFIUSDT",
    "GRAMUSDT",
-   "TIAUSDT",
    "XAUUSDT",
    "XAGUSDT"
   ],
@@ -26769,7 +26721,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 5015706,
+   "minVolUSD": 5009583,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -26779,11 +26731,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 0,
-   "deep": 0,
-   "extended": 4,
+   "candidates": 1,
+   "deep": 1,
+   "extended": 5,
    "byClass": {
-    "crypto": 0,
+    "crypto": 1,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -26957,7 +26909,7 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 1125,
+   "cooldownSkipped": 1127,
    "aiTextStripped": 2
   }
  },
@@ -26965,16 +26917,16 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 5015706
+  "minVolUSD": 5009583
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 0,
-  "deep": 0,
-  "extended": 4,
+  "candidates": 1,
+  "deep": 1,
+  "extended": 5,
   "byClass": {
-   "crypto": 0,
+   "crypto": 1,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -27501,7 +27453,7 @@
     "maxDD": 2.16
    }
   },
-  "open": 139,
+  "open": 140,
   "dupSkipped": 374
  },
  "shadowDup": 374,
@@ -27556,7 +27508,7 @@
   },
   "verdict": "INSUFFICIENT",
   "detail": "n agree=13, against=58 (need ≥40 each)",
-  "asOf": "2026-11-23T10:15:47.133Z"
+  "asOf": "2026-11-23T10:30:57.435Z"
  },
  "shadowIndep": {
   "n": 416,
@@ -28495,9 +28447,13 @@
   "AIUSDT|1H|ICHI": {
    "t": 1795424400000,
    "side": "LONG"
+  },
+  "MONUSDT|1H|LENS": {
+   "t": 1795424400000,
+   "side": "SHORT"
   }
  },
- "cooldownSkipped": 1125,
+ "cooldownSkipped": 1127,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
