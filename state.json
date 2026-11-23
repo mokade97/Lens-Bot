@@ -39,6 +39,124 @@
  "closed": [],
  "alerts": [
   {
+   "ts": "2026-11-23T00:01:05.581Z",
+   "barTime": "2026-11-22T23:00:00.000Z",
+   "sym": "BTCUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 70,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "DONCHIAN20",
+     "name": "Donchian 20 breakout (Turtle)",
+     "avg_r": 0.13,
+     "n": 21,
+     "verdict": "WEAK"
+    },
+    "mine": {
+     "n": 33,
+     "avg_r": -0.06,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 61240,
+   "stop": 60434.99483375,
+   "t1": 62447.50774937,
+   "t2": 63655.01549874,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (33× · -0.06R)"
+   ],
+   "warns": [
+    "واگرایی منظم خلاف جهت (MACD)",
+    "Time Machine منفی (33× · -0.06R)"
+   ],
+   "tm": {
+    "n": 33,
+    "win": 36,
+    "avg": -0.06,
+    "pf": 0.91
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 23,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (33× · -0.06R)"
+   ]
+  },
+  {
+   "ts": "2026-11-23T00:01:04.585Z",
+   "barTime": "2026-11-22T23:00:00.000Z",
+   "sym": "BNBUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 70,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "LENS",
+     "name": "Lens setup",
+     "avg_r": 0.44,
+     "n": 25,
+     "verdict": "EDGE"
+    },
+    "mine": {
+     "n": 25,
+     "avg_r": 0.44,
+     "verdict": "EDGE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 559.07,
+   "stop": 552.91837826,
+   "t1": 568.29743261,
+   "t2": 577.52486522,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "واگرایی منظم خلاف جهت (MACD)"
+   ],
+   "tm": {
+    "n": 25,
+    "win": 52,
+    "avg": 0.44,
+    "pf": 1.89
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 23,
+   "volMult": 1,
+   "sideMult": 1,
+   "size": 0.36576,
+   "riskUSD": 2.25,
+   "sizeMult": 0.75,
+   "notionalUSD": 204.48,
+   "status": "ALERT_ONLY_SHADOW",
+   "aiMode": "shadow",
+   "aiDecision": null,
+   "aiAgrees": null,
+   "judge": "shadow-only",
+   "reasons": [
+    "تایم‌فریم 1H فقط سایه (بک‌تست ۵ ساله: 1H منفی)"
+   ],
+   "concerns": [
+    "واگرایی منظم خلاف جهت (MACD)"
+   ]
+  },
+  {
    "ts": "2026-11-22T23:51:33.115Z",
    "barTime": "2026-11-21T16:00:00.000Z",
    "sym": "AIUSDT",
@@ -554,11 +672,22 @@
    "confidence": null,
    "openedAt": "2026-11-22T23:51:28.472Z",
    "barTime": "2026-11-22T16:00:00.000Z",
-   "lastBarT": 1795363200000,
-   "bars": 0,
+   "lastBarT": 1795377600000,
+   "bars": 1,
    "t1hit": false,
-   "mtm": 0,
-   "live": "ALERT_ONLY_SHADOW"
+   "mtm": 0.26,
+   "live": "ALERT_ONLY_SHADOW",
+   "alt": {
+    "be": {
+     "sl": 0.04488273,
+     "t1hit": false
+    },
+    "tr": {
+     "sl": 0.04488273,
+     "ext": 0.049977,
+     "t1hit": false
+    }
+   }
   },
   {
    "id": "VVVUSDT|1D|LONG|2026-11-21T16:00:00.000Z",
@@ -611,6 +740,58 @@
    "t1hit": false,
    "mtm": 0,
    "live": "ALERT_ONLY_SHADOW"
+  },
+  {
+   "id": "BNBUSDT|1H|LONG|2026-11-22T23:00:00.000Z",
+   "sym": "BNBUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q3",
+   "score": 70,
+   "chase": 0,
+   "entry": 559.07,
+   "stop": 552.91837826,
+   "t1": 568.29743261,
+   "t2": 577.52486522,
+   "verdict": "SHADOW_ONLY",
+   "hourUtc": 23,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-23T00:01:04.585Z",
+   "barTime": "2026-11-22T23:00:00.000Z",
+   "lastBarT": 1795388400000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "ALERT_ONLY_SHADOW"
+  },
+  {
+   "id": "BTCUSDT|1H|LONG|2026-11-22T23:00:00.000Z",
+   "sym": "BTCUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q3",
+   "score": 70,
+   "chase": 0,
+   "entry": 61240,
+   "stop": 60434.99483375,
+   "t1": 62447.50774937,
+   "t2": 63655.01549874,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 23,
+   "aiDecision": null,
+   "confidence": null,
+   "openedAt": "2026-11-23T00:01:05.581Z",
+   "barTime": "2026-11-22T23:00:00.000Z",
+   "lastBarT": 1795388400000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
   }
  ],
  "shadowClosed": [],
@@ -622,13 +803,15 @@
   "DGAIUSDT|1D|ICHI|LONG|2026-11-21T16:00:00.000Z": 1795391489273,
   "VVVUSDT|1D|DONCHIAN20|LONG|2026-11-21T16:00:00.000Z": 1795391490455,
   "DGAIUSDT|1D|DONCHIAN20|LONG|2026-11-21T16:00:00.000Z": 1795391491240,
-  "AIUSDT|1D|LENS|LONG|2026-11-21T16:00:00.000Z": 1795391492091
+  "AIUSDT|1D|LENS|LONG|2026-11-21T16:00:00.000Z": 1795391492091,
+  "BNBUSDT|1H|LENS|LONG|2026-11-22T23:00:00.000Z": 1795392063753,
+  "BTCUSDT|1H|LENS|LONG|2026-11-22T23:00:00.000Z": 1795392064753
  },
- "lastRun": "2026-11-22T23:51:33.115Z",
- "runs": 1,
+ "lastRun": "2026-11-23T00:01:05.582Z",
+ "runs": 2,
  "errors": [],
  "orModels": {
-  "day": "2026-11-22",
+  "day": "2026-11-23",
   "list": [
    "nvidia/nemotron-3-ultra-550b-a55b:free",
    "google/gemma-4-31b-it:free",
@@ -641,7 +824,7 @@
   "cryptoListed": 272,
   "stocksListed": 258,
   "cryptoTop": 60,
-  "minVolUSD": 4934215
+  "minVolUSD": 4910567
  },
  "lastCard": {
   "BARDUSDT|1D|ICHI": {
@@ -663,144 +846,85 @@
   "AIUSDT|1D|LENS": {
    "t": 1795276800000,
    "side": "LONG"
+  },
+  "BNBUSDT|1H|LENS": {
+   "t": 1795388400000,
+   "side": "LONG"
+  },
+  "BTCUSDT|1H|LENS": {
+   "t": 1795388400000,
+   "side": "LONG"
   }
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 10,
-  "deep": 8,
+  "candidates": 2,
+  "deep": 2,
   "extended": 2,
   "byClass": {
-   "crypto": 10,
+   "crypto": 2,
    "metal": 0,
    "forex": 0,
    "stock": 0
   }
  },
  "llm": {
-  "day": "2026-11-22",
+  "day": "2026-11-23",
   "v": 6,
-  "calls": 16,
+  "calls": 0,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
-    "calls": 2,
+    "calls": 0,
     "exhausted": false,
-    "errors": 1,
-    "r429": 1,
-    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795391380056,
-    "d429": 1,
-    "cooldownUntil": 1795391470056
+    "errors": 0
    },
    "k2:gemini-3.5-flash-lite": {
-    "calls": 2,
+    "calls": 0,
     "exhausted": false,
-    "errors": 1,
-    "r429": 1,
-    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795391384567,
-    "d429": 1,
-    "cooldownUntil": 1795391474567
+    "errors": 0
    },
    "k3:gemini-3.5-flash-lite": {
-    "calls": 2,
+    "calls": 0,
     "exhausted": false,
-    "errors": 1,
-    "r429": 1,
-    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795391389076,
-    "d429": 1,
-    "cooldownUntil": 1795391479076
+    "errors": 0
    },
    "k1:gemini-3.1-flash-lite": {
-    "calls": 1,
+    "calls": 0,
     "exhausted": false,
-    "errors": 1,
-    "r429": 1,
-    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795391393542,
-    "d429": 1,
-    "cooldownUntil": 1795391483542
+    "errors": 0
    },
    "k2:gemini-3.1-flash-lite": {
-    "calls": 1,
+    "calls": 0,
     "exhausted": false,
-    "errors": 1,
-    "r429": 1,
-    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795391398070,
-    "d429": 1,
-    "cooldownUntil": 1795391488070
+    "errors": 0
    },
    "k3:gemini-3.1-flash-lite": {
-    "calls": 1,
+    "calls": 0,
     "exhausted": false,
-    "errors": 1,
-    "r429": 1,
-    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795391402545,
-    "d429": 1,
-    "cooldownUntil": 1795391492545
+    "errors": 0
    },
    "k1:gemini-3.6-flash": {
-    "calls": 2,
+    "calls": 0,
     "exhausted": false,
-    "errors": 1,
-    "r429": 1,
-    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795391437885,
-    "d429": 1,
-    "cooldownUntil": 1795391527885
+    "errors": 0
    },
    "k2:gemini-3.6-flash": {
-    "calls": 2,
+    "calls": 0,
     "exhausted": false,
-    "errors": 1,
-    "r429": 1,
-    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795391442442,
-    "d429": 1,
-    "cooldownUntil": 1795391532442
+    "errors": 0
    },
    "k3:gemini-3.6-flash": {
-    "calls": 2,
+    "calls": 0,
     "exhausted": false,
-    "errors": 1,
-    "r429": 1,
-    "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795391446900,
-    "d429": 1,
-    "cooldownUntil": 1795391536900
+    "errors": 0
    },
    "or:nvidia/nemotron-3-ultra-550b-a55b:free": {
-    "calls": 1,
-    "exhausted": false,
-    "errors": 0
-   },
-   "or:google/gemma-4-31b-it:free": {
-    "calls": 0,
-    "exhausted": false,
-    "errors": 0
-   },
-   "or:nvidia/nemotron-3.5-super-vl:free": {
-    "calls": 0,
-    "exhausted": false,
-    "errors": 0
-   },
-   "or:baidu/ernie-5.5-flash-preview:free": {
     "calls": 0,
     "exhausted": false,
     "errors": 0
    }
-  },
-  "active": "k3:gemini-3.5-flash-lite",
-  "raw": [
-   "k3:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
-  ]
+  }
  },
  "macroCache": {
   "crypto": {
@@ -836,7 +960,7 @@
   "sumSlip": 0.712,
   "worst": 0.712
  },
- "durationSec": 130,
+ "durationSec": 21,
  "dataSrc": "okx",
  "stats": {
   "all": null,
@@ -857,7 +981,7 @@
   "byStrategy": {},
   "byQuad": {},
   "byHour": {},
-  "open": 5,
+  "open": 7,
   "dupSkipped": 0
  },
  "judgeReport": {
@@ -871,7 +995,7 @@
   "byConf": {},
   "verdict": "INSUFFICIENT",
   "detail": "n agree=0, against=0 (need ≥40 each)",
-  "asOf": "2026-11-22T23:51:33.116Z"
+  "asOf": "2026-11-23T00:01:05.582Z"
  },
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
@@ -908,8 +1032,8 @@
    "LITUSDT",
    "ADAUSDT",
    "ENAUSDT",
-   "INJUSDT",
    "NESUSDT",
+   "INJUSDT",
    "LINKUSDT",
    "BCHUSDT",
    "LTCUSDT",
@@ -951,7 +1075,7 @@
    "cryptoListed": 272,
    "stocksListed": 258,
    "cryptoTop": 60,
-   "minVolUSD": 4934215,
+   "minVolUSD": 4910567,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -961,11 +1085,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 10,
-   "deep": 8,
+   "candidates": 2,
+   "deep": 2,
    "extended": 2,
    "byClass": {
-    "crypto": 10,
+    "crypto": 2,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -1086,7 +1210,7 @@
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": true
+    "cooling": false
    },
    {
     "id": "k2:gemini-3.6-flash",
@@ -1095,7 +1219,7 @@
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": true
+    "cooling": false
    },
    {
     "id": "k3:gemini-3.6-flash",
@@ -1104,7 +1228,7 @@
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": true
+    "cooling": false
    },
    {
     "id": "or:nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -1150,9 +1274,9 @@
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 191,
+   "left": 207,
    "tot": 207,
-   "frac": 0.9227053140096618
+   "frac": 1
   },
   "requireAI": true,
   "paperTrade": true,
