@@ -122,3 +122,9 @@ GitHub cron را «تلاش می‌کند» اجرا کند و در ریپوها
 
 ## v97 — یک سایه/سیگنال باز برای هر نماد/تایم‌فریم/جهت
 اگر برای نمادی در همان تایم‌فریم و همان جهت هنوز یک سایه‌ی باز وجود داشته باشد، نامزدی‌های بعدی همان حرکت (کندل‌های بعدی) به‌عنوان نمونه‌ی جدید ثبت نمی‌شوند؛ شمارشان در `shadowStats.dupSkipped` دیده می‌شود. همین قاعده در دفتر سیگنال‌های اپ (`ledger.js`) هم اعمال شده. منطق استراتژی و معاملات کاغذی تغییری نکرده (معاملات کاغذی از قبل «یک پوزیشن برای هر نماد» بودند).
+
+## v132
+- `slipBlock` / `slipBlockN` / `slipBlockR`: symbols whose average entry slippage (R) ate the edge are alert-only (`ALERT_ONLY_SLIP`).
+- `filterReport` (weekly shadow→decision report, published in bot.json): per-filter WITH vs WITHOUT, clustered; `filterMinClusters` (20).
+- `corrCheck` / `corrMax` (0.8) / `corrMult` (0.5): 30-day return correlation with same-direction open positions halves risk.
+- **`live.js` — Live 1 % bridge (OKX).** Disabled by default. To enable: add repo secrets `OKX_API_KEY`, `OKX_API_SECRET`, `OKX_API_PASSPHRASE` (trade permission only, IP-restricted), then in `config.json`: `live.enabled:true` with `dryRun:true` (signs + logs, sends nothing) → after a week set `dryRun:false` with `demo:true` (OKX demo trading header) → only after weeks of clean demo set `demo:false`. Gates (shadow clusters ≥20, paper n≥30, avgR>0, PF>1) are re-checked on every run and shown in the app's Bot tab.
