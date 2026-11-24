@@ -5296,42 +5296,6 @@
    }
   },
   {
-   "id": "AUDUSD|1H|SHORT|2026-11-20T16:00:00.000Z",
-   "sym": "AUDUSD",
-   "cls": "forex",
-   "tf": "1H",
-   "side": "SHORT",
-   "strategy": "LENS",
-   "quad": "Q2",
-   "score": 86,
-   "chase": 0,
-   "entry": 0.66445184,
-   "stop": 0.66610626,
-   "t1": 0.66197021,
-   "t2": 0.65948857,
-   "verdict": "AI_UNAVAILABLE",
-   "aiDecision": "DEFER",
-   "confidence": null,
-   "openedAt": "2026-11-20T16:30:59.508Z",
-   "barTime": "2026-11-20T16:00:00.000Z",
-   "lastBarT": 1795507200000,
-   "bars": 39,
-   "t1hit": true,
-   "mtm": 1.12,
-   "live": "ALERT_ONLY_CAP",
-   "alt": {
-    "be": {
-     "sl": 0.66445184,
-     "t1hit": true
-    },
-    "tr": {
-     "sl": 0.6640733310154506,
-     "ext": 0.6618133783340454,
-     "t1hit": true
-    }
-   }
-  },
-  {
    "id": "USDCAD|1H|LONG|2026-11-20T17:00:00.000Z",
    "sym": "USDCAD",
    "cls": "forex",
@@ -5350,10 +5314,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T17:30:58.328Z",
    "barTime": "2026-11-20T17:00:00.000Z",
-   "lastBarT": 1795507200000,
-   "bars": 38,
+   "lastBarT": 1795510800000,
+   "bars": 39,
    "t1hit": true,
-   "mtm": 1,
+   "mtm": 0.76,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -5363,7 +5327,10 @@
     "tr": {
      "sl": 1.4345200061798096,
      "ext": 1.4382100105285645,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 39,
+     "gross": 1.02
     }
    }
   },
@@ -8488,6 +8455,63 @@
   }
  ],
  "shadowClosed": [
+  {
+   "id": "AUDUSD|1H|SHORT|2026-11-20T16:00:00.000Z",
+   "sym": "AUDUSD",
+   "cls": "forex",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q2",
+   "score": 86,
+   "chase": 0,
+   "entry": 0.66445184,
+   "stop": 0.66610626,
+   "t1": 0.66197021,
+   "t2": 0.65948857,
+   "verdict": "AI_UNAVAILABLE",
+   "aiDecision": "DEFER",
+   "confidence": null,
+   "openedAt": "2026-11-20T16:30:59.508Z",
+   "barTime": "2026-11-20T16:00:00.000Z",
+   "lastBarT": 1795510800000,
+   "bars": 40,
+   "t1hit": true,
+   "mtm": 1.12,
+   "live": "ALERT_ONLY_CAP",
+   "alt": {
+    "be": {
+     "sl": 0.66445184,
+     "t1hit": true,
+     "out": "TIMEOUT",
+     "bars": 40,
+     "gross": 1.35
+    },
+    "tr": {
+     "sl": 0.6640733310154506,
+     "ext": 0.6618133783340454,
+     "t1hit": true,
+     "out": "TIMEOUT",
+     "bars": 40,
+     "gross": 1.35
+    }
+   },
+   "out": "TIMEOUT",
+   "rr": 1.27,
+   "gross": 1.35,
+   "costR": 0.08,
+   "altBE": {
+    "out": "TIMEOUT",
+    "rr": 1.27,
+    "bars": 40
+   },
+   "altTR": {
+    "out": "TIMEOUT",
+    "rr": 1.27,
+    "bars": 40
+   },
+   "closedAt": "2026-11-24T09:15:40.578Z"
+  },
   {
    "id": "MONUSDT|1H|LONG|2026-11-24T06:00:00.000Z",
    "sym": "MONUSDT",
@@ -32718,10 +32742,10 @@
   "XAGUSDT|1H|LENS|SHORT|2026-11-24T08:00:00.000Z": 1795510888245,
   "ZROUSDT|1H|LENS|SHORT|2026-11-24T08:00:00.000Z": 1795510889157
  },
- "lastRun": "2026-11-24T09:01:30.082Z",
- "runs": 624,
+ "lastRun": "2026-11-24T09:16:03.363Z",
+ "runs": 625,
  "errors": [],
- "durationSec": 35,
+ "durationSec": 25,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -32998,8 +33022,8 @@
    "LINKUSDT",
    "BCHUSDT",
    "INJUSDT",
-   "ARBUSDT",
    "LTCUSDT",
+   "ARBUSDT",
    "MUBARAKUSDT",
    "VVVUSDT",
    "AVAXUSDT",
@@ -33009,39 +33033,39 @@
    "TRXUSDT",
    "OKBUSDT",
    "ONDOUSDT",
-   "DOTUSDT",
    "PENGUUSDT",
+   "DOTUSDT",
    "XLMUSDT",
-   "ENSOUSDT",
    "ZROUSDT",
+   "ENSOUSDT",
    "ICPUSDT",
    "STRKUSDT",
    "NIGHTUSDT",
    "WLFIUSDT",
-   "ALGOUSDT",
    "SAHARAUSDT",
+   "ALGOUSDT",
    "ONEUSDT",
-   "SHIBUSDT",
    "XPLUSDT",
+   "SHIBUSDT",
    "UPUSDT",
-   "JUPUSDT",
    "APRUSDT",
+   "JUPUSDT",
    "PONSUSDT",
-   "NESUSDT",
    "CRVUSDT",
    "OPUSDT",
+   "NESUSDT",
    "SKYUSDT",
+   "ASTERUSDT",
    "BERAUSDT",
    "BTWUSDT",
-   "ASTERUSDT",
    "XAUUSDT",
    "XAGUSDT"
   ],
   "universe": {
    "cryptoListed": 272,
-   "stocksListed": 259,
+   "stocksListed": 260,
    "cryptoTop": 60,
-   "minVolUSD": 8340695,
+   "minVolUSD": 8291027,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -33051,12 +33075,12 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 3,
-   "deep": 3,
+   "candidates": 0,
+   "deep": 0,
    "extended": 4,
    "byClass": {
-    "crypto": 2,
-    "metal": 1,
+    "crypto": 0,
+    "metal": 0,
     "forex": 0,
     "stock": 0
    }
@@ -33118,7 +33142,7 @@
     "exhausted": false,
     "reason": null,
     "lastErr": null,
-    "cooling": true
+    "cooling": false
    },
    {
     "id": "k2:gemini-3.5-flash-lite",
@@ -33256,25 +33280,25 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 1331,
+   "cooldownSkipped": 1333,
    "aiTextStripped": 2
   }
  },
  "universeInfo": {
   "cryptoListed": 272,
-  "stocksListed": 259,
+  "stocksListed": 260,
   "cryptoTop": 60,
-  "minVolUSD": 8340695
+  "minVolUSD": 8291027
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 3,
-  "deep": 3,
+  "candidates": 0,
+  "deep": 0,
   "extended": 4,
   "byClass": {
-   "crypto": 2,
-   "metal": 1,
+   "crypto": 0,
+   "metal": 0,
    "forex": 0,
    "stock": 0
   }
@@ -33392,14 +33416,22 @@
  },
  "shadowStats": {
   "all": {
-   "n": 541,
-   "win": 53,
+   "n": 542,
+   "win": 54,
    "avg": 0.43,
-   "total": 231.17,
+   "total": 232.44,
    "pf": 1.85,
    "maxDD": 82
   },
   "byVerdict": {
+   "AI_UNAVAILABLE": {
+    "n": 48,
+    "win": 69,
+    "avg": 0.89,
+    "total": 42.61,
+    "pf": 3.85,
+    "maxDD": 6.58
+   },
    "RULES_REJECTED": {
     "n": 350,
     "win": 50,
@@ -33415,14 +33447,6 @@
     "total": -24.85,
     "pf": 0.31,
     "maxDD": 24.85
-   },
-   "AI_UNAVAILABLE": {
-    "n": 47,
-    "win": 68,
-    "avg": 0.88,
-    "total": 41.34,
-    "pf": 3.77,
-    "maxDD": 6.58
    },
    "AI_REJECTED": {
     "n": 71,
@@ -33484,6 +33508,14 @@
    }
   },
   "byAiDecision": {
+   "DEFER": {
+    "n": 58,
+    "win": 76,
+    "avg": 1.21,
+    "total": 70.13,
+    "pf": 6.03,
+    "maxDD": 8.54
+   },
    "no AI": {
     "n": 399,
     "win": 46,
@@ -33491,14 +33523,6 @@
     "total": 76.72,
     "pf": 1.33,
     "maxDD": 84.54
-   },
-   "DEFER": {
-    "n": 57,
-    "win": 75,
-    "avg": 1.21,
-    "total": 68.86,
-    "pf": 5.94,
-    "maxDD": 8.54
    },
    "AI against/SKIP": {
     "n": 52,
@@ -33526,6 +33550,14 @@
    }
   },
   "byChase": {
+   "normal": {
+    "n": 492,
+    "win": 57,
+    "avg": 0.53,
+    "total": 260.62,
+    "pf": 2.13,
+    "maxDD": 71.24
+   },
    "extended": {
     "n": 50,
     "win": 22,
@@ -33533,22 +33565,14 @@
     "total": -28.18,
     "pf": 0.32,
     "maxDD": 28.18
-   },
-   "normal": {
-    "n": 491,
-    "win": 57,
-    "avg": 0.53,
-    "total": 259.35,
-    "pf": 2.13,
-    "maxDD": 71.24
    }
   },
   "byStrategy": {
    "LENS": {
-    "n": 329,
-    "win": 54,
+    "n": 330,
+    "win": 55,
     "avg": 0.44,
-    "total": 144.48,
+    "total": 145.75,
     "pf": 1.89,
     "maxDD": 81.44
    },
@@ -33610,6 +33634,14 @@
    }
   },
   "byQuad": {
+   "Q2": {
+    "n": 108,
+    "win": 54,
+    "avg": 0.41,
+    "total": 44.3,
+    "pf": 1.85,
+    "maxDD": 19.68
+   },
    "Q4": {
     "n": 113,
     "win": 50,
@@ -33625,14 +33657,6 @@
     "total": 34.92,
     "pf": 1.27,
     "maxDD": 56.98
-   },
-   "Q2": {
-    "n": 107,
-    "win": 53,
-    "avg": 0.4,
-    "total": 43.03,
-    "pf": 1.82,
-    "maxDD": 19.68
    },
    "Q1": {
     "n": 114,
@@ -33821,7 +33845,7 @@
     "maxDD": 1.05
    }
   },
-  "open": 113,
+  "open": 112,
   "dupSkipped": 386
  },
  "shadowDup": 386,
@@ -33877,10 +33901,10 @@
   "verdict": "INSUFFICIENT",
   "detail": "n agree=13, against=72 (need ≥40 each)",
   "calibration": null,
-  "asOf": "2026-11-24T09:01:30.085Z"
+  "asOf": "2026-11-24T09:16:03.365Z"
  },
  "shadowIndep": {
-  "n": 541,
+  "n": 542,
   "clusters": 12,
   "clusterStats": {
    "n": 12,
@@ -33940,12 +33964,12 @@
    {
     "day": "2026-11-20",
     "long": 61,
-    "short": 154,
-    "n": 215,
+    "short": 155,
+    "n": 216,
     "win": 63,
     "avg": 0.7,
-    "total": 150.02,
-    "pf": 2.81,
+    "total": 151.29,
+    "pf": 2.83,
     "maxDD": 40.26
    },
    {
@@ -34011,7 +34035,7 @@
    },
    {
     "k": "2026-11-20 SHORT",
-    "n": 154,
+    "n": 155,
     "rr": 1.29,
     "win": 81
    },
@@ -34025,8 +34049,16 @@
   "warn": true
  },
  "reconcile": {
-  "approved": 191,
+  "approved": 192,
   "byLive": {
+   "missed: cap": {
+    "n": 14,
+    "win": 64,
+    "avg": 0.34,
+    "total": 4.78,
+    "pf": 2.12,
+    "maxDD": 1.65
+   },
    "shadow-only": {
     "n": 40,
     "win": 18,
@@ -34034,14 +34066,6 @@
     "total": -24.85,
     "pf": 0.31,
     "maxDD": 24.85
-   },
-   "missed: cap": {
-    "n": 13,
-    "win": 62,
-    "avg": 0.27,
-    "total": 3.51,
-    "pf": 1.82,
-    "maxDD": 1.65
    },
    "unknown": {
     "n": 130,
@@ -34077,6 +34101,14 @@
    }
   },
   "byLiveTf": {
+   "missed: cap 1H": {
+    "n": 12,
+    "win": 67,
+    "avg": 0.47,
+    "total": 5.67,
+    "pf": 2.75,
+    "maxDD": 1.07
+   },
    "shadow-only 1H": {
     "n": 30,
     "win": 23,
@@ -34084,14 +34116,6 @@
     "total": -14.39,
     "pf": 0.44,
     "maxDD": 18.95
-   },
-   "missed: cap 1H": {
-    "n": 11,
-    "win": 64,
-    "avg": 0.4,
-    "total": 4.4,
-    "pf": 2.36,
-    "maxDD": 1.07
    },
    "unknown 4H": {
     "n": 49,
@@ -34154,11 +34178,11 @@
   "twinMismatch": 0,
   "twinSample": [],
   "missed": {
-   "n": 14,
-   "win": 57,
-   "avg": 0.18,
-   "total": 2.49,
-   "pf": 1.47,
+   "n": 15,
+   "win": 60,
+   "avg": 0.25,
+   "total": 3.76,
+   "pf": 1.71,
    "maxDD": 2.04
   },
   "opened": {
@@ -34171,11 +34195,11 @@
   },
   "missedByTf": {
    "1H": {
-    "n": 12,
-    "win": 58,
-    "avg": 0.28,
-    "total": 3.38,
-    "pf": 1.79,
+    "n": 13,
+    "win": 62,
+    "avg": 0.36,
+    "total": 4.65,
+    "pf": 2.09,
     "maxDD": 2.04
    },
    "4H": {
@@ -35133,21 +35157,21 @@
    "side": "LONG"
   }
  },
- "cooldownSkipped": 1331,
+ "cooldownSkipped": 1333,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
-   "n": 242,
-   "avgBase": -0.34,
-   "avgAlt": -0.315,
+   "n": 243,
+   "avgBase": -0.333,
+   "avgAlt": -0.308,
    "diff": 0.025,
    "se": 0.02,
    "t": 1.24
   },
   "trail3atr": {
-   "n": 242,
-   "avgBase": -0.34,
-   "avgAlt": -0.357,
+   "n": 243,
+   "avgBase": -0.333,
+   "avgAlt": -0.351,
    "diff": -0.018,
    "se": 0.035,
    "t": -0.5
@@ -35160,7 +35184,7 @@
  "cumR": 10.23,
  "cumUSD": 98.23,
  "filterReport": {
-  "generatedAt": "2026-11-24T09:01:30.085Z",
+  "generatedAt": "2026-11-24T09:16:03.366Z",
   "minClusters": 20,
   "week": {
    "AI judge (keep only agree)": {
@@ -35239,18 +35263,18 @@
    },
    "exclude Q4": {
     "all": {
-     "n": 541,
+     "n": 542,
      "clusters": 12,
-     "avg": 0.427,
-     "clAvg": -0.148,
-     "sum": 231.17
+     "avg": 0.429,
+     "clAvg": -0.104,
+     "sum": 232.44
     },
     "kept": {
-     "n": 428,
+     "n": 429,
      "clusters": 12,
-     "avg": 0.491,
-     "clAvg": -0.044,
-     "sum": 210.16
+     "avg": 0.493,
+     "clAvg": -0.01,
+     "sum": 211.43
     },
     "dropped": {
      "n": 113,
@@ -35264,18 +35288,18 @@
    },
    "no extended entries": {
     "all": {
-     "n": 541,
+     "n": 542,
      "clusters": 12,
-     "avg": 0.427,
-     "clAvg": -0.148,
-     "sum": 231.17
+     "avg": 0.429,
+     "clAvg": -0.104,
+     "sum": 232.44
     },
     "kept": {
-     "n": 491,
+     "n": 492,
      "clusters": 12,
-     "avg": 0.528,
-     "clAvg": -0.136,
-     "sum": 259.35
+     "avg": 0.53,
+     "clAvg": -0.092,
+     "sum": 260.62
     },
     "dropped": {
      "n": 50,
@@ -35365,18 +35389,18 @@
    },
    "exclude Q4": {
     "all": {
-     "n": 541,
+     "n": 542,
      "clusters": 12,
-     "avg": 0.427,
-     "clAvg": -0.148,
-     "sum": 231.17
+     "avg": 0.429,
+     "clAvg": -0.104,
+     "sum": 232.44
     },
     "kept": {
-     "n": 428,
+     "n": 429,
      "clusters": 12,
-     "avg": 0.491,
-     "clAvg": -0.044,
-     "sum": 210.16
+     "avg": 0.493,
+     "clAvg": -0.01,
+     "sum": 211.43
     },
     "dropped": {
      "n": 113,
@@ -35390,18 +35414,18 @@
    },
    "no extended entries": {
     "all": {
-     "n": 541,
+     "n": 542,
      "clusters": 12,
-     "avg": 0.427,
-     "clAvg": -0.148,
-     "sum": 231.17
+     "avg": 0.429,
+     "clAvg": -0.104,
+     "sum": 232.44
     },
     "kept": {
-     "n": 491,
+     "n": 492,
      "clusters": 12,
-     "avg": 0.528,
-     "clAvg": -0.136,
-     "sum": 259.35
+     "avg": 0.53,
+     "clAvg": -0.092,
+     "sum": 260.62
     },
     "dropped": {
      "n": 50,
@@ -35414,8 +35438,8 @@
     "why": "need ≥20 clusters on both arms (have 12/6)"
    }
   },
-  "weekN": 541,
-  "allN": 541,
+  "weekN": 542,
+  "allN": 542,
   "note": "clustered by UTC day × side; verdicts are suggestions — change config only after a KEEP/DROP verdict repeats on two consecutive weekly reports"
  },
  "live": {
