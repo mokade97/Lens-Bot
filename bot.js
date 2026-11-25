@@ -117,6 +117,23 @@ PACKET: ${JSON.stringify(p)}`;
   function fallback(why) { if (CFG.requireAI !== false) return { decision: 'DEFER', confidence: null, reasons: ['AI در دسترس نبود (' + why + ') — تا اجرای بعدی به تعویق افتاد'], judge: 'deferred' }; return { decision: side, confidence: null, reasons: ['قاضی AI در دسترس نبود (' + why + ') — تصمیم موتور قطعی'], concerns: rc.warns, judge: 'rules(fallback)' }; }
 }
 
+/* v132e: Setup Scorecard 0–6 (same rules as the app's SCORE indicator, walk-forward) evaluated on the signal bar FOR THE ALERT SIDE. Shadow field only — never a filter until filterReport says KEEP (5-y backtest: 4H ≥5 PF 1.20, 1H ≈ break-even). */
+function setupScore(k, side, barTime) {
+  const n = k.length; if (n < 230) return null; let i = n - 1; if (barTime) { const bt = Date.parse(barTime); for (let j = n - 1; j >= n - 5; j--) { if (Math.abs(k[j].t - bt) < 1000) { i = j; break; } } }
+  const c = k.map(b => b.c); const ema = (a, p) => { const q = 2 / (p + 1); let e = null; return a.map(v => e = e == null ? v : v * q + e * (1 - q)); }; const e20 = ema(c, 20), e50 = ema(c, 50), e200 = ema(c, 200);
+  const A = atrAt(k, i, 14); if (!A) return null; let vs = 0; for (let j = i - 19; j <= i; j++) vs += k[j].v || 0; vs /= 20;
+  // confirmed pivots (len 5) within the last 400 bars, confirmed by bar i
+  const lv = []; for (let x = Math.max(5, i - 400); x <= i - 5; x++) { let H = true, L = true; for (let j = x - 5; j <= x + 5; j++) { if (j === x) continue; if (k[j].h >= k[x].h) H = false; if (k[j].l <= k[x].l) L = false; if (!H && !L) break; } if (H) lv.push({ i: x, t: 'H', p: k[x].h }); if (L) lv.push({ i: x, t: 'L', p: k[x].l }); }
+  let lastH = null, lastL = null, bos = 0; const byConf = {}; lv.forEach(q => (byConf[q.i + 5] = byConf[q.i + 5] || []).push(q)); for (let j = Math.max(10, i - 400); j <= i; j++) { (byConf[j] || []).forEach(q => { if (q.t === 'H') lastH = q.p; else lastL = q.p; }); if (lastH != null && k[j].c > lastH) { bos = 1; lastH = null; } if (lastL != null && k[j].c < lastL) { bos = -1; lastL = null; } }
+  const b = k[i], sd = side === 'LONG' ? 1 : -1, body = Math.abs(b.c - b.o); let sc = 0; const why = [];
+  if ((sd > 0 && e20[i] > e50[i]) || (sd < 0 && e20[i] < e50[i])) { sc++; why.push('EMA'); }
+  if ((sd > 0 && e200[i] > e200[i - 5]) || (sd < 0 && e200[i] < e200[i - 5])) { sc++; why.push('HTF'); }
+  if (vs && (b.v || 0) > 1.5 * vs) { sc++; why.push('VOL'); }
+  if (lv.some(q => Math.abs((sd > 0 ? b.l : b.h) - q.p) <= 0.25 * A)) { sc++; why.push('S/R'); }
+  if (body >= 0.8 * A && body >= 0.6 * (b.h - b.l) && (sd > 0 ? b.c > b.o : b.c < b.o)) { sc++; why.push('BODY'); }
+  if (bos === sd) { sc++; why.push('BOS'); }
+  return { sc, why };
+}
 /* ---------------- shadow ledger: EVERY analysed setup becomes a tracked trade (approved, rejected by rules, rejected by AI, deferred) so the analysis itself can be audited ---------------- */
 function shadowRecord(alert, verdict, d) {
   if (!(alert.entry > 0 && alert.stop > 0 && alert.t1 > 0) || CFG.shadowLedger === false) return;
@@ -124,7 +141,7 @@ function shadowRecord(alert, verdict, d) {
   if (S.shadowClosed.some(x => x.id === id)) return;
   // one OPEN shadow per symbol/timeframe/side (v97): a later bar re-nominating the same move is the same bet, not a new sample
   if (S.shadow.some(x => x.sym === alert.sym && x.tf === alert.tf && x.side === alert.side)) { S.shadowDup = (S.shadowDup || 0) + 1; return; }
-  S.shadow.push({ id, sym: alert.sym, cls: alert.cls, tf: alert.tf, side: alert.side, strategy: alert.strategy, quad: alert.quad, score: alert.score, chase: alert.chase || 0, adx: alert.adx != null ? alert.adx : null, htf: alert.htf || null, entry: alert.entry, stop: alert.stop, t1: alert.t1, t2: alert.t2, verdict, hourUtc: isFinite(Date.parse(alert.barTime)) ? new Date(alert.barTime).getUTCHours() : null, /* v110b: session tag (UTC hour of the signal candle) — recorded for forward verification of the backtest hour effect, NOT a filter */ aiDecision: d && d.decision || null, confidence: d && d.confidence != null ? d.confidence : null, pT1: d && d.p_t1 != null && isFinite(+d.p_t1) ? +d.p_t1 : null, /* v129: calibrated probability from the judge → Brier score */ openedAt: alert.ts, barTime: alert.barTime, lastBarT: Date.parse(alert.barTime), bars: 0, t1hit: false, mtm: 0 });
+  S.shadow.push({ id, sym: alert.sym, cls: alert.cls, tf: alert.tf, side: alert.side, strategy: alert.strategy, quad: alert.quad, score: alert.score, chase: alert.chase || 0, adx: alert.adx != null ? alert.adx : null, htf: alert.htf || null, setupScore: alert.setupScore != null ? alert.setupScore : null, /* v132e shadow field */ entry: alert.entry, stop: alert.stop, t1: alert.t1, t2: alert.t2, verdict, hourUtc: isFinite(Date.parse(alert.barTime)) ? new Date(alert.barTime).getUTCHours() : null, /* v110b: session tag (UTC hour of the signal candle) — recorded for forward verification of the backtest hour effect, NOT a filter */ aiDecision: d && d.decision || null, confidence: d && d.confidence != null ? d.confidence : null, pT1: d && d.p_t1 != null && isFinite(+d.p_t1) ? +d.p_t1 : null, /* v129: calibrated probability from the judge → Brier score */ openedAt: alert.ts, barTime: alert.barTime, lastBarT: Date.parse(alert.barTime), bars: 0, t1hit: false, mtm: 0 });
 }
 /* v101: shadow-judge scorecard — does the AI's opinion separate good trades from bad ones? */
 /* v132 #223: weekly shadow→decision report. For each optional filter: what did the LAST 7 DAYS (and all-time) of shadow trades do WITH vs WITHOUT it?
@@ -135,7 +152,9 @@ function filterReport(SC) {
     'ADX < 30': x => x.adx == null ? null : x.adx < 30,
     'HTF aligned': x => !x.htf || x.htf === 'FLAT' ? null : (x.side === 'LONG' ? x.htf === 'UP' : x.htf === 'DOWN'),
     'exclude Q4': x => x.quad ? x.quad !== 'Q4' : null,
-    'no extended entries': x => !x.chase
+    'no extended entries': x => !x.chase,
+    'setup score ≥4': x => x.setupScore == null ? null : x.setupScore >= 4,   /* v132e: shadow-only Setup Scorecard (app SCORE indicator) */
+    'setup score ≥5': x => x.setupScore == null ? null : x.setupScore >= 5
   };
   const minC = CFG.filterMinClusters || 20;
   const arm = a => { const n = a.length; if (!n) return { n: 0, clusters: 0, avg: null, sum: 0 }; const cl = {}; a.forEach(x => { const k = (x.closedAt || x.barTime || '').slice(0, 10) + '|' + x.side; (cl[k] = cl[k] || []).push(x.rr); }); const cs = Object.values(cl).map(v => v.reduce((q, r) => q + r, 0) / v.length); return { n, clusters: cs.length, avg: +(a.reduce((q, x) => q + x.rr, 0) / n).toFixed(3), clAvg: +(cs.reduce((q, r) => q + r, 0) / cs.length).toFixed(3), sum: +a.reduce((q, x) => q + x.rr, 0).toFixed(2) }; };
@@ -310,7 +329,7 @@ async function main() {
       const score = side === 'LONG' ? p.scores.long : p.scores.short;
       p._strategy = strategy; let bt = null; try { bt = lens.backtest(k, hk, { tf }); } catch (e) { } const rc = ruleCheck(p, side, bt);
       const mine = lab && lab.strategies[strategy === 'SWEEP' ? 'LENS' : strategy];
-      const alert = { ts: new Date().toISOString(), barTime: p.time, sym, cls, tf, side, score, strategy, lab: lab && { best: lab.best, mine: mine && { n: mine.n, avg_r: mine.avg_r, verdict: mine.verdict } }, quad: p.regime_quadrant && p.regime_quadrant.quadrant, regime: p.regime, htf: p.trend.htf_bias, adx: p.strength && p.strength.adx != null ? p.strength.adx : null, event: p.event, sweep: sweep && sweep.status, entry: p.trade.entry, stop: p.trade.stop, t1: p.trade.target_1, t2: p.trade.target_2, rr: rc.rr, fails: rc.fails, warns: rc.warns, tm: bt && bt.all ? { n: bt.all.n, win: bt.all.win_rate, avg: bt.all.avg_r, pf: bt.all.profit_factor } : null, src: isForex(sym) ? 'yahoo' : dataSrc };
+      const alert = { ts: new Date().toISOString(), barTime: p.time, sym, cls, tf, side, score, strategy, lab: lab && { best: lab.best, mine: mine && { n: mine.n, avg_r: mine.avg_r, verdict: mine.verdict } }, quad: p.regime_quadrant && p.regime_quadrant.quadrant, regime: p.regime, htf: p.trend.htf_bias, adx: p.strength && p.strength.adx != null ? p.strength.adx : null, setupScore: (() => { try { const q = setupScore(k, side, p.time); return q ? q.sc : null; } catch (e) { return null; } })(), event: p.event, sweep: sweep && sweep.status, entry: p.trade.entry, stop: p.trade.stop, t1: p.trade.target_1, t2: p.trade.target_2, rr: rc.rr, fails: rc.fails, warns: rc.warns, tm: bt && bt.all ? { n: bt.all.n, win: bt.all.win_rate, avg: bt.all.avg_r, pf: bt.all.profit_factor } : null, src: isForex(sym) ? 'yahoo' : dataSrc };
       alert.chase = (p.chasing || cnd.chase) ? 1 : 0; alert.hourUtc = isFinite(Date.parse(p.time)) ? new Date(p.time).getUTCHours() : null;
       S.lastCard = S.lastCard || {}; S.lastCard[sym + '|' + tf + '|' + strategy] = { t: Date.parse(p.time), side };
       if (rc.fails.length) { alert.status = 'REJECTED_RULES'; alert.reasons = rc.fails; shadowRecord(alert, 'RULES_REJECTED'); S.alerts.unshift(alert); log('REJECT', sym, tf, side, rc.fails.join('; ')); continue; }
@@ -378,4 +397,4 @@ async function main() {
   log(`done in ${S.durationSec}s · open ${S.positions.length} · closed ${S.closed.length} · new alerts ${newAlerts.length} · equity ${S.equityR}R · src ${dataSrc} · errors ${S.errors.length}`);
   if (S.errors.length) console.log(S.errors.join('\n'));
 }
-if (require.main === module) main(); else module.exports = { CFG, S, PRIO, TFMS, nominate, ruleCheck, manage, lossWindows, riskRail, wR, costsOf, shadowRecord, stats, lens };
+if (require.main === module) main(); else module.exports = { CFG, S, PRIO, TFMS, nominate, ruleCheck, manage, lossWindows, riskRail, wR, costsOf, shadowRecord, stats, lens, setupScore, filterReport };

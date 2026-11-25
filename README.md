@@ -128,3 +128,9 @@ GitHub cron را «تلاش می‌کند» اجرا کند و در ریپوها
 - `filterReport` (weekly shadow→decision report, published in bot.json): per-filter WITH vs WITHOUT, clustered; `filterMinClusters` (20).
 - `corrCheck` / `corrMax` (0.8) / `corrMult` (0.5): 30-day return correlation with same-direction open positions halves risk.
 - **`live.js` — Live 1 % bridge (OKX).** Disabled by default. To enable: add repo secrets `OKX_API_KEY`, `OKX_API_SECRET`, `OKX_API_PASSPHRASE` (trade permission only, IP-restricted), then in `config.json`: `live.enabled:true` with `dryRun:true` (signs + logs, sends nothing) → after a week set `dryRun:false` with `demo:true` (OKX demo trading header) → only after weeks of clean demo set `demo:false`. Gates (shadow clusters ≥20, paper n≥30, avgR>0, PF>1) are re-checked on every run and shown in the app's Bot tab.
+
+
+### v132e — Setup Scorecard shadow field
+- `setupScore(k, side, barTime)` (0–6; same rules as the app's SCORE indicator, walk-forward pivots) is computed on every analysed setup and stored as `alert.setupScore` / `shadow.setupScore`. **Not a filter.**
+- `filterReport` gained two arms: `setup score ≥4` and `setup score ≥5` — decision follows the usual n≥20-cluster gate on two consecutive weekly reports.
+- Why shadow-only: 5-y backtest (BTC/ETH/SOL, costs) — standalone 4H PF 1.20 (+0.127R), 1H PF 1.01, 15m negative; edge ≈ VAB baseline, correlation with VAB unknown.
