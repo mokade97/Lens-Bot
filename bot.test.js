@@ -72,4 +72,17 @@ console.log('\nengine');
   const fr = bot.filterReport([{ side: 'LONG', rr: 1, setupScore: 5, closedAt: '2026-01-01' }, { side: 'LONG', rr: -1, setupScore: null, closedAt: '2026-01-02' }]);
   ok('filterReport: setup score ≥5 filter present and scoped to rows with a score', fr.allTime['setup score ≥5'] && fr.allTime['setup score ≥5'].all.n === 1, JSON.stringify(fr.allTime['setup score ≥5'] && fr.allTime['setup score ≥5'].all)); }
 
+/* v133: order-flow shadow + day-gate A/B */
+{ const OF = require('../orderflow.js');
+  ok('orderflow: symbol base', OF.base('BTC-USDT-SWAP') === 'BTC' && OF.base('XAUUSDT') === 'XAU' && OF.base('1000PEPEUSDT') === '1000PEPE');
+  ok('orderflow: usd parse', OF.usd('$5.64M') === 5640000 && OF.usd('$4.8K') === 4800 && OF.usd(null) === null);
+  const fr = bot.filterReport([{ side: 'LONG', rr: 1, closedAt: '2026-01-01', of: { flowAligned: true, bookAligned: null, absorbAgainst: false, bigAligned: true } }, { side: 'LONG', rr: -1, closedAt: '2026-01-02', of: null }]);
+  ok('filterReport: orderflow arms present, scoped to rows with data', fr.allTime['orderflow: 5m flow aligned'].all.n === 1 && fr.allTime['orderflow: book (OBI) aligned'].all.n === 0 && fr.allTime['orderflow: no absorption against'].kept.n === 1);
+  const S0 = { closed: [{ openedAt: '2026-11-25T01:00:00Z', rr: -1 }, { openedAt: '2026-11-25T03:00:00Z', rr: 0.8 }], positions: [] };
+  ok('dayGate: skip after first win of the UTC day', bot.dayGate(S0, '2026-11-25T05:00:00Z') === 'SKIP_AFTER_WIN');
+  ok('dayGate: skip after 3 tries (closed+open)', bot.dayGate({ closed: [{ openedAt: '2026-11-25T01:00:00Z', rr: -1 }, { openedAt: '2026-11-25T02:00:00Z', rr: -1 }], positions: [{ openedAt: '2026-11-25T03:00:00Z' }] }, '2026-11-25T05:00:00Z') === 'SKIP_MAX_TRIES');
+  ok('dayGate: new day resets', bot.dayGate(S0, '2026-11-26T05:00:00Z') === 'TAKEN');
+  const rep = bot.dayGateReport([{ openedAt: '2026-11-25T01:00:00Z', rr: 1, dayGate: 'TAKEN' }, { openedAt: '2026-11-25T05:00:00Z', rr: -1, dayGate: 'SKIP_AFTER_WIN' }, { openedAt: '2026-11-26T05:00:00Z', rr: -1, dayGate: 'TAKEN' }]);
+  ok('dayGateReport: base 3 trades / variant 2 / skipped 1', rep.n === 3 && rep.variant.n === 2 && rep.skipped.n === 1 && rep.days === 2); }
+
 console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);

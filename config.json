@@ -1,136 +1,167 @@
 {
- "universe": {
-  "classes": [
-   "crypto",
-   "metal"
+  "universe": {
+    "classes": [
+      "crypto",
+      "metal"
+    ],
+    "cryptoTop": 60,
+    "stockTop": 20,
+    "cryptoAlways": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "XRPUSDT",
+      "BNBUSDT"
+    ],
+    "cryptoExclude": [],
+    "metals": [
+      "XAUUSDT",
+      "XAGUSDT"
+    ]
+  },
+  "timeframes": [
+    "4H",
+    "1D"
   ],
-  "cryptoTop": 60,
-  "stockTop": 20,
-  "cryptoAlways": [
-   "BTCUSDT",
-   "ETHUSDT",
-   "SOLUSDT",
-   "XRPUSDT",
-   "BNBUSDT"
+  "maxCandidatesPerRun": 8,
+  "minDeepPerClass": 2,
+  "scanConcurrency": 4,
+  "minScore": 70,
+  "account": 100,
+  "riskPct": 3,
+  "maxOpenRiskPct": 6,
+  "dailyLossR": 2,
+  "weeklyLossR": 3.5,
+  "maxNotionalMult": 3,
+  "minNotionalUSD": 5,
+  "maxSameDirCrypto": 2,
+  "liveFill": true,
+  "noCounterHtf": true,
+  "maxOpen": 8,
+  "maxOpenByTf": {
+    "1D": 3
+  },
+  "labStrategies": [
+    "ICHI"
   ],
-  "cryptoExclude": [],
-  "metals": [
-   "XAUUSDT",
-   "XAGUSDT"
-  ]
- },
- "timeframes": [
-  "4H",
-  "1D"
- ],
- "maxCandidatesPerRun": 8,
- "minDeepPerClass": 2,
- "scanConcurrency": 4,
- "minScore": 70,
- "account": 100,
- "riskPct": 3,
- "maxOpenRiskPct": 6,
- "dailyLossR": 2,
- "weeklyLossR": 3.5,
- "maxNotionalMult": 3,
- "minNotionalUSD": 5,
- "maxSameDirCrypto": 2,
- "liveFill": true,
- "noCounterHtf": true,
- "maxOpen": 8,
- "maxOpenByTf": {
-  "1D": 3
- },
- "labStrategies": [
-  "ICHI"
- ],
- "paperTrade": true,
- "strategyPriority": {
-  "ICHI": 3,
-  "DONCHIAN20": 2,
-  "LENS": 1,
-  "SWEEP": 0
- },
- "strategySides": {
-  "ICHI": "BOTH"
- },
- "maxExtAtr": 2,
- "maxBars": 40,
- "feePct": 0.1,
- "slipPct": 0.2,
- "fundPer8h": 0.01,
- "useGemini": true,
- "geminiModel": "gemini-3.5-flash-lite",
- "geminiModels": [
-  "gemini-3.5-flash-lite",
-  "gemini-3.1-flash-lite",
-  "gemini-3.6-flash"
- ],
- "requireAI": true,
- "aiMode": "shadow",
- "judgeMinN": 40,
- "providerOrder": [
-  "gemini",
-  "openrouter"
- ],
- "openrouterModels": [],
- "openrouterCount": 4,
- "openrouterDaily": 45,
- "roundtableLite": true,
- "runBudgetSec": 540,
- "maxDeferRuns": 4,
- "llmMinGapMs": 4500,
- "minConfidence": 60,
- "roundtable": true,
- "useStrategyLab": true,
- "dailyLLMBudget": 220,
- "maxLLMPerRun": 24,
- "macroCacheHours": 4,
- "exchanges": [
-  "okx",
-  "bitget",
-  "gate"
- ],
- "shadowTimeframes": [
-  "1H"
- ],
- "shadowClasses": [
-  "metal"
- ],
- "liveStrategies": [
-  "ICHI"
- ],
- "labStrategiesByTf": {
-  "1D": [
-   "ICHI",
-   "DONCHIAN20"
-  ]
- },
- "labLenient": [
-  "ICHI",
-  "DONCHIAN20"
- ],
- "sideSizeMult": {},
- "q4Size": 0.5,
- "q4Hard": false,
- "cooldownBars": 6,
- "liveSides": {
-  "ICHI": [
-   "SHORT"
-  ]
- },
- "chaseShadow": true,
- "stopRuleR": -15,
- "slipReviewN": 30,
- "live": { "enabled": false, "demo": true, "dryRun": true, "riskPct": 1, "maxNotionalUSD": 50, "maxOpen": 1, "maxLev": 5, "symbols": [], "minShadowClusters": 20, "minTrades": 30 },
- "corrCheck": true,
- "corrMax": 0.8,
- "corrMult": 0.5,
- "slipBlock": true,
- "slipBlockN": 5,
- "slipBlockR": 0.08,
- "slipReviewPct": 0.35,
- "scanBars": 400,
- "judgeShadow": true,
- "judgeShadowMinBudgetFrac": 0.5
+  "paperTrade": true,
+  "strategyPriority": {
+    "ICHI": 3,
+    "DONCHIAN20": 2,
+    "LENS": 1,
+    "SWEEP": 0
+  },
+  "strategySides": {
+    "ICHI": "BOTH"
+  },
+  "maxExtAtr": 2,
+  "maxBars": 40,
+  "feePct": 0.1,
+  "slipPct": 0.2,
+  "fundPer8h": 0.01,
+  "useGemini": true,
+  "geminiModel": "gemini-3.5-flash-lite",
+  "geminiModels": [
+    "gemini-3.5-flash-lite",
+    "gemini-3.1-flash-lite",
+    "gemini-3.6-flash"
+  ],
+  "requireAI": true,
+  "aiMode": "shadow",
+  "judgeMinN": 40,
+  "providerOrder": [
+    "gemini",
+    "openrouter"
+  ],
+  "openrouterModels": [],
+  "openrouterCount": 4,
+  "openrouterDaily": 45,
+  "roundtableLite": true,
+  "runBudgetSec": 540,
+  "maxDeferRuns": 4,
+  "llmMinGapMs": 4500,
+  "minConfidence": 60,
+  "roundtable": true,
+  "useStrategyLab": true,
+  "dailyLLMBudget": 220,
+  "maxLLMPerRun": 24,
+  "macroCacheHours": 4,
+  "exchanges": [
+    "okx",
+    "bitget",
+    "gate"
+  ],
+  "shadowTimeframes": [
+    "1H"
+  ],
+  "shadowClasses": [
+    "metal"
+  ],
+  "liveStrategies": [
+    "ICHI"
+  ],
+  "labStrategiesByTf": {
+    "1D": [
+      "ICHI",
+      "DONCHIAN20"
+    ]
+  },
+  "labLenient": [
+    "ICHI",
+    "DONCHIAN20"
+  ],
+  "sideSizeMult": {},
+  "q4Size": 0.5,
+  "q4Hard": false,
+  "cooldownBars": 6,
+  "liveSides": {
+    "ICHI": [
+      "SHORT"
+    ]
+  },
+  "chaseShadow": true,
+  "stopRuleR": -15,
+  "slipReviewN": 30,
+  "live": {
+    "enabled": false,
+    "demo": true,
+    "dryRun": true,
+    "riskPct": 1,
+    "maxNotionalUSD": 50,
+    "maxOpen": 1,
+    "maxLev": 5,
+    "symbols": [],
+    "minShadowClusters": 20,
+    "minTrades": 30
+  },
+  "corrCheck": true,
+  "corrMax": 0.8,
+  "corrMult": 0.5,
+  "slipBlock": true,
+  "slipBlockN": 5,
+  "slipBlockR": 0.08,
+  "slipReviewPct": 0.35,
+  "scanBars": 400,
+  "judgeShadow": true,
+  "judgeShadowMinBudgetFrac": 0.5,
+  "orderflow": {
+    "enabled": false,
+    "url": "http://127.0.0.1:3333/mcp",
+    "token": "",
+    "timeoutMs": 5000,
+    "watch": [
+      "BTC",
+      "ETH",
+      "SOL",
+      "XRP",
+      "BNB",
+      "DOGE",
+      "ADA",
+      "AVAX",
+      "LINK",
+      "SUI",
+      "LTC",
+      "TON"
+    ]
+  }
 }
