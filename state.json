@@ -855,6 +855,73 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-25T12:45:55.561Z",
+   "barTime": "2026-11-25T11:00:00.000Z",
+   "sym": "PEPEUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "score": 64,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "LENS",
+     "name": "Lens setup",
+     "avg_r": 0.05,
+     "n": 24,
+     "verdict": "WEAK"
+    },
+    "mine": {
+     "n": 24,
+     "avg_r": 0.05,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "adx": 12.2,
+   "setupScore": 4,
+   "event": "CANDLE",
+   "sweep": null,
+   "entry": 0.0000034,
+   "stop": 0.00000349,
+   "t1": 0.00000327,
+   "t2": 0.00000313,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (24× · 0.05R)"
+   ],
+   "tm": {
+    "n": 24,
+    "win": 46,
+    "avg": 0.05,
+    "pf": 1.09
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 11,
+   "volMult": 1,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 25000000,
+   "riskUSD": 2.25,
+   "sizeMult": 0.75,
+   "notionalUSD": 85,
+   "status": "ALERT_ONLY_SHADOW",
+   "aiMode": "shadow",
+   "aiDecision": null,
+   "aiAgrees": null,
+   "judge": "shadow-only",
+   "reasons": [
+    "تایم‌فریم 1H فقط سایه (بک‌تست ۵ ساله: 1H منفی)"
+   ],
+   "concerns": [
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (24× · 0.05R)"
+   ]
+  },
+  {
    "ts": "2026-11-25T12:15:52.078Z",
    "barTime": "2026-11-25T11:00:00.000Z",
    "sym": "XAUUSDT",
@@ -4667,155 +4734,6 @@
    "reasons": [
     "Time Machine (رکورد ستاپ LENS همین نماد): منفی (29× · -0.23R)"
    ]
-  },
-  {
-   "ts": "2026-11-25T08:02:12.575Z",
-   "barTime": "2026-11-25T04:00:00.000Z",
-   "sym": "LITUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 52,
-   "strategy": "ICHI",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.4,
-     "n": 21,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 8,
-     "avg_r": 0.5,
-     "verdict": "EDGE_UNCONFIRMED"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "adx": 22.9,
-   "event": "CANDLE",
-   "sweep": "SWEPT_WAIT_CHOCH",
-   "entry": 2.3134,
-   "stop": 2.47989337,
-   "t1": 2.06365995,
-   "t2": 1.8139199,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "آزمایشگاه استراتژی: Ichimoku TK cross + cloud filter این‌جا بدون مزیت (8× · 0.5R)"
-   ],
-   "tm": {
-    "n": 20,
-    "win": 50,
-    "avg": 0.35,
-    "pf": 1.66
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 4,
-   "volMult": 0.95,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 12.838,
-   "riskUSD": 2.14,
-   "sizeMult": 0.75,
-   "notionalUSD": 29.7,
-   "rail": {
-    "status": "ALERT_ONLY_LOSSCAP",
-    "why": "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم"
-   },
-   "desk": {
-    "mode": "roundtable",
-    "model": "gemini-3.5-flash-lite",
-    "llmCalls": 4,
-    "llmToday": 50,
-    "agents": {
-     "tech": {
-      "bias": "bearish",
-      "confidence": 65,
-      "key_points": [
-       "قیمت در حال حاضر ۲.۳۱۳۴ دلار است که زیر EMA20 (۲.۴۰۵) و EMA50 (۲.۵۴۷) قرار دارد که نشان‌دهنده روند نزولی است.",
-       "ساختار بازار در محدوده رنج (Range) قرار دارد و قیمت به زیر سطح ۲.۳۱۰۲ (Low روز قبل) نفوذ کرده است.",
-       "شاخص RSI در سطح ۴۲.۱ قرار دارد که نشان‌دهنده ضعف مومنتوم صعودی است.",
-       "قیمت در حال حاضر در داخل ناحیه ارزشی (Value Area) قرار دارد و POC در ۲.۳۵۴۶ دلار به عنوان مقاومت عمل می‌کند."
-      ],
-      "what_changes_my_mind": "بسته شدن کندل ۴ ساعته بالای سطح ۲.۴۶۳۲ (High روز قبل) که نشان‌دهنده تغییر ساختار به صعودی است."
-     },
-     "macro": {
-      "bias": "bearish",
-      "confidence": 70,
-      "key_points": [
-       "Fear & Greed Index 13 (Extreme Fear) — 2026-11-25، پایین‌ترین سطح ۳۰ روزه",
-       "مجموع مارکت‌کپ $2.059T، تغییر ۲۴ساعته -3.92% — 2026-11-25",
-       "BTC Dominance 57.75%، ETH 9.83%، USDT 8.46% — 2026-11-25",
-       "فد احتمالاً نرخ‌ها را در دسامبر ثابت نگه می‌دارد (CME FedWatch: 85% شانس عدم تغییر) — 2026-11-22 (unverified)",
-       "DXY در محدوده 106.5–107.2، ریال‌ییلد ۱۰ساله ~4.2% — 2026-11-24 (unverified)"
-      ],
-      "events_next_7d": [
-       "2026-11-26 — FOMC Minutes (نوامبر) — تاثیر: احتمالاً 매پری، اگر زبان hawkish باشد ریسک‌اف",
-       "2026-11-27 — Thanksgiving (US market closed) — تاثیر: نقدینگی پایین، حرکات اغراق‌آمیز",
-       "2026-11-28 — Black Friday / Options Expiry (monthly) — تاثیر: ولاتیلیته بالا در BTC/ETH",
-       "2026-12-01 — ISM Manufacturing PMI — تاثیر: اگر <50، ترس از رکنش تقویت می‌شود",
-       "2026-12-05 — NFP (نوامبر) — تاثیر: رویداد Tier-1، می‌تواند مسیر فد را تغییر دهد"
-      ],
-      "cached": "2026-11-25T04:02:54.101Z"
-     },
-     "sent": {
-      "bias": "bearish",
-      "confidence": 60,
-      "key_points": [
-       "نسبت حساب‌های لانگ به شورت ۱.۶۶ است که نشان‌دهنده تجمع معامله‌گران لانگ در بازار است.",
-       "کاهش ۵.۰۱ درصدی در Open Interest طی ۲۴ ساعت گذشته نشان‌دهنده خروج پوزیشن‌ها و تسویه حساب است.",
-       "شاخص ترس و طمع در سطح ۱۳ (Extreme Fear) قرار دارد که نشان‌دهنده جو منفی حاکم است.",
-       "پریمیوم منفی ۰.۱۱۲۲ درصدی نشان‌دهنده فشار فروش در بازار فیوچرز است."
-      ]
-     },
-     "bull": {
-      "confidence": 35,
-      "case": [
-       "قیمت در حال حاضر در سطح ۲.۳۱۳۴ دلار، تنها ۶.۹٪ بالاتر از حمایت کلیدی ۲.۱۶۱۱ دلار (Swing Low) قرار دارد که پتانسیل بازگشت (Bounce) را افزایش می‌دهد.",
-       "شاخص ترس و طمع در سطح ۱۳ (Extreme Fear) قرار دارد که از نظر تاریخی در بازارهای کریپتو اغلب با اشباع فروش و احتمال بازگشت کوتاه‌مدت همراه است.",
-       "نسبت لانگ به شورت ۱.۶۶ نشان‌دهنده تمایل معامله‌گران به خرید در سطوح پایین است که می‌تواند در صورت یک جرقه مثبت، منجر به Short Squeeze شود.",
-       "قیمت در نزدیکی VWAP (۲.۳۳۵۳ دلار) قرار دارد که نشان‌دهنده تعادل موقت و احتمال تلاش برای بازپس‌گیری این سطح است."
-      ]
-     },
-     "bear": {
-      "confidence": 65,
-      "case": [
-       "قیمت ۲.۳۱۳۴ دلار زیر EMA20 (۲.۴۰۵) و EMA50 (۲.۵۴۷) تثبیت شده که نشان‌دهنده تسلط کامل فروشندگان در بازه ۴ ساعته است.",
-       "قیمت به زیر سطح ۲.۳۱۰۲ دلار (PDL) نفوذ کرده که طبق متدولوژی Dow، تاییدکننده ادامه روند نزولی و شکست ساختار حمایتی است.",
-       "پریمیوم منفی ۰.۱۱۲۲ درصدی نشان‌دهنده فشار فروش سنگین در بازار فیوچرز است و کاهش ۵.۰۱ درصدی OI همراه با افت قیمت، تایید می‌کند که خروج پول در حال وقوع است.",
-       "POC در سطح ۲.۳۵۴۶ دلار به عنوان مقاومت داینامیک عمل می‌کند و تا زمانی که قیمت زیر این سطح است، هرگونه صعود صرفاً یک اصلاح برای فروش مجدد است."
-      ]
-     }
-    }
-   },
-   "agreement": "Technical and Sentiment analysts agree on bearish bias, but Risk Manager enforces SKIP due to Q4 range regime and low liquidity.",
-   "overruled": "Overruled the deterministic engine's SHORT proposal; the setup fails the desk's Q4 regime filter and liquidity requirements.",
-   "failWhy": "A sudden short-covering rally driven by the Extreme Fear sentiment could trigger the stop before the trend resumes.",
-   "nextCheck": "Wait for a clear volume-backed breakout (volume > 1.2x) outside the 2.2539-2.3546 value area.",
-   "judge": "roundtable:gemini-3.1-flash-lite",
-   "confidence": 85,
-   "reasons": [
-    "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم",
-    "حالت سایه: AI مخالف است (SKIP 85) — نظرش ثبت شد، معامله طبق موتور باز می‌شود",
-    "Regime is Q3/Q4 Quiet Range (ADX 22.9), where breakout strategies have high failure rates.",
-    "LITUSDT liquidity is thin (Relative Volume 0.56), increasing risk of fakeouts.",
-    "Account rules mandate SKIP for Q4 range regimes unless a confirmed volume-backed breakout occurs.",
-    "Ichimoku strategy shows no edge in current HTF-conflicted environment (Time Machine win rate 38% vs 50% overall)."
-   ],
-   "concerns": [
-    "Extreme Fear (13) often triggers short-covering spikes in low-liquidity environments.",
-    "Price is currently inside the Value Area, making the 2.3134 entry a 'no-man's land' trade.",
-    "High Long/Short ratio (1.66) suggests crowded longs that could be liquidated, but current OI decline indicates exit rather than new short fuel."
-   ],
-   "invalidation": "4H close above 2.4632 (PDL/Resistance).",
-   "aiMode": "shadow",
-   "aiDecision": "SKIP",
-   "aiAgrees": 0,
-   "status": "ALERT_ONLY_LOSSCAP"
   }
  ],
  "shadow": [
@@ -11199,6 +11117,36 @@
    "t1hit": false,
    "mtm": 0,
    "live": "REJECTED_RULES"
+  },
+  {
+   "id": "PEPEUSDT|1H|SHORT|2026-11-25T11:00:00.000Z",
+   "sym": "PEPEUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "SHORT",
+   "strategy": "LENS",
+   "quad": "Q3",
+   "score": 64,
+   "chase": 0,
+   "adx": 12.2,
+   "htf": "NEUTRAL",
+   "setupScore": 4,
+   "entry": 0.0000034,
+   "stop": 0.00000349,
+   "t1": 0.00000327,
+   "t2": 0.00000313,
+   "verdict": "SHADOW_ONLY",
+   "hourUtc": 11,
+   "aiDecision": null,
+   "confidence": null,
+   "pT1": null,
+   "openedAt": "2026-11-25T12:45:55.561Z",
+   "barTime": "2026-11-25T11:00:00.000Z",
+   "lastBarT": 1795604400000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "ALERT_ONLY_SHADOW"
   }
  ],
  "shadowClosed": [
@@ -38574,12 +38522,13 @@
   "SOLUSDT|1H|LENS|SHORT|2026-11-25T11:00:00.000Z": 1795608949659,
   "SUIUSDT|1H|LENS|SHORT|2026-11-25T11:00:00.000Z": 1795608950347,
   "XRPUSDT|1H|LENS|SHORT|2026-11-25T11:00:00.000Z": 1795608950918,
-  "XAUUSDT|1H|LENS|SHORT|2026-11-25T11:00:00.000Z": 1795608951492
+  "XAUUSDT|1H|LENS|SHORT|2026-11-25T11:00:00.000Z": 1795608951492,
+  "PEPEUSDT|1H|LENS|SHORT|2026-11-25T11:00:00.000Z": 1795610754498
  },
- "lastRun": "2026-11-25T12:42:06.017Z",
- "runs": 738,
+ "lastRun": "2026-11-25T12:45:55.746Z",
+ "runs": 739,
  "errors": [],
- "durationSec": 22,
+ "durationSec": 29,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -38879,8 +38828,8 @@
    "BCHUSDT",
    "PROSUSDT",
    "AVAXUSDT",
-   "ARBUSDT",
    "VVVUSDT",
+   "ARBUSDT",
    "IRYSUSDT",
    "TAOUSDT",
    "ONDOUSDT",
@@ -38915,7 +38864,7 @@
    "cryptoListed": 272,
    "stocksListed": 266,
    "cryptoTop": 60,
-   "minVolUSD": 5512694,
+   "minVolUSD": 5488932,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -38925,11 +38874,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 0,
-   "deep": 0,
-   "extended": 27,
+   "candidates": 1,
+   "deep": 1,
+   "extended": 26,
    "byClass": {
-    "crypto": 0,
+    "crypto": 1,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -39135,7 +39084,7 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 3073,
+   "cooldownSkipped": 3104,
    "aiTextStripped": 9
   }
  },
@@ -39143,16 +39092,16 @@
   "cryptoListed": 272,
   "stocksListed": 266,
   "cryptoTop": 60,
-  "minVolUSD": 5512694
+  "minVolUSD": 5488932
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 0,
-  "deep": 0,
-  "extended": 27,
+  "candidates": 1,
+  "deep": 1,
+  "extended": 26,
   "byClass": {
-   "crypto": 0,
+   "crypto": 1,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -39782,7 +39731,7 @@
     "maxDD": 1.05
    }
   },
-  "open": 167,
+  "open": 168,
   "dupSkipped": 462
  },
  "shadowDup": 462,
@@ -39838,7 +39787,7 @@
   "verdict": "INSUFFICIENT",
   "detail": "n agree=13, against=80 (need ≥40 each)",
   "calibration": null,
-  "asOf": "2026-11-25T12:42:06.021Z"
+  "asOf": "2026-11-25T12:45:55.750Z"
  },
  "shadowIndep": {
   "n": 591,
@@ -40521,7 +40470,7 @@
    "side": "SHORT"
   },
   "PEPEUSDT|1H|LENS": {
-   "t": 1795395600000,
+   "t": 1795604400000,
    "side": "SHORT"
   },
   "PUMPUSDT|1H|LENS": {
@@ -41325,7 +41274,7 @@
    "side": "SHORT"
   }
  },
- "cooldownSkipped": 3073,
+ "cooldownSkipped": 3104,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
@@ -41352,7 +41301,7 @@
  "cumR": 10.23,
  "cumUSD": 98.23,
  "filterReport": {
-  "generatedAt": "2026-11-25T12:42:06.021Z",
+  "generatedAt": "2026-11-25T12:45:55.751Z",
   "minClusters": 20,
   "week": {
    "AI judge (keep only agree)": {
