@@ -142,3 +142,8 @@ GitHub cron را «تلاش می‌کند» اجرا کند و در ریپوها
 - Config `orderflow` (ships **disabled**): `{enabled,url,token,timeoutMs,watch[]}`. Run the server next to the bot: `npx -y github:zadescoxp/order-flow-mcp --http --port 3333 --host 127.0.0.1` (systemd/pm2). Measured: 3 markets ≈170 MB RSS, 15 markets ≈250 MB, max 20 per server. The bot calls `watch_markets` for `watch[]` at the start of each run so majors stay warm; other symbols are sampled cold (flags null).
 - **Day-gate shadow A/B** (`dayGate`, `dayGateReport` → `state.dayGateAB`): every paper position is tagged `TAKEN / SKIP_AFTER_WIN / SKIP_MAX_TRIES` by the rule "first win of the UTC day → stop; max 3 entries/day". Report shows base vs variant (n, avg, PF, maxDD) and daily σ of both. Expected effect is variance, not expectancy; decide after ≥40 trading days.
 - **Rejected (backtest, reports/v133-sweep-ab.md):** multi-candle sweep return window and protected-swing CHoCH on the SWEEP entry — neither turns SWEEP positive (1H n=403–614, all ≈ −0.25 R). Engine unchanged.
+
+## v133b
+- `orderflow.js`: new fields `poc`, `last`, `chg5mPct`, `pocDistPct` and flag **`deltaDivAgainst`** — executed 5m delta in the setup's direction while 5m price moved the other way (|Δ| ≥ 0.05 %): "flow without acceptance" (spxomega), i.e. my side is being absorbed. null when cold/flat/missing. Shadow only.
+- `filterReport` arm `orderflow: no delta/price divergence against` (5 order-flow arms total). Test appended.
+- Research: self-calibrating percentile grade for SCORE (Willy) backtested in `reports/score_pct.js` → identical to fixed ≥5 or worse; rejected (`reports/v133b-score-percentile.md`).

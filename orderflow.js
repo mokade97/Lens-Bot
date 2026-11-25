@@ -33,7 +33,7 @@ async function snapshot(cfgIn, sym, side, log) {
       obi: ob.obi ?? null, depthImb01: ob.depth && ob.depth[0] ? ob.depth[0].imbalance : null, depthImb1: ob.depth && ob.depth[2] ? ob.depth[2].imbalance : null,
       oiChg5mPct: dv.oi_change_5m_pct ?? null, oiRegime: dv.oi_regime_5m || null, fundingAnnPct: dv.funding_annualized_pct ?? null, basisBps: dv.basis_bps ?? null,
       liqLong5m: usd(lq.long_usd), liqShort5m: usd(lq.short_usd), bigBuy5m: bigBuy, bigSell5m: bigSell, bigShare: bigBuy != null && bigSell != null && bigBuy + bigSell > 0 ? +(bigBuy / (bigBuy + bigSell)).toFixed(3) : null,
-      absorbBid15m: absorb.bid, absorbAsk15m: absorb.ask, icebergBid15m: ice.bid, icebergAsk15m: ice.ask, vaLoc: d.volume_profile && d.volume_profile.location || null,
+      absorbBid15m: absorb.bid, absorbAsk15m: absorb.ask, icebergBid15m: ice.bid, icebergAsk15m: ice.ask, vaLoc: d.volume_profile && d.volume_profile.location || null, poc: d.volume_profile && d.volume_profile.poc != null ? d.volume_profile.poc : null, last: d.price && d.price.last != null ? d.price.last : null, chg5mPct: f5.price_change_pct ?? null,
       venuesLive: Array.isArray(d.connections) ? d.connections.filter(c => c.status === 'live').length : null
     };
     /* derived flags (null = no opinion) — these are the arms filterReport evaluates */
@@ -41,6 +41,10 @@ async function snapshot(cfgIn, sym, side, log) {
     o.bookAligned = o.obi == null || !o.warm ? null : Math.abs(o.obi) < 0.1 ? null : (LG ? o.obi > 0 : o.obi < 0);
     o.absorbAgainst = !o.warm ? null : LG ? o.absorbAsk15m > 0 : o.absorbBid15m > 0;   /* passive side holding against the setup's direction */
     o.bigAligned = o.bigShare == null || !o.warm ? null : Math.abs(o.bigShare - 0.5) < 0.1 ? null : (LG ? o.bigShare > 0.5 : o.bigShare < 0.5);
+    /* v133b (spxomega): executed flow without price acceptance. delta5m in the setup's direction while 5m price moved the other way
+       = my side is being absorbed (buyers trapped above / sellers trapped below). null when stream cold, data missing or price flat (|Δ| < 0.05 %). */
+    o.pocDistPct = o.poc && o.last ? +((o.last - o.poc) / o.poc * 100).toFixed(3) : null;
+    o.deltaDivAgainst = !o.warm || o.delta5m == null || o.chg5mPct == null || Math.abs(o.chg5mPct) < 0.05 || o.delta5m === 0 ? null : LG ? (o.delta5m > 0 && o.chg5mPct < 0) : (o.delta5m < 0 && o.chg5mPct > 0);
     return o;
   } catch (e) { if (log && !warned) log('ORDERFLOW', sym, String(e.message || e)); warned = true; return null; }
 }

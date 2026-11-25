@@ -163,7 +163,8 @@ function filterReport(SC) {
     'orderflow: 5m flow aligned': x => x.of && x.of.flowAligned != null ? x.of.flowAligned : null,
     'orderflow: book (OBI) aligned': x => x.of && x.of.bookAligned != null ? x.of.bookAligned : null,
     'orderflow: no absorption against': x => x.of && x.of.absorbAgainst != null ? !x.of.absorbAgainst : null,
-    'orderflow: block prints aligned': x => x.of && x.of.bigAligned != null ? x.of.bigAligned : null
+    'orderflow: block prints aligned': x => x.of && x.of.bigAligned != null ? x.of.bigAligned : null,
+    'orderflow: no delta/price divergence against': x => x.of && x.of.deltaDivAgainst != null ? !x.of.deltaDivAgainst : null
   };
   const minC = CFG.filterMinClusters || 20;
   const arm = a => { const n = a.length; if (!n) return { n: 0, clusters: 0, avg: null, sum: 0 }; const cl = {}; a.forEach(x => { const k = (x.closedAt || x.barTime || '').slice(0, 10) + '|' + x.side; (cl[k] = cl[k] || []).push(x.rr); }); const cs = Object.values(cl).map(v => v.reduce((q, r) => q + r, 0) / v.length); return { n, clusters: cs.length, avg: +(a.reduce((q, x) => q + x.rr, 0) / n).toFixed(3), clAvg: +(cs.reduce((q, r) => q + r, 0) / cs.length).toFixed(3), sum: +a.reduce((q, x) => q + x.rr, 0).toFixed(2) }; };
