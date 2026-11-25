@@ -855,6 +855,76 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-25T07:31:00.723Z",
+   "barTime": "2026-11-25T06:00:00.000Z",
+   "sym": "BTWUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 78,
+   "strategy": "LENS",
+   "lab": {
+    "best": {
+     "id": "EMA_X",
+     "name": "EMA 20/50 crossover + HTF",
+     "avg_r": 0.52,
+     "n": 8,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 20,
+     "avg_r": 0.11,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_UP",
+   "htf": "UP",
+   "adx": 42,
+   "event": "LONG_SETUP",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.8465,
+   "stop": 0.80065398,
+   "t1": 0.91526903,
+   "t2": 0.98403805,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (3.3×ATR)",
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (20× · 0.11R)"
+   ],
+   "tm": {
+    "n": 20,
+    "win": 50,
+    "avg": 0.11,
+    "pf": 1.23
+   },
+   "src": "okx",
+   "chase": 1,
+   "hourUtc": 6,
+   "volMult": 1,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 65.436,
+   "riskUSD": 3,
+   "sizeMult": 1,
+   "notionalUSD": 55.39,
+   "status": "ALERT_ONLY_SHADOW",
+   "aiMode": "shadow",
+   "aiDecision": "WAIT",
+   "aiAgrees": false,
+   "judge": "judge:gemini-3.5-flash-lite (shadow)",
+   "reasons": [
+    "تایم‌فریم 1H فقط سایه (بک‌تست ۵ ساله: 1H منفی)"
+   ],
+   "concerns": [
+    "نسبتاً کش‌شده (3.3×ATR)",
+    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (20× · 0.11R)"
+   ],
+   "confidence": 45,
+   "pT1": 42
+  },
+  {
    "ts": "2026-11-25T06:45:56.451Z",
    "barTime": "2026-11-25T00:00:00.000Z",
    "sym": "BLURUSDT",
@@ -4770,62 +4840,6 @@
    "status": "REJECTED_RULES",
    "reasons": [
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (23× · -0.17R)"
-   ]
-  },
-  {
-   "ts": "2026-11-24T16:45:50.342Z",
-   "barTime": "2026-11-24T12:00:00.000Z",
-   "sym": "PENGUUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 92,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "VAB",
-     "name": "Value-area acceptance breakout (volume profile, 4H)",
-     "avg_r": 0.65,
-     "n": 10,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 32,
-     "avg_r": -0.09,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "adx": 28.7,
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 0.004187,
-   "stop": 0.00443174,
-   "t1": 0.00381989,
-   "t2": 0.00345278,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (32× · -0.09R)"
-   ],
-   "warns": [
-    "نسبتاً کش‌شده (-2.6×ATR)",
-    "الگوی DESCENDING BROADENING WEDGE خلاف جهت",
-    "Time Machine منفی (32× · -0.09R)"
-   ],
-   "tm": {
-    "n": 32,
-    "win": 38,
-    "avg": -0.09,
-    "pf": 0.86
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 12,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (32× · -0.09R)"
    ]
   }
  ],
@@ -37366,13 +37380,14 @@
   "ZROUSDT|1H|LENS|SHORT|2026-11-25T05:00:00.000Z": 1795586466480,
   "XAGUSDT|1H|LENS|SHORT|2026-11-25T05:00:00.000Z": 1795586467346,
   "XAUUSDT|1H|LENS|SHORT|2026-11-25T05:00:00.000Z": 1795586468212,
-  "BLURUSDT|4H|LENS|LONG|2026-11-25T00:00:00.000Z": 1795589155847
+  "BLURUSDT|4H|LENS|LONG|2026-11-25T00:00:00.000Z": 1795589155847,
+  "BTWUSDT|1H|LENS|LONG|2026-11-25T06:00:00.000Z": 1795591859851
  },
- "lastRun": "2026-11-25T07:15:53.005Z",
- "runs": 716,
+ "lastRun": "2026-11-25T07:31:02.763Z",
+ "runs": 717,
  "errors": [],
- "durationSec": 26,
- "dataSrc": "okx",
+ "durationSec": 24,
+ "dataSrc": "bitget",
  "stats": {
   "all": {
    "n": 22,
@@ -37660,22 +37675,22 @@
    "FILUSDT",
    "ENAUSDT",
    "LITUSDT",
+   "PROSUSDT",
    "LINKUSDT",
    "ADAUSDT",
-   "PROSUSDT",
    "LTCUSDT",
    "AAVEUSDT",
    "SLXUSDT",
    "BCHUSDT",
    "AVAXUSDT",
+   "BIGTIMEUSDT",
    "TAOUSDT",
    "VVVUSDT",
    "ARBUSDT",
-   "BIGTIMEUSDT",
    "IRYSUSDT",
+   "BTWUSDT",
    "INJUSDT",
    "ONDOUSDT",
-   "BTWUSDT",
    "DNAUSDT",
    "OKBUSDT",
    "ZROUSDT",
@@ -37684,8 +37699,8 @@
    "DOSUSDT",
    "XPLUSDT",
    "DGAIUSDT",
-   "SAHARAUSDT",
    "STRKUSDT",
+   "SAHARAUSDT",
    "PONSUSDT",
    "XLMUSDT",
    "BERAUSDT",
@@ -37707,7 +37722,7 @@
    "cryptoListed": 272,
    "stocksListed": 265,
    "cryptoTop": 60,
-   "minVolUSD": 5431222,
+   "minVolUSD": 5420667,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -37717,11 +37732,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 0,
-   "deep": 0,
-   "extended": 20,
+   "candidates": 1,
+   "deep": 1,
+   "extended": 18,
    "byClass": {
-    "crypto": 0,
+    "crypto": 1,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -37760,7 +37775,7 @@
    }
   },
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 33,
+  "llmToday": 34,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -37775,7 +37790,7 @@
   ],
   "slots": 13,
   "slotsExhausted": 0,
-  "active": "k2:gemini-3.5-flash-lite",
+  "active": "k3:gemini-3.5-flash-lite",
   "slotTable": [
    {
     "id": "k1:gemini-3.5-flash-lite",
@@ -37797,7 +37812,7 @@
    },
    {
     "id": "k3:gemini-3.5-flash-lite",
-    "calls": 7,
+    "calls": 8,
     "errors": 2,
     "exhausted": false,
     "reason": null,
@@ -37902,9 +37917,9 @@
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 174,
+   "left": 173,
    "tot": 207,
-   "frac": 0.8405797101449275
+   "frac": 0.8357487922705314
   },
   "requireAI": true,
   "paperTrade": true,
@@ -37927,7 +37942,7 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 2582,
+   "cooldownSkipped": 2597,
    "aiTextStripped": 3
   }
  },
@@ -37935,16 +37950,16 @@
   "cryptoListed": 272,
   "stocksListed": 265,
   "cryptoTop": 60,
-  "minVolUSD": 5431222
+  "minVolUSD": 5420667
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 0,
-  "deep": 0,
-  "extended": 20,
+  "candidates": 1,
+  "deep": 1,
+  "extended": 18,
   "byClass": {
-   "crypto": 0,
+   "crypto": 1,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -37953,7 +37968,7 @@
  "llm": {
   "day": "2026-11-25",
   "v": 6,
-  "calls": 33,
+  "calls": 34,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 8,
@@ -37976,7 +37991,7 @@
     "cooldownUntil": 1795579354701
    },
    "k3:gemini-3.5-flash-lite": {
-    "calls": 7,
+    "calls": 8,
     "exhausted": false,
     "errors": 2,
     "r429": 1,
@@ -38066,7 +38081,7 @@
     "errors": 0
    }
   },
-  "active": "k2:gemini-3.5-flash-lite",
+  "active": "k3:gemini-3.5-flash-lite",
   "raw": [
    "k3:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
    "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
@@ -38568,9 +38583,9 @@
    }
   },
   "open": 155,
-  "dupSkipped": 422
+  "dupSkipped": 423
  },
- "shadowDup": 422,
+ "shadowDup": 423,
  "judgeReport": {
   "mode": "shadow",
   "agree": {
@@ -38623,7 +38638,7 @@
   "verdict": "INSUFFICIENT",
   "detail": "n agree=13, against=80 (need ≥40 each)",
   "calibration": null,
-  "asOf": "2026-11-25T07:15:53.011Z"
+  "asOf": "2026-11-25T07:31:02.766Z"
  },
  "shadowIndep": {
   "n": 579,
@@ -39134,7 +39149,7 @@
    "side": "SHORT"
   },
   "BTWUSDT|1H|LENS": {
-   "t": 1795561200000,
+   "t": 1795586400000,
    "side": "LONG"
   },
   "ADAUSDT|1D|LENS": {
@@ -40030,7 +40045,7 @@
    "side": "LONG"
   }
  },
- "cooldownSkipped": 2582,
+ "cooldownSkipped": 2597,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
@@ -40057,7 +40072,7 @@
  "cumR": 10.23,
  "cumUSD": 98.23,
  "filterReport": {
-  "generatedAt": "2026-11-25T07:15:53.011Z",
+  "generatedAt": "2026-11-25T07:31:02.766Z",
   "minClusters": 20,
   "week": {
    "AI judge (keep only agree)": {
