@@ -855,6 +855,1005 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-25T08:04:24.776Z",
+   "barTime": "2026-11-25T04:00:00.000Z",
+   "sym": "SHIBUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 76,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "ICHI",
+     "name": "Ichimoku TK cross + cloud filter",
+     "avg_r": 0.51,
+     "n": 9,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 9,
+     "avg_r": 0.51,
+     "verdict": "EDGE_UNCONFIRMED"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "adx": 23.9,
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.00000349,
+   "stop": 0.00000361,
+   "t1": 0.00000331,
+   "t2": 0.00000313,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-2.7×ATR)",
+    "آزمایشگاه استراتژی: Ichimoku TK cross + cloud filter این‌جا بدون مزیت (9× · 0.51R)",
+    "Time Machine (رکورد ستاپ LENS همین نماد) منفی (24× · -0.15R)"
+   ],
+   "tm": {
+    "n": 24,
+    "win": 38,
+    "avg": -0.15,
+    "pf": 0.78
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "volMult": 0.91,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 17062000,
+   "riskUSD": 2.05,
+   "sizeMult": 0.75,
+   "notionalUSD": 59.55,
+   "rail": {
+    "status": "ALERT_ONLY_LOSSCAP",
+    "why": "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم"
+   },
+   "status": "ALERT_ONLY_LOSSCAP",
+   "aiMode": "shadow",
+   "aiDecision": null,
+   "aiAgrees": null,
+   "judge": "skipped:budget-reserve",
+   "reasons": [
+    "AI صدا زده نشد — سقف/مشغول و بودجهٔ AI زیر 40٪ (رزرو برای ستاپ‌های قابل‌معامله)"
+   ],
+   "concerns": [
+    "نسبتاً کش‌شده (-2.7×ATR)",
+    "آزمایشگاه استراتژی: Ichimoku TK cross + cloud filter این‌جا بدون مزیت (9× · 0.51R)",
+    "Time Machine (رکورد ستاپ LENS همین نماد) منفی (24× · -0.15R)"
+   ]
+  },
+  {
+   "ts": "2026-11-25T08:02:57.059Z",
+   "barTime": "2026-11-25T04:00:00.000Z",
+   "sym": "PEPEUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 44,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "TEP",
+     "name": "Trend engulf pullback (stop-and-reverse, 4H)",
+     "avg_r": -0.83,
+     "n": 10,
+     "verdict": "NEGATIVE"
+    },
+    "mine": {
+     "n": 7,
+     "avg_r": -0.3,
+     "verdict": "INSUFFICIENT"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "adx": 21.4,
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.00000348,
+   "stop": 0.00000368,
+   "t1": 0.00000318,
+   "t2": 0.00000288,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "Time Machine (رکورد ستاپ LENS همین نماد) منفی (30× · -0.11R)"
+   ],
+   "tm": {
+    "n": 30,
+    "win": 37,
+    "avg": -0.11,
+    "pf": 0.84
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "volMult": 0.89,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 10013000,
+   "riskUSD": 2,
+   "sizeMult": 0.75,
+   "notionalUSD": 34.84,
+   "rail": {
+    "status": "ALERT_ONLY_LOSSCAP",
+    "why": "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم"
+   },
+   "aiTextStripped": 3,
+   "desk": {
+    "mode": "roundtable",
+    "model": "gemini-3.5-flash-lite",
+    "llmCalls": 10,
+    "llmToday": 64,
+    "agents": {
+     "tech": {
+      "bias": "bearish",
+      "confidence": 55,
+      "key_points": [
+       "ساختار تایم‌فریم روزانه کاملاً نزولی (1D HTF Down) با سقف‌ها و کف‌های پایین‌تر (LH/LL) و مقاومت سقف 0.0000037616.",
+       "کندل 4 ساعته اخیر دوجی با سایه بالایی 52.6% نشان‌دهنده ریجکت قیمت از سطح 0.0000035476 است.",
+       "تایید واگرایی مخفی نزولی (Hidden Bearish Divergence) در اندیکاتورهای RSI (مقدار 49.6) و MACD.",
+       "رژیم حرکتی رِنج با شاخص ADX برابر 21.4؛ خروج از رنج نیازمند شکست کف 0.0000033062 است."
+      ],
+      "what_changes_my_mind": "بسته‌شدن کندل 4 ساعته بالای سطح 0.0000036039 سناریوی نزولی را باطل می‌کند."
+     },
+     "macro": {
+      "error": "HTTP 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://aistudio.google.com/docs/rate-limits\"\n          }\n        ]\n      }\n    ]"
+     },
+     "sent": {
+      "bias": "bearish",
+      "confidence": 60,
+      "key_points": [
+       "نسبت حساب‌های Long/Short روی عدد 1.98 قرار دارد که نشان‌دهنده شلوغی پوزیشن‌های خرید خرد است.",
+       "کاهش 3.87% سود باز (OI) همراه با پریمیوم منفی 0.0373%- نشان‌دهنده بسته شدن پوزیشن‌ها و خروج سرمایه است.",
+       "شاخص ترس و طمع در سطح 13 (Extreme Fear) تثبیت شده که ریسک لیکوئیدیشن پوزیشن‌های لانگ را بالا می‌برد.",
+       "نرخ فاندینگ منفی 0.0099%- غلبه فشار فروشندگان در بازار آتی را تایید می‌کند."
+      ]
+     },
+     "bull": {
+      "confidence": 40,
+      "case": [
+       "حفظ حمایت کلیدی کف سوئینگ 0.0000033062 در تایم‌فریم 4 ساعته با فاصله 5% از قیمت فعلی 0.0000034773.",
+       "قرار داشتن شاخص ترس و طمع در سطح 13 (Extreme Fear) به عنوان یک سیگنال کنترارین (معکوس) تاریخی برای بازگشت قیمت از کف‌های رِنج.",
+       "منفی بودن نرخ فاندینگ (0.0099%-) و نسبت لانگ/شورت 1.98 که پتانسیل ایجاد شورت اسکویز تا مقاومت 0.0000036039 را فراهم می‌کند."
+      ]
+     },
+     "bear": {
+      "confidence": 60,
+      "case": [
+       "ساختار کاملاً نزولی تایم‌فریم روزانه (1D HTF Down) با سقف‌های پایین‌تر و مقاومت معتبر سقف 0.0000037616.",
+       "ریجکت قیمت در کندل 4 ساعته اخیر از سطح 0.0000035476 با سایه بالایی 52.6% و تایید واگرایی مخفی نزولی در RSI (مقدار 49.6).",
+       "غلبه فروشندگان و خروج سرمایه تایید شده با کاهش سود باز (OI) و پریمیوم منفی 0.0373%- در بازار مشتقه."
+      ]
+     }
+    }
+   },
+   "agreement": "موتور تعیین‌کننده، تحلیل تکنیکال و سنتیوم همگی جهت نزولی را نشان می‌دهند اما رِنج بودن بازار و نتایج ضعیف استراتژی در تست تاریخی حکم به عدم ورود می‌دهد.",
+   "overruled": "پیشنهاد شورت موتور تعیین‌کننده به دلیل مغایرت با رژیم معاملاتی مجاز (رِنج QUIET_RANGE) و سابقه منفی استراتژی وتو شد.",
+   "failWhy": "بازگشت ناگهانی قیمت از کف رِنج به دلیل سیگنال‌های کنترارین در سطح ترس شدید 13 و فاندینگ منفی.",
+   "nextCheck": "بررسی واکنش قیمت در صورت تست مجدد کف سوئینگ 0.0000033062",
+   "judge": "roundtable:gemini-3.5-flash-lite",
+   "confidence": 85,
+   "reasons": [
+    "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم",
+    "حالت سایه: AI مخالف است (SKIP 85) — نظرش ثبت شد، معامله طبق موتور باز می‌شود",
+    "رژیم حرکتی فعلی بازار QUIET_RANGE (Q3) با ADX معادل 21.4 است که طبق قوانین ریسک‌منجمنت، معاملات روند و استراتژی‌های ایچیموکو در آن مجاز نیستند.",
+    "نتایج تایم‌ماشین (Time Machine) برای این نماد و استراتژی منفی (مجموع -3.36R) بوده و بازدهی تاریخی را تأیید نمی‌کند."
+   ],
+   "concerns": [
+    "افت حجم معاملات و خطر شکل‌گیری بریک‌اوت‌های کاذب (Fakeout) در لبه‌های رِنج."
+   ],
+   "invalidation": "بسته‌شدن کندل 4 ساعته بالای سطح 0.0000036039",
+   "aiMode": "shadow",
+   "aiDecision": "SKIP",
+   "aiAgrees": 0,
+   "status": "ALERT_ONLY_LOSSCAP"
+  },
+  {
+   "ts": "2026-11-25T08:02:40.158Z",
+   "barTime": "2026-11-25T04:00:00.000Z",
+   "sym": "PENGUUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 70,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "VAB",
+     "name": "Value-area acceptance breakout (volume profile, 4H)",
+     "avg_r": 0.65,
+     "n": 10,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 11,
+     "avg_r": 0.13,
+     "verdict": "WEAK"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "adx": 22.3,
+   "event": "CANDLE",
+   "sweep": null,
+   "entry": 0.004201,
+   "stop": 0.00442031,
+   "t1": 0.00387203,
+   "t2": 0.00354307,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "الگوی DESCENDING BROADENING WEDGE خلاف جهت",
+    "آزمایشگاه استراتژی: Ichimoku TK cross + cloud filter این‌جا ضعیف (11× · 0.13R)",
+    "Time Machine (رکورد ستاپ LENS همین نماد) منفی (33× · -0.09R)"
+   ],
+   "tm": {
+    "n": 33,
+    "win": 36,
+    "avg": -0.09,
+    "pf": 0.86
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "volMult": 0.95,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 9746.5,
+   "riskUSD": 2.14,
+   "sizeMult": 0.75,
+   "notionalUSD": 40.94,
+   "rail": {
+    "status": "ALERT_ONLY_LOSSCAP",
+    "why": "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم"
+   },
+   "desk": {
+    "mode": "roundtable",
+    "model": "gemini-3.5-flash-lite",
+    "llmCalls": 4,
+    "llmToday": 54,
+    "agents": {
+     "tech": {
+      "bias": "bearish",
+      "confidence": 65,
+      "key_points": [
+       "قیمت در محدوده رنج (Q3) با ADX 22.3 قرار دارد که نشان‌دهنده فقدان روند است.",
+       "ساختار قیمت در تایم‌فریم 4H نزولی (LH/LL) است و قیمت زیر EMA20 (0.004317) معامله می‌شود.",
+       "کندل اخیر Doji با 76.1% ویک بالایی نشان‌دهنده فشار فروش در نزدیکی مقاومت 0.004411 است.",
+       "استراتژی ICHI در حال حاضر سیگنال SHORT ضعیف می‌دهد که با روند نزولی 1D همسو است."
+      ],
+      "what_changes_my_mind": "بسته شدن کندل 4H بالای 0.004411 که نشان‌دهنده خروج از محدوده FVG و تغییر ساختار است."
+     },
+     "macro": {
+      "bias": "bearish",
+      "confidence": 70,
+      "key_points": [
+       "Fear & Greed Index 13 (Extreme Fear) — 2026-11-25، پایین‌ترین سطح ۳۰ روزه",
+       "مجموع مارکت‌کپ $2.059T، تغییر ۲۴ساعته -3.92% — 2026-11-25",
+       "BTC Dominance 57.75%، ETH 9.83%، USDT 8.46% — 2026-11-25",
+       "فد احتمالاً نرخ‌ها را در دسامبر ثابت نگه می‌دارد (CME FedWatch: 85% شانس عدم تغییر) — 2026-11-22 (unverified)",
+       "DXY در محدوده 106.5–107.2، ریال‌ییلد ۱۰ساله ~4.2% — 2026-11-24 (unverified)"
+      ],
+      "events_next_7d": [
+       "2026-11-26 — FOMC Minutes (نوامبر) — تاثیر: احتمالاً 매پری، اگر زبان hawkish باشد ریسک‌اف",
+       "2026-11-27 — Thanksgiving (US market closed) — تاثیر: نقدینگی پایین، حرکات اغراق‌آمیز",
+       "2026-11-28 — Black Friday / Options Expiry (monthly) — تاثیر: ولاتیلیته بالا در BTC/ETH",
+       "2026-12-01 — ISM Manufacturing PMI — تاثیر: اگر <50، ترس از رکنش تقویت می‌شود",
+       "2026-12-05 — NFP (نوامبر) — تاثیر: رویداد Tier-1، می‌تواند مسیر فد را تغییر دهد"
+      ],
+      "cached": "2026-11-25T04:02:54.101Z"
+     },
+     "sent": {
+      "bias": "neutral",
+      "confidence": 55,
+      "key_points": [
+       "شاخص ترس و طمع در عدد 13 (Extreme Fear) قرار دارد که پتانسیل بازگشت قیمت را افزایش می‌دهد.",
+       "کاهش 5.1 درصدی OI در 24 ساعت اخیر نشان‌دهنده خروج پوزیشن‌ها و تسویه حساب است.",
+       "نرخ تامین مالی (Funding) مثبت 0.0034% نشان‌دهنده تعادل در بازار است.",
+       "نسبت خریدار به فروشنده 1.13 نشان‌دهنده تمایل خفیف به خرید در میان معامله‌گران خرد است."
+      ]
+     },
+     "bull": {
+      "confidence": 35,
+      "case": [
+       "قیمت در نزدیکی حمایت 0.004127 (PDL) و 0.004002 (کف تاریخی) قرار دارد که با توجه به شاخص ترس و طمع 13، پتانسیل بازگشت (Mean Reversion) را افزایش می‌دهد.",
+       "کاهش 5.1 درصدی OI نشان‌دهنده خروج فروشندگان و تسویه پوزیشن‌های شورت است که فشار فروش را در سطوح پایین کاهش می‌دهد.",
+       "نرخ تامین مالی (Funding) خنثی 0.0034% نشان می‌دهد که بازار بیش از حد لانگ نیست و فضای کافی برای رشد در صورت ورود نقدینگی وجود دارد.",
+       "قیمت در محدوده رنج (Q3) است و طبق متد Brooks، احتمال شکست فیک سطوح پایین و بازگشت به سمت VWAP (0.004207) بالاست."
+      ]
+     },
+     "bear": {
+      "confidence": 65,
+      "case": [
+       "ساختار 4H نزولی است و قیمت زیر EMA20 (0.004317) معامله می‌شود که طبق متد Dow، روند تا زمان ثبت HH جدید، نزولی باقی می‌ماند.",
+       "کندل Doji اخیر با 76.1% ویک بالایی در نزدیکی FVG (0.004411) نشان‌دهنده شکست تلاش خریداران برای بازگشت است.",
+       "فشار فروش کلان (کاهش 3.92% مارکت‌کپ) و DXY در محدوده 106.5-107.2، تقاضا برای دارایی‌های ریسکی مانند PENG را به شدت محدود کرده است.",
+       "حجم معاملات پایین (Relative Volume 0.74) تایید می‌کند که خریداران قدرت کافی برای عبور از مقاومت 0.004411 را ندارند."
+      ]
+     }
+    }
+   },
+   "agreement": "Risk Manager, Strategy Lab, and Time Machine agree to reject the proposal due to poor historical edge and regime constraints.",
+   "overruled": "Overruled the deterministic engine's SHORT proposal because the strategy's historical performance on this symbol is negative and the current range regime invalidates trend-following logic.",
+   "failWhy": "A sudden liquidity sweep of the 0.004411 resistance could trigger a short squeeze before the move to the downside.",
+   "nextCheck": "Wait for a confirmed breakout with volume > 1.5x 20-day mean or a clear rejection at 0.004002.",
+   "judge": "roundtable:gemini-3.1-flash-lite",
+   "confidence": 85,
+   "reasons": [
+    "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم",
+    "حالت سایه: AI مخالف است (SKIP 85) — نظرش ثبت شد، معامله طبق موتور باز می‌شود",
+    "Regime is Q3 (Quiet Range) with ADX 22.3; breakout strategies like ICHI have a negative expectancy in this environment.",
+    "Time Machine data for PENGUSDT shows a -0.09R average return on this setup, indicating no statistical edge.",
+    "Relative Volume is low at 0.74, increasing the probability of a false breakout (80% failure rate per Brooks).",
+    "Account rules mandate SKIP for Q4/High Volatility regimes; current conditions lack the required volume confirmation for a short."
+   ],
+   "concerns": [
+    "Extreme Fear (13) often triggers short-covering rallies that invalidate momentum-based shorts.",
+    "The proposed entry is inside a range; fading the range extremes is statistically superior to trend-following here.",
+    "Macro calendar (FOMC Minutes/Thanksgiving) suggests liquidity will dry up, making technical setups unreliable."
+   ],
+   "invalidation": "4H close above 0.004411",
+   "aiMode": "shadow",
+   "aiDecision": "SKIP",
+   "aiAgrees": 0,
+   "status": "ALERT_ONLY_LOSSCAP"
+  },
+  {
+   "ts": "2026-11-25T08:02:39.192Z",
+   "barTime": "2026-11-25T04:00:00.000Z",
+   "sym": "ONDOUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 70,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "ICHI",
+     "name": "Ichimoku TK cross + cloud filter",
+     "avg_r": 0.5,
+     "n": 12,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 12,
+     "avg_r": 0.5,
+     "verdict": "EDGE_UNCONFIRMED"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "adx": 21.5,
+   "event": "SHORT_SETUP",
+   "sweep": null,
+   "entry": 0.2714,
+   "stop": 0.28414453,
+   "t1": 0.2522832,
+   "t2": 0.23316641,
+   "rr": 3,
+   "fails": [
+    "Time Machine (رکورد ستاپ LENS همین نماد): منفی (29× · -0.23R)"
+   ],
+   "warns": [
+    "نسبتاً کش‌شده (-2.5×ATR)",
+    "آزمایشگاه استراتژی: Ichimoku TK cross + cloud filter این‌جا بدون مزیت (12× · 0.5R)"
+   ],
+   "tm": {
+    "n": 29,
+    "win": 38,
+    "avg": -0.23,
+    "pf": 0.65
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "Time Machine (رکورد ستاپ LENS همین نماد): منفی (29× · -0.23R)"
+   ]
+  },
+  {
+   "ts": "2026-11-25T08:02:12.575Z",
+   "barTime": "2026-11-25T04:00:00.000Z",
+   "sym": "LITUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 52,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "RSI2",
+     "name": "RSI-2 pullback (Connors)",
+     "avg_r": 0.4,
+     "n": 21,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 8,
+     "avg_r": 0.5,
+     "verdict": "EDGE_UNCONFIRMED"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "adx": 22.9,
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 2.3134,
+   "stop": 2.47989337,
+   "t1": 2.06365995,
+   "t2": 1.8139199,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "آزمایشگاه استراتژی: Ichimoku TK cross + cloud filter این‌جا بدون مزیت (8× · 0.5R)"
+   ],
+   "tm": {
+    "n": 20,
+    "win": 50,
+    "avg": 0.35,
+    "pf": 1.66
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "volMult": 0.95,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 12.838,
+   "riskUSD": 2.14,
+   "sizeMult": 0.75,
+   "notionalUSD": 29.7,
+   "rail": {
+    "status": "ALERT_ONLY_LOSSCAP",
+    "why": "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم"
+   },
+   "desk": {
+    "mode": "roundtable",
+    "model": "gemini-3.5-flash-lite",
+    "llmCalls": 4,
+    "llmToday": 50,
+    "agents": {
+     "tech": {
+      "bias": "bearish",
+      "confidence": 65,
+      "key_points": [
+       "قیمت در حال حاضر ۲.۳۱۳۴ دلار است که زیر EMA20 (۲.۴۰۵) و EMA50 (۲.۵۴۷) قرار دارد که نشان‌دهنده روند نزولی است.",
+       "ساختار بازار در محدوده رنج (Range) قرار دارد و قیمت به زیر سطح ۲.۳۱۰۲ (Low روز قبل) نفوذ کرده است.",
+       "شاخص RSI در سطح ۴۲.۱ قرار دارد که نشان‌دهنده ضعف مومنتوم صعودی است.",
+       "قیمت در حال حاضر در داخل ناحیه ارزشی (Value Area) قرار دارد و POC در ۲.۳۵۴۶ دلار به عنوان مقاومت عمل می‌کند."
+      ],
+      "what_changes_my_mind": "بسته شدن کندل ۴ ساعته بالای سطح ۲.۴۶۳۲ (High روز قبل) که نشان‌دهنده تغییر ساختار به صعودی است."
+     },
+     "macro": {
+      "bias": "bearish",
+      "confidence": 70,
+      "key_points": [
+       "Fear & Greed Index 13 (Extreme Fear) — 2026-11-25، پایین‌ترین سطح ۳۰ روزه",
+       "مجموع مارکت‌کپ $2.059T، تغییر ۲۴ساعته -3.92% — 2026-11-25",
+       "BTC Dominance 57.75%، ETH 9.83%، USDT 8.46% — 2026-11-25",
+       "فد احتمالاً نرخ‌ها را در دسامبر ثابت نگه می‌دارد (CME FedWatch: 85% شانس عدم تغییر) — 2026-11-22 (unverified)",
+       "DXY در محدوده 106.5–107.2، ریال‌ییلد ۱۰ساله ~4.2% — 2026-11-24 (unverified)"
+      ],
+      "events_next_7d": [
+       "2026-11-26 — FOMC Minutes (نوامبر) — تاثیر: احتمالاً 매پری، اگر زبان hawkish باشد ریسک‌اف",
+       "2026-11-27 — Thanksgiving (US market closed) — تاثیر: نقدینگی پایین، حرکات اغراق‌آمیز",
+       "2026-11-28 — Black Friday / Options Expiry (monthly) — تاثیر: ولاتیلیته بالا در BTC/ETH",
+       "2026-12-01 — ISM Manufacturing PMI — تاثیر: اگر <50، ترس از رکنش تقویت می‌شود",
+       "2026-12-05 — NFP (نوامبر) — تاثیر: رویداد Tier-1، می‌تواند مسیر فد را تغییر دهد"
+      ],
+      "cached": "2026-11-25T04:02:54.101Z"
+     },
+     "sent": {
+      "bias": "bearish",
+      "confidence": 60,
+      "key_points": [
+       "نسبت حساب‌های لانگ به شورت ۱.۶۶ است که نشان‌دهنده تجمع معامله‌گران لانگ در بازار است.",
+       "کاهش ۵.۰۱ درصدی در Open Interest طی ۲۴ ساعت گذشته نشان‌دهنده خروج پوزیشن‌ها و تسویه حساب است.",
+       "شاخص ترس و طمع در سطح ۱۳ (Extreme Fear) قرار دارد که نشان‌دهنده جو منفی حاکم است.",
+       "پریمیوم منفی ۰.۱۱۲۲ درصدی نشان‌دهنده فشار فروش در بازار فیوچرز است."
+      ]
+     },
+     "bull": {
+      "confidence": 35,
+      "case": [
+       "قیمت در حال حاضر در سطح ۲.۳۱۳۴ دلار، تنها ۶.۹٪ بالاتر از حمایت کلیدی ۲.۱۶۱۱ دلار (Swing Low) قرار دارد که پتانسیل بازگشت (Bounce) را افزایش می‌دهد.",
+       "شاخص ترس و طمع در سطح ۱۳ (Extreme Fear) قرار دارد که از نظر تاریخی در بازارهای کریپتو اغلب با اشباع فروش و احتمال بازگشت کوتاه‌مدت همراه است.",
+       "نسبت لانگ به شورت ۱.۶۶ نشان‌دهنده تمایل معامله‌گران به خرید در سطوح پایین است که می‌تواند در صورت یک جرقه مثبت، منجر به Short Squeeze شود.",
+       "قیمت در نزدیکی VWAP (۲.۳۳۵۳ دلار) قرار دارد که نشان‌دهنده تعادل موقت و احتمال تلاش برای بازپس‌گیری این سطح است."
+      ]
+     },
+     "bear": {
+      "confidence": 65,
+      "case": [
+       "قیمت ۲.۳۱۳۴ دلار زیر EMA20 (۲.۴۰۵) و EMA50 (۲.۵۴۷) تثبیت شده که نشان‌دهنده تسلط کامل فروشندگان در بازه ۴ ساعته است.",
+       "قیمت به زیر سطح ۲.۳۱۰۲ دلار (PDL) نفوذ کرده که طبق متدولوژی Dow، تاییدکننده ادامه روند نزولی و شکست ساختار حمایتی است.",
+       "پریمیوم منفی ۰.۱۱۲۲ درصدی نشان‌دهنده فشار فروش سنگین در بازار فیوچرز است و کاهش ۵.۰۱ درصدی OI همراه با افت قیمت، تایید می‌کند که خروج پول در حال وقوع است.",
+       "POC در سطح ۲.۳۵۴۶ دلار به عنوان مقاومت داینامیک عمل می‌کند و تا زمانی که قیمت زیر این سطح است، هرگونه صعود صرفاً یک اصلاح برای فروش مجدد است."
+      ]
+     }
+    }
+   },
+   "agreement": "Technical and Sentiment analysts agree on bearish bias, but Risk Manager enforces SKIP due to Q4 range regime and low liquidity.",
+   "overruled": "Overruled the deterministic engine's SHORT proposal; the setup fails the desk's Q4 regime filter and liquidity requirements.",
+   "failWhy": "A sudden short-covering rally driven by the Extreme Fear sentiment could trigger the stop before the trend resumes.",
+   "nextCheck": "Wait for a clear volume-backed breakout (volume > 1.2x) outside the 2.2539-2.3546 value area.",
+   "judge": "roundtable:gemini-3.1-flash-lite",
+   "confidence": 85,
+   "reasons": [
+    "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم",
+    "حالت سایه: AI مخالف است (SKIP 85) — نظرش ثبت شد، معامله طبق موتور باز می‌شود",
+    "Regime is Q3/Q4 Quiet Range (ADX 22.9), where breakout strategies have high failure rates.",
+    "LITUSDT liquidity is thin (Relative Volume 0.56), increasing risk of fakeouts.",
+    "Account rules mandate SKIP for Q4 range regimes unless a confirmed volume-backed breakout occurs.",
+    "Ichimoku strategy shows no edge in current HTF-conflicted environment (Time Machine win rate 38% vs 50% overall)."
+   ],
+   "concerns": [
+    "Extreme Fear (13) often triggers short-covering spikes in low-liquidity environments.",
+    "Price is currently inside the Value Area, making the 2.3134 entry a 'no-man's land' trade.",
+    "High Long/Short ratio (1.66) suggests crowded longs that could be liquidated, but current OI decline indicates exit rather than new short fuel."
+   ],
+   "invalidation": "4H close above 2.4632 (PDL/Resistance).",
+   "aiMode": "shadow",
+   "aiDecision": "SKIP",
+   "aiAgrees": 0,
+   "status": "ALERT_ONLY_LOSSCAP"
+  },
+  {
+   "ts": "2026-11-25T08:01:54.437Z",
+   "barTime": "2026-11-25T04:00:00.000Z",
+   "sym": "DOTUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 86,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "TEP",
+     "name": "Trend engulf pullback (stop-and-reverse, 4H)",
+     "avg_r": 0.46,
+     "n": 9,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 6,
+     "avg_r": -0.14,
+     "verdict": "INSUFFICIENT"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "adx": 26.3,
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.6477,
+   "stop": 0.67488411,
+   "t1": 0.60692383,
+   "t2": 0.56614766,
+   "rr": 3,
+   "fails": [],
+   "warns": [],
+   "tm": {
+    "n": 30,
+    "win": 43,
+    "avg": 0.15,
+    "pf": 1.26
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "volMult": 1.07,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 118.08,
+   "riskUSD": 3.21,
+   "sizeMult": 1,
+   "notionalUSD": 76.48,
+   "rail": {
+    "status": "ALERT_ONLY_LOSSCAP",
+    "why": "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم"
+   },
+   "aiTextStripped": 1,
+   "desk": {
+    "mode": "roundtable",
+    "model": "gemini-3.5-flash-lite",
+    "llmCalls": 4,
+    "llmToday": 46,
+    "agents": {
+     "tech": {
+      "bias": "bearish",
+      "confidence": 75,
+      "key_points": [
+       "ساختار روند نزولی در تایم‌فریم 4 ساعته با EMA استک نزولی و قیمت در 0.6477",
+       "شاخص RSI در سطح 39.5 و ADX در سطح 26.3 نشان‌دهنده قدرت روند نزولی",
+       "قیمت پایین‌تر از سطح POC در 0.6557 در داخل پروفایل حجم معامله می‌شود",
+       "مقاومت کلیدی FVG در محدوده 0.6612 تا 0.6640 بالاتر از قیمت فعلی قرار دارد"
+      ],
+      "what_changes_my_mind": "بسته شدن کندل 4 ساعته بالاتر از مقاومت 0.6640 و تأیید شکست ساختار (CHoCH)"
+     },
+     "macro": {
+      "bias": "bearish",
+      "confidence": 70,
+      "key_points": [
+       "Fear & Greed Index 13 (Extreme Fear) — 2026-11-25، پایین‌ترین سطح ۳۰ روزه",
+       "مجموع مارکت‌کپ $2.059T، تغییر ۲۴ساعته -3.92% — 2026-11-25",
+       "BTC Dominance 57.75%، ETH 9.83%، USDT 8.46% — 2026-11-25",
+       "فد احتمالاً نرخ‌ها را در دسامبر ثابت نگه می‌دارد (CME FedWatch: 85% شانس عدم تغییر) — 2026-11-22 (unverified)",
+       "DXY در محدوده 106.5–107.2، ریال‌ییلد ۱۰ساله ~4.2% — 2026-11-24 (unverified)"
+      ],
+      "events_next_7d": [
+       "2026-11-26 — FOMC Minutes (نوامبر) — تاثیر: احتمالاً 매پری، اگر زبان hawkish باشد ریسک‌اف",
+       "2026-11-27 — Thanksgiving (US market closed) — تاثیر: نقدینگی پایین، حرکات اغراق‌آمیز",
+       "2026-11-28 — Black Friday / Options Expiry (monthly) — تاثیر: ولاتیلیته بالا در BTC/ETH",
+       "2026-12-01 — ISM Manufacturing PMI — تاثیر: اگر <50، ترس از رکنش تقویت می‌شود",
+       "2026-12-05 — NFP (نوامبر) — تاثیر: رویداد Tier-1، می‌تواند مسیر فد را تغییر دهد"
+      ],
+      "cached": "2026-11-25T04:02:54.101Z"
+     },
+     "sent": {
+      "bias": "bearish",
+      "confidence": 70,
+      "key_points": [
+       "شاخص ترس و طمع در سطح شدیداً پایین 13 (Extreme Fear) قرار دارد",
+       "نسبت حساب‌های خرید به فروش روی عدد 2.26 قرار دارد که نشان‌دهنده پوزیشن‌های لانگ پرتعداد و آسیب‌پذیر است",
+       "کاهش 3.97 درصدی در باز بودن موقعیت‌ها (OI) همراه با منفی بودن فاندینگ ریت (-0.0043%)",
+       "پریمیوم منفی -0.0923% نشان‌دهنده فشار فروش در بازار مشتقه"
+      ]
+     },
+     "bull": {
+      "confidence": 35,
+      "case": [
+       "قیمت در حال حاضر 4.8% بالاتر از کف نوسانی 0.6177 قرار دارد که یک سطح حمایت کلیدی برای جلوگیری از ریزش بیشتر است.",
+       "شاخص ترس و طمع در سطح 13 (Extreme Fear) قرار دارد که از نظر تاریخی در 80% مواقع با بازگشت‌های کوتاه‌مدت (Short-covering) همراه است.",
+       "فاندینگ ریت منفی -0.0043% نشان‌دهنده اشباع فروش در بازار مشتقه است که سوخت کافی برای یک رالی اصلاحی فراهم می‌کند.",
+       "قیمت در نزدیکی VWAP (0.6493) در حال نوسان است که می‌تواند به عنوان یک آهنربای قیمتی برای بازگشت به سمت POC در 0.6557 عمل کند."
+      ]
+     },
+     "bear": {
+      "confidence": 75,
+      "case": [
+       "ساختار 4 ساعته کاملاً نزولی است؛ قیمت (0.6477) زیر POC (0.6557) و EMA استک نزولی قرار دارد که نشان‌دهنده کنترل کامل فروشندگان است.",
+       "نسبت لانگ به شورت 2.26 نشان‌دهنده حجم عظیمی از پوزیشن‌های لانگ در ضرر است که با هر حرکت نزولی به سمت 0.6177، سوخت لیکویید شدن را فراهم می‌کنند.",
+       "مقاومت FVG در محدوده 0.6612-0.6640 به عنوان یک سد نفوذناپذیر عمل می‌کند؛ تا زمانی که قیمت زیر این محدوده است، هر صعودی صرفاً یک فرصت برای فروش است.",
+       "کاهش 3.97 درصدی در Open Interest همراه با قیمت نزولی نشان‌دهنده خروج معامله‌گران از پوزیشن‌های لانگ (Long Unwinding) است که تاییدکننده ضعف تقاضا است."
+      ]
+     }
+    }
+   },
+   "agreement": "Bearish bias is unanimous across all agents, but the desk rules mandate SKIP for Q4 regimes and high-volatility environments.",
+   "overruled": "موتور تعیین‌کننده (Deterministic Engine) به دلیل نادیده گرفتن قوانین ریسک مدیریت desk (Q4 regime) و عدم تأیید استراتژی ICHI در بک‌تست‌های داخلی.",
+   "failWhy": "بازگشت ناگهانی ناشی از Short-covering در سطوح Extreme Fear می‌تواند استاپ‌لاس را قبل از حرکت نزولی اصلی فعال کند.",
+   "nextCheck": "بررسی واکنش قیمت به FOMC Minutes در تاریخ 2026-11-26",
+   "judge": "roundtable:gemini-3.1-flash-lite",
+   "confidence": 85,
+   "reasons": [
+    "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم",
+    "حالت سایه: AI مخالف است (SKIP 85) — نظرش ثبت شد، معامله طبق موتور باز می‌شود",
+    "ساختار 4 ساعته نزولی با قیمت 0.6477 زیر POC در 0.6557 و EMA استک نزولی.",
+    "مقاومت FVG در محدوده 0.6612 تا 0.6640 سد محکمی برای هرگونه اصلاح صعودی است.",
+    "شاخص ترس و طمع در سطح 13 (Extreme Fear) احتمال وقوع Short-covering ناگهانی را افزایش می‌دهد."
+   ],
+   "concerns": [
+    "قانون داخلی desk: رژیم Q4 و شرایط فعلی بازار نیازمند SKIP است.",
+    "احتمال واکنش برگشتی از حمایت VAL در 0.6394 به دلیل اشباع فروش موقت.",
+    "نزدیکی به رویدادهای کلان (FOMC Minutes) که می‌تواند نقدینگی را کاهش و حرکات را اغراق‌آمیز کند."
+   ],
+   "invalidation": "بسته شدن کندل 4 ساعته بالاتر از 0.6640",
+   "aiMode": "shadow",
+   "aiDecision": "SKIP",
+   "aiAgrees": 0,
+   "status": "ALERT_ONLY_LOSSCAP"
+  },
+  {
+   "ts": "2026-11-25T08:01:32.610Z",
+   "barTime": "2026-11-25T04:00:00.000Z",
+   "sym": "CRVUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 76,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "TEP",
+     "name": "Trend engulf pullback (stop-and-reverse, 4H)",
+     "avg_r": 1.6,
+     "n": 11,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 8,
+     "avg_r": 0.3,
+     "verdict": "EDGE_UNCONFIRMED"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "DOWN",
+   "adx": 20.8,
+   "event": "CANDLE",
+   "sweep": "SWEPT_WAIT_CHOCH",
+   "entry": 0.1736,
+   "stop": 0.18238213,
+   "t1": 0.1604268,
+   "t2": 0.1472536,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-2.6×ATR)",
+    "آزمایشگاه استراتژی: Ichimoku TK cross + cloud filter این‌جا بدون مزیت (8× · 0.3R)"
+   ],
+   "tm": {
+    "n": 29,
+    "win": 45,
+    "avg": 0,
+    "pf": 0.99
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "volMult": 0.99,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 253.64,
+   "riskUSD": 2.23,
+   "sizeMult": 0.75,
+   "notionalUSD": 44.03,
+   "rail": {
+    "status": "ALERT_ONLY_LOSSCAP",
+    "why": "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم"
+   },
+   "desk": {
+    "mode": "roundtable",
+    "model": "gemini-3.5-flash-lite",
+    "llmCalls": 4,
+    "llmToday": 42,
+    "agents": {
+     "tech": {
+      "bias": "bearish",
+      "confidence": 65,
+      "key_points": [
+       "ساختار روند نزولی در تایم‌فریم روزانه با قیمت کنونی 0.1736 و قرارگیری پایین EMA50 مقیاس 4 ساعته",
+       "ارزش گذاری در محدوده رنج آرام (Q3) با ADX معادل 20.8 و فاصله 0.97- ATR از EMA20",
+       "تشکیل واگرایی مخفی نزولی RSI و MACD در سقف 0.1985",
+       "ریزش حجم نسبی معاملات به 0.9 و تست مجدد کف نقدینگی 0.1731"
+      ],
+      "what_changes_my_mind": "بسته شدن کندل 4 ساعته بالاتر از مقاومت 0.1828 و تثبیت قیمت خارج از ارزش 0.1926"
+     },
+     "macro": {
+      "bias": "bearish",
+      "confidence": 70,
+      "key_points": [
+       "Fear & Greed Index 13 (Extreme Fear) — 2026-11-25، پایین‌ترین سطح ۳۰ روزه",
+       "مجموع مارکت‌کپ $2.059T، تغییر ۲۴ساعته -3.92% — 2026-11-25",
+       "BTC Dominance 57.75%، ETH 9.83%، USDT 8.46% — 2026-11-25",
+       "فد احتمالاً نرخ‌ها را در دسامبر ثابت نگه می‌دارد (CME FedWatch: 85% شانس عدم تغییر) — 2026-11-22 (unverified)",
+       "DXY در محدوده 106.5–107.2، ریال‌ییلد ۱۰ساله ~4.2% — 2026-11-24 (unverified)"
+      ],
+      "events_next_7d": [
+       "2026-11-26 — FOMC Minutes (نوامبر) — تاثیر: احتمالاً 매پری، اگر زبان hawkish باشد ریسک‌اف",
+       "2026-11-27 — Thanksgiving (US market closed) — تاثیر: نقدینگی پایین، حرکات اغراق‌آمیز",
+       "2026-11-28 — Black Friday / Options Expiry (monthly) — تاثیر: ولاتیلیته بالا در BTC/ETH",
+       "2026-12-01 — ISM Manufacturing PMI — تاثیر: اگر <50، ترس از رکنش تقویت می‌شود",
+       "2026-12-05 — NFP (نوامبر) — تاثیر: رویداد Tier-1، می‌تواند مسیر فد را تغییر دهد"
+      ],
+      "cached": "2026-11-25T04:02:54.101Z"
+     },
+     "sent": {
+      "bias": "neutral",
+      "confidence": 55,
+      "key_points": [
+       "شاخص ترس و طمع در سطح 13 (ترس مفرط) که شرایط را برای احتیاط در معاملات شورت فراهم می‌کند",
+       "نرخ تامین سرمایه (Funding) مثبت 0.01 درصد و نسبت حساب‌های لانگ به شورت روی 1.47 (نزدیک به تعادل نسبی)",
+       "تغییرات سود باز (OI) طی 24 ساعت گذشته کاهش 1.59 درصدی داشته که نشان‌دهنده رکود و خروج پول است",
+       "نسبت خریدار به فروشنده تیکر روی 1.034 و پریمیوم منفی 0.057 درصدی نشان‌دهنده فشار خفیف فروشندگان است"
+      ]
+     },
+     "bull": {
+      "confidence": 35,
+      "case": [
+       "قیمت کنونی 0.1736 در نزدیکی کف نوسانی 4 ساعته 0.1643 (فقط 5.6% بالاتر) و تست کف نقدینگی 0.1731 قرار دارد که پتانسیل بازگشت از محدوده ارزش پایین (VAL) پروفایل حجم در 0.1713 را فراهم می‌کند.",
+       "شاخص ترس و طمع در سطح فوق‌العاده پایین 13 (ترس مفرط) قرار دارد که از لحاظ تاریخی پتانسیل ایجاد بانس‌های کوتاه‌مدت ناشی از پوشش پوزیشن‌های شورت (short-covering) را بالا می‌برد.",
+       "نسبت حساب‌های لانگ به شورت روی 1.47 و نرخ تامین سرمایه (Funding) مثبت 0.01 درصد نشان‌دهنده عدم شکل‌گیری ازدحام شدید در پوزیشن‌های فروش است.",
+       "سود باز (OI) طی 24 ساعت گذشته تنها 1.59 درصد کاهش یافته که نشان‌دهنده رکود و نبود فشار فروش تهاجمی جدید است."
+      ]
+     },
+     "bear": {
+      "confidence": 65,
+      "case": [
+       "ساختار روند در تایم‌فریم روزانه و 4 ساعته نزولی است و قیمت کنونی 0.1736 پایین‌تر از EMA50 و سطح بالایی ارزش (VAH) در 0.1926 و مقاومت 0.1828 قرار دارد.",
+       "تشکیل واگرایی مخفی نزولی در RSI و MACD در سقف مهم 0.1985، ادامه فشار فروش و تداوم ساختار نزولی را تایید می‌کند.",
+       "شرایط کلان ضعیف با مارکت‌کپ کلی بازار در محدوده 2.059 تریلیون دلار (افت 3.92 درصدی 24 ساعته) و تسلط بیت‌کوین روی 57.75%، فضای ریسک‌گریزی را حاکم کرده است.",
+       "پریمیوم منفی 0.057 درصدی و نسبت خریدار به فروشنده تیکر روی 1.034، تسلط خفیف اما مستمر فروشندگان را نشان می‌دهد."
+      ]
+     }
+    }
+   },
+   "agreement": "موتور قطعی پیشنهاد شورت داد اما رژیم Q3 و ترس مفرط مانع ورود است",
+   "overruled": "موتور قطعی (Proposal SHORT) به دلیل نقض قوانین صریح رژیم Q3 و شرایط کلان بازار رد شد.",
+   "failWhy": "حمله ناگهانی خریداران برای پوشش پوزیشن‌های شورت در شرایط ترس مفرط بازار",
+   "nextCheck": "بررسی تغییرات سود باز (OI) و بازگشت حجم معاملات به بالای میانگین 20 روزه",
+   "judge": "roundtable:gemini-3.5-flash-lite",
+   "confidence": 85,
+   "reasons": [
+    "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم",
+    "حالت سایه: AI مخالف است (SKIP 85) — نظرش ثبت شد، معامله طبق موتور باز می‌شود",
+    "قوانین صریح ریسک‌منجر: رژیم معاملاتی Q3 (Quiet Range) مشمول دستور SKIP است",
+    "شاخص ترس و طمع روی عدد 13 (ترس مفرط) خطر اسکوئیز و برگشت ناگهانی را بالا می‌برد",
+    "استراتژی ایکیو (Ichimoku) بازدهی بسیار پایین (avg +0.3R) در تست‌های گذشته دارد",
+    "فاصله استاپ لاس تا ورودی معادل 2.6x ATR است که ریسک معامله را غیرقابل قبول می‌کند"
+   ],
+   "concerns": [
+    "حجم پایین معاملات و احتمال فیک‌بریک‌اوت در محدوده نقدینگی 0.1731",
+    "نزدیکی به کف نوسانی 0.1643 و ریسک از دست رفتن R:R مناسب در صورت ورود دیرهنگام"
+   ],
+   "invalidation": "بسته شدن کندل 4 ساعته بالاتر از مقاومت 0.1828",
+   "aiMode": "shadow",
+   "aiDecision": "SKIP",
+   "aiAgrees": 0,
+   "status": "ALERT_ONLY_LOSSCAP"
+  },
+  {
+   "ts": "2026-11-25T08:01:13.471Z",
+   "barTime": "2026-11-25T04:00:00.000Z",
+   "sym": "APTUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "score": 86,
+   "strategy": "ICHI",
+   "lab": {
+    "best": {
+     "id": "TEP",
+     "name": "Trend engulf pullback (stop-and-reverse, 4H)",
+     "avg_r": 0.39,
+     "n": 8,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 4,
+     "avg_r": 0.93,
+     "verdict": "INSUFFICIENT"
+    }
+   },
+   "quad": "Q1",
+   "regime": "TREND_DOWN",
+   "htf": "DOWN",
+   "adx": 25.6,
+   "event": "CANDLE",
+   "sweep": null,
+   "entry": 0.3616,
+   "stop": 0.37995558,
+   "t1": 0.33406663,
+   "t2": 0.30653326,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "نسبتاً کش‌شده (-3.4×ATR)",
+    "ناحیه‌ی FVG فقط 0.24×ATR جلوتر"
+   ],
+   "tm": {
+    "n": 25,
+    "win": 48,
+    "avg": 0.16,
+    "pf": 1.29
+   },
+   "src": "okx",
+   "chase": 0,
+   "hourUtc": 4,
+   "volMult": 1.02,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 166.71,
+   "riskUSD": 3.06,
+   "sizeMult": 1,
+   "notionalUSD": 60.28,
+   "rail": {
+    "status": "ALERT_ONLY_LOSSCAP",
+    "why": "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم"
+   },
+   "aiTextStripped": 2,
+   "desk": {
+    "mode": "roundtable",
+    "model": "gemini-3.5-flash-lite",
+    "llmCalls": 4,
+    "llmToday": 38,
+    "agents": {
+     "tech": {
+      "bias": "bearish",
+      "confidence": 75,
+      "key_points": [
+       "ساختار روند نزولی در تایم‌فریم 4 ساعته با اوردر بلاک نزولی و اور RSI روی مقاومت 0.4127",
+       "اندیکاتور RSI در سطح 35.1 و فاصله 3.4 ATR زیر میانگین EMA50",
+       "حجم معاملات پایین با نسبت نسبی 0.95 و حمایت نزدیک در محدوده 0.3566 (FVG)",
+       "ثبت واگرایی مخفی نزولی در سقف 0.4127 با ادامه‌دار بودن فشار فروش"
+      ],
+      "what_changes_my_mind": "بسته شدن کندل 4 ساعته بالاتر از مقاومت 0.3894"
+     },
+     "macro": {
+      "bias": "bearish",
+      "confidence": 70,
+      "key_points": [
+       "Fear & Greed Index 13 (Extreme Fear) — 2026-11-25، پایین‌ترین سطح ۳۰ روزه",
+       "مجموع مارکت‌کپ $2.059T، تغییر ۲۴ساعته -3.92% — 2026-11-25",
+       "BTC Dominance 57.75%، ETH 9.83%، USDT 8.46% — 2026-11-25",
+       "فد احتمالاً نرخ‌ها را در دسامبر ثابت نگه می‌دارد (CME FedWatch: 85% شانس عدم تغییر) — 2026-11-22 (unverified)",
+       "DXY در محدوده 106.5–107.2، ریال‌ییلد ۱۰ساله ~4.2% — 2026-11-24 (unverified)"
+      ],
+      "events_next_7d": [
+       "2026-11-26 — FOMC Minutes (نوامبر) — تاثیر: احتمالاً 매پری، اگر زبان hawkish باشد ریسک‌اف",
+       "2026-11-27 — Thanksgiving (US market closed) — تاثیر: نقدینگی پایین، حرکات اغراق‌آمیز",
+       "2026-11-28 — Black Friday / Options Expiry (monthly) — تاثیر: ولاتیلیته بالا در BTC/ETH",
+       "2026-12-01 — ISM Manufacturing PMI — تاثیر: اگر <50، ترس از رکنش تقویت می‌شود",
+       "2026-12-05 — NFP (نوامبر) — تاثیر: رویداد Tier-1، می‌تواند مسیر فد را تغییر دهد"
+      ],
+      "cached": "2026-11-25T04:02:54.101Z"
+     },
+     "sent": {
+      "bias": "bearish",
+      "confidence": 70,
+      "key_points": [
+       "شاخص ترس و طمع در سطح 13 (ترس مفرط) که نشان‌دهنده ضعف تقاضا است",
+       "کاهش 5.76 درصدی حجم Open Interest در 24 ساعت گذشته حاکی از بسته‌شدن پوزیشن‌ها و خروج نقدینگی",
+       "نسبت حساب‌های لانگ به شورت روی عدد 1.95 که نشان‌دهنده تمایل لانگ‌های خرد به استمرار است",
+       "نرخ فاندینگ مثبت خفیف 0.0058 درصد با تسلط نسبی فروشندگان در بازار"
+      ]
+     },
+     "bull": {
+      "confidence": 35,
+      "case": [
+       "قیمت در سطح 0.3616 دلار بسیار نزدیک به حمایت کلیدی FVG در محدوده 0.3566 دلار و فاصله 0.4 ATR قرار دارد.",
+       "شاخص ترس و طمع در سطح 13 (ترس مفرط) و نسبت لانگ به شورت خرد روی عدد 1.95، پتانسیل بالایی برای وقوع پدیده شورت اسکوییز ایجاد کرده است.",
+       "وجود سطح حمایت معتبر Swing Low در 0.3352 دلار که فاصله امنی برای محافظت از پوزیشن‌های خرید فراهم می‌کند."
+      ]
+     },
+     "bear": {
+      "confidence": 75,
+      "case": [
+       "ساختار روند 4 ساعته کاملاً نزولی است و قیمت 3.4 ATR پایین‌تر از میانگین EMA50 با واگرایی مخفی نزولی در سقف 0.4127 دلار قرار دارد.",
+       "کاهش 5.76 درصدی Open Interest در 24 ساعت گذشته همراه با کاهش 3.92 درصدی کل مارکت‌کپ، خروج نقدینگی و تسلط فروشندگان را تأیید می‌کند.",
+       "محیط کلان منفی با شاخص DXY در محدوده 106.5-107.2 و ثبت Fear & Greed در کف 30 روزه (13) فشار نزولی را تقویت می‌کند.",
+       "قیمت پایین‌تر از مقاومت روزانه PDH در 0.3894 دلار و مقاومت اصلی 0.4127 دلار معامله می‌شود که با شرط باطل‌سازی ما همخوانی دارد."
+      ]
+     }
+    }
+   },
+   "agreement": "موتور قطعی، تحلیلگران فنی و خرس‌ها موافق شورت هستند، اما ریسک‌های کلان و رویدادهای پیش‌رو مانع از ورود است",
+   "overruled": "موتور قطعی و پیشنهاد شورت آن به دلیل قوانین سخت‌گیرانه عدم معامله در روزهای منتهی به رویدادهای Tier-1 و ریسک پادآزمایی رد شد",
+   "failWhy": "بانس ناگهانی قیمت به دلیل تسویه حساب پوزیشن‌های لانگ خرد در شرایط ترس مفرط",
+   "nextCheck": "بررسی واکنش قیمت پس از انتشار صورتجلسه FOMC در تاریخ 26 نوامبر 2026",
+   "judge": "roundtable:gemini-3.5-flash-lite",
+   "confidence": 85,
+   "reasons": [
+    "حد ضرر هفتگی (-3.57R ≤ −3.5R) — این هفته ورود جدید نداریم",
+    "حالت سایه: AI مخالف است (SKIP 85) — نظرش ثبت شد، معامله طبق موتور باز می‌شود",
+    "قرار داشتن در آستانه رویدادهای مهم کلان مانند FOMC Minutes و Thanksgiving با نقدینگی شکننده",
+    "فاصله بسیار کم استاپ لاس تا ناحیه حمایتی FVG در 0.3566 (0.24 ATR)"
+   ],
+   "concerns": [
+    "قانون اجباری مدیریت ریسک: شرایط بازار در وضعیت ترس شدید و نزدیک به تعطیلی بازار آمریکا"
+   ],
+   "invalidation": "بسته شدن کندل 4 ساعته بالاتر از 0.3894",
+   "aiMode": "shadow",
+   "aiDecision": "SKIP",
+   "aiAgrees": 0,
+   "status": "ALERT_ONLY_LOSSCAP"
+  },
+  {
    "ts": "2026-11-25T07:31:00.723Z",
    "barTime": "2026-11-25T06:00:00.000Z",
    "sym": "BTWUSDT",
@@ -4318,529 +5317,6 @@
     "نسبتاً کش‌شده (-2.6×ATR)",
     "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (20× · 0.32R)"
    ]
-  },
-  {
-   "ts": "2026-11-24T17:01:16.424Z",
-   "barTime": "2026-11-24T12:00:00.000Z",
-   "sym": "WLDUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 92,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.55,
-     "n": 22,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 22,
-     "avg_r": 0.55,
-     "verdict": "EDGE_UNCONFIRMED"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "adx": 27.9,
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 0.2286,
-   "stop": 0.24217023,
-   "t1": 0.20824466,
-   "t2": 0.18788932,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (22× · 0.55R)"
-   ],
-   "tm": {
-    "n": 22,
-    "win": 64,
-    "avg": 0.55,
-    "pf": 2.45
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 12,
-   "volMult": 1,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 221.07,
-   "riskUSD": 3,
-   "sizeMult": 1,
-   "notionalUSD": 50.54,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "shadow-only",
-   "reasons": [
-    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
-   ],
-   "concerns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (22× · 0.55R)"
-   ]
-  },
-  {
-   "ts": "2026-11-24T17:01:15.311Z",
-   "barTime": "2026-11-24T12:00:00.000Z",
-   "sym": "OKBUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 82,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "VAB",
-     "name": "Value-area acceptance breakout (volume profile, 4H)",
-     "avg_r": 1.14,
-     "n": 11,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 29,
-     "avg_r": 0.31,
-     "verdict": "EDGE_UNCONFIRMED"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "adx": 22.4,
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 80.32,
-   "stop": 83.51000603,
-   "t1": 75.53499096,
-   "t2": 70.74998192,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "ناحیه‌ی FVG فقط 0.09×ATR جلوتر",
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (29× · 0.31R)"
-   ],
-   "tm": {
-    "n": 29,
-    "win": 52,
-    "avg": 0.31,
-    "pf": 1.62
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 12,
-   "volMult": 1,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 0.70533,
-   "riskUSD": 2.25,
-   "sizeMult": 0.75,
-   "notionalUSD": 56.65,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "shadow-only",
-   "reasons": [
-    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
-   ],
-   "concerns": [
-    "ناحیه‌ی FVG فقط 0.09×ATR جلوتر",
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (29× · 0.31R)"
-   ]
-  },
-  {
-   "ts": "2026-11-24T17:01:13.984Z",
-   "barTime": "2026-11-24T16:00:00.000Z",
-   "sym": "MONUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 86,
-   "strategy": "ICHI",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.63,
-     "n": 21,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 6,
-     "avg_r": -0.57,
-     "verdict": "INSUFFICIENT"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "adx": 26.2,
-   "event": "CANDLE",
-   "sweep": null,
-   "entry": 0.01003,
-   "stop": 0.01089029,
-   "t1": 0.00873957,
-   "t2": 0.00744914,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3.8×ATR)",
-    "Time Machine (رکورد ستاپ LENS همین نماد) منفی (30× · -0.19R)"
-   ],
-   "tm": {
-    "n": 30,
-    "win": 40,
-    "avg": -0.19,
-    "pf": 0.72
-   },
-   "src": "okx",
-   "chase": 1,
-   "hourUtc": 16,
-   "volMult": 0.5,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 871.8,
-   "riskUSD": 0.75,
-   "sizeMult": 0.5,
-   "notionalUSD": 8.74,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "shadow-only",
-   "reasons": [
-    "تایم‌فریم 1H فقط سایه (بک‌تست ۵ ساله: 1H منفی)"
-   ],
-   "concerns": [
-    "نسبتاً کش‌شده (-3.8×ATR)",
-    "Time Machine (رکورد ستاپ LENS همین نماد) منفی (30× · -0.19R)"
-   ]
-  },
-  {
-   "ts": "2026-11-24T16:45:53.851Z",
-   "barTime": "2026-11-24T12:00:00.000Z",
-   "sym": "UNIUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 84,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "VAB",
-     "name": "Value-area acceptance breakout (volume profile, 4H)",
-     "avg_r": 0.82,
-     "n": 13,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 27,
-     "avg_r": 0.17,
-     "verdict": "EDGE_UNCONFIRMED"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "adx": 28.9,
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 4.669,
-   "stop": 4.93343079,
-   "t1": 4.27235382,
-   "t2": 3.87570764,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (27× · 0.17R)"
-   ],
-   "tm": {
-    "n": 27,
-    "win": 44,
-    "avg": 0.17,
-    "pf": 1.29
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 12,
-   "volMult": 1,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 11.345,
-   "riskUSD": 3,
-   "sizeMult": 1,
-   "notionalUSD": 52.97,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "shadow-only",
-   "reasons": [
-    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
-   ],
-   "concerns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (27× · 0.17R)"
-   ]
-  },
-  {
-   "ts": "2026-11-24T16:45:53.182Z",
-   "barTime": "2026-11-24T12:00:00.000Z",
-   "sym": "SUIUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 92,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "LENS",
-     "name": "Lens setup",
-     "avg_r": 0.29,
-     "n": 29,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 29,
-     "avg_r": 0.29,
-     "verdict": "EDGE_UNCONFIRMED"
-    }
-   },
-   "quad": "Q2",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "adx": 28,
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 0.6392,
-   "stop": 0.67261346,
-   "t1": 0.58907981,
-   "t2": 0.53895962,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (29× · 0.29R)"
-   ],
-   "tm": {
-    "n": 29,
-    "win": 55,
-    "avg": 0.29,
-    "pf": 1.6
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 12,
-   "volMult": 1,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 44.892,
-   "riskUSD": 1.5,
-   "sizeMult": 0.5,
-   "notionalUSD": 28.7,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "shadow-only",
-   "reasons": [
-    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
-   ],
-   "concerns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (29× · 0.29R)"
-   ]
-  },
-  {
-   "ts": "2026-11-24T16:45:52.506Z",
-   "barTime": "2026-11-24T12:00:00.000Z",
-   "sym": "STRKUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 82,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "VAB",
-     "name": "Value-area acceptance breakout (volume profile, 4H)",
-     "avg_r": 0.97,
-     "n": 10,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 29,
-     "avg_r": 0.03,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "adx": 17.9,
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 0.02973,
-   "stop": 0.03142133,
-   "t1": 0.02719301,
-   "t2": 0.02465602,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (29× · 0.03R)"
-   ],
-   "tm": {
-    "n": 29,
-    "win": 45,
-    "avg": 0.03,
-    "pf": 1.06
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 12,
-   "volMult": 1,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 1330.3,
-   "riskUSD": 2.25,
-   "sizeMult": 0.75,
-   "notionalUSD": 39.55,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "shadow-only",
-   "reasons": [
-    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
-   ],
-   "concerns": [
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (29× · 0.03R)"
-   ]
-  },
-  {
-   "ts": "2026-11-24T16:45:51.738Z",
-   "barTime": "2026-11-24T12:00:00.000Z",
-   "sym": "SOLUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 90,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "VAB",
-     "name": "Value-area acceptance breakout (volume profile, 4H)",
-     "avg_r": 1.39,
-     "n": 11,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 29,
-     "avg_r": 0.14,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q4",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "adx": 24.1,
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 68.99,
-   "stop": 72.05806696,
-   "t1": 64.38789956,
-   "t2": 59.78579912,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "رژیم Q4 (آشوب) — نیم‌سایز",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (29× · 0.14R)"
-   ],
-   "tm": {
-    "n": 29,
-    "win": 45,
-    "avg": 0.14,
-    "pf": 1.22
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 12,
-   "volMult": 1,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 0.48891,
-   "riskUSD": 1.5,
-   "sizeMult": 0.5,
-   "notionalUSD": 33.73,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "shadow-only",
-   "reasons": [
-    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
-   ],
-   "concerns": [
-    "رژیم Q4 (آشوب) — نیم‌سایز",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (29× · 0.14R)"
-   ]
-  },
-  {
-   "ts": "2026-11-24T16:45:51.020Z",
-   "barTime": "2026-11-24T12:00:00.000Z",
-   "sym": "SHIBUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 92,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "ICHI",
-     "name": "Ichimoku TK cross + cloud filter",
-     "avg_r": 0.51,
-     "n": 9,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 23,
-     "avg_r": -0.17,
-     "verdict": "NEGATIVE"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "adx": 29.8,
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 0.00000352,
-   "stop": 0.00000365,
-   "t1": 0.00000333,
-   "t2": 0.00000313,
-   "rr": 3,
-   "fails": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (23× · -0.17R)"
-   ],
-   "warns": [
-    "نسبتاً کش‌شده (-2.5×ATR)",
-    "Time Machine منفی (23× · -0.17R)"
-   ],
-   "tm": {
-    "n": 23,
-    "win": 35,
-    "avg": -0.17,
-    "pf": 0.77
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 12,
-   "status": "REJECTED_RULES",
-   "reasons": [
-    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (23× · -0.17R)"
-   ]
   }
  ],
  "shadow": [
@@ -4863,10 +5339,10 @@
    "confidence": 60,
    "openedAt": "2026-11-19T16:02:20.375Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 21,
+   "lastBarT": 1795579200000,
+   "bars": 22,
    "t1hit": true,
-   "mtm": 1.56,
+   "mtm": 2.67,
    "alt": {
     "be": {
      "sl": 1.64409006,
@@ -4904,10 +5380,10 @@
    "confidence": 55,
    "openedAt": "2026-11-19T16:18:01.801Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 33,
+   "lastBarT": 1795579200000,
+   "bars": 34,
    "t1hit": true,
-   "mtm": 2.39,
+   "mtm": 2.61,
    "alt": {
     "be": {
      "sl": 104.68,
@@ -4945,10 +5421,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T16:35:50.684Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 33,
+   "lastBarT": 1795579200000,
+   "bars": 34,
    "t1hit": true,
-   "mtm": 1.14,
+   "mtm": 1.26,
    "alt": {
     "be": {
      "sl": 0.5652,
@@ -4986,10 +5462,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T16:45:44.761Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 33,
+   "lastBarT": 1795579200000,
+   "bars": 34,
    "t1hit": true,
-   "mtm": 1.27,
+   "mtm": 1.53,
    "alt": {
     "be": {
      "sl": 0.002664,
@@ -5027,10 +5503,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T17:01:09.557Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 33,
+   "lastBarT": 1795579200000,
+   "bars": 34,
    "t1hit": true,
-   "mtm": 2.31,
+   "mtm": 2.38,
    "alt": {
     "be": {
      "sl": 0.13431,
@@ -5068,8 +5544,8 @@
    "confidence": null,
    "openedAt": "2026-11-19T17:45:57.145Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 33,
+   "lastBarT": 1795579200000,
+   "bars": 34,
    "t1hit": false,
    "mtm": 0.89,
    "alt": {
@@ -5106,10 +5582,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T18:15:49.896Z",
    "barTime": "2026-11-19T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 33,
+   "lastBarT": 1795579200000,
+   "bars": 34,
    "t1hit": true,
-   "mtm": -0.53,
+   "mtm": -0.56,
    "alt": {
     "be": {
      "sl": 0.00743175,
@@ -5144,10 +5620,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T20:13:10.222Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 32,
+   "lastBarT": 1795579200000,
+   "bars": 33,
    "t1hit": true,
-   "mtm": 2.5,
+   "mtm": 2.72,
    "alt": {
     "be": {
      "sl": 105.36,
@@ -5185,10 +5661,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T20:13:10.298Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 20,
+   "lastBarT": 1795579200000,
+   "bars": 21,
    "t1hit": true,
-   "mtm": 0.89,
+   "mtm": 1.23,
    "alt": {
     "be": {
      "sl": 1.09769487,
@@ -5226,10 +5702,10 @@
    "confidence": null,
    "openedAt": "2026-11-19T23:01:07.767Z",
    "barTime": "2026-11-19T16:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 32,
+   "lastBarT": 1795579200000,
+   "bars": 33,
    "t1hit": true,
-   "mtm": -0.75,
+   "mtm": -0.78,
    "alt": {
     "be": {
      "sl": 0.00765173,
@@ -5264,10 +5740,10 @@
    "confidence": 85,
    "openedAt": "2026-11-20T00:16:26.954Z",
    "barTime": "2026-11-19T20:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 31,
+   "lastBarT": 1795579200000,
+   "bars": 32,
    "t1hit": true,
-   "mtm": 2.42,
+   "mtm": 2.64,
    "alt": {
     "be": {
      "sl": 104.71,
@@ -5305,10 +5781,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T00:17:23.811Z",
    "barTime": "2026-11-19T20:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 31,
+   "lastBarT": 1795579200000,
+   "bars": 32,
    "t1hit": true,
-   "mtm": 0.61,
+   "mtm": 0.75,
    "alt": {
     "be": {
      "sl": 0.0508,
@@ -5343,10 +5819,10 @@
    "confidence": 90,
    "openedAt": "2026-11-20T01:15:47.329Z",
    "barTime": "2026-11-19T20:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 31,
+   "lastBarT": 1795579200000,
+   "bars": 32,
    "t1hit": true,
-   "mtm": 1.41,
+   "mtm": 1.64,
    "alt": {
     "be": {
      "sl": 0.04672,
@@ -5381,10 +5857,10 @@
    "confidence": 55,
    "openedAt": "2026-11-20T04:15:42.607Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 30,
+   "lastBarT": 1795579200000,
+   "bars": 31,
    "t1hit": true,
-   "mtm": 0.93,
+   "mtm": 1.16,
    "alt": {
     "be": {
      "sl": 0.04492,
@@ -5460,8 +5936,8 @@
    "confidence": null,
    "openedAt": "2026-11-20T04:18:08.900Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 30,
+   "lastBarT": 1795579200000,
+   "bars": 31,
    "t1hit": true,
    "mtm": 1.46,
    "alt": {
@@ -5501,10 +5977,10 @@
    "confidence": 60,
    "openedAt": "2026-11-20T04:19:07.795Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 30,
+   "lastBarT": 1795579200000,
+   "bars": 31,
    "t1hit": true,
-   "mtm": 2.13,
+   "mtm": 2.36,
    "alt": {
     "be": {
      "sl": 103.21,
@@ -5542,10 +6018,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T04:19:33.580Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 30,
+   "lastBarT": 1795579200000,
+   "bars": 31,
    "t1hit": true,
-   "mtm": 0.51,
+   "mtm": 0.47,
    "alt": {
     "be": {
      "sl": 0.00000358,
@@ -5583,10 +6059,10 @@
    "confidence": 75,
    "openedAt": "2026-11-20T04:30:52.733Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 30,
+   "lastBarT": 1795579200000,
+   "bars": 31,
    "t1hit": true,
-   "mtm": 0.89,
+   "mtm": 1,
    "alt": {
     "be": {
      "sl": 0.5591,
@@ -5624,10 +6100,10 @@
    "confidence": 55,
    "openedAt": "2026-11-20T04:45:43.556Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 30,
+   "lastBarT": 1795579200000,
+   "bars": 31,
    "t1hit": true,
-   "mtm": 1.99,
+   "mtm": 2.06,
    "alt": {
     "be": {
      "sl": 6.705,
@@ -5665,10 +6141,10 @@
    "confidence": 55,
    "openedAt": "2026-11-20T04:47:31.052Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 30,
+   "lastBarT": 1795579200000,
+   "bars": 31,
    "t1hit": true,
-   "mtm": 2.3,
+   "mtm": 1.91,
    "alt": {
     "be": {
      "sl": 0.1065,
@@ -5703,8 +6179,8 @@
    "confidence": null,
    "openedAt": "2026-11-20T05:47:06.577Z",
    "barTime": "2026-11-20T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 30,
+   "lastBarT": 1795579200000,
+   "bars": 31,
    "t1hit": false,
    "mtm": 0.71,
    "alt": {
@@ -5741,10 +6217,10 @@
    "confidence": null,
    "openedAt": "2026-11-20T18:45:49.379Z",
    "barTime": "2026-11-20T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 27,
+   "lastBarT": 1795579200000,
+   "bars": 28,
    "t1hit": true,
-   "mtm": 1.76,
+   "mtm": 2.01,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -5752,8 +6228,8 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 0.045798571428571425,
-     "ext": 0.04129,
+     "sl": 0.04488571428571428,
+     "ext": 0.04024,
      "t1hit": true
     }
    }
@@ -5777,10 +6253,10 @@
    "confidence": null,
    "openedAt": "2026-11-21T05:45:50.941Z",
    "barTime": "2026-11-21T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 24,
+   "lastBarT": 1795579200000,
+   "bars": 25,
    "t1hit": false,
-   "mtm": 1.12,
+   "mtm": 1.32,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -5788,8 +6264,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.08694357142857144,
-     "ext": 0.07867,
+     "sl": 0.08494785714285714,
+     "ext": 0.07649,
      "t1hit": false
     }
    }
@@ -6850,10 +7326,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T08:01:05.523Z",
    "barTime": "2026-11-22T04:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 17,
+   "lastBarT": 1795579200000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": -0.2,
+   "mtm": -0.21,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7001,10 +7477,10 @@
    "confidence": null,
    "openedAt": "2026-11-22T20:01:07.212Z",
    "barTime": "2026-11-22T16:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 14,
+   "lastBarT": 1795579200000,
+   "bars": 15,
    "t1hit": false,
-   "mtm": -0.23,
+   "mtm": -0.25,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -7012,7 +7488,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.04685842857142857,
+     "sl": 0.046990000000000004,
      "ext": 0.052342,
      "t1hit": false
     }
@@ -7038,10 +7514,10 @@
    "confidence": null,
    "openedAt": "2026-11-23T04:01:12.754Z",
    "barTime": "2026-11-23T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 12,
+   "lastBarT": 1795579200000,
+   "bars": 13,
    "t1hit": false,
-   "mtm": -0.48,
+   "mtm": -0.54,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7078,10 +7554,10 @@
    "confidence": null,
    "openedAt": "2026-11-23T08:15:50.158Z",
    "barTime": "2026-11-23T04:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 11,
+   "lastBarT": 1795579200000,
+   "bars": 12,
    "t1hit": false,
-   "mtm": -0.21,
+   "mtm": -0.13,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7089,7 +7565,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.21095714285714284,
+     "sl": 0.19055714285714287,
      "ext": 0.1444,
      "t1hit": false
     }
@@ -7115,10 +7591,10 @@
    "confidence": null,
    "openedAt": "2026-11-23T10:45:48.492Z",
    "barTime": "2026-11-23T04:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 11,
+   "lastBarT": 1795579200000,
+   "bars": 12,
    "t1hit": true,
-   "mtm": 1.95,
+   "mtm": 1.15,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7226,20 +7702,20 @@
    "confidence": null,
    "openedAt": "2026-11-23T16:16:08.017Z",
    "barTime": "2026-11-23T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 9,
-   "t1hit": false,
-   "mtm": 0.65,
+   "lastBarT": 1795579200000,
+   "bars": 10,
+   "t1hit": true,
+   "mtm": 1.45,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
-     "sl": 0.64281466,
-     "t1hit": false
+     "sl": 0.7381,
+     "t1hit": true
     },
     "tr": {
-     "sl": 0.7100285714285715,
-     "ext": 0.8563,
-     "t1hit": false
+     "sl": 0.7321428571428572,
+     "ext": 0.8968,
+     "t1hit": true
     }
    }
   },
@@ -7374,10 +7850,10 @@
    "confidence": null,
    "openedAt": "2026-11-23T20:01:10.395Z",
    "barTime": "2026-11-23T16:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 8,
+   "lastBarT": 1795579200000,
+   "bars": 9,
    "t1hit": false,
-   "mtm": -0.23,
+   "mtm": 0.46,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7386,7 +7862,7 @@
     },
     "tr": {
      "sl": 0.21562001,
-     "ext": 0.1763,
+     "ext": 0.1613,
      "t1hit": false
     }
    }
@@ -7411,10 +7887,10 @@
    "confidence": null,
    "openedAt": "2026-11-23T20:01:11.605Z",
    "barTime": "2026-11-23T16:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 8,
+   "lastBarT": 1795579200000,
+   "bars": 9,
    "t1hit": true,
-   "mtm": 1.98,
+   "mtm": 1.34,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7449,10 +7925,10 @@
    "pT1": null,
    "openedAt": "2026-11-23T21:01:10.623Z",
    "barTime": "2026-11-23T20:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 34,
+   "lastBarT": 1795590000000,
+   "bars": 35,
    "t1hit": false,
-   "mtm": -0.77,
+   "mtm": -0.62,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7492,10 +7968,10 @@
    "pT1": null,
    "openedAt": "2026-11-23T23:01:04.954Z",
    "barTime": "2026-11-23T22:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 32,
+   "lastBarT": 1795590000000,
+   "bars": 33,
    "t1hit": true,
-   "mtm": 1.71,
+   "mtm": 1.94,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7503,7 +7979,7 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 5.9655000000000005,
+     "sl": 5.962928571428572,
      "ext": 5.724,
      "t1hit": true
     }
@@ -7532,10 +8008,10 @@
    "pT1": 55,
    "openedAt": "2026-11-24T00:01:13.858Z",
    "barTime": "2026-11-23T20:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 7,
+   "lastBarT": 1795579200000,
+   "bars": 8,
    "t1hit": true,
-   "mtm": 1.56,
+   "mtm": 1.82,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -7543,8 +8019,8 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 1.1590714285714285,
-     "ext": 1.005,
+     "sl": 1.152657142857143,
+     "ext": 0.9937,
      "t1hit": true
     }
    }
@@ -7572,10 +8048,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T03:01:11.525Z",
    "barTime": "2026-11-24T02:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 28,
+   "lastBarT": 1795590000000,
+   "bars": 29,
    "t1hit": false,
-   "mtm": 0.8,
+   "mtm": 1.27,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7583,8 +8059,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 60267.60714285714,
-     "ext": 58913.9,
+     "sl": 59919.72142857143,
+     "ext": 58588.9,
      "t1hit": false
     }
    }
@@ -7612,20 +8088,20 @@
    "pT1": null,
    "openedAt": "2026-11-24T03:01:12.382Z",
    "barTime": "2026-11-24T02:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 28,
-   "t1hit": false,
-   "mtm": 0.71,
+   "lastBarT": 1795590000000,
+   "bars": 29,
+   "t1hit": true,
+   "mtm": 1.27,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
-     "sl": 1718.62685795,
-     "t1hit": false
+     "sl": 1684.04,
+     "t1hit": true
     },
     "tr": {
-     "sl": 1689.2085714285713,
-     "ext": 1648.04,
-     "t1hit": false
+     "sl": 1674.9607142857142,
+     "ext": 1631.72,
+     "t1hit": true
     }
    }
   },
@@ -7652,10 +8128,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T03:01:13.249Z",
    "barTime": "2026-11-24T02:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 28,
+   "lastBarT": 1795590000000,
+   "bars": 29,
    "t1hit": true,
-   "mtm": 0.54,
+   "mtm": 0.84,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7695,15 +8171,18 @@
    "pT1": null,
    "openedAt": "2026-11-24T03:01:14.136Z",
    "barTime": "2026-11-24T02:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 28,
+   "lastBarT": 1795590000000,
+   "bars": 29,
    "t1hit": true,
-   "mtm": 0.53,
+   "mtm": 0.21,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
      "sl": 0.04094,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 29,
+     "gross": 0.75
     },
     "tr": {
      "sl": 0.04060357142857143,
@@ -7738,10 +8217,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T03:15:55.078Z",
    "barTime": "2026-11-24T02:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 28,
+   "lastBarT": 1795590000000,
+   "bars": 29,
    "t1hit": false,
-   "mtm": 0.44,
+   "mtm": 0.59,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7749,7 +8228,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 5.826428571428571,
+     "sl": 5.814857142857143,
      "ext": 5.673,
      "t1hit": false
     }
@@ -7778,10 +8257,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T04:01:11.381Z",
    "barTime": "2026-11-24T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 6,
+   "lastBarT": 1795579200000,
+   "bars": 7,
    "t1hit": false,
-   "mtm": 0.4,
+   "mtm": 0.7,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7789,8 +8268,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 62576.99354954,
-     "ext": 58913.9,
+     "sl": 62419.02142857143,
+     "ext": 58588.9,
      "t1hit": false
     }
    }
@@ -7818,10 +8297,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T04:01:12.141Z",
    "barTime": "2026-11-24T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 6,
+   "lastBarT": 1795579200000,
+   "bars": 7,
    "t1hit": false,
-   "mtm": -0.24,
+   "mtm": -0.21,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7858,10 +8337,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T04:01:12.772Z",
    "barTime": "2026-11-24T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 6,
+   "lastBarT": 1795579200000,
+   "bars": 7,
    "t1hit": false,
-   "mtm": 0.45,
+   "mtm": 0.49,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -7898,10 +8377,10 @@
    "pT1": 58,
    "openedAt": "2026-11-24T04:01:13.426Z",
    "barTime": "2026-11-24T03:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 27,
+   "lastBarT": 1795590000000,
+   "bars": 28,
    "t1hit": false,
-   "mtm": -0.34,
+   "mtm": -0.32,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -7909,7 +8388,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.18745,
+     "sl": 0.1862285714285714,
      "ext": 0.1696,
      "t1hit": false
     }
@@ -7938,10 +8417,10 @@
    "pT1": 40,
    "openedAt": "2026-11-24T04:01:15.565Z",
    "barTime": "2026-11-24T03:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 27,
+   "lastBarT": 1795590000000,
+   "bars": 28,
    "t1hit": true,
-   "mtm": 0.91,
+   "mtm": 0.99,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -7981,10 +8460,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T09:01:29.157Z",
    "barTime": "2026-11-24T08:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 22,
+   "lastBarT": 1795590000000,
+   "bars": 23,
    "t1hit": true,
-   "mtm": 2.54,
+   "mtm": 2.71,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8021,10 +8500,10 @@
    "pT1": 40,
    "openedAt": "2026-11-24T09:30:59.491Z",
    "barTime": "2026-11-24T08:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 22,
+   "lastBarT": 1795590000000,
+   "bars": 23,
    "t1hit": false,
-   "mtm": 0.54,
+   "mtm": 1.1,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -8032,8 +8511,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.17907857142857145,
-     "ext": 0.1731,
+     "sl": 0.17842857142857144,
+     "ext": 0.1723,
      "t1hit": false
     }
    }
@@ -8061,10 +8540,10 @@
    "pT1": 42,
    "openedAt": "2026-11-24T10:01:15.511Z",
    "barTime": "2026-11-24T09:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 21,
+   "lastBarT": 1795590000000,
+   "bars": 22,
    "t1hit": true,
-   "mtm": 0.15,
+   "mtm": 0.62,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -8107,10 +8586,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T11:01:20.963Z",
    "barTime": "2026-11-24T10:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 20,
+   "lastBarT": 1795590000000,
+   "bars": 21,
    "t1hit": false,
-   "mtm": -0.53,
+   "mtm": -0.31,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8150,10 +8629,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T11:01:22.053Z",
    "barTime": "2026-11-24T10:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 20,
+   "lastBarT": 1795590000000,
+   "bars": 21,
    "t1hit": true,
-   "mtm": 0.85,
+   "mtm": 1.15,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8190,10 +8669,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T11:01:23.639Z",
    "barTime": "2026-11-24T10:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 20,
+   "lastBarT": 1795590000000,
+   "bars": 21,
    "t1hit": true,
-   "mtm": 1.68,
+   "mtm": 2.15,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8201,8 +8680,8 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 181.84142857142857,
-     "ext": 176.54,
+     "sl": 179.61357142857145,
+     "ext": 174.19,
      "t1hit": true
     }
    }
@@ -8230,10 +8709,10 @@
    "pT1": 42,
    "openedAt": "2026-11-24T12:01:16.622Z",
    "barTime": "2026-11-24T08:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 4,
+   "lastBarT": 1795579200000,
+   "bars": 5,
    "t1hit": false,
-   "mtm": 0.67,
+   "mtm": 0.99,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -8241,8 +8720,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 192.02214285714288,
-     "ext": 176.75,
+     "sl": 190.06,
+     "ext": 174.19,
      "t1hit": false
     }
    }
@@ -8270,10 +8749,10 @@
    "pT1": 42,
    "openedAt": "2026-11-24T12:01:23.294Z",
    "barTime": "2026-11-24T08:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 4,
+   "lastBarT": 1795579200000,
+   "bars": 5,
    "t1hit": false,
-   "mtm": 0.26,
+   "mtm": 0.36,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -8310,20 +8789,20 @@
    "pT1": 38,
    "openedAt": "2026-11-24T12:15:56.329Z",
    "barTime": "2026-11-24T08:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 4,
-   "t1hit": false,
-   "mtm": -0.62,
+   "lastBarT": 1795579200000,
+   "bars": 5,
+   "t1hit": true,
+   "mtm": 1.46,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
-     "sl": 0.61559174,
-     "t1hit": false
+     "sl": 0.6689,
+     "t1hit": true
     },
     "tr": {
-     "sl": 0.61559174,
-     "ext": 0.6995,
-     "t1hit": false
+     "sl": 0.6227142857142858,
+     "ext": 0.7509,
+     "t1hit": true
     }
    }
   },
@@ -8350,10 +8829,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T13:01:08.124Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 18,
+   "lastBarT": 1795590000000,
+   "bars": 19,
    "t1hit": false,
-   "mtm": 0.72,
+   "mtm": 1,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8361,7 +8840,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.11234357142857143,
+     "sl": 0.11232857142857143,
      "ext": 0.10836,
      "t1hit": false
     }
@@ -8390,10 +8869,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:01:20.055Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.36,
+   "mtm": 0.69,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8401,8 +8880,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 95.2757142857143,
-     "ext": 92.43,
+     "sl": 94.70785714285715,
+     "ext": 91.83,
      "t1hit": false
     }
    }
@@ -8430,20 +8909,20 @@
    "pT1": 52,
    "openedAt": "2026-11-24T14:01:20.962Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
-   "t1hit": false,
-   "mtm": 0.73,
+   "lastBarT": 1795590000000,
+   "bars": 18,
+   "t1hit": true,
+   "mtm": 1.14,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
-     "sl": 0.3803665,
-     "t1hit": false
+     "sl": 0.3716,
+     "t1hit": true
     },
     "tr": {
-     "sl": 0.3712071428571429,
-     "ext": 0.3588,
-     "t1hit": false
+     "sl": 0.3706714285714286,
+     "ext": 0.3582,
+     "t1hit": true
     }
    }
   },
@@ -8470,10 +8949,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:01:37.483Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.61,
+   "mtm": 1.17,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -8481,8 +8960,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 550.0221428571429,
-     "ext": 539.43,
+     "sl": 547.8757142857144,
+     "ext": 537.08,
      "t1hit": false
     }
    }
@@ -8510,10 +8989,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:02:04.298Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.77,
+   "mtm": 1,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8521,8 +9000,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.09899928571428572,
-     "ext": 0.09583,
+     "sl": 0.097965,
+     "ext": 0.0948,
      "t1hit": false
     }
    }
@@ -8550,20 +9029,20 @@
    "pT1": 40,
    "openedAt": "2026-11-24T14:02:06.243Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
-   "t1hit": false,
-   "mtm": 0.77,
+   "lastBarT": 1795590000000,
+   "bars": 18,
+   "t1hit": true,
+   "mtm": 1.26,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
-     "sl": 2.06594849,
-     "t1hit": false
+     "sl": 2.019,
+     "t1hit": true
     },
     "tr": {
-     "sl": 2.0221428571428572,
-     "ext": 1.963,
-     "t1hit": false
+     "sl": 2.004928571428571,
+     "ext": 1.946,
+     "t1hit": true
     }
    }
   },
@@ -8590,10 +9069,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:03:38.231Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.06,
+   "mtm": 0.32,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8601,7 +9080,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 2.900142857142857,
+     "sl": 2.8982142857142854,
      "ext": 2.787,
      "t1hit": false
     }
@@ -8630,20 +9109,20 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:15:51.404Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
-   "t1hit": false,
-   "mtm": 0.88,
+   "lastBarT": 1795590000000,
+   "bars": 18,
+   "t1hit": true,
+   "mtm": 1.47,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
-     "sl": 0.28687656,
-     "t1hit": false
+     "sl": 0.2806,
+     "t1hit": true
     },
     "tr": {
-     "sl": 0.2801285714285714,
-     "ext": 0.2719,
-     "t1hit": false
+     "sl": 0.27721428571428575,
+     "ext": 0.2686,
+     "t1hit": true
     }
    }
   },
@@ -8670,10 +9149,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:18:06.077Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.43,
+   "mtm": 0.65,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -8681,8 +9160,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.06966071428571428,
-     "ext": 0.06743,
+     "sl": 0.06951857142857142,
+     "ext": 0.06735,
      "t1hit": false
     }
    }
@@ -8710,10 +9189,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:19:54.985Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.13,
+   "mtm": 0.51,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8721,8 +9200,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.002474857142857143,
-     "ext": 0.002369,
+     "sl": 0.0024714999999999997,
+     "ext": 0.002365,
      "t1hit": false
     }
    }
@@ -8750,10 +9229,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:19:55.812Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.66,
+   "mtm": 1.4,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8761,8 +9240,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 70.29928571428572,
-     "ext": 68.3,
+     "sl": 69.74499999999999,
+     "ext": 67.66,
      "t1hit": false
     }
    }
@@ -8790,10 +9269,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:19:56.645Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.13,
+   "mtm": 0.44,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -8801,8 +9280,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.6547714285714287,
-     "ext": 0.6357,
+     "sl": 0.6530857142857143,
+     "ext": 0.6341,
      "t1hit": false
     }
    }
@@ -8830,10 +9309,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:20:42.589Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": true,
-   "mtm": -0.06,
+   "mtm": 0.11,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8876,20 +9355,20 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:20:43.414Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
-   "t1hit": false,
-   "mtm": 0.86,
+   "lastBarT": 1795590000000,
+   "bars": 18,
+   "t1hit": true,
+   "mtm": 1.32,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
-     "sl": 0.23235251,
-     "t1hit": false
+     "sl": 0.2256,
+     "t1hit": true
     },
     "tr": {
-     "sl": 0.2241,
-     "ext": 0.2163,
-     "t1hit": false
+     "sl": 0.22321428571428573,
+     "ext": 0.2152,
+     "t1hit": true
     }
    }
   },
@@ -8916,10 +9395,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:31:04.411Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.78,
+   "mtm": 1.22,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8927,8 +9406,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.0000035639285714285714,
-     "ext": 0.000003481,
+     "sl": 0.000003551,
+     "ext": 0.000003467,
      "t1hit": false
     }
    }
@@ -8956,10 +9435,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T14:31:05.325Z",
    "barTime": "2026-11-24T13:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 17,
+   "lastBarT": 1795590000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.36,
+   "mtm": 0.74,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8967,7 +9446,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.12516857142857143,
+     "sl": 0.12508285714285713,
      "ext": 0.12192,
      "t1hit": false
     }
@@ -8996,10 +9475,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T15:01:14.319Z",
    "barTime": "2026-11-24T14:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 16,
+   "lastBarT": 1795590000000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 1.28,
+   "mtm": 1.2,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9036,10 +9515,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T15:01:15.168Z",
    "barTime": "2026-11-24T14:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 16,
+   "lastBarT": 1795590000000,
+   "bars": 17,
    "t1hit": false,
-   "mtm": -0.39,
+   "mtm": -0.47,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9137,10 +9616,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:04:03.754Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.17,
+   "mtm": 0.58,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9149,7 +9628,7 @@
     },
     "tr": {
      "sl": 42.40293043,
-     "ext": 40.64,
+     "ext": 40.16,
      "t1hit": false
     }
    }
@@ -9177,10 +9656,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:04:04.635Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.34,
+   "mtm": 0.76,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9189,7 +9668,7 @@
     },
     "tr": {
      "sl": 3634.30845221,
-     "ext": 3539.68,
+     "ext": 3520,
      "t1hit": false
     }
    }
@@ -9304,10 +9783,10 @@
    "pT1": 42,
    "openedAt": "2026-11-24T16:18:10.336Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.34,
+   "mtm": 0.37,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9316,7 +9795,7 @@
     },
     "tr": {
      "sl": 0.38926369,
-     "ext": 0.3588,
+     "ext": 0.3582,
      "t1hit": false
     }
    }
@@ -9344,10 +9823,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:20:01.341Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.05,
+   "mtm": 0.2,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9356,7 +9835,7 @@
     },
     "tr": {
      "sl": 6.7937968,
-     "ext": 6.444,
+     "ext": 6.417,
      "t1hit": false
     }
    }
@@ -9384,10 +9863,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:31:09.313Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.04,
+   "mtm": 0.23,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9396,7 +9875,7 @@
     },
     "tr": {
      "sl": 0.18527848,
-     "ext": 0.1731,
+     "ext": 0.1723,
      "t1hit": false
     }
    }
@@ -9424,10 +9903,10 @@
    "pT1": 25,
    "openedAt": "2026-11-24T16:33:04.432Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.18,
+   "mtm": 0.38,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9464,10 +9943,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:34:31.807Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.03,
+   "mtm": 0.13,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9476,7 +9955,7 @@
     },
     "tr": {
      "sl": 0.05684826,
-     "ext": 0.05435,
+     "ext": 0.05397,
      "t1hit": false
     }
    }
@@ -9504,10 +9983,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:34:32.426Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.07,
+   "mtm": 0.06,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9516,7 +9995,7 @@
     },
     "tr": {
      "sl": 0.68010423,
-     "ext": 0.6444,
+     "ext": 0.6418,
      "t1hit": false
     }
    }
@@ -9544,10 +10023,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:35:18.980Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.64,
+   "mtm": 0.83,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9555,8 +10034,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 64.33128807,
-     "ext": 58.564,
+     "sl": 64.24164285714285,
+     "ext": 58.106,
      "t1hit": false
     }
    }
@@ -9584,10 +10063,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:35:19.586Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.32,
+   "mtm": -0.13,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9624,10 +10103,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:35:20.401Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.22,
+   "mtm": -0.14,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9664,10 +10143,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:35:21.011Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.18,
+   "mtm": 0.37,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9676,7 +10155,7 @@
     },
     "tr": {
      "sl": 0.29068061,
-     "ext": 0.2724,
+     "ext": 0.2686,
      "t1hit": false
     }
    }
@@ -9733,8 +10212,8 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:45:50.342Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
    "mtm": -0.06,
    "live": "REJECTED_RULES",
@@ -9773,10 +10252,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:45:51.020Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.05,
+   "mtm": 0.24,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9785,7 +10264,7 @@
     },
     "tr": {
      "sl": 0.00000365,
-     "ext": 0.000003481,
+     "ext": 0.000003467,
      "t1hit": false
     }
    }
@@ -9813,10 +10292,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:45:51.738Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.1,
+   "mtm": 0.4,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9825,7 +10304,7 @@
     },
     "tr": {
      "sl": 72.05806696,
-     "ext": 68.41,
+     "ext": 67.66,
      "t1hit": false
     }
    }
@@ -9853,10 +10332,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:45:52.506Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.13,
+   "mtm": 0.14,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9893,10 +10372,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:45:53.182Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.13,
+   "mtm": -0.03,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9905,7 +10384,7 @@
     },
     "tr": {
      "sl": 0.67261346,
-     "ext": 0.6366,
+     "ext": 0.6341,
      "t1hit": false
     }
    }
@@ -9933,10 +10412,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T16:45:53.851Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.24,
+   "mtm": 0.45,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9945,7 +10424,7 @@
     },
     "tr": {
      "sl": 4.93343079,
-     "ext": 4.569,
+     "ext": 4.509,
      "t1hit": false
     }
    }
@@ -9973,10 +10452,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T17:01:15.311Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.04,
+   "mtm": 0.35,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9985,7 +10464,7 @@
     },
     "tr": {
      "sl": 83.51000603,
-     "ext": 79.98,
+     "ext": 78.79,
      "t1hit": false
     }
    }
@@ -10013,10 +10492,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T17:01:16.424Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.33,
+   "mtm": -0.15,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -10082,10 +10561,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T17:15:54.617Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.04,
+   "mtm": -0.02,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -10151,10 +10630,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T17:15:57.265Z",
    "barTime": "2026-11-24T12:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 3,
+   "lastBarT": 1795579200000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.28,
+   "mtm": -0.28,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -10191,20 +10670,20 @@
    "pT1": null,
    "openedAt": "2026-11-24T17:15:58.248Z",
    "barTime": "2026-11-24T16:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 14,
-   "t1hit": false,
-   "mtm": 1.05,
+   "lastBarT": 1795590000000,
+   "bars": 15,
+   "t1hit": true,
+   "mtm": 1.52,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
-     "sl": 62.22851379,
-     "t1hit": false
+     "sl": 60.748,
+     "t1hit": true
     },
     "tr": {
-     "sl": 60.71478571428571,
-     "ext": 58.564,
-     "t1hit": false
+     "sl": 60.335,
+     "ext": 58.106,
+     "t1hit": true
     }
    }
   },
@@ -10260,10 +10739,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T22:15:50.481Z",
    "barTime": "2026-11-24T21:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 9,
+   "lastBarT": 1795590000000,
+   "bars": 10,
    "t1hit": false,
-   "mtm": 1.06,
+   "mtm": 1.36,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -10271,8 +10750,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.40455,
-     "ext": 0.3831,
+     "sl": 0.40302857142857146,
+     "ext": 0.3819,
      "t1hit": false
     }
    }
@@ -10300,10 +10779,10 @@
    "pT1": null,
    "openedAt": "2026-11-24T23:15:48.489Z",
    "barTime": "2026-11-24T22:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 8,
+   "lastBarT": 1795590000000,
+   "bars": 9,
    "t1hit": false,
-   "mtm": -0.02,
+   "mtm": 0.49,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -10311,8 +10790,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.3283714285714286,
-     "ext": 0.3168,
+     "sl": 0.3267357142857143,
+     "ext": 0.3151,
      "t1hit": false
     }
    }
@@ -10340,10 +10819,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T00:01:12.594Z",
    "barTime": "2026-11-24T20:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 1,
+   "lastBarT": 1795579200000,
+   "bars": 2,
    "t1hit": false,
-   "mtm": -0.25,
+   "mtm": -0.33,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -10380,20 +10859,20 @@
    "pT1": 55,
    "openedAt": "2026-11-25T00:01:13.539Z",
    "barTime": "2026-11-24T23:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 7,
-   "t1hit": false,
-   "mtm": 1.17,
+   "lastBarT": 1795590000000,
+   "bars": 8,
+   "t1hit": true,
+   "mtm": 1.94,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
-     "sl": 0.76328367,
-     "t1hit": false
+     "sl": 0.8017,
+     "t1hit": true
     },
     "tr": {
-     "sl": 0.7667071428571428,
-     "ext": 0.8563,
-     "t1hit": false
+     "sl": 0.7841285714285715,
+     "ext": 0.8968,
+     "t1hit": true
     }
    }
   },
@@ -10420,10 +10899,10 @@
    "pT1": 45,
    "openedAt": "2026-11-25T01:01:15.687Z",
    "barTime": "2026-11-25T00:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 6,
+   "lastBarT": 1795590000000,
+   "bars": 7,
    "t1hit": false,
-   "mtm": 0.36,
+   "mtm": 0.47,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -10431,8 +10910,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.00561065,
-     "ext": 0.005119,
+     "sl": 0.0055785714285714275,
+     "ext": 0.005075,
      "t1hit": false
     }
    }
@@ -10460,10 +10939,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T02:01:15.551Z",
    "barTime": "2026-11-25T01:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 5,
+   "lastBarT": 1795590000000,
+   "bars": 6,
    "t1hit": false,
-   "mtm": 0.07,
+   "mtm": 0.52,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -10471,8 +10950,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 4.70811208,
-     "ext": 4.569,
+     "sl": 4.672928571428572,
+     "ext": 4.509,
      "t1hit": false
     }
    }
@@ -10500,10 +10979,10 @@
    "pT1": 42,
    "openedAt": "2026-11-25T02:31:02.806Z",
    "barTime": "2026-11-25T01:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 5,
+   "lastBarT": 1795590000000,
+   "bars": 6,
    "t1hit": false,
-   "mtm": -0.12,
+   "mtm": 0.28,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -10511,8 +10990,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 8.88816136,
-     "ext": 8.702,
+     "sl": 8.88042857142857,
+     "ext": 8.655,
      "t1hit": false
     }
    }
@@ -10540,10 +11019,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T03:01:12.395Z",
    "barTime": "2026-11-25T02:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 4,
+   "lastBarT": 1795590000000,
+   "bars": 5,
    "t1hit": false,
-   "mtm": 0.1,
+   "mtm": 0.11,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -10580,11 +11059,22 @@
    "pT1": null,
    "openedAt": "2026-11-25T04:02:04.678Z",
    "barTime": "2026-11-25T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 0,
+   "lastBarT": 1795579200000,
+   "bars": 1,
    "t1hit": false,
-   "mtm": 0,
-   "live": "REJECTED_RULES"
+   "mtm": 0.05,
+   "live": "REJECTED_RULES",
+   "alt": {
+    "be": {
+     "sl": 0.11547356,
+     "t1hit": false
+    },
+    "tr": {
+     "sl": 0.11547356,
+     "ext": 0.10875,
+     "t1hit": false
+    }
+   }
   },
   {
    "id": "ENAUSDT|4H|SHORT|2026-11-25T00:00:00.000Z",
@@ -10609,11 +11099,22 @@
    "pT1": null,
    "openedAt": "2026-11-25T04:02:05.275Z",
    "barTime": "2026-11-25T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 0,
+   "lastBarT": 1795579200000,
+   "bars": 1,
    "t1hit": false,
-   "mtm": 0,
-   "live": "ALERT_ONLY_LOSSCAP"
+   "mtm": 0.24,
+   "live": "ALERT_ONLY_LOSSCAP",
+   "alt": {
+    "be": {
+     "sl": 0.10268622,
+     "t1hit": false
+    },
+    "tr": {
+     "sl": 0.10268622,
+     "ext": 0.0948,
+     "t1hit": false
+    }
+   }
   },
   {
    "id": "OKBUSDT|1H|SHORT|2026-11-25T03:00:00.000Z",
@@ -10638,10 +11139,10 @@
    "pT1": 52,
    "openedAt": "2026-11-25T04:16:11.420Z",
    "barTime": "2026-11-25T03:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 3,
+   "lastBarT": 1795590000000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.08,
+   "mtm": 0.83,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -10649,8 +11150,8 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 81.27785714285714,
-     "ext": 79.3,
+     "sl": 80.89642857142859,
+     "ext": 78.79,
      "t1hit": false
     }
    }
@@ -10685,35 +11186,6 @@
    "live": "ALERT_ONLY_SHADOW"
   },
   {
-   "id": "BIGTIMEUSDT|4H|LONG|2026-11-25T00:00:00.000Z",
-   "sym": "BIGTIMEUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "LONG",
-   "strategy": "LENS",
-   "quad": "Q4",
-   "score": 70,
-   "chase": 0,
-   "adx": 31.1,
-   "htf": "DOWN",
-   "entry": 0.004413,
-   "stop": 0.00413632,
-   "t1": 0.00482802,
-   "t2": 0.00524304,
-   "verdict": "RULES_REJECTED",
-   "hourUtc": 0,
-   "aiDecision": null,
-   "confidence": null,
-   "pT1": null,
-   "openedAt": "2026-11-25T04:31:08.240Z",
-   "barTime": "2026-11-25T00:00:00.000Z",
-   "lastBarT": 1795564800000,
-   "bars": 0,
-   "t1hit": false,
-   "mtm": 0,
-   "live": "REJECTED_RULES"
-  },
-  {
    "id": "ZROUSDT|1H|SHORT|2026-11-25T05:00:00.000Z",
    "sym": "ZROUSDT",
    "cls": "crypto",
@@ -10736,10 +11208,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T06:01:07.346Z",
    "barTime": "2026-11-25T05:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 1,
+   "lastBarT": 1795590000000,
+   "bars": 2,
    "t1hit": false,
-   "mtm": 0.19,
+   "mtm": 0.02,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -10748,7 +11220,7 @@
     },
     "tr": {
      "sl": 1.03663307,
-     "ext": 0.9944,
+     "ext": 0.9937,
      "t1hit": false
     }
    }
@@ -10776,10 +11248,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T06:01:09.027Z",
    "barTime": "2026-11-25T05:00:00.000Z",
-   "lastBarT": 1795586400000,
-   "bars": 1,
+   "lastBarT": 1795590000000,
+   "bars": 2,
    "t1hit": false,
-   "mtm": 0.26,
+   "mtm": 0.01,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -10792,9 +11264,99 @@
      "t1hit": false
     }
    }
+  },
+  {
+   "id": "LITUSDT|4H|SHORT|2026-11-25T04:00:00.000Z",
+   "sym": "LITUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "SHORT",
+   "strategy": "ICHI",
+   "quad": "Q3",
+   "score": 52,
+   "chase": 0,
+   "adx": 22.9,
+   "htf": "DOWN",
+   "entry": 2.3134,
+   "stop": 2.47989337,
+   "t1": 2.06365995,
+   "t2": 1.8139199,
+   "verdict": "AI_REJECTED",
+   "hourUtc": 4,
+   "aiDecision": "SKIP",
+   "confidence": 85,
+   "pT1": null,
+   "openedAt": "2026-11-25T08:02:12.575Z",
+   "barTime": "2026-11-25T04:00:00.000Z",
+   "lastBarT": 1795579200000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "ALERT_ONLY_LOSSCAP"
   }
  ],
  "shadowClosed": [
+  {
+   "id": "BIGTIMEUSDT|4H|LONG|2026-11-25T00:00:00.000Z",
+   "sym": "BIGTIMEUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q4",
+   "score": 70,
+   "chase": 0,
+   "adx": 31.1,
+   "htf": "DOWN",
+   "entry": 0.004413,
+   "stop": 0.00413632,
+   "t1": 0.00482802,
+   "t2": 0.00524304,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 0,
+   "aiDecision": null,
+   "confidence": null,
+   "pT1": null,
+   "openedAt": "2026-11-25T04:31:08.240Z",
+   "barTime": "2026-11-25T00:00:00.000Z",
+   "lastBarT": 1795579200000,
+   "bars": 1,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES",
+   "alt": {
+    "be": {
+     "sl": 0.00413632,
+     "t1hit": true,
+     "out": "T2",
+     "bars": 1,
+     "gross": 2.25
+    },
+    "tr": {
+     "sl": 0.00413632,
+     "ext": null,
+     "t1hit": true,
+     "out": "T2",
+     "bars": 1,
+     "gross": 2.25
+    }
+   },
+   "out": "T2",
+   "rr": 2.2,
+   "gross": 2.25,
+   "costR": 0.049,
+   "altBE": {
+    "out": "T2",
+    "rr": 2.2,
+    "bars": 1
+   },
+   "altTR": {
+    "out": "T2",
+    "rr": 2.2,
+    "bars": 1
+   },
+   "closedAt": "2026-11-25T08:00:52.941Z"
+  },
   {
    "id": "SLXUSDT|1H|LONG|2026-11-25T04:00:00.000Z",
    "sym": "SLXUSDT",
@@ -37381,13 +37943,21 @@
   "XAGUSDT|1H|LENS|SHORT|2026-11-25T05:00:00.000Z": 1795586467346,
   "XAUUSDT|1H|LENS|SHORT|2026-11-25T05:00:00.000Z": 1795586468212,
   "BLURUSDT|4H|LENS|LONG|2026-11-25T00:00:00.000Z": 1795589155847,
-  "BTWUSDT|1H|LENS|LONG|2026-11-25T06:00:00.000Z": 1795591859851
+  "BTWUSDT|1H|LENS|LONG|2026-11-25T06:00:00.000Z": 1795591859851,
+  "APTUSDT|4H|ICHI|SHORT|2026-11-25T04:00:00.000Z": 1795593672465,
+  "CRVUSDT|4H|ICHI|SHORT|2026-11-25T04:00:00.000Z": 1795593691617,
+  "DOTUSDT|4H|ICHI|SHORT|2026-11-25T04:00:00.000Z": 1795593713462,
+  "LITUSDT|4H|ICHI|SHORT|2026-11-25T04:00:00.000Z": 1795593731559,
+  "ONDOUSDT|4H|ICHI|SHORT|2026-11-25T04:00:00.000Z": 1795593758199,
+  "PENGUUSDT|4H|ICHI|SHORT|2026-11-25T04:00:00.000Z": 1795593759192,
+  "PEPEUSDT|4H|ICHI|SHORT|2026-11-25T04:00:00.000Z": 1795593776046,
+  "SHIBUSDT|4H|ICHI|SHORT|2026-11-25T04:00:00.000Z": 1795593863794
  },
- "lastRun": "2026-11-25T07:45:52.896Z",
- "runs": 718,
+ "lastRun": "2026-11-25T08:04:24.780Z",
+ "runs": 719,
  "errors": [],
- "durationSec": 26,
- "dataSrc": "bitget",
+ "durationSec": 220,
+ "dataSrc": "okx",
  "stats": {
   "all": {
    "n": 22,
@@ -37671,8 +38241,8 @@
    "TRUMPUSDT",
    "SUIUSDT",
    "PUMPUSDT",
-   "FILUSDT",
    "MONUSDT",
+   "FILUSDT",
    "ENAUSDT",
    "LITUSDT",
    "PROSUSDT",
@@ -37681,8 +38251,8 @@
    "LTCUSDT",
    "AAVEUSDT",
    "SLXUSDT",
-   "BCHUSDT",
    "BIGTIMEUSDT",
+   "BCHUSDT",
    "AVAXUSDT",
    "TAOUSDT",
    "VVVUSDT",
@@ -37700,8 +38270,8 @@
    "XPLUSDT",
    "DGAIUSDT",
    "STRKUSDT",
-   "SAHARAUSDT",
    "PONSUSDT",
+   "SAHARAUSDT",
    "XLMUSDT",
    "BERAUSDT",
    "TRXUSDT",
@@ -37709,12 +38279,12 @@
    "SHIBUSDT",
    "NIGHTUSDT",
    "CRVUSDT",
-   "WLFIUSDT",
    "TIAUSDT",
+   "WLFIUSDT",
    "APTUSDT",
-   "ENSOUSDT",
    "BLURUSDT",
-   "OPUSDT",
+   "ENSOUSDT",
+   "MOODENGUSDT",
    "XAUUSDT",
    "XAGUSDT"
   ],
@@ -37722,7 +38292,7 @@
    "cryptoListed": 272,
    "stocksListed": 265,
    "cryptoTop": 60,
-   "minVolUSD": 5528113,
+   "minVolUSD": 5576669,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -37732,11 +38302,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 0,
-   "deep": 0,
-   "extended": 19,
+   "candidates": 37,
+   "deep": 8,
+   "extended": 22,
    "byClass": {
-    "crypto": 0,
+    "crypto": 37,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -37771,11 +38341,11 @@
     "weekR": -3.57
    },
    "hits": {
-    "ALERT_ONLY_LOSSCAP": 6
+    "ALERT_ONLY_LOSSCAP": 12
    }
   },
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 34,
+  "llmToday": 64,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -37789,31 +38359,31 @@
    "baidu/ernie-5.5-flash-preview:free"
   ],
   "slots": 13,
-  "slotsExhausted": 0,
+  "slotsExhausted": 6,
   "active": "k3:gemini-3.5-flash-lite",
   "slotTable": [
    {
     "id": "k1:gemini-3.5-flash-lite",
-    "calls": 8,
-    "errors": 2,
-    "exhausted": false,
-    "reason": null,
+    "calls": 16,
+    "errors": 4,
+    "exhausted": true,
+    "reason": "daily quota",
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "cooling": false
    },
    {
     "id": "k2:gemini-3.5-flash-lite",
-    "calls": 8,
-    "errors": 1,
+    "calls": 12,
+    "errors": 4,
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "cooling": false
+    "cooling": true
    },
    {
     "id": "k3:gemini-3.5-flash-lite",
-    "calls": 8,
-    "errors": 2,
+    "calls": 12,
+    "errors": 4,
     "exhausted": false,
     "reason": null,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
@@ -37821,52 +38391,52 @@
    },
    {
     "id": "k1:gemini-3.1-flash-lite",
-    "calls": 1,
-    "errors": 1,
-    "exhausted": false,
-    "reason": null,
+    "calls": 5,
+    "errors": 2,
+    "exhausted": true,
+    "reason": "daily quota",
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "cooling": false
    },
    {
     "id": "k2:gemini-3.1-flash-lite",
-    "calls": 1,
-    "errors": 1,
-    "exhausted": false,
-    "reason": null,
+    "calls": 5,
+    "errors": 2,
+    "exhausted": true,
+    "reason": "daily quota",
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "cooling": false
    },
    {
     "id": "k3:gemini-3.1-flash-lite",
-    "calls": 1,
-    "errors": 1,
-    "exhausted": false,
-    "reason": null,
+    "calls": 4,
+    "errors": 2,
+    "exhausted": true,
+    "reason": "daily quota",
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "cooling": false
    },
    {
     "id": "k1:gemini-3.6-flash",
-    "calls": 2,
-    "errors": 1,
-    "exhausted": false,
-    "reason": null,
+    "calls": 3,
+    "errors": 2,
+    "exhausted": true,
+    "reason": "daily quota",
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "cooling": false
    },
    {
     "id": "k2:gemini-3.6-flash",
-    "calls": 2,
-    "errors": 1,
-    "exhausted": false,
-    "reason": null,
+    "calls": 3,
+    "errors": 2,
+    "exhausted": true,
+    "reason": "daily quota",
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "cooling": false
    },
    {
     "id": "k3:gemini-3.6-flash",
-    "calls": 2,
+    "calls": 3,
     "errors": 1,
     "exhausted": false,
     "reason": null,
@@ -37911,15 +38481,15 @@
    }
   ],
   "llmRaw": [
-   "k3:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
    "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
    "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
+   "k1:gemini-3.5-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k2:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 173,
+   "left": 71,
    "tot": 207,
-   "frac": 0.8357487922705314
+   "frac": 0.34299516908212563
   },
   "requireAI": true,
   "paperTrade": true,
@@ -37942,24 +38512,24 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 2613,
-   "aiTextStripped": 3
+   "cooldownSkipped": 2634,
+   "aiTextStripped": 9
   }
  },
  "universeInfo": {
   "cryptoListed": 272,
   "stocksListed": 265,
   "cryptoTop": 60,
-  "minVolUSD": 5528113
+  "minVolUSD": 5576669
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 0,
-  "deep": 0,
-  "extended": 19,
+  "candidates": 37,
+  "deep": 8,
+  "extended": 22,
   "byClass": {
-   "crypto": 0,
+   "crypto": 37,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -37968,90 +38538,96 @@
  "llm": {
   "day": "2026-11-25",
   "v": 6,
-  "calls": 34,
+  "calls": 64,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
-    "calls": 8,
-    "exhausted": false,
-    "errors": 2,
-    "r429": 1,
+    "calls": 16,
+    "exhausted": true,
+    "errors": 4,
+    "r429": 2,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795579273696,
-    "d429": 1,
-    "cooldownUntil": 1795579471612
+    "lastErrAt": 1795593792461,
+    "d429": 2,
+    "cooldownUntil": 1795593784402,
+    "reason": "daily quota"
    },
    "k2:gemini-3.5-flash-lite": {
-    "calls": 8,
+    "calls": 12,
     "exhausted": false,
-    "errors": 1,
+    "errors": 4,
     "r429": 1,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "lastErrAt": 1795579264701,
     "d429": 1,
-    "cooldownUntil": 1795579354701
+    "cooldownUntil": 1795593919186
    },
    "k3:gemini-3.5-flash-lite": {
-    "calls": 8,
+    "calls": 12,
     "exhausted": false,
-    "errors": 2,
+    "errors": 4,
     "r429": 1,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
     "lastErrAt": 1795579269188,
     "d429": 1,
-    "cooldownUntil": 1795580225206
+    "cooldownUntil": 1795593825374
    },
    "k1:gemini-3.1-flash-lite": {
-    "calls": 1,
-    "exhausted": false,
-    "errors": 1,
-    "r429": 1,
+    "calls": 5,
+    "exhausted": true,
+    "errors": 2,
+    "r429": 2,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795579278190,
-    "d429": 1,
-    "cooldownUntil": 1795579368190
+    "lastErrAt": 1795593783479,
+    "d429": 2,
+    "cooldownUntil": 1795579368190,
+    "reason": "daily quota"
    },
    "k2:gemini-3.1-flash-lite": {
-    "calls": 1,
-    "exhausted": false,
-    "errors": 1,
-    "r429": 1,
+    "calls": 5,
+    "exhausted": true,
+    "errors": 2,
+    "r429": 2,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795579282697,
-    "d429": 1,
-    "cooldownUntil": 1795579372697
+    "lastErrAt": 1795593787987,
+    "d429": 2,
+    "cooldownUntil": 1795579372697,
+    "reason": "daily quota"
    },
    "k3:gemini-3.1-flash-lite": {
-    "calls": 1,
-    "exhausted": false,
-    "errors": 1,
-    "r429": 1,
+    "calls": 4,
+    "exhausted": true,
+    "errors": 2,
+    "r429": 2,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795579287183,
-    "d429": 1,
-    "cooldownUntil": 1795579377183
+    "lastErrAt": 1795593778955,
+    "d429": 2,
+    "cooldownUntil": 1795579377183,
+    "reason": "daily quota"
    },
    "k1:gemini-3.6-flash": {
-    "calls": 2,
-    "exhausted": false,
-    "errors": 1,
-    "r429": 1,
+    "calls": 3,
+    "exhausted": true,
+    "errors": 2,
+    "r429": 2,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795579325611,
-    "d429": 1,
-    "cooldownUntil": 1795579415611
+    "lastErrAt": 1795593796970,
+    "d429": 2,
+    "cooldownUntil": 1795579415611,
+    "reason": "daily quota"
    },
    "k2:gemini-3.6-flash": {
-    "calls": 2,
-    "exhausted": false,
-    "errors": 1,
-    "r429": 1,
+    "calls": 3,
+    "exhausted": true,
+    "errors": 2,
+    "r429": 2,
     "lastErr": "daily — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-",
-    "lastErrAt": 1795579330122,
-    "d429": 1,
-    "cooldownUntil": 1795579420122
+    "lastErrAt": 1795593801476,
+    "d429": 2,
+    "cooldownUntil": 1795579420122,
+    "reason": "daily quota"
    },
    "k3:gemini-3.6-flash": {
-    "calls": 2,
+    "calls": 3,
     "exhausted": false,
     "errors": 1,
     "r429": 1,
@@ -38083,11 +38659,12 @@
   },
   "active": "k3:gemini-3.5-flash-lite",
   "raw": [
-   "k3:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
    "k2:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
    "k1:gemini-3.6-flash HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
-   "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
-  ]
+   "k1:gemini-3.5-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
+   "k2:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
+  ],
+  "switched": 6
  },
  "macroCache": {
   "crypto": {
@@ -38145,20 +38722,20 @@
  },
  "shadowStats": {
   "all": {
-   "n": 579,
+   "n": 580,
    "win": 53,
-   "avg": 0.39,
-   "total": 227.74,
-   "pf": 1.78,
+   "avg": 0.4,
+   "total": 229.94,
+   "pf": 1.79,
    "maxDD": 88.97
   },
   "byVerdict": {
    "RULES_REJECTED": {
-    "n": 375,
+    "n": 376,
     "win": 50,
-    "avg": 0.27,
-    "total": 102.85,
-    "pf": 1.5,
+    "avg": 0.28,
+    "total": 105.05,
+    "pf": 1.51,
     "maxDD": 61.19
    },
    "SHADOW_ONLY": {
@@ -38238,10 +38815,10 @@
   },
   "byAiDecision": {
    "no AI": {
-    "n": 426,
-    "win": 46,
+    "n": 427,
+    "win": 47,
     "avg": 0.18,
-    "total": 75.66,
+    "total": 77.86,
     "pf": 1.31,
     "maxDD": 89.8
    },
@@ -38287,6 +38864,14 @@
    }
   },
   "byChase": {
+   "normal": {
+    "n": 523,
+    "win": 57,
+    "avg": 0.5,
+    "total": 263.02,
+    "pf": 2.07,
+    "maxDD": 74.96
+   },
    "extended": {
     "n": 57,
     "win": 23,
@@ -38294,23 +38879,15 @@
     "total": -33.08,
     "pf": 0.29,
     "maxDD": 33.08
-   },
-   "normal": {
-    "n": 522,
-    "win": 57,
-    "avg": 0.5,
-    "total": 260.82,
-    "pf": 2.06,
-    "maxDD": 74.96
    }
   },
   "byStrategy": {
    "LENS": {
-    "n": 360,
+    "n": 361,
     "win": 54,
     "avg": 0.4,
-    "total": 144,
-    "pf": 1.8,
+    "total": 146.2,
+    "pf": 1.82,
     "maxDD": 87.21
    },
    "ICHI": {
@@ -38372,11 +38949,11 @@
   },
   "byQuad": {
    "Q4": {
-    "n": 123,
-    "win": 50,
-    "avg": 0.2,
-    "total": 25.16,
-    "pf": 1.39,
+    "n": 124,
+    "win": 51,
+    "avg": 0.22,
+    "total": 27.36,
+    "pf": 1.42,
     "maxDD": 23.53
    },
    "Q3": {
@@ -38405,6 +38982,14 @@
    }
   },
   "byHour": {
+   "00Z": {
+    "n": 10,
+    "win": 50,
+    "avg": -0.26,
+    "total": -2.58,
+    "pf": 0.53,
+    "maxDD": 5.15
+   },
    "04Z": {
     "n": 6,
     "win": 17,
@@ -38412,14 +38997,6 @@
     "total": -3.2,
     "pf": 0.4,
     "maxDD": 3.2
-   },
-   "00Z": {
-    "n": 9,
-    "win": 44,
-    "avg": -0.53,
-    "total": -4.78,
-    "pf": 0.14,
-    "maxDD": 5.15
    },
    "14Z": {
     "n": 10,
@@ -38583,9 +39160,9 @@
    }
   },
   "open": 155,
-  "dupSkipped": 423
+  "dupSkipped": 430
  },
- "shadowDup": 423,
+ "shadowDup": 430,
  "judgeReport": {
   "mode": "shadow",
   "agree": {
@@ -38638,31 +39215,31 @@
   "verdict": "INSUFFICIENT",
   "detail": "n agree=13, against=80 (need ≥40 each)",
   "calibration": null,
-  "asOf": "2026-11-25T07:45:52.902Z"
+  "asOf": "2026-11-25T08:04:24.784Z"
  },
  "shadowIndep": {
-  "n": 579,
+  "n": 580,
   "clusters": 13,
   "clusterStats": {
    "n": 13,
-   "win": 31,
-   "avg": -0.25,
-   "total": -3.19,
-   "pf": 0.49,
-   "maxDD": 5.08
+   "win": 38,
+   "avg": -0.19,
+   "total": -2.48,
+   "pf": 0.56,
+   "maxDD": 4.43
   },
   "topDayShare": 0.38,
   "maxSameDir": 205,
   "days": [
    {
     "day": "2026-11-25",
-    "long": 3,
+    "long": 4,
     "short": 0,
-    "n": 3,
-    "win": 33,
-    "avg": -0.65,
-    "total": -1.96,
-    "pf": 0.08,
+    "n": 4,
+    "win": 50,
+    "avg": 0.06,
+    "total": 0.24,
+    "pf": 1.11,
     "maxDD": 1.96
    },
    {
@@ -38735,9 +39312,9 @@
   "recent": [
    {
     "k": "2026-11-25 LONG",
-    "n": 3,
-    "rr": -0.65,
-    "win": 33
+    "n": 4,
+    "rr": 0.06,
+    "win": 50
    },
    {
     "k": "2026-11-24 SHORT",
@@ -38970,7 +39547,7 @@
    }
   }
  },
- "llmReserved": 31,
+ "llmReserved": 32,
  "lastCard": {
   "PEPEUSDT|1D": {
    "t": 1795104000000,
@@ -40043,36 +40620,68 @@
   "SLXUSDT|1H|LENS": {
    "t": 1795579200000,
    "side": "LONG"
+  },
+  "APTUSDT|4H|ICHI": {
+   "t": 1795579200000,
+   "side": "SHORT"
+  },
+  "CRVUSDT|4H|ICHI": {
+   "t": 1795579200000,
+   "side": "SHORT"
+  },
+  "DOTUSDT|4H|ICHI": {
+   "t": 1795579200000,
+   "side": "SHORT"
+  },
+  "LITUSDT|4H|ICHI": {
+   "t": 1795579200000,
+   "side": "SHORT"
+  },
+  "ONDOUSDT|4H|ICHI": {
+   "t": 1795579200000,
+   "side": "SHORT"
+  },
+  "PENGUUSDT|4H|ICHI": {
+   "t": 1795579200000,
+   "side": "SHORT"
+  },
+  "PEPEUSDT|4H|ICHI": {
+   "t": 1795579200000,
+   "side": "SHORT"
+  },
+  "SHIBUSDT|4H|ICHI": {
+   "t": 1795579200000,
+   "side": "SHORT"
   }
  },
- "cooldownSkipped": 2613,
+ "cooldownSkipped": 2634,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
-   "n": 281,
-   "avgBase": -0.309,
-   "avgAlt": -0.27,
+   "n": 282,
+   "avgBase": -0.3,
+   "avgAlt": -0.261,
    "diff": 0.038,
    "se": 0.018,
    "t": 2.13
   },
   "trail3atr": {
-   "n": 281,
-   "avgBase": -0.309,
-   "avgAlt": -0.306,
+   "n": 282,
+   "avgBase": -0.3,
+   "avgAlt": -0.297,
    "diff": 0.003,
    "se": 0.032,
    "t": 0.09
   }
  },
- "aiTextStripped": 3,
+ "aiTextStripped": 9,
  "railHits": {
-  "ALERT_ONLY_LOSSCAP": 6
+  "ALERT_ONLY_LOSSCAP": 12
  },
  "cumR": 10.23,
  "cumUSD": 98.23,
  "filterReport": {
-  "generatedAt": "2026-11-25T07:45:52.902Z",
+  "generatedAt": "2026-11-25T08:04:24.784Z",
   "minClusters": 20,
   "week": {
    "AI judge (keep only agree)": {
@@ -40102,11 +40711,11 @@
    },
    "ADX < 30": {
     "all": {
-     "n": 16,
+     "n": 17,
      "clusters": 4,
-     "avg": -0.649,
-     "clAvg": -0.642,
-     "sum": -10.39
+     "avg": -0.482,
+     "clAvg": -0.494,
+     "sum": -8.19
     },
     "kept": {
      "n": 11,
@@ -40116,22 +40725,22 @@
      "sum": -9.24
     },
     "dropped": {
-     "n": 5,
+     "n": 6,
      "clusters": 3,
-     "avg": -0.23,
-     "clAvg": -0.321,
-     "sum": -1.15
+     "avg": 0.175,
+     "clAvg": 0.016,
+     "sum": 1.05
     },
     "verdict": "inconclusive",
     "why": "need ≥20 clusters on both arms (have 3/3)"
    },
    "HTF aligned": {
     "all": {
-     "n": 16,
+     "n": 17,
      "clusters": 4,
-     "avg": -0.649,
-     "clAvg": -0.642,
-     "sum": -10.39
+     "avg": -0.482,
+     "clAvg": -0.494,
+     "sum": -8.19
     },
     "kept": {
      "n": 7,
@@ -40141,22 +40750,22 @@
      "sum": -6.22
     },
     "dropped": {
-     "n": 9,
+     "n": 10,
      "clusters": 3,
-     "avg": -0.463,
-     "clAvg": -0.339,
-     "sum": -4.17
+     "avg": -0.197,
+     "clAvg": -0.101,
+     "sum": -1.97
     },
     "verdict": "inconclusive",
     "why": "need ≥20 clusters on both arms (have 4/3)"
    },
    "exclude Q4": {
     "all": {
-     "n": 579,
+     "n": 580,
      "clusters": 14,
-     "avg": 0.393,
-     "clAvg": -0.061,
-     "sum": 227.74
+     "avg": 0.396,
+     "clAvg": -0.04,
+     "sum": 229.94
     },
     "kept": {
      "n": 456,
@@ -40166,29 +40775,29 @@
      "sum": 202.58
     },
     "dropped": {
-     "n": 123,
+     "n": 124,
      "clusters": 13,
-     "avg": 0.205,
-     "clAvg": 0.084,
-     "sum": 25.16
+     "avg": 0.221,
+     "clAvg": 0.209,
+     "sum": 27.36
     },
     "verdict": "inconclusive",
     "why": "need ≥20 clusters on both arms (have 14/13)"
    },
    "no extended entries": {
     "all": {
-     "n": 579,
+     "n": 580,
      "clusters": 14,
-     "avg": 0.393,
-     "clAvg": -0.061,
-     "sum": 227.74
+     "avg": 0.396,
+     "clAvg": -0.04,
+     "sum": 229.94
     },
     "kept": {
-     "n": 522,
+     "n": 523,
      "clusters": 14,
-     "avg": 0.5,
-     "clAvg": 0.064,
-     "sum": 260.82
+     "avg": 0.503,
+     "clAvg": 0.088,
+     "sum": 263.02
     },
     "dropped": {
      "n": 57,
@@ -40229,11 +40838,11 @@
    },
    "ADX < 30": {
     "all": {
-     "n": 16,
+     "n": 17,
      "clusters": 4,
-     "avg": -0.649,
-     "clAvg": -0.642,
-     "sum": -10.39
+     "avg": -0.482,
+     "clAvg": -0.494,
+     "sum": -8.19
     },
     "kept": {
      "n": 11,
@@ -40243,22 +40852,22 @@
      "sum": -9.24
     },
     "dropped": {
-     "n": 5,
+     "n": 6,
      "clusters": 3,
-     "avg": -0.23,
-     "clAvg": -0.321,
-     "sum": -1.15
+     "avg": 0.175,
+     "clAvg": 0.016,
+     "sum": 1.05
     },
     "verdict": "inconclusive",
     "why": "need ≥20 clusters on both arms (have 3/3)"
    },
    "HTF aligned": {
     "all": {
-     "n": 16,
+     "n": 17,
      "clusters": 4,
-     "avg": -0.649,
-     "clAvg": -0.642,
-     "sum": -10.39
+     "avg": -0.482,
+     "clAvg": -0.494,
+     "sum": -8.19
     },
     "kept": {
      "n": 7,
@@ -40268,22 +40877,22 @@
      "sum": -6.22
     },
     "dropped": {
-     "n": 9,
+     "n": 10,
      "clusters": 3,
-     "avg": -0.463,
-     "clAvg": -0.339,
-     "sum": -4.17
+     "avg": -0.197,
+     "clAvg": -0.101,
+     "sum": -1.97
     },
     "verdict": "inconclusive",
     "why": "need ≥20 clusters on both arms (have 4/3)"
    },
    "exclude Q4": {
     "all": {
-     "n": 579,
+     "n": 580,
      "clusters": 14,
-     "avg": 0.393,
-     "clAvg": -0.061,
-     "sum": 227.74
+     "avg": 0.396,
+     "clAvg": -0.04,
+     "sum": 229.94
     },
     "kept": {
      "n": 456,
@@ -40293,29 +40902,29 @@
      "sum": 202.58
     },
     "dropped": {
-     "n": 123,
+     "n": 124,
      "clusters": 13,
-     "avg": 0.205,
-     "clAvg": 0.084,
-     "sum": 25.16
+     "avg": 0.221,
+     "clAvg": 0.209,
+     "sum": 27.36
     },
     "verdict": "inconclusive",
     "why": "need ≥20 clusters on both arms (have 14/13)"
    },
    "no extended entries": {
     "all": {
-     "n": 579,
+     "n": 580,
      "clusters": 14,
-     "avg": 0.393,
-     "clAvg": -0.061,
-     "sum": 227.74
+     "avg": 0.396,
+     "clAvg": -0.04,
+     "sum": 229.94
     },
     "kept": {
-     "n": 522,
+     "n": 523,
      "clusters": 14,
-     "avg": 0.5,
-     "clAvg": 0.064,
-     "sum": 260.82
+     "avg": 0.503,
+     "clAvg": 0.088,
+     "sum": 263.02
     },
     "dropped": {
      "n": 57,
@@ -40328,8 +40937,8 @@
     "why": "need ≥20 clusters on both arms (have 14/8)"
    }
   },
-  "weekN": 579,
-  "allN": 579,
+  "weekN": 580,
+  "allN": 580,
   "note": "clustered by UTC day × side; verdicts are suggestions — change config only after a KEEP/DROP verdict repeats on two consecutive weekly reports"
  },
  "live": {
