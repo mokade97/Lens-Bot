@@ -855,6 +855,140 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-26T14:01:12.042Z",
+   "barTime": "2026-11-26T13:00:00.000Z",
+   "sym": "ZROUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 70,
+   "strategy": "LENS",
+   "of": null,
+   "lab": {
+    "best": {
+     "id": "BB_MR",
+     "name": "Bollinger mean-reversion",
+     "avg_r": 0.35,
+     "n": 25,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 29,
+     "avg_r": -0.44,
+     "verdict": "NEGATIVE"
+    }
+   },
+   "quad": "Q3",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "adx": 33.4,
+   "setupScore": 2,
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 1.1111,
+   "stop": 1.07937035,
+   "t1": 1.15869448,
+   "t2": 1.20628895,
+   "rr": 3,
+   "fails": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.44R)",
+    "Time Machine: منفی (29× · -0.44R)"
+   ],
+   "warns": [
+    "نسبتاً کش‌شده (2.6×ATR)"
+   ],
+   "tm": {
+    "n": 29,
+    "win": 34,
+    "avg": -0.44,
+    "pf": 0.39
+   },
+   "src": "okx",
+   "chase": 1,
+   "hourUtc": 13,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.44R)",
+    "Time Machine: منفی (29× · -0.44R)"
+   ]
+  },
+  {
+   "ts": "2026-11-26T14:01:07.847Z",
+   "barTime": "2026-11-26T13:00:00.000Z",
+   "sym": "NESUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "score": 78,
+   "strategy": "LENS",
+   "of": null,
+   "lab": {
+    "best": {
+     "id": "VAB",
+     "name": "Value-area acceptance breakout (volume profile, 4H)",
+     "avg_r": 0.72,
+     "n": 16,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 35,
+     "avg_r": 0.33,
+     "verdict": "EDGE_UNCONFIRMED"
+    }
+   },
+   "quad": "Q4",
+   "regime": "RANGE",
+   "htf": "NEUTRAL",
+   "adx": 31,
+   "setupScore": 5,
+   "event": "LONG_SETUP",
+   "sweep": null,
+   "entry": 0.2576,
+   "stop": 0.23640322,
+   "t1": 0.28939516,
+   "t2": 0.32119033,
+   "rr": 3,
+   "fails": [],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز",
+    "نسبتاً کش‌شده (3.3×ATR)",
+    "واگرایی منظم خلاف جهت (RSI/MACD)",
+    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (35× · 0.33R)"
+   ],
+   "tm": {
+    "n": 35,
+    "win": 51,
+    "avg": 0.33,
+    "pf": 1.63
+   },
+   "src": "okx",
+   "chase": 1,
+   "hourUtc": 13,
+   "volMult": 1,
+   "sideMult": 1,
+   "corrMult": 1,
+   "size": 70.765,
+   "riskUSD": 1.5,
+   "sizeMult": 0.5,
+   "notionalUSD": 18.23,
+   "status": "ALERT_ONLY_SHADOW",
+   "aiMode": "shadow",
+   "aiDecision": "WAIT",
+   "aiAgrees": false,
+   "judge": "judge:gemini-3.5-flash-lite (shadow)",
+   "reasons": [
+    "تایم‌فریم 1H فقط سایه (بک‌تست ۵ ساله: 1H منفی)"
+   ],
+   "concerns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز",
+    "نسبتاً کش‌شده (3.3×ATR)",
+    "واگرایی منظم خلاف جهت (RSI/MACD)",
+    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (35× · 0.33R)"
+   ],
+   "confidence": 65,
+   "pT1": 50
+  },
+  {
    "ts": "2026-11-26T13:16:05.828Z",
    "barTime": "2026-11-26T12:00:00.000Z",
    "sym": "ONEUSDT",
@@ -4566,146 +4700,6 @@
     "خلاف سوگیری تایم‌فریم بالاتر",
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (29× · -0.19R)"
    ]
-  },
-  {
-   "ts": "2026-11-25T19:31:06.185Z",
-   "barTime": "2026-11-24T16:00:00.000Z",
-   "sym": "TRUMPUSDT",
-   "cls": "crypto",
-   "tf": "1D",
-   "side": "SHORT",
-   "score": 78,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "MACD_EMA",
-     "name": "MACD cross + EMA200 filter",
-     "avg_r": 0.8,
-     "n": 10,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 15,
-     "avg_r": 0.58,
-     "verdict": "EDGE_UNCONFIRMED"
-    }
-   },
-   "quad": "Q1",
-   "regime": "TREND_DOWN",
-   "htf": "DOWN",
-   "adx": 50.6,
-   "setupScore": 3,
-   "event": "SHORT_SETUP",
-   "sweep": "SWEPT_WAIT_CHOCH",
-   "entry": 0.8039,
-   "stop": 0.95210081,
-   "t1": 0.58159879,
-   "t2": 0.35929758,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "کش‌شده از EMA50 (-5.4×ATR)",
-    "واگرایی منظم خلاف جهت (MACD)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (15× · 0.58R)"
-   ],
-   "tm": {
-    "n": 15,
-    "win": 67,
-    "avg": 0.58,
-    "pf": 2.66
-   },
-   "src": "okx",
-   "chase": 1,
-   "hourUtc": 16,
-   "volMult": 1,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 20.243,
-   "riskUSD": 3,
-   "sizeMult": 1,
-   "notionalUSD": 16.27,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "shadow-only",
-   "reasons": [
-    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
-   ],
-   "concerns": [
-    "کش‌شده از EMA50 (-5.4×ATR)",
-    "واگرایی منظم خلاف جهت (MACD)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (15× · 0.58R)"
-   ]
-  },
-  {
-   "ts": "2026-11-25T19:15:56.880Z",
-   "barTime": "2026-11-25T12:00:00.000Z",
-   "sym": "GRAMUSDT",
-   "cls": "crypto",
-   "tf": "4H",
-   "side": "SHORT",
-   "score": 90,
-   "strategy": "LENS",
-   "lab": {
-    "best": {
-     "id": "RSI2",
-     "name": "RSI-2 pullback (Connors)",
-     "avg_r": 0.46,
-     "n": 21,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 32,
-     "avg_r": 0.03,
-     "verdict": "WEAK"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "DOWN",
-   "adx": 22,
-   "setupScore": 4,
-   "event": "SHORT_SETUP",
-   "sweep": "ARMED_WAIT_FVG_RETEST",
-   "entry": 0.914,
-   "stop": 0.94966195,
-   "t1": 0.86050707,
-   "t2": 0.80701414,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "نسبتاً کش‌شده (-3.1×ATR)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (32× · 0.03R)"
-   ],
-   "tm": {
-    "n": 32,
-    "win": 47,
-    "avg": 0.03,
-    "pf": 1.05
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 12,
-   "volMult": 1,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 63.092,
-   "riskUSD": 2.25,
-   "sizeMult": 0.75,
-   "notionalUSD": 57.67,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": null,
-   "aiAgrees": null,
-   "judge": "shadow-only",
-   "reasons": [
-    "استراتژی LENS فقط سایه (بک‌تست: بدون لبه بعد از هزینه)"
-   ],
-   "concerns": [
-    "نسبتاً کش‌شده (-3.1×ATR)",
-    "آزمایشگاه استراتژی: Lens setup این‌جا ضعیف (32× · 0.03R)"
-   ]
   }
  ],
  "shadow": [
@@ -7997,10 +7991,10 @@
    "pT1": 45,
    "openedAt": "2026-11-25T01:01:15.687Z",
    "barTime": "2026-11-25T00:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 36,
+   "lastBarT": 1795698000000,
+   "bars": 37,
    "t1hit": false,
-   "mtm": 0.27,
+   "mtm": 0.31,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -8040,10 +8034,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T09:01:13.293Z",
    "barTime": "2026-11-25T08:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 28,
+   "lastBarT": 1795698000000,
+   "bars": 29,
    "t1hit": false,
-   "mtm": 0.87,
+   "mtm": 0.76,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8080,10 +8074,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T12:15:48.504Z",
    "barTime": "2026-11-25T11:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 25,
+   "lastBarT": 1795698000000,
+   "bars": 26,
    "t1hit": false,
-   "mtm": -0.66,
+   "mtm": -0.42,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8124,10 +8118,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T15:01:19.735Z",
    "barTime": "2026-11-25T14:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 22,
+   "lastBarT": 1795698000000,
+   "bars": 23,
    "t1hit": false,
-   "mtm": 0,
+   "mtm": -0.45,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8280,10 +8274,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:01:10.620Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 1.64,
+   "mtm": 1.86,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8291,7 +8285,7 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 0.3729357142857143,
+     "sl": 0.3734928571428571,
      "ext": 0.3859,
      "t1hit": true
     }
@@ -8321,10 +8315,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:01:12.850Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 1.17,
+   "mtm": 1.09,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8332,7 +8326,7 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 0.6587714285714286,
+     "sl": 0.6594142857142856,
      "ext": 0.6787,
      "t1hit": true
     }
@@ -8362,10 +8356,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:01:13.750Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 0.67,
+   "mtm": 0.79,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8403,10 +8397,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:01:14.585Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": false,
-   "mtm": -0.82,
+   "mtm": -0.7,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8444,10 +8438,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:01:15.447Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 1.64,
+   "mtm": 1.74,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8455,7 +8449,7 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 6.018285714285715,
+     "sl": 6.021285714285715,
      "ext": 6.284,
      "t1hit": true
     }
@@ -8485,10 +8479,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:01:16.292Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 2.14,
+   "mtm": 2.17,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8496,7 +8490,7 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 9.01392857142857,
+     "sl": 9.019714285714285,
      "ext": 9.273,
      "t1hit": true
     }
@@ -8526,10 +8520,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:15:54.084Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": false,
-   "mtm": 0.39,
+   "mtm": 0.52,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8567,10 +8561,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:15:54.905Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 1.61,
+   "mtm": 1.69,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8578,7 +8572,7 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 0.004347785714285715,
+     "sl": 0.0043518571428571426,
      "ext": 0.004477,
      "t1hit": true
     }
@@ -8608,10 +8602,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:15:56.557Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 0.24,
+   "mtm": 0.14,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8652,10 +8646,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:15:57.372Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 1.29,
+   "mtm": 1.31,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8696,10 +8690,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:31:08.147Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 0.67,
+   "mtm": 0.63,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8707,7 +8701,7 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 4.699142857142857,
+     "sl": 4.7044999999999995,
      "ext": 4.853,
      "t1hit": true
     }
@@ -8737,10 +8731,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T18:31:10.209Z",
    "barTime": "2026-11-25T17:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 19,
+   "lastBarT": 1795698000000,
+   "bars": 20,
    "t1hit": true,
-   "mtm": 0.76,
+   "mtm": 0.81,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8852,10 +8846,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T19:01:13.982Z",
    "barTime": "2026-11-25T18:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 18,
+   "lastBarT": 1795698000000,
+   "bars": 19,
    "t1hit": true,
-   "mtm": 0.43,
+   "mtm": 0.55,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8899,10 +8893,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T19:45:47.989Z",
    "barTime": "2026-11-25T18:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 18,
+   "lastBarT": 1795698000000,
+   "bars": 19,
    "t1hit": true,
-   "mtm": 2.02,
+   "mtm": 1.98,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -8910,7 +8904,7 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 0.09980714285714284,
+     "sl": 0.09991214285714285,
      "ext": 0.10405,
      "t1hit": true
     }
@@ -9022,10 +9016,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T20:01:14.113Z",
    "barTime": "2026-11-25T19:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 17,
+   "lastBarT": 1795698000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.82,
+   "mtm": 0.88,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9033,7 +9027,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.14538571428571428,
+     "sl": 0.14566428571428572,
      "ext": 0.1498,
      "t1hit": false
     }
@@ -9063,10 +9057,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T20:01:15.068Z",
    "barTime": "2026-11-25T19:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 17,
+   "lastBarT": 1795698000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.47,
+   "mtm": 0.39,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9074,7 +9068,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 6.599428571428572,
+     "sl": 6.605,
      "ext": 6.746,
      "t1hit": false
     }
@@ -9104,10 +9098,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T20:01:16.003Z",
    "barTime": "2026-11-25T19:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 17,
+   "lastBarT": 1795698000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.9,
+   "mtm": 1.04,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9145,10 +9139,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T20:01:16.914Z",
    "barTime": "2026-11-25T19:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 17,
+   "lastBarT": 1795698000000,
+   "bars": 18,
    "t1hit": true,
-   "mtm": 0.61,
+   "mtm": 0.48,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9158,7 +9152,10 @@
     "tr": {
      "sl": 0.9570857142857143,
      "ext": 0.9816,
-     "t1hit": true
+     "t1hit": true,
+     "out": "T1_THEN_SL",
+     "bars": 18,
+     "gross": 1.1
     }
    }
   },
@@ -9186,10 +9183,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T20:01:17.948Z",
    "barTime": "2026-11-25T19:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 17,
+   "lastBarT": 1795698000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.42,
+   "mtm": 0.58,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9227,10 +9224,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T20:01:18.868Z",
    "barTime": "2026-11-25T19:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 17,
+   "lastBarT": 1795698000000,
+   "bars": 18,
    "t1hit": false,
-   "mtm": 0.61,
+   "mtm": 0.29,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9238,7 +9235,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 180.68428571428572,
+     "sl": 180.7292857142857,
      "ext": 185.93,
      "t1hit": false
     }
@@ -9269,10 +9266,10 @@
    "pT1": null,
    "openedAt": "2026-11-25T21:31:04.573Z",
    "barTime": "2026-11-25T20:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 16,
+   "lastBarT": 1795698000000,
+   "bars": 17,
    "t1hit": true,
-   "mtm": 2.06,
+   "mtm": 2.41,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9280,8 +9277,8 @@
      "t1hit": true
     },
     "tr": {
-     "sl": 1.050757142857143,
-     "ext": 1.1105,
+     "sl": 1.057092857142857,
+     "ext": 1.1175,
      "t1hit": true
     }
    }
@@ -9311,10 +9308,10 @@
    "pT1": 50,
    "openedAt": "2026-11-26T00:03:23.703Z",
    "barTime": "2026-11-25T23:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 13,
+   "lastBarT": 1795698000000,
+   "bars": 14,
    "t1hit": false,
-   "mtm": 0.41,
+   "mtm": 0.65,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9353,10 +9350,10 @@
    "pT1": 35,
    "openedAt": "2026-11-26T00:03:27.704Z",
    "barTime": "2026-11-25T23:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 13,
+   "lastBarT": 1795698000000,
+   "bars": 14,
    "t1hit": true,
-   "mtm": 1.07,
+   "mtm": 1.32,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9437,10 +9434,10 @@
    "pT1": null,
    "openedAt": "2026-11-26T01:01:20.546Z",
    "barTime": "2026-11-26T00:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 12,
+   "lastBarT": 1795698000000,
+   "bars": 13,
    "t1hit": false,
-   "mtm": 0.05,
+   "mtm": 0.04,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9479,10 +9476,10 @@
    "pT1": 42,
    "openedAt": "2026-11-26T01:01:21.155Z",
    "barTime": "2026-11-26T00:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 12,
+   "lastBarT": 1795698000000,
+   "bars": 13,
    "t1hit": false,
-   "mtm": 0.36,
+   "mtm": 0.48,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9490,7 +9487,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 0.2804285714285714,
+     "sl": 0.28059999999999996,
      "ext": 0.289,
      "t1hit": false
     }
@@ -9521,10 +9518,10 @@
    "pT1": 45,
    "openedAt": "2026-11-26T01:45:50.351Z",
    "barTime": "2026-11-26T00:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 12,
+   "lastBarT": 1795698000000,
+   "bars": 13,
    "t1hit": false,
-   "mtm": 0.09,
+   "mtm": 0.21,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9532,7 +9529,7 @@
      "t1hit": false
     },
     "tr": {
-     "sl": 80.76142857142858,
+     "sl": 80.78071428571428,
      "ext": 82.66,
      "t1hit": false
     }
@@ -9594,10 +9591,10 @@
    "pT1": null,
    "openedAt": "2026-11-26T03:01:22.306Z",
    "barTime": "2026-11-26T02:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 10,
+   "lastBarT": 1795698000000,
+   "bars": 11,
    "t1hit": false,
-   "mtm": -0.27,
+   "mtm": -0.59,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9720,10 +9717,10 @@
    "pT1": null,
    "openedAt": "2026-11-26T05:01:10.160Z",
    "barTime": "2026-11-26T04:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 8,
+   "lastBarT": 1795698000000,
+   "bars": 9,
    "t1hit": true,
-   "mtm": 1.44,
+   "mtm": 1.1,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9762,10 +9759,10 @@
    "pT1": null,
    "openedAt": "2026-11-26T09:01:25.878Z",
    "barTime": "2026-11-26T08:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 4,
+   "lastBarT": 1795698000000,
+   "bars": 5,
    "t1hit": false,
-   "mtm": 0.07,
+   "mtm": 0,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9804,10 +9801,10 @@
    "pT1": 38,
    "openedAt": "2026-11-26T10:01:06.005Z",
    "barTime": "2026-11-26T09:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 3,
+   "lastBarT": 1795698000000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": -0.39,
+   "mtm": -0.16,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9846,10 +9843,10 @@
    "pT1": null,
    "openedAt": "2026-11-26T10:01:08.357Z",
    "barTime": "2026-11-26T09:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 3,
+   "lastBarT": 1795698000000,
+   "bars": 4,
    "t1hit": false,
-   "mtm": 0.22,
+   "mtm": 0.56,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -9888,10 +9885,10 @@
    "pT1": 43,
    "openedAt": "2026-11-26T11:01:15.046Z",
    "barTime": "2026-11-26T10:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 2,
+   "lastBarT": 1795698000000,
+   "bars": 3,
    "t1hit": false,
-   "mtm": 0.03,
+   "mtm": 0.02,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -9930,10 +9927,10 @@
    "pT1": null,
    "openedAt": "2026-11-26T11:01:18.252Z",
    "barTime": "2026-11-26T10:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 2,
+   "lastBarT": 1795698000000,
+   "bars": 3,
    "t1hit": false,
-   "mtm": -0.12,
+   "mtm": -0.01,
    "live": "REJECTED_RULES",
    "alt": {
     "be": {
@@ -10003,10 +10000,10 @@
    "pT1": 45,
    "openedAt": "2026-11-26T12:01:12.969Z",
    "barTime": "2026-11-26T11:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 1,
+   "lastBarT": 1795698000000,
+   "bars": 2,
    "t1hit": false,
-   "mtm": 0.46,
+   "mtm": 0.61,
    "live": "ALERT_ONLY_SHADOW",
    "alt": {
     "be": {
@@ -10015,7 +10012,7 @@
     },
     "tr": {
      "sl": 2.35910046,
-     "ext": 2.678,
+     "ext": 2.689,
      "t1hit": false
     }
    }
@@ -10107,11 +10104,22 @@
    "pT1": null,
    "openedAt": "2026-11-26T13:01:16.029Z",
    "barTime": "2026-11-26T12:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 0,
+   "lastBarT": 1795698000000,
+   "bars": 1,
    "t1hit": false,
-   "mtm": 0,
-   "live": "REJECTED_RULES"
+   "mtm": 0.07,
+   "live": "REJECTED_RULES",
+   "alt": {
+    "be": {
+     "sl": 0.01026978,
+     "t1hit": false
+    },
+    "tr": {
+     "sl": 0.01026978,
+     "ext": 0.009611,
+     "t1hit": false
+    }
+   }
   },
   {
    "id": "ETHUSDT|1H|LONG|2026-11-26T12:00:00.000Z",
@@ -10138,11 +10146,22 @@
    "pT1": null,
    "openedAt": "2026-11-26T13:01:16.634Z",
    "barTime": "2026-11-26T12:00:00.000Z",
-   "lastBarT": 1795694400000,
-   "bars": 0,
+   "lastBarT": 1795698000000,
+   "bars": 1,
    "t1hit": false,
-   "mtm": 0,
-   "live": "REJECTED_RULES"
+   "mtm": -0.08,
+   "live": "REJECTED_RULES",
+   "alt": {
+    "be": {
+     "sl": 1682.12612441,
+     "t1hit": false
+    },
+    "tr": {
+     "sl": 1682.12612441,
+     "ext": 1707.99,
+     "t1hit": false
+    }
+   }
   },
   {
    "id": "ONEUSDT|1D|SHORT|2026-11-24T16:00:00.000Z",
@@ -10200,7 +10219,49 @@
    "pT1": 42,
    "openedAt": "2026-11-26T13:16:05.828Z",
    "barTime": "2026-11-26T12:00:00.000Z",
-   "lastBarT": 1795694400000,
+   "lastBarT": 1795698000000,
+   "bars": 1,
+   "t1hit": false,
+   "mtm": -0.16,
+   "live": "ALERT_ONLY_SHADOW",
+   "alt": {
+    "be": {
+     "sl": 0.00097559,
+     "t1hit": false
+    },
+    "tr": {
+     "sl": 0.00097559,
+     "ext": 0.0010447,
+     "t1hit": false
+    }
+   }
+  },
+  {
+   "id": "NESUSDT|1H|LONG|2026-11-26T13:00:00.000Z",
+   "sym": "NESUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q4",
+   "score": 78,
+   "chase": 1,
+   "adx": 31,
+   "htf": "NEUTRAL",
+   "setupScore": 5,
+   "of": null,
+   "entry": 0.2576,
+   "stop": 0.23640322,
+   "t1": 0.28939516,
+   "t2": 0.32119033,
+   "verdict": "SHADOW_ONLY",
+   "hourUtc": 13,
+   "aiDecision": "WAIT",
+   "confidence": 65,
+   "pT1": 50,
+   "openedAt": "2026-11-26T14:01:07.847Z",
+   "barTime": "2026-11-26T13:00:00.000Z",
+   "lastBarT": 1795698000000,
    "bars": 0,
    "t1hit": false,
    "mtm": 0,
@@ -41350,10 +41411,12 @@
   "INITUSDT|1H|ICHI|LONG|2026-11-26T12:00:00.000Z": 1795698955231,
   "ONEUSDT|1D|DONCHIAN20|SHORT|2026-11-24T16:00:00.000Z": 1795698955821,
   "SEIUSDT|1D|LENS|SHORT|2026-11-24T16:00:00.000Z": 1795698958770,
-  "ONEUSDT|1H|LENS|LONG|2026-11-26T12:00:00.000Z": 1795698965219
+  "ONEUSDT|1H|LENS|LONG|2026-11-26T12:00:00.000Z": 1795698965219,
+  "NESUSDT|1H|LENS|LONG|2026-11-26T13:00:00.000Z": 1795701666680,
+  "ZROUSDT|1H|LENS|LONG|2026-11-26T13:00:00.000Z": 1795701671374
  },
- "lastRun": "2026-11-26T13:45:53.542Z",
- "runs": 841,
+ "lastRun": "2026-11-26T14:01:12.045Z",
+ "runs": 842,
  "errors": [],
  "durationSec": 26,
  "dataSrc": "okx",
@@ -41635,8 +41698,8 @@
    "PEPEUSDT",
    "MMTUSDT",
    "NEARUSDT",
-   "UNIUSDT",
    "PUMPUSDT",
+   "UNIUSDT",
    "TRUMPUSDT",
    "SUIUSDT",
    "WLDUSDT",
@@ -41652,9 +41715,9 @@
    "MOVEUSDT",
    "SSVUSDT",
    "BCHUSDT",
-   "MONUSDT",
-   "BTWUSDT",
    "NESUSDT",
+   "BTWUSDT",
+   "MONUSDT",
    "BIGTIMEUSDT",
    "TRXUSDT",
    "MOODENGUSDT",
@@ -41666,8 +41729,8 @@
    "BLURUSDT",
    "XPLUSDT",
    "SLXUSDT",
-   "ONDOUSDT",
    "MEUSDT",
+   "ONDOUSDT",
    "STRKUSDT",
    "PONSUSDT",
    "ZROUSDT",
@@ -41678,12 +41741,12 @@
    "DOTUSDT",
    "NIGHTUSDT",
    "ICPUSDT",
-   "CRVUSDT",
    "SEIUSDT",
+   "CRVUSDT",
    "OPUSDT",
    "WLFIUSDT",
    "ONEUSDT",
-   "DGAIUSDT",
+   "WIFUSDT",
    "XAUUSDT",
    "XAGUSDT"
   ],
@@ -41691,7 +41754,7 @@
    "cryptoListed": 272,
    "stocksListed": 266,
    "cryptoTop": 60,
-   "minVolUSD": 5964733,
+   "minVolUSD": 5984535,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -41701,11 +41764,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 0,
-   "deep": 0,
-   "extended": 16,
+   "candidates": 2,
+   "deep": 2,
+   "extended": 17,
    "byClass": {
-    "crypto": 0,
+    "crypto": 2,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -41744,7 +41807,7 @@
    }
   },
   "judge": "roundtable:gemini-3.5-flash-lite",
-  "llmToday": 30,
+  "llmToday": 31,
   "keys": 3,
   "models": [
    "gemini-3.5-flash-lite",
@@ -41759,7 +41822,7 @@
   ],
   "slots": 13,
   "slotsExhausted": 0,
-  "active": "k2:gemini-3.5-flash-lite",
+  "active": "k3:gemini-3.5-flash-lite",
   "slotTable": [
    {
     "id": "k1:gemini-3.5-flash-lite",
@@ -41781,7 +41844,7 @@
    },
    {
     "id": "k3:gemini-3.5-flash-lite",
-    "calls": 8,
+    "calls": 9,
     "errors": 1,
     "exhausted": false,
     "reason": null,
@@ -41886,9 +41949,9 @@
    "k3:gemini-3.5-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]"
   ],
   "llmBudget": {
-   "left": 177,
+   "left": 176,
    "tot": 207,
-   "frac": 0.855072463768116
+   "frac": 0.8502415458937198
   },
   "requireAI": true,
   "paperTrade": true,
@@ -41911,7 +41974,7 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 4710,
+   "cooldownSkipped": 4720,
    "aiTextStripped": 10
   }
  },
@@ -41919,16 +41982,16 @@
   "cryptoListed": 272,
   "stocksListed": 266,
   "cryptoTop": 60,
-  "minVolUSD": 5964733
+  "minVolUSD": 5984535
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 0,
-  "deep": 0,
-  "extended": 16,
+  "candidates": 2,
+  "deep": 2,
+  "extended": 17,
   "byClass": {
-   "crypto": 0,
+   "crypto": 2,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -41937,7 +42000,7 @@
  "llm": {
   "day": "2026-11-26",
   "v": 6,
-  "calls": 30,
+  "calls": 31,
   "slots": {
    "k1:gemini-3.5-flash-lite": {
     "calls": 9,
@@ -41960,7 +42023,7 @@
     "cooldownUntil": 1795651369694
    },
    "k3:gemini-3.5-flash-lite": {
-    "calls": 8,
+    "calls": 9,
     "exhausted": false,
     "errors": 1,
     "r429": 1,
@@ -42036,7 +42099,7 @@
     "errors": 0
    }
   },
-  "active": "k2:gemini-3.5-flash-lite",
+  "active": "k3:gemini-3.5-flash-lite",
   "raw": [
    "k3:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
    "k2:gemini-3.1-flash-lite HTTP 429 { \"error\": { \"code\": 429, \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \", \"status\": \"RESOURCE_EXHAUSTED\", \"details\": [ { \"@type\": \"type.googleapis.com/google.rpc.Help\", \"links\": [ { \"description\": \"Learn more about Gemini API quotas\", \"url\": \"https://aistudio.google.com/docs/rate-limits\" } ] } ]",
@@ -42545,10 +42608,10 @@
     "maxDD": 1.15
    }
   },
-  "open": 139,
-  "dupSkipped": 535
+  "open": 140,
+  "dupSkipped": 536
  },
- "shadowDup": 535,
+ "shadowDup": 536,
  "judgeReport": {
   "mode": "shadow",
   "agree": {
@@ -42625,7 +42688,7 @@
    },
    "note": "skill>0 = judge beats the base rate; well-calibrated when pred≈real per bucket"
   },
-  "asOf": "2026-11-26T13:45:53.544Z"
+  "asOf": "2026-11-26T14:01:12.054Z"
  },
  "shadowIndep": {
   "n": 600,
@@ -43383,7 +43446,7 @@
    "side": "SHORT"
   },
   "ZROUSDT|1H|LENS": {
-   "t": 1795636800000,
+   "t": 1795698000000,
    "side": "LONG"
   },
   "TAOUSDT|1H|LENS": {
@@ -43907,7 +43970,7 @@
    "side": "LONG"
   },
   "NESUSDT|1H|LENS": {
-   "t": 1795669200000,
+   "t": 1795698000000,
    "side": "LONG"
   },
   "SKYUSDT|1H|ICHI": {
@@ -44275,7 +44338,7 @@
    "side": "LONG"
   }
  },
- "cooldownSkipped": 4710,
+ "cooldownSkipped": 4720,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
@@ -44302,7 +44365,7 @@
  "cumR": 10.23,
  "cumUSD": 98.23,
  "filterReport": {
-  "generatedAt": "2026-11-26T13:45:53.545Z",
+  "generatedAt": "2026-11-26T14:01:12.055Z",
   "minClusters": 20,
   "week": {
    "AI judge (keep only agree)": {
