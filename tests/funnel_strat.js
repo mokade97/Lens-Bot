@@ -5,7 +5,7 @@
 const fs = require('fs'); const lens = require('/home/user/lens-bot/engine.js');
 const SYMS = (process.argv[2] || fs.readdirSync('/home/user/.cache/bt').filter(f => /_4H\.json$/.test(f)).map(f => f.split('_')[0]).join(',')).split(',');
 const TF = process.argv[3] || '4H', HTF = process.argv[4] || '1D'; const STRAT = process.argv[5] || 'ICHI'; const WIN = 1000; const OOS_FROM = Date.parse('2024-01-01T00:00:00Z');
-const COST = 0.3, FUND = 4 / 8 * 0.01; const CFG = { maxExtAtr: 2, noCounterHtf: true, tmMinN: 15, tmFailAvgR: -0.2, liveSides: { ICHI: ['SHORT'], DONCHIAN20: ['LONG','SHORT'] } };
+const COST = 0.3, FUND = 4 / 8 * 0.01; const CFG = { maxExtAtr: 2, noCounterHtf: true, tmMinN: 15, tmFailAvgR: -0.2, liveSides: { ICHI: ['SHORT'], DONCHIAN20: ['LONG','SHORT'], TRIRSI: ['LONG','SHORT'] } };
 const agg = a => { const n = a.length; if (!n) return { n: 0 }; const s = a.reduce((q, x) => q + x.rr, 0); const g = a.filter(x => x.rr > 0).reduce((q, x) => q + x.rr, 0), l = -a.filter(x => x.rr < 0).reduce((q, x) => q + x.rr, 0); let eq = 0, pk = 0, dd = 0; a.forEach(x => { eq += x.rr; pk = Math.max(pk, eq); dd = Math.max(dd, pk - eq); }); const wins = a.filter(x => x.rr > 0).length; return { n, win: Math.round(100 * wins / n), avgR: +(s / n).toFixed(3), totR: +s.toFixed(1), pf: l ? +(g / l).toFixed(2) : null, maxDD: +dd.toFixed(1) }; };
 /* bot.js ruleCheck, hard fails only (warns do not block) — replicated 1:1 for ICHI */
 function hardFails(p, side, bt, labV) {

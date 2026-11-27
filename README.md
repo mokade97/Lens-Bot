@@ -177,3 +177,7 @@ Borrowed from Gemini-TradingAgents' three-way verdict (enter / enter smaller / s
 
 ## v136e — #261 HAR-RV volatility forecast (shadow-only)
 The no-model cousin of "TimesFM sizes down when tomorrow's vol runs hot" (Gemini-TradingAgents). `harRv(k)` builds daily realized variance from the setup-TF closed bars (partial UTC days scaled), forecasts tomorrow with the textbook HAR weights 0.4/0.3/0.3 on day/week/month RV (NOT fitted per symbol — no data-mining), and flags `hot` when forecast > 1.25 × monthly mean. Recorded as `volF{rvD,rvW,rvM,fc,ratio,hot}` on alerts/shadow and summarised on signals; new `filterReport` arm `vol forecast: drop hot days (HAR-RV)`. Config `volForecast{hotMult,w}`. Nothing is sized by it until ≥20 clusters each side say so. Tests 73 pass.
+
+## v137b — #262 Triple RSI rejected · #263 judge `counterparty`
+- `BACKTEST_v137b_trirsi.md`: QuantifiedStrategies' Triple RSI on 20 crypto perps, 1D and 4H, walk-forward — negative in every cell except one sign-flipping one. Stays in `lens.STRATS` (lab card) only.
+- Judge JSON gains `counterparty` ("who is on the other side and why") — the one useful Jane-Street-style question from the Gemini-TradingAgents threads. Recorded on signals as `ai.counterparty`; no gating.
