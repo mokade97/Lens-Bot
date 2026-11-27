@@ -32,7 +32,8 @@ console.log('\nruleCheck');
 { const p = { regime_quadrant: { quadrant: 'Q1', size_multiplier: 1 }, trend: { htf_bias: 'DOWN' }, extension_atr_from_ema50: -4.5, structure_extras: {}, chart_patterns: { patterns: [] }, trade: { entry: 100, stop: 103, target_1: 95.5, target_2: 91 }, _strategy: 'ICHI' };
   const rc = ruleCheck(p, 'SHORT', { all: { n: 20, avg_r: -0.3 } });
   ok('ext50 ≥4 is a warn, not a fail', !rc.fails.some(f => /EMA50/.test(f)) && rc.warns.some(f => /EMA50/.test(f)), rc);
-  ok('TM fail for ICHI is labelled as the LENS record', rc.fails.some(f => /Time Machine \(رکورد ستاپ LENS/.test(f)), rc.fails);
+  ok('v135: TM for ICHI is a WARN (labelled as the LENS record), not a fail', !rc.fails.some(f => /Time Machine/.test(f)) && rc.warns.some(f => /Time Machine \(رکورد ستاپ LENS/.test(f)), rc);
+  { const pl = Object.assign({}, p, { _strategy: 'LENS' }); const r3 = ruleCheck(pl, 'SHORT', { all: { n: 20, avg_r: -0.3 } }); ok('TM stays a hard fail for LENS', r3.fails.some(f => /Time Machine/.test(f)), r3.fails); }
   ok('no minRR fail (T2 = 3R by construction)', !rc.fails.some(f => /R:R/.test(f)) && rc.rr === 3, rc);
   const rc2 = ruleCheck(p, 'LONG', null); ok('counter-HTF LONG fails; wrong-side plan fails (sanity gate)', rc2.fails.length >= 2, rc2.fails); }
 
@@ -84,6 +85,36 @@ console.log('\nengine');
   ok('dayGate: new day resets', bot.dayGate(S0, '2026-11-26T05:00:00Z') === 'TAKEN');
   const rep = bot.dayGateReport([{ openedAt: '2026-11-25T01:00:00Z', rr: 1, dayGate: 'TAKEN' }, { openedAt: '2026-11-25T05:00:00Z', rr: -1, dayGate: 'SKIP_AFTER_WIN' }, { openedAt: '2026-11-26T05:00:00Z', rr: -1, dayGate: 'TAKEN' }]);
   ok('dayGateReport: base 3 trades / variant 2 / skipped 1', rep.n === 3 && rep.variant.n === 2 && rep.skipped.n === 1 && rep.days === 2); }
+
+
+/* v135 #245: signal ≠ paper trade; seen/retry; expiry; dedupe */
+console.log('\nv135 signals / funnel / seen');
+{ const { sigRecord, sigStatusMap, FUN } = bot;
+  const m = sigStatusMap('ALERT_ONLY_CAP'); ok('CAP-blocked valid setup stays ACTIVE (paperResult=CAP)', m.setupValid && m.publishPolicy === 'ACTIVE' && m.paperResult === 'CAP', m);
+  ok('shadow-only is SHADOW, not ACTIVE', sigStatusMap('ALERT_ONLY_SHADOW').publishPolicy === 'SHADOW');
+  ok('rules-rejected is setupValid=false', sigStatusMap('REJECTED_RULES').setupValid === false && sigStatusMap('REJECTED_LAB').setupValid === false);
+  ok('opened paper → ACTIVE/OPENED', sigStatusMap('OPENED_PAPER').paperResult === 'OPENED');
+  S.signals = []; const bar = '2026-01-01T00:00:00.000Z'; const al = { ts: new Date().toISOString(), barTime: bar, sym: 'BTCUSDT', cls: 'crypto', tf: '4H', side: 'SHORT', strategy: 'ICHI', status: 'ALERT_ONLY_CAP', entry: 100, stop: 103, t1: 95.5, t2: 91, rr: 3, reasons: ['cap'] };
+  const cnd = { barKey: 'BTCUSDT|4H|ICHI|SHORT|' + bar }; const p0 = FUN.published; sigRecord(al, cnd, { time: bar }); sigRecord(al, cnd, { time: bar });
+  ok('re-running the same bar does not duplicate the signal (stable id)', S.signals.length === 1 && S.signals[0].id === cnd.barKey, S.signals.map(x => x.id));
+  ok('expiresAt = next candle close (bar open + 2×TF)', Date.parse(S.signals[0].expiresAt) - Date.parse(bar) === 2 * 144e5, S.signals[0].expiresAt);
+  ok('barClose = bar open + TF', Date.parse(S.signals[0].barClose) - Date.parse(bar) === 144e5);
+  ok('entry zone ±0.25R around entry', S.signals[0].entryZone[0] === 99.25 && S.signals[0].entryZone[1] === 100.75, S.signals[0].entryZone);
+  ok('pushed flag set once → no duplicate notifications', S.signals[0].pushed === true && FUN.published === p0 + 2 /* counter counts evaluations, record is single */);
+  al.status = 'OPENED_PAPER'; sigRecord(al, cnd, { time: bar }); ok('later status update overwrites in place (CAP → OPENED)', S.signals.length === 1 && S.signals[0].paperResult === 'OPENED');
+  S.signals = []; }
+{ // open candle never signals: nominate() evaluates L = k.length-2 (last CLOSED bar); mutating the forming bar must not change the nomination
+  const f = fx('plain'); const k = f.k.map(b => ({ ...b })); const L = k.length - 1; k[L] = { ...k[L], c: k[L].c * 1.05, h: k[L].h * 1.05 }; S.seen = {}; S.lastCard = {};
+  const p1 = lens.packet(f.sym, f.tf, f.k, null, 'N/A'); const c1 = nominate(f.sym, 'crypto', f.tf, f.k, p1, { extendedN: 0 }); S.seen = {}; S.lastCard = {};
+  const p2 = lens.packet(f.sym, f.tf, k, null, 'N/A'); const c2 = nominate(f.sym, 'crypto', f.tf, k, p2, { extendedN: 0 });
+  ok('forming (open) candle does not change the nomination', JSON.stringify(c1.map(x => x.barKey)) === JSON.stringify(c2.map(x => x.barKey)), [c1.length, c2.length]); S.seen = {}; S.lastCard = {}; }
+{ // seen/retry semantics (unit): the deep phase now sets seen only after a packet; a data failure increments retry and keeps the candidate re-nominatable
+  const src = fs.readFileSync(path.join(__dirname, '..', 'bot.js'), 'utf8'); const i1 = src.indexOf("const k = await klinesAny(sym, tf, 1000)"), i2 = src.indexOf("S.seen[cnd.barKey] = Date.now(); delete S.retry[cnd.barKey];");
+  ok('seen is written AFTER deep data + packet (source order)', i1 > 0 && i2 > i1 && src.slice(i1, i2).includes('S.retry[cnd.barKey] = (S.retry[cnd.barKey] || 0) + 1'));
+  const f = fx('plain'); S.seen = {}; S.lastCard = {}; S.retry = {}; const p = lens.packet(f.sym, f.tf, f.k, null, 'N/A'); const a = nominate(f.sym, 'crypto', f.tf, f.k, p, { extendedN: 0 }); const key = a[0] && a[0].barKey;
+  S.retry[key] = 1; S.lastCard = {}; const b = nominate(f.sym, 'crypto', f.tf, f.k, p, { extendedN: 0 });
+  ok('candidate with a transient data failure (retry=1, not seen) is re-nominated next run', key && b.some(x => x.barKey === key));
+  S.seen[key] = Date.now(); S.lastCard = {}; const c = nominate(f.sym, 'crypto', f.tf, f.k, p, { extendedN: 0 }); ok('once seen, the same bar is not re-nominated', !c.some(x => x.barKey === key)); S.seen = {}; S.retry = {}; }
 
 console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);
 
