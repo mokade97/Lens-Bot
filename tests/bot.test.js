@@ -116,7 +116,42 @@ console.log('\nv135 signals / funnel / seen');
   ok('candidate with a transient data failure (retry=1, not seen) is re-nominated next run', key && b.some(x => x.barKey === key));
   S.seen[key] = Date.now(); S.lastCard = {}; const c = nominate(f.sym, 'crypto', f.tf, f.k, p, { extendedN: 0 }); ok('once seen, the same bar is not re-nominated', !c.some(x => x.barKey === key)); S.seen = {}; S.retry = {}; }
 
-console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);
+
+/* v136 #250: one policy predicate + shadow cap in the deep pick */
+console.log('\nv136 policy predicate / shadow cap');
+{ const sw = bot.shadowWhy;
+  ok('ICHI 4H SHORT crypto → live-eligible (null)', sw('crypto', '4H', 'ICHI', 'SHORT', false) === null);
+  ok('ICHI 4H LONG → shadow by side', /LONG/.test(sw('crypto', '4H', 'ICHI', 'LONG', false) || ''));
+  ok('LENS 4H SHORT → shadow by strategy', /LENS/.test(sw('crypto', '4H', 'LENS', 'SHORT', false) || ''));
+  ok('ICHI 1H SHORT → shadow by timeframe', /1H/.test(sw('crypto', '1H', 'ICHI', 'SHORT', false) || ''));
+  ok('metal → shadow by class', /metal/.test(sw('metal', '4H', 'ICHI', 'SHORT', false) || ''));
+  ok('chase → shadow', /ATR/.test(sw('crypto', '4H', 'ICHI', 'SHORT', true) || ''));
+  // pick simulation: same loop as phase C
+  const mk = (sym, tf, strategy, side) => ({ sym, cls: 'crypto', tf, strategy, side, chase: false, pre: { time: '2026-01-01T00:00:00Z' } });
+  const cands = [mk('A', '1H', 'LENS', 'SHORT'), mk('B', '1H', 'LENS', 'SHORT'), mk('C', '1H', 'LENS', 'LONG'), mk('D', '1H', 'ICHI', 'SHORT'), mk('E', '4H', 'ICHI', 'SHORT'), mk('F', '4H', 'ICHI', 'LONG'), mk('G', '1D', 'ICHI', 'SHORT')];
+  const prio = c => (bot.PRIO[c.strategy] || 0) * 100 - (c.chase ? 50 : 0) - (sw(c.cls, c.tf, c.strategy, c.side, c.chase) ? 25 : 0);
+  cands.sort((a, b) => prio(b) - prio(a) || (a.sym < b.sym ? -1 : 1));
+  ok('live-eligible ICHI 4H/1D SHORT rank first', cands[0].sym === 'E' && cands[1].sym === 'G', cands.map(x => x.sym));
+  const picked = []; let shadowN = 0; const maxShadow = 2;
+  for (const x of cands) { if (picked.length >= 4) break; if (sw(x.cls, x.tf, x.strategy, x.side, x.chase)) { if (shadowN >= maxShadow) continue; shadowN++; } picked.push(x); }
+  ok('pick of 4: 2 live + at most 2 shadow', picked.length === 4 && picked.filter(x => sw(x.cls, x.tf, x.strategy, x.side, x.chase)).length === 2 && picked.some(x => x.sym === 'E') && picked.some(x => x.sym === 'G'), picked.map(x => x.sym));
+  ok('FUN has shadowDeferred counter', 'shadowDeferred' in bot.FUN); }
+
+/* v136b #255 flow snapshot */
+console.log('\nv136b flow snapshot (REST, shadow-only)');
+{ const FS = require('../flowsnap.js');
+  ok('flags SHORT: +funding, crowded long, taker selling → aligned', (() => { const f = FS.flags({ funding: 0.0003, lsRatio: 1.4, taker1h: 0.4, oiChg1hPct: 1.2 }, 'SHORT'); return f.fundAligned === true && f.crowdAligned === true && f.takerAligned === true && f.oiRising === true; })());
+  ok('flags LONG with same picture → not aligned', (() => { const f = FS.flags({ funding: 0.0003, lsRatio: 1.4, taker1h: 0.4, oiChg1hPct: -0.2 }, 'LONG'); return f.fundAligned === false && f.crowdAligned === false && f.takerAligned === false && f.oiRising === false; })());
+  ok('neutral band → null (no opinion)', (() => { const f = FS.flags({ funding: 0.00001, lsRatio: 1.05, taker1h: 0.52, oiChg1hPct: null }, 'SHORT'); return f.fundAligned === null && f.crowdAligned === null && f.takerAligned === null && f.oiRising === null; })());
+  // offline snapshot through an injected fetcher (OKX response shapes as of 2026-11-27)
+  FS.use(async u => { if (/funding-rate/.test(u)) return { data: [{ fundingRate: '0.0002' }] }; if (/open-interest\?/.test(u)) return { data: [{ oiUsd: '1904755112.2' }] }; if (/long-short/.test(u)) return { data: [['1', '2.89'], ['0', '2.9']] };
+    if (/taker-volume/.test(u)) return { data: Array.from({ length: 12 }, () => ['t', '150', '100']) }; if (/open-interest-volume/.test(u)) return { data: Array.from({ length: 13 }, (_, i) => ['t', String(1000 - i * 2), '1']) }; return { data: [] }; });
+  const p = FS.snapshot({}, 'BTCUSDT', 'SHORT', null); p.then(r => { ok('snapshot: parsed funding/oi/ls/taker/oiChg', r.funding === 0.0002 && r.oiUsd === 1904755112 && r.lsRatio === 2.89 && r.taker1h === 0.4 && Math.abs(r.oiChg1hPct - 2.46) < 0.01, r);
+    ok('snapshot flags for SHORT all aligned', r.fundAligned && r.crowdAligned && r.takerAligned && r.oiRising, r); FS.use(null);
+    const fr = bot.filterReport([{ side: 'SHORT', rr: 1, closedAt: '2026-01-01', fs: { fundAligned: true } }, { side: 'SHORT', rr: -1, closedAt: '2026-01-02', fs: { fundAligned: false } }, { side: 'SHORT', rr: 0.5, closedAt: '2026-01-03', fs: null }]);
+    const a = fr.allTime['flow: funding aligned (contrarian)']; ok('filterReport flow arm: kept=1 win, dropped=1 loss, null skipped', a && a.kept.n === 1 && a.dropped.n === 1, a);
+    console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0); }); }
+
 
 /* v133b */
 { const fr = bot.filterReport([{ side: 'LONG', rr: 1, closedAt: '2026-01-01', of: { deltaDivAgainst: false } }, { side: 'LONG', rr: -1, closedAt: '2026-01-02', of: { deltaDivAgainst: true } }, { side: 'SHORT', rr: 1, closedAt: '2026-01-03', of: { deltaDivAgainst: null } }]);
