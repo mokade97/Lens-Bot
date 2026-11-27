@@ -168,3 +168,9 @@ Why: the five `orderflow:` filter arms stayed 0/0 since v133 — `orderflow.js` 
 - Stored on alert/shadow/position as `fs`, summarised on each signal as `flow{funding,lsRatio,oiChg1hPct,taker1h}`; 4 new `filterReport` arms `flow: …` with the same n≥20-cluster gate. **No effect on any decision.**
 - Config `flowSnap` (enabled by default; `enabled:false` turns it off). The old `orderflow` block stays for a VPS deployment.
 - App: empty `orderflow:` rows are hidden with a note; signal rows show the flow line. Tests: bot 65 pass, app signals_check 30.
+
+## v136c — #257 session arms (report-only)
+Two `filterReport` arms on 4H shadow trades using the existing `hourUtc` tag: `session: exclude 16:00 UTC candle` and `session: 00:00 UTC candle only` (5y backtest: 00:00 best +0.23R, 16:00 worst −0.06R). 1D/1H → null. Fills retroactively from the existing shadow ledger. Same n≥20-cluster gate; becomes a rule only after two consecutive weekly reports agree with the backtest. Tests 66 pass.
+
+## v136d — #260 judge output "size": FULL | HALF (shadow-only)
+Borrowed from Gemini-TradingAgents' three-way verdict (enter / enter smaller / skip). The judge JSON gains `size` (HALF = valid setup with ONE soft concern). Stored as `aiSize` on shadow records and `ai.size` on signals; new `filterReport` arm `AI size: drop HALF-size calls` (n≥20-cluster gate). Nothing is sized by it — if HALF calls really carry lower R over ≥20 clusters each side, we discuss a 0.5× multiplier then. Tests 69 pass.

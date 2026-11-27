@@ -150,6 +150,11 @@ console.log('\nv136b flow snapshot (REST, shadow-only)');
     ok('snapshot flags for SHORT all aligned', r.fundAligned && r.crowdAligned && r.takerAligned && r.oiRising, r); FS.use(null);
     const fr = bot.filterReport([{ side: 'SHORT', rr: 1, closedAt: '2026-01-01', fs: { fundAligned: true } }, { side: 'SHORT', rr: -1, closedAt: '2026-01-02', fs: { fundAligned: false } }, { side: 'SHORT', rr: 0.5, closedAt: '2026-01-03', fs: null }]);
     const a = fr.allTime['flow: funding aligned (contrarian)']; ok('filterReport flow arm: kept=1 win, dropped=1 loss, null skipped', a && a.kept.n === 1 && a.dropped.n === 1, a);
+    const fs2 = bot.filterReport([{ side: 'SHORT', tf: '4H', hourUtc: 0, rr: 1, closedAt: '2026-01-01' }, { side: 'SHORT', tf: '4H', hourUtc: 16, rr: -1, closedAt: '2026-01-02' }, { side: 'SHORT', tf: '1D', hourUtc: 0, rr: 1, closedAt: '2026-01-03' }]);
+    const s1 = fs2.allTime['session: exclude 16:00 UTC candle'], s2 = fs2.allTime['session: 00:00 UTC candle only']; ok('session arms: 4H only, 16:00 dropped / 00:00 kept, 1D skipped', s1 && s1.kept.n === 1 && s1.dropped.n === 1 && s2 && s2.kept.n === 1 && s2.dropped.n === 1, [s1, s2]);
+    const fr3 = bot.filterReport([{ side: 'SHORT', rr: 1, closedAt: '2026-01-01', aiSize: 'FULL' }, { side: 'SHORT', rr: -1, closedAt: '2026-01-02', aiSize: 'HALF' }, { side: 'SHORT', rr: 0.5, closedAt: '2026-01-03' }]);
+    const h = fr3.allTime['AI size: drop HALF-size calls']; ok('v136d AI size arm: FULL kept, HALF dropped, missing skipped', h && h.kept.n === 1 && h.dropped.n === 1, h);
+    { const r = bot.shadowRecord; ok('shadowRecord exported', typeof r === 'function'); const a = { sym: 'T1USDT', cls: 'crypto', tf: '4H', side: 'SHORT', strategy: 'ICHI', barTime: '2026-01-01T00:00:00Z', entry: 100, stop: 102, t1: 97, t2: 94, aiSize: 'HALF' }; bot.S.shadow = []; r(a, 'RULES_REJECTED', { decision: 'SHORT', size: 'HALF', confidence: 60 }); ok('shadow record stores aiSize HALF', bot.S.shadow[0] && bot.S.shadow[0].aiSize === 'HALF', bot.S.shadow[0]); }
     console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0); }); }
 
 
