@@ -1,1 +1,4 @@
-BOT v135b add-on (no code change to bot.js): tests/funnel_live.js (live funnel review, run after >=3 weeks), tests/funnel_strat.js (generic walk-forward funnel harness), BACKTEST_v135b_donchian.md (DONCHIAN20 1D rejected for live).
+BOT v136b patch (includes v136) — copy over your Lens-Bot repo root:
+ bot.js, flowsnap.js (NEW), config.json (adds maxShadowDeep: 2 and flowSnap{}), engine.js, README.md, tests/
+If your config.json has personal settings, only ADD the "maxShadowDeep" line and the "flowSnap" block instead of overwriting. live.enabled stays false.
+Do NOT deploy any other bot.js/engine.js variant.

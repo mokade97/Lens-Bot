@@ -156,3 +156,15 @@ GitHub cron را «تلاش می‌کند» اجرا کند و در ریپوها
 - `orderflow.js`: new fields `poc`, `last`, `chg5mPct`, `pocDistPct` and flag **`deltaDivAgainst`** — executed 5m delta in the setup's direction while 5m price moved the other way (|Δ| ≥ 0.05 %): "flow without acceptance" (spxomega), i.e. my side is being absorbed. null when cold/flat/missing. Shadow only.
 - `filterReport` arm `orderflow: no delta/price divergence against` (5 order-flow arms total). Test appended.
 - Research: self-calibrating percentile grade for SCORE (Willy) backtested in `reports/score_pct.js` → identical to fixed ≥5 or worse; rejected (`reports/v133b-score-percentile.md`).
+
+## v136 — one policy predicate, shadow cap in the deep pick
+- `shadowWhy(cls, tf, strategy, side, chase)` is now THE single place that decides watch-only vs live-eligible (publish policy + deep pick + app badge via `coverage`).
+- Phase C: policy-shadow cards rank below live-eligible cards of the same strategy and at most `maxShadowDeep` (default 2, config.json) of them get a deep slot per run. Live audit 2026-11-27: 14/20 deep cards were LENS 1H shadow → ICHI 4H/1D queued behind cards that can never publish. New funnel counter `shadowDeferred`.
+- `coverage` now also publishes `maxExtAtr`, `maxShadowDeep`, `sizing{account,riskPct}` so the app can mirror the policy and offer one-tap account sync.
+- Tests: `node tests/bot.test.js` 58 pass. Live review script: `node tests/funnel_live.js state.json` (≥3 weeks).
+
+## v136b — #255 flow snapshot (REST, shadow-only)
+Why: the five `orderflow:` filter arms stayed 0/0 since v133 — `orderflow.js` needs a streaming MCP server on 127.0.0.1 that cannot exist inside a fresh GitHub Actions container. `flowsnap.js` records instead ONE OKX positioning picture per analysed crypto setup from public REST (no keys, ≈0.4 s, 5 calls in parallel): funding, OI (USD) + 1h change, long/short account ratio, 1h taker buy share. Direction-relative flags `fundAligned`, `crowdAligned` (both contrarian), `oiRising`, `takerAligned` (momentum) with neutral bands → null = no opinion.
+- Stored on alert/shadow/position as `fs`, summarised on each signal as `flow{funding,lsRatio,oiChg1hPct,taker1h}`; 4 new `filterReport` arms `flow: …` with the same n≥20-cluster gate. **No effect on any decision.**
+- Config `flowSnap` (enabled by default; `enabled:false` turns it off). The old `orderflow` block stays for a VPS deployment.
+- App: empty `orderflow:` rows are hidden with a note; signal rows show the flow line. Tests: bot 65 pass, app signals_check 30.
