@@ -155,6 +155,13 @@ console.log('\nv136b flow snapshot (REST, shadow-only)');
     const fr3 = bot.filterReport([{ side: 'SHORT', rr: 1, closedAt: '2026-01-01', aiSize: 'FULL' }, { side: 'SHORT', rr: -1, closedAt: '2026-01-02', aiSize: 'HALF' }, { side: 'SHORT', rr: 0.5, closedAt: '2026-01-03' }]);
     const h = fr3.allTime['AI size: drop HALF-size calls']; ok('v136d AI size arm: FULL kept, HALF dropped, missing skipped', h && h.kept.n === 1 && h.dropped.n === 1, h);
     { const r = bot.shadowRecord; ok('shadowRecord exported', typeof r === 'function'); const a = { sym: 'T1USDT', cls: 'crypto', tf: '4H', side: 'SHORT', strategy: 'ICHI', barTime: '2026-01-01T00:00:00Z', entry: 100, stop: 102, t1: 97, t2: 94, aiSize: 'HALF' }; bot.S.shadow = []; r(a, 'RULES_REJECTED', { decision: 'SHORT', size: 'HALF', confidence: 60 }); ok('shadow record stores aiSize HALF', bot.S.shadow[0] && bot.S.shadow[0].aiSize === 'HALF', bot.S.shadow[0]); }
+    { const mk = (n, volFn) => { const k = []; let c = 100; const t0 = Date.UTC(2026, 0, 1); for (let i = 0; i < n; i++) { const r = volFn(i) * (Math.sin(i * 1.7) > 0 ? 1 : -1); c *= Math.exp(r); k.push({ t: t0 + i * 144e5, o: c, h: c, l: c, c, v: 1 }); } return k; };
+      const calm = bot.harRv(mk(400, () => 0.004)); const spike = bot.harRv(mk(400, i => i > 394 ? 0.03 : 0.004));
+      ok('HAR-RV: constant vol → ratio ≈ 1, not hot', calm && Math.abs(calm.ratio - 1) < 0.05 && calm.hot === false, calm);
+      ok('HAR-RV: last-day spike → hot', spike && spike.ratio > 1.25 && spike.hot === true, spike);
+      ok('HAR-RV: too few bars → null', bot.harRv(mk(40, () => 0.004)) === null);
+      const fr4 = bot.filterReport([{ side: 'SHORT', rr: 1, closedAt: '2026-01-01', volF: { hot: false } }, { side: 'SHORT', rr: -1, closedAt: '2026-01-02', volF: { hot: true } }, { side: 'SHORT', rr: 0.5, closedAt: '2026-01-03' }]);
+      const v = fr4.allTime['vol forecast: drop hot days (HAR-RV)']; ok('vol forecast arm: calm kept, hot dropped, missing skipped', v && v.kept.n === 1 && v.dropped.n === 1, v); }
     console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0); }); }
 
 

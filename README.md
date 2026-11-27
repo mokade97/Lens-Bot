@@ -174,3 +174,6 @@ Two `filterReport` arms on 4H shadow trades using the existing `hourUtc` tag: `s
 
 ## v136d — #260 judge output "size": FULL | HALF (shadow-only)
 Borrowed from Gemini-TradingAgents' three-way verdict (enter / enter smaller / skip). The judge JSON gains `size` (HALF = valid setup with ONE soft concern). Stored as `aiSize` on shadow records and `ai.size` on signals; new `filterReport` arm `AI size: drop HALF-size calls` (n≥20-cluster gate). Nothing is sized by it — if HALF calls really carry lower R over ≥20 clusters each side, we discuss a 0.5× multiplier then. Tests 69 pass.
+
+## v136e — #261 HAR-RV volatility forecast (shadow-only)
+The no-model cousin of "TimesFM sizes down when tomorrow's vol runs hot" (Gemini-TradingAgents). `harRv(k)` builds daily realized variance from the setup-TF closed bars (partial UTC days scaled), forecasts tomorrow with the textbook HAR weights 0.4/0.3/0.3 on day/week/month RV (NOT fitted per symbol — no data-mining), and flags `hot` when forecast > 1.25 × monthly mean. Recorded as `volF{rvD,rvW,rvM,fc,ratio,hot}` on alerts/shadow and summarised on signals; new `filterReport` arm `vol forecast: drop hot days (HAR-RV)`. Config `volForecast{hotMult,w}`. Nothing is sized by it until ≥20 clusters each side say so. Tests 73 pass.
