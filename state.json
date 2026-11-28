@@ -855,6 +855,87 @@
  ],
  "alerts": [
   {
+   "ts": "2026-11-28T04:31:02.569Z",
+   "barTime": "2026-11-28T00:00:00.000Z",
+   "sym": "ROBOUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "score": 70,
+   "strategy": "LENS",
+   "of": null,
+   "fs": {
+    "src": "okx-rest",
+    "at": "2026-11-28T04:31:02.569Z",
+    "funding": 0.00005,
+    "oiUsd": 1117241,
+    "lsRatio": 1.2,
+    "taker1h": 0.507,
+    "oiChg1hPct": 32.64,
+    "fundAligned": null,
+    "crowdAligned": false,
+    "oiRising": true,
+    "takerAligned": null,
+    "ms": 219
+   },
+   "lab": {
+    "best": {
+     "id": "TRIRSI",
+     "name": "Triple RSI (QuantifiedStrategies)",
+     "avg_r": 1.04,
+     "n": 16,
+     "verdict": "EDGE_UNCONFIRMED"
+    },
+    "mine": {
+     "n": 25,
+     "avg_r": 0.39,
+     "verdict": "EDGE_UNCONFIRMED"
+    }
+   },
+   "quad": "Q4",
+   "regime": "HIGH_VOLATILITY",
+   "htf": "DOWN",
+   "adx": 25.9,
+   "setupScore": 4,
+   "event": "LONG_SETUP",
+   "sweep": "ARMED_WAIT_FVG_RETEST",
+   "entry": 0.00359,
+   "stop": 0.00337637,
+   "t1": 0.00391044,
+   "t2": 0.00423089,
+   "rr": 3,
+   "fails": [
+    "خلاف سوگیری تایم‌فریم بالاتر"
+   ],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز",
+    "ناحیه‌ی FVG فقط 0.72×ATR جلوتر",
+    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (25× · 0.39R)"
+   ],
+   "tm": {
+    "n": 25,
+    "win": 56,
+    "avg": 0.39,
+    "pf": 1.85
+   },
+   "src": "okx",
+   "volF": {
+    "rvD": 35.55,
+    "rvW": 16.85,
+    "rvM": 9.08,
+    "fc": 24.81,
+    "ratio": 7.46,
+    "hot": true,
+    "days": 168
+   },
+   "chase": 1,
+   "hourUtc": 0,
+   "status": "REJECTED_RULES",
+   "reasons": [
+    "خلاف سوگیری تایم‌فریم بالاتر"
+   ]
+  },
+  {
    "ts": "2026-11-28T04:15:45.446Z",
    "barTime": "2026-11-28T03:00:00.000Z",
    "sym": "NESUSDT",
@@ -5098,78 +5179,6 @@
     "آزمایشگاه استراتژی: Lens setup روی این نماد منفی است (27× · -0.22R)",
     "Time Machine: منفی (27× · -0.22R)"
    ]
-  },
-  {
-   "ts": "2026-11-27T15:01:18.836Z",
-   "barTime": "2026-11-27T14:00:00.000Z",
-   "sym": "OPUSDT",
-   "cls": "crypto",
-   "tf": "1H",
-   "side": "SHORT",
-   "score": 78,
-   "strategy": "LENS",
-   "of": null,
-   "lab": {
-    "best": {
-     "id": "TEP",
-     "name": "Trend engulf pullback (stop-and-reverse, 4H)",
-     "avg_r": 0.76,
-     "n": 8,
-     "verdict": "EDGE_UNCONFIRMED"
-    },
-    "mine": {
-     "n": 22,
-     "avg_r": 0.33,
-     "verdict": "EDGE_UNCONFIRMED"
-    }
-   },
-   "quad": "Q3",
-   "regime": "RANGE",
-   "htf": "NEUTRAL",
-   "adx": 31.3,
-   "setupScore": 3,
-   "event": "SHORT_SETUP",
-   "sweep": null,
-   "entry": 0.06989,
-   "stop": 0.07126234,
-   "t1": 0.06783149,
-   "t2": 0.06577297,
-   "rr": 3,
-   "fails": [],
-   "warns": [
-    "ناحیه‌ی OB فقط 0.3×ATR جلوتر",
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (22× · 0.33R)"
-   ],
-   "tm": {
-    "n": 22,
-    "win": 59,
-    "avg": 0.33,
-    "pf": 1.7
-   },
-   "src": "okx",
-   "chase": 0,
-   "hourUtc": 14,
-   "volMult": 1,
-   "sideMult": 1,
-   "corrMult": 1,
-   "size": 1639.5,
-   "riskUSD": 2.25,
-   "sizeMult": 0.75,
-   "notionalUSD": 114.59,
-   "status": "ALERT_ONLY_SHADOW",
-   "aiMode": "shadow",
-   "aiDecision": "WAIT",
-   "aiAgrees": false,
-   "judge": "judge:gemini-3.5-flash-lite (shadow)",
-   "reasons": [
-    "تایم‌فریم 1H فقط سایه (بک‌تست ۵ ساله: 1H منفی)"
-   ],
-   "concerns": [
-    "ناحیه‌ی OB فقط 0.3×ATR جلوتر",
-    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (22× · 0.33R)"
-   ],
-   "confidence": 55,
-   "pT1": 52
   }
  ],
  "shadow": [
@@ -9226,6 +9235,61 @@
    "openedAt": "2026-11-28T04:15:44.694Z",
    "barTime": "2026-11-28T03:00:00.000Z",
    "lastBarT": 1795834800000,
+   "bars": 0,
+   "t1hit": false,
+   "mtm": 0,
+   "live": "REJECTED_RULES"
+  },
+  {
+   "id": "ROBOUSDT|4H|LONG|2026-11-28T00:00:00.000Z",
+   "sym": "ROBOUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "quad": "Q4",
+   "score": 70,
+   "chase": 1,
+   "adx": 25.9,
+   "htf": "DOWN",
+   "setupScore": 4,
+   "of": null,
+   "fs": {
+    "src": "okx-rest",
+    "at": "2026-11-28T04:31:02.569Z",
+    "funding": 0.00005,
+    "oiUsd": 1117241,
+    "lsRatio": 1.2,
+    "taker1h": 0.507,
+    "oiChg1hPct": 32.64,
+    "fundAligned": null,
+    "crowdAligned": false,
+    "oiRising": true,
+    "takerAligned": null,
+    "ms": 219
+   },
+   "entry": 0.00359,
+   "stop": 0.00337637,
+   "t1": 0.00391044,
+   "t2": 0.00423089,
+   "verdict": "RULES_REJECTED",
+   "hourUtc": 0,
+   "volF": {
+    "rvD": 35.55,
+    "rvW": 16.85,
+    "rvM": 9.08,
+    "fc": 24.81,
+    "ratio": 7.46,
+    "hot": true,
+    "days": 168
+   },
+   "aiDecision": null,
+   "aiSize": null,
+   "confidence": null,
+   "pT1": null,
+   "openedAt": "2026-11-28T04:31:02.569Z",
+   "barTime": "2026-11-28T00:00:00.000Z",
+   "lastBarT": 1795824000000,
    "bars": 0,
    "t1hit": false,
    "mtm": 0,
@@ -45483,12 +45547,69 @@
   "YBUSDT|4H|ICHI|LONG|2026-11-28T00:00:00.000Z": 1795838468238,
   "DOTUSDT|1H|LENS|SHORT|2026-11-28T03:00:00.000Z": 1795838470616,
   "LINKUSDT|1H|LENS|SHORT|2026-11-28T03:00:00.000Z": 1795839344536,
-  "NESUSDT|1H|LENS|LONG|2026-11-28T03:00:00.000Z": 1795839345304
+  "NESUSDT|1H|LENS|LONG|2026-11-28T03:00:00.000Z": 1795839345304,
+  "ROBOUSDT|4H|LENS|LONG|2026-11-28T00:00:00.000Z": 1795840262333
  },
- "lastRun": "2026-11-28T04:15:47.062Z",
- "runs": 1003,
+ "lastRun": "2026-11-28T04:31:02.573Z",
+ "runs": 1004,
  "errors": [],
  "signals": [
+  {
+   "v": "sig/1",
+   "id": "ROBOUSDT|4H|LENS|LONG|2026-11-28T00:00:00.000Z",
+   "ts": "2026-11-28T04:31:02.571Z",
+   "sym": "ROBOUSDT",
+   "cls": "crypto",
+   "tf": "4H",
+   "side": "LONG",
+   "strategy": "LENS",
+   "stratVer": "LENS@v137b",
+   "barClose": "2026-11-28T04:00:00.000Z",
+   "expiresAt": "2026-11-28T08:00:00.000Z",
+   "entry": 0.00359,
+   "entryZone": [
+    0.0035365925,
+    0.0036434075
+   ],
+   "stop": 0.00337637,
+   "t1": 0.00391044,
+   "t2": 0.00423089,
+   "rr": 3,
+   "invalidation": "close beyond stop 0.00337637",
+   "src": "okx",
+   "status": "REJECTED_RULES",
+   "why": [
+    "خلاف سوگیری تایم‌فریم بالاتر"
+   ],
+   "warns": [
+    "رژیم Q4 (آشوب) — نیم‌سایز",
+    "ناحیه‌ی FVG فقط 0.72×ATR جلوتر",
+    "آزمایشگاه استراتژی: Lens setup این‌جا بدون مزیت (25× · 0.39R)"
+   ],
+   "htf": "DOWN",
+   "quad": "Q4",
+   "lab": {
+    "n": 25,
+    "avg_r": 0.39,
+    "verdict": "EDGE_UNCONFIRMED"
+   },
+   "ai": null,
+   "chase": 1,
+   "volF": {
+    "fc": 24.81,
+    "ratio": 7.46,
+    "hot": true
+   },
+   "flow": {
+    "funding": 0.00005,
+    "lsRatio": 1.2,
+    "oiChg1hPct": 32.64,
+    "taker1h": 0.507
+   },
+   "setupValid": false,
+   "publishPolicy": "REJECTED",
+   "paperResult": "N_A"
+  },
   {
    "v": "sig/1",
    "id": "NESUSDT|1H|LENS|LONG|2026-11-28T03:00:00.000Z",
@@ -49467,7 +49588,7 @@
   }
  ],
  "retry": {},
- "durationSec": 20,
+ "durationSec": 25,
  "dataSrc": "okx",
  "stats": {
   "all": {
@@ -49752,13 +49873,13 @@
    "PUMPUSDT",
    "WLDUSDT",
    "SUIUSDT",
-   "TRUMPUSDT",
    "INITUSDT",
+   "TRUMPUSDT",
    "LINKUSDT",
    "LITUSDT",
    "ENAUSDT",
-   "BLURUSDT",
    "BCHUSDT",
+   "BLURUSDT",
    "LTCUSDT",
    "ADAUSDT",
    "FILUSDT",
@@ -49770,21 +49891,21 @@
    "VVVUSDT",
    "ARBUSDT",
    "AVAXUSDT",
+   "ROBOUSDT",
    "TAOUSDT",
    "OKBUSDT",
    "NESUSDT",
-   "ROBOUSDT",
    "TRXUSDT",
    "SKYUSDT",
    "STRKUSDT",
    "NIGHTUSDT",
    "DOTUSDT",
-   "ONEUSDT",
    "SEIUSDT",
+   "ONEUSDT",
    "SHIBUSDT",
    "XPLUSDT",
-   "ONDOUSDT",
    "OPUSDT",
+   "ONDOUSDT",
    "YBUSDT",
    "ZROUSDT",
    "XLMUSDT",
@@ -49792,10 +49913,10 @@
    "WIFUSDT",
    "CRVUSDT",
    "PENGUUSDT",
-   "ICPUSDT",
    "SLXUSDT",
-   "BIGTIMEUSDT",
+   "ICPUSDT",
    "UPUSDT",
+   "BIGTIMEUSDT",
    "XAUUSDT",
    "XAGUSDT"
   ],
@@ -49803,7 +49924,7 @@
    "cryptoListed": 272,
    "stocksListed": 266,
    "cryptoTop": 60,
-   "minVolUSD": 6049974,
+   "minVolUSD": 6124892,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -49813,11 +49934,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 4,
-   "deep": 4,
-   "extended": 6,
+   "candidates": 1,
+   "deep": 1,
+   "extended": 5,
    "byClass": {
-    "crypto": 4,
+    "crypto": 1,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -50018,7 +50139,7 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 5264,
+   "cooldownSkipped": 5268,
    "aiTextStripped": 10
   }
  },
@@ -50026,16 +50147,16 @@
   "cryptoListed": 272,
   "stocksListed": 266,
   "cryptoTop": 60,
-  "minVolUSD": 6049974
+  "minVolUSD": 6124892
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 4,
-  "deep": 4,
-  "extended": 6,
+  "candidates": 1,
+  "deep": 1,
+  "extended": 5,
   "byClass": {
-   "crypto": 4,
+   "crypto": 1,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -50623,7 +50744,7 @@
     "maxDD": 6.89
    }
   },
-  "open": 96,
+  "open": 97,
   "dupSkipped": 572
  },
  "shadowDup": 572,
@@ -50694,7 +50815,7 @@
    },
    "note": "skill>0 = judge beats the base rate; well-calibrated when pred≈real per bucket"
   },
-  "asOf": "2026-11-28T04:15:47.065Z"
+  "asOf": "2026-11-28T04:31:02.576Z"
  },
  "shadowIndep": {
   "n": 600,
@@ -52488,9 +52609,13 @@
   "YBUSDT|4H|ICHI": {
    "t": 1795824000000,
    "side": "LONG"
+  },
+  "ROBOUSDT|4H|LENS": {
+   "t": 1795824000000,
+   "side": "LONG"
   }
  },
- "cooldownSkipped": 5264,
+ "cooldownSkipped": 5268,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
@@ -52517,7 +52642,7 @@
  "cumR": 10.23,
  "cumUSD": 98.23,
  "filterReport": {
-  "generatedAt": "2026-11-28T04:15:47.066Z",
+  "generatedAt": "2026-11-28T04:31:02.577Z",
   "minClusters": 20,
   "week": {
    "AI judge (keep only agree)": {
@@ -53505,55 +53630,31 @@
  },
  "dayGateAB": null,
  "funnel": {
-  "at": "2026-11-28T04:15:47.062Z",
+  "at": "2026-11-28T04:31:02.573Z",
   "pairs": 186,
   "dataOk": 186,
   "dataFail": 0,
   "noPacket": 0,
-  "rawNoms": 14,
-  "chaseShadow": 6,
-  "seenSkipped": 3,
-  "cooldownSkipped": 5,
-  "candidates": 4,
-  "deepPicked": 2,
+  "rawNoms": 11,
+  "chaseShadow": 5,
+  "seenSkipped": 4,
+  "cooldownSkipped": 4,
+  "candidates": 1,
+  "deepPicked": 1,
   "deepDataFail": 0,
   "labRejected": 0,
   "rulesRejected": 1,
   "htfRejected": 1,
-  "shadowOnly": 1,
+  "shadowOnly": 0,
   "aiRejected": 0,
   "published": 0,
   "activeNotOpened": 0,
   "paperOpened": 0,
   "timeSkipped": 0,
   "retried": 0,
-  "shadowDeferred": 2
+  "shadowDeferred": 0
  },
  "funnelHistory": [
-  {
-   "at": "2026-11-27T17:15:56.698Z",
-   "pairs": 186,
-   "dataOk": 186,
-   "dataFail": 0,
-   "noPacket": 0,
-   "rawNoms": 23,
-   "chaseShadow": 5,
-   "seenSkipped": 16,
-   "cooldownSkipped": 5,
-   "candidates": 1,
-   "deepPicked": 1,
-   "deepDataFail": 0,
-   "labRejected": 0,
-   "rulesRejected": 0,
-   "htfRejected": 0,
-   "shadowOnly": 1,
-   "aiRejected": 0,
-   "published": 0,
-   "activeNotOpened": 0,
-   "paperOpened": 0,
-   "timeSkipped": 0,
-   "retried": 0
-  },
   {
    "at": "2026-11-27T17:31:04.576Z",
    "pairs": 186,
@@ -54722,6 +54823,31 @@
    "timeSkipped": 0,
    "retried": 0,
    "shadowDeferred": 2
+  },
+  {
+   "at": "2026-11-28T04:31:02.573Z",
+   "pairs": 186,
+   "dataOk": 186,
+   "dataFail": 0,
+   "noPacket": 0,
+   "rawNoms": 11,
+   "chaseShadow": 5,
+   "seenSkipped": 4,
+   "cooldownSkipped": 4,
+   "candidates": 1,
+   "deepPicked": 1,
+   "deepDataFail": 0,
+   "labRejected": 0,
+   "rulesRejected": 1,
+   "htfRejected": 1,
+   "shadowOnly": 0,
+   "aiRejected": 0,
+   "published": 0,
+   "activeNotOpened": 0,
+   "paperOpened": 0,
+   "timeSkipped": 0,
+   "retried": 0,
+   "shadowDeferred": 0
   }
  ],
  "coverage": {
