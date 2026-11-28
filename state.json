@@ -45208,12 +45208,52 @@
   "BIGTIMEUSDT|1H|LENS|LONG|2026-11-28T00:00:00.000Z": 1795830353858,
   "SEIUSDT|1H|ICHI|LONG|2026-11-28T01:00:00.000Z": 1795831265823,
   "PUMPUSDT|1H|ICHI|LONG|2026-11-28T02:00:00.000Z": 1795834869270,
-  "WLDUSDT|1H|ICHI|LONG|2026-11-28T02:00:00.000Z": 1795834870132
+  "WLDUSDT|1H|ICHI|LONG|2026-11-28T02:00:00.000Z": 1795834870132,
+  "PEPEUSDT|1H|ICHI|LONG|2026-11-28T02:00:00.000Z": 1795836652813
  },
- "lastRun": "2026-11-28T03:15:49.829Z",
- "runs": 999,
+ "lastRun": "2026-11-28T03:30:52.830Z",
+ "runs": 1000,
  "errors": [],
  "signals": [
+  {
+   "v": "sig/1",
+   "id": "PEPEUSDT|1H|ICHI|LONG|2026-11-28T02:00:00.000Z",
+   "ts": "2026-11-28T03:30:52.828Z",
+   "sym": "PEPEUSDT",
+   "cls": "crypto",
+   "tf": "1H",
+   "side": "LONG",
+   "strategy": "ICHI",
+   "stratVer": "ICHI@v137b",
+   "barClose": "2026-11-28T03:00:00.000Z",
+   "expiresAt": "2026-11-28T04:00:00.000Z",
+   "entry": 0.00000352,
+   "entryZone": [
+    0.0000035,
+    0.00000354
+   ],
+   "stop": 0.0000036,
+   "t1": 0.0000034,
+   "t2": 0.00000329,
+   "rr": null,
+   "invalidation": "close beyond stop 0.0000036",
+   "src": "okx",
+   "status": "REJECTED_LAB",
+   "why": [
+    "آزمایشگاه استراتژی روی دادهٔ کامل: INSUFFICIENT (3× · -1.07R) · سیگنال روی دادهٔ کامل تأیید نشد"
+   ],
+   "warns": [],
+   "htf": "NEUTRAL",
+   "quad": null,
+   "lab": null,
+   "ai": null,
+   "chase": 0,
+   "volF": null,
+   "flow": null,
+   "setupValid": false,
+   "publishPolicy": "REJECTED",
+   "paperResult": "N_A"
+  },
   {
    "v": "sig/1",
    "id": "WLDUSDT|1H|ICHI|LONG|2026-11-28T02:00:00.000Z",
@@ -48922,8 +48962,8 @@
   }
  ],
  "retry": {},
- "durationSec": 25,
- "dataSrc": "bitget",
+ "durationSec": 17,
+ "dataSrc": "okx",
  "stats": {
   "all": {
    "n": 22,
@@ -49209,13 +49249,13 @@
    "SUIUSDT",
    "INITUSDT",
    "TRUMPUSDT",
-   "BLURUSDT",
    "LINKUSDT",
    "LITUSDT",
+   "BLURUSDT",
    "ENAUSDT",
    "BCHUSDT",
-   "ADAUSDT",
    "LTCUSDT",
+   "ADAUSDT",
    "FILUSDT",
    "WLFIUSDT",
    "BTWUSDT",
@@ -49227,11 +49267,11 @@
    "AVAXUSDT",
    "TAOUSDT",
    "OKBUSDT",
-   "SKYUSDT",
    "NESUSDT",
+   "SKYUSDT",
    "TRXUSDT",
-   "ONEUSDT",
    "STRKUSDT",
+   "ONEUSDT",
    "NIGHTUSDT",
    "DOTUSDT",
    "SEIUSDT",
@@ -49239,14 +49279,14 @@
    "XPLUSDT",
    "ONDOUSDT",
    "OPUSDT",
-   "ZROUSDT",
-   "YBUSDT",
    "XLMUSDT",
+   "YBUSDT",
+   "ZROUSDT",
    "MONUSDT",
-   "BIGTIMEUSDT",
+   "ROBOUSDT",
    "WIFUSDT",
    "CRVUSDT",
-   "ROBOUSDT",
+   "BIGTIMEUSDT",
    "PENGUUSDT",
    "ICPUSDT",
    "SLXUSDT",
@@ -49258,7 +49298,7 @@
    "cryptoListed": 272,
    "stocksListed": 266,
    "cryptoTop": 60,
-   "minVolUSD": 6016319,
+   "minVolUSD": 6014928,
    "total": 62,
    "crypto": 60,
    "metal": 2,
@@ -49268,11 +49308,11 @@
   "scan": {
    "symbols": 62,
    "pairs": 186,
-   "candidates": 0,
-   "deep": 0,
+   "candidates": 1,
+   "deep": 1,
    "extended": 3,
    "byClass": {
-    "crypto": 0,
+    "crypto": 1,
     "metal": 0,
     "forex": 0,
     "stock": 0
@@ -49473,7 +49513,7 @@
    "sideSizeMult": {},
    "q4Size": 0.5,
    "cooldownBars": 6,
-   "cooldownSkipped": 5249,
+   "cooldownSkipped": 5252,
    "aiTextStripped": 10
   }
  },
@@ -49481,16 +49521,16 @@
   "cryptoListed": 272,
   "stocksListed": 266,
   "cryptoTop": 60,
-  "minVolUSD": 6016319
+  "minVolUSD": 6014928
  },
  "scan": {
   "symbols": 62,
   "pairs": 186,
-  "candidates": 0,
-  "deep": 0,
+  "candidates": 1,
+  "deep": 1,
   "extended": 3,
   "byClass": {
-   "crypto": 0,
+   "crypto": 1,
    "metal": 0,
    "forex": 0,
    "stock": 0
@@ -50149,7 +50189,7 @@
    },
    "note": "skill>0 = judge beats the base rate; well-calibrated when pred≈real per bucket"
   },
-  "asOf": "2026-11-28T03:15:49.834Z"
+  "asOf": "2026-11-28T03:30:52.835Z"
  },
  "shadowIndep": {
   "n": 600,
@@ -51930,7 +51970,7 @@
    "side": "LONG"
   }
  },
- "cooldownSkipped": 5249,
+ "cooldownSkipped": 5252,
  "altExits": {
   "note": "paired shadow A/B of exit variants on the same trades (v111): BE after T1 / 3×ATR chandelier vs base — decision only after ≥100 pairs",
   "beAfterT1": {
@@ -51957,7 +51997,7 @@
  "cumR": 10.23,
  "cumUSD": 98.23,
  "filterReport": {
-  "generatedAt": "2026-11-28T03:15:49.834Z",
+  "generatedAt": "2026-11-28T03:30:52.835Z",
   "minClusters": 20,
   "week": {
    "AI judge (keep only agree)": {
@@ -52921,19 +52961,19 @@
  },
  "dayGateAB": null,
  "funnel": {
-  "at": "2026-11-28T03:15:49.829Z",
+  "at": "2026-11-28T03:30:52.830Z",
   "pairs": 186,
   "dataOk": 186,
   "dataFail": 0,
   "noPacket": 0,
-  "rawNoms": 9,
+  "rawNoms": 11,
   "chaseShadow": 3,
   "seenSkipped": 4,
   "cooldownSkipped": 3,
-  "candidates": 0,
-  "deepPicked": 0,
+  "candidates": 1,
+  "deepPicked": 1,
   "deepDataFail": 0,
-  "labRejected": 0,
+  "labRejected": 1,
   "rulesRejected": 0,
   "htfRejected": 0,
   "shadowOnly": 0,
@@ -52946,30 +52986,6 @@
   "shadowDeferred": 0
  },
  "funnelHistory": [
-  {
-   "at": "2026-11-27T16:16:07.856Z",
-   "pairs": 186,
-   "dataOk": 186,
-   "dataFail": 0,
-   "noPacket": 0,
-   "rawNoms": 24,
-   "chaseShadow": 6,
-   "seenSkipped": 8,
-   "cooldownSkipped": 6,
-   "candidates": 8,
-   "deepPicked": 8,
-   "deepDataFail": 0,
-   "labRejected": 0,
-   "rulesRejected": 4,
-   "htfRejected": 0,
-   "shadowOnly": 4,
-   "aiRejected": 0,
-   "published": 0,
-   "activeNotOpened": 0,
-   "paperOpened": 0,
-   "timeSkipped": 0,
-   "retried": 0
-  },
   {
    "at": "2026-11-27T16:31:00.822Z",
    "pairs": 186,
@@ -54124,6 +54140,31 @@
    "deepPicked": 0,
    "deepDataFail": 0,
    "labRejected": 0,
+   "rulesRejected": 0,
+   "htfRejected": 0,
+   "shadowOnly": 0,
+   "aiRejected": 0,
+   "published": 0,
+   "activeNotOpened": 0,
+   "paperOpened": 0,
+   "timeSkipped": 0,
+   "retried": 0,
+   "shadowDeferred": 0
+  },
+  {
+   "at": "2026-11-28T03:30:52.830Z",
+   "pairs": 186,
+   "dataOk": 186,
+   "dataFail": 0,
+   "noPacket": 0,
+   "rawNoms": 11,
+   "chaseShadow": 3,
+   "seenSkipped": 4,
+   "cooldownSkipped": 3,
+   "candidates": 1,
+   "deepPicked": 1,
+   "deepDataFail": 0,
+   "labRejected": 1,
    "rulesRejected": 0,
    "htfRejected": 0,
    "shadowOnly": 0,
